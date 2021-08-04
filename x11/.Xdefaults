@@ -1,0 +1,165 @@
+! A NOnonsens Xdefaults file with just some XTerm configs and Tango palette,
+! I'm trying to keep it as short as possible.
+
+
+
+
+! Xterm config
+
+Xft.dpi: 100
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+XTerm*renderFont: true
+XTerm*faceName: xft:mononoki Nerd Font
+XTerm*faceSize: 8.5
+XTerm*utf8: 2
+XTerm*locale: true
+XTerm*loginshell: true
+XTerm*savelines: 16384
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+XTerm*background: #282A36
+XTerm*foreground: #F8F8F2
+XTerm*fullscreen: never
+
+XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.backarrowKey: false
+XTerm.ttyModes: erase ^?
+XTerm.omitTranslation: fullscreen
+XTerm.vt100.translations: #override \n\
+    Ctrl Alt <Key> -: smaller-vt-font() \n\
+    Ctrl Alt <Key> +: larger-vt-font()
+
+! XTerm*cursorBlink: on
+! XTerm*cursorOnTime: 400
+! XTerm*cursorOffTime: 250
+! XTerm*cursorColor: #F1FA8C
+
+
+
+
+! UXterm config
+
+UXTerm*renderFont: true
+UXTerm*faceName: xft:mononoki Nerd Font
+UXTerm*faceSize: 8.5
+UXTerm*utf8: 2
+UXTerm*locale: true
+UXTerm*loginshell: true
+UXTerm*savelines: 16384
+UXTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+UXTerm*background: #282A36
+UXTerm*foreground: #F8F8F2
+UXTerm*fullscreen: never
+
+UXTerm.vt100.metaSendsEscape: true
+UXTerm.vt100.backarrowKey: false
+UXTerm.ttyModes: erase ^?
+UXTerm.omitTranslation: fullscreen
+UXTerm.vt100.translations: #override \n\
+    Ctrl Alt <Key> j: smaller-vt-font() \n\
+    Ctrl Alt <Key> k: larger-vt-font()
+
+
+
+
+! Dracula palette
+
+*.background: #282A36
+*.foreground: #F8F8F2
+
+! black
+*.color0:     #000000
+*.color8:     #4D4D4D
+! red
+*.color1:     #FF5555
+*.color9:     #FF6E67
+! green
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+! yellow
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+! blue
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+! magenta
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+! cyan
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+! white
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
+
+
+
+
+!! Spacegray palette
+!
+!*background: #111314
+!*foreground: #B7BBB7
+!
+!! black
+!*color0:  #2C2F33
+!*color8:  #4B5056
+!! red
+!*color1:  #B04C50
+!*color9:  #B04C50
+!! green
+!*color2:  #919652
+!*color10: #94985B
+!! yellow
+!*color3:  #E2995C
+!*color11: #E2995C
+!! blue
+!*color4:  #66899D
+!*color12: #66899D
+!! magenta
+!*color5:  #8D6494
+!*color13: #8D6494
+!! cyan
+!*color6:  #527C77
+!*color14: #527C77
+!! white
+!*color7:  #606360
+!*color15: #DDE3DC
+
+
+
+
+!! Tango palette
+!
+!*background: #111314
+!*foreground: #B7BBB7
+!
+!! black
+!*.color0:  #2e3436
+!*.color8:  #555753
+!! red
+!*.color1:  #cc0000
+!*.color9:  #ef2929
+!! green
+!*.color2:  #4e9a06
+!*.color10: #8ae234
+!! yellow
+!*.color3:  #c4a000
+!*.color11: #fce94f
+!! blue
+!*.color4:  #3465a4
+!*.color12: #729fcf
+!! magenta
+!*.color5:  #75507b
+!*.color13: #ad7fa8
+!! cyan
+!*.color6:  #06989a
+!*.color14: #34e2e2
+!! white
+!*.color7:  #d3d7cf
+!*.color15: #eeeeec
+

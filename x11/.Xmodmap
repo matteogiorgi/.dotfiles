@@ -1,0 +1,7 @@
+! Swap caps lock and escape: place this file in the
+! `$HOME` directory and run `xmodmap ~/.Xmodmap`
+
+remove Lock = Caps_Lock
+keysym Escape = Caps_Lock
+keysym Caps_Lock = Escape
+add Lock = Caps_Lock

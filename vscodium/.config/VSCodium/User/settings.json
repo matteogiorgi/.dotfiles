@@ -1,0 +1,133 @@
+{
+    "update.mode": "manual",
+    "editor.fontFamily": "'mononoki Nerd Font','Hasklig','Droid Sans Mono','monospace',monospace,'Droid Sans Fallback'",
+    "editor.codeLensFontFamily": "'mononoki Nerd Font','Hasklig','Droid Sans Mono','monospace',monospace,'Droid Sans Fallback'",
+    "editor.fontSize": 12,
+    "editor.codeLensFontSize": 12,
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "solid",
+    "editor.renderLineHighlight": "line",
+    "editor.renderLineHighlightOnlyWhenFocus": true,
+    "editor.rulers": [],
+    "editor.lineNumbers": "on",
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderIndentGuides": false,
+    "editor.folding": false,
+    "editor.wordWrap": "on",
+    "editor.tabCompletion": "on",
+    "editor.semanticHighlighting.enabled": true,
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": false,
+    "workbench.sideBar.location": "left",
+    "workbench.startupEditor": "none",
+    "workbench.editor.untitled.hint": "hidden",
+    "workbench.editor.showTabs": true,
+    "workbench.editor.tabSizing": "fit",
+    "workbench.editor.pinnedTabSizing": "fit",
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.scrollToSwitchTabs": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.enablePreview": false,
+    "workbench.tree.indent": 16,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.colorTheme": "Natty",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "material-product-icons",
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.editorAssociations": {
+        "*.png": "imagePreview.previewEditor",
+        "*.jpg": "imagePreview.previewEditor",
+        "*.pdf": "default"
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#8FBCBB",
+        "statusBar.noFolderBackground": "#8FBCBB",
+        "statusBar.debuggingBackground": "#8FBCBB",
+        "statusBar.foreground": "#434C5E"
+    },
+    "terminal.explorerKind": "external",
+    "terminal.external.linuxExec": "kitty",
+    "terminal.integrated.defaultProfile.linux": "/bin/zsh (migrated)",
+    "terminal.integrated.fontFamily": "'mononoki Nerd Font','Hasklig','Droid Sans Mono','monospace',monospace,'Droid Sans Fallback'",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.profiles.linux": {
+        "/bin/zsh (migrated)": {
+            "path": "/bin/zsh",
+            "args": []
+        }
+    },
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0,
+    "window.restoreWindows": "none",
+    "window.titleBarStyle": "native",
+    "keyboard.dispatch": "keyCode",
+    "breadcrumbs.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.exclude": {
+        "**/.*": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "tabnine.experimentalAutoImports": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.insert": "underline",
+    "vim.cursorStylePerMode.replace": "block",
+    "vim.cursorStylePerMode.visual": "block",
+    "vim.cursorStylePerMode.visualblock": "block",
+    "vim.cursorStylePerMode.visualline": "block",
+    "vim.smartRelativeLine": true,
+    "vim.disableExtension": false,
+    "vim.easymotionMarkerFontFamily": "mononoki Nerd Font",
+    "vim.easymotion": true,
+    "vim.easymotionMarkerYOffset": 0,
+    "vim.easymotionMarkerHeight": 16,
+    "vim.easymotionMarkerFontSize": "16",
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [" "],
+            "after": ["<leader>", "<leader>", "<leader>", "b", "d", "w"]
+        }
+    ],
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "d"],
+            "after": ["d", "d"]
+        },
+        {
+            "before": ["<C-n>"],
+            "commands": [":nohl"]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+    "vim.statusBarColors.insert": "#BF616A",
+    "vim.statusBarColors.visual": "#B48EAD",
+    "vim.statusBarColors.visualline": "#B48EAD",
+    "vim.statusBarColors.visualblock": "#A3BE8C",
+    "vim.statusBarColors.replace": "#D08770",
+    "vim.statusBarColors.commandlineinprogress": "#007ACC",
+    "vim.statusBarColors.searchinprogressmode": "#007ACC",
+    "vim.statusBarColors.easymotionmode": "#007ACC",
+    "vim.statusBarColors.easymotioninputmode": "#007ACC",
+    "vim.statusBarColors.surroundinputmode": "#007ACC"
+}

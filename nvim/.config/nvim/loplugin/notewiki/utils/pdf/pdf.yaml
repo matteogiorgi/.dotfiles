@@ -1,0 +1,19 @@
+---
+title: Pdf document
+author: Matteo
+output:
+    pdf_document:
+        highlight: tango
+        keep_tex: no
+        latex_engine: xelatex
+        toc: false
+        toc_depth: 2
+        number_sections: true
+        fig_caption: false
+
+always_allow_html: true
+urlcolor: black
+linkcolor: black
+documentclass: report
+fontsize: 12pt
+---

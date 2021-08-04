@@ -1,0 +1,35 @@
+  
+
+    ╭────────────────────────┬─────────────────────────────────────────────────╮
+    │  Qtile keybinding      │  Triggered action                               │
+    ├────────────────────────┼─────────────────────────────────────────────────┤
+    │  Super + Ctrl + r      │  restart Qtile                                  │
+    │  Super + Ctrl + q      │  shutdown Qtile                                 │
+    │  Super + Space         │  switch window focus in current stack           │
+    │  Super + j             │  move window up in current stack                │
+    │  Super + k             │  move window down in current stack              │
+    │  Super + h             │  move focus to previous group                   │
+    │  Super + l             │  move focus to next group                       │
+    │  Super + n             │  restore default ratio between windows          │
+    │  Super + m             │  maximize window                                │
+    │  Super + 1...8         │  move focus to 1...8 group                      │
+    │  Super + Ctrl + j      │  increase window size                           │
+    │  Super + Ctrl + k      │  decrease window size                           │
+    │  Super + Ctrl + 1...8  │  move selected window and focus to 1...8 group  │
+    │  Super + Ctrl + Space  │  flip master and stack                          │
+    │  Super + Ctrl + Enter  │  toggle floating mode                           │
+    │  Super + Tab           │  toggle between layouts                         │
+    │  Super + Esc           │  open Rofi (system)                             │
+    │  Super + Return        │  open Rofi (drun)                               │
+    │  Super + q             │  activate xkill command                         │
+    │  Super + a             │  open Alacritty in a new window                 │
+    │  Super + t             │  open Termite in a new window                   │
+    │  Super + x             │  open Xterm in a new window                     │
+    │  Super + o             │  open MOC in new window                         │
+    │  Super + f             │  open SpaceFM file manager                      │
+    │  Super + b             │  open Brave browser                             │
+    │  Super + c             │  open VSCodium editor                           │
+    │  Super + s             │  open system settings in a floating window      │
+    │  Super + z             │  toggle deadd notification center               │
+    │  Super + p             │  open command line inside status bar            │
+    ╰────────────────────────┴─────────────────────────────────────────────────╯

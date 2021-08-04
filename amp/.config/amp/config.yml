@@ -1,0 +1,11 @@
+theme: dracula
+tab_width: 4
+soft_tabs: true
+line_wrapping: true
+# line_length_guide: 80
+
+open_mode:
+    exclusions: false
+
+search_select:
+    max_results: 10

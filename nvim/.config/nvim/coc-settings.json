@@ -1,0 +1,210 @@
+{
+    // LSPs config (https://github.com/neoclide/coc.nvim/wiki/Language-servers)
+    "languageserver": {
+
+        // FORTRAN LSP (needs gcc-fortran (gfortran) and pip3 packages + run "pip install fortran-language-server")
+        "fortran": {
+            "command": "fortls",
+            "filetypes": ["fortran"],
+            "rootPatterns": [".fortls", ".git/"]
+        },
+
+        // C LSP (needs clang package)
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+        },
+
+        // Haskell LSP (needs ghc package)
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+            "filetypes": ["haskell", "lhaskell"]
+        },
+
+        // Ocaml LSP (needs ocaml and opam packages + run "opam install merlin && opam user-setup install")
+        "ocaml": {
+            "command": "opam",
+            "args": ["config", "exec", "--", "ocaml-language-server", "--stdio"],
+            "filetypes": ["ocaml", "reason"]
+        },
+
+        // Prolog LSP (needs swi-prolog package + run "pack_install(lsp_server)." inside swipl)
+        "prolog-lsp": {
+            "command": "swipl",
+            "args": [
+                "-g", "use_module(library(lsp_server)).",
+                "-g", "lsp_server:main",
+                "-t", "halt",
+                "--", "stdio"
+            ],
+            "filetypes": ["prolog"]
+        },
+
+        // Python LSP (needs python3 and pip3 packages + run "pip install python-language-server")
+        "python": {
+            "command": "python",
+            "args": [
+                "-mpyls",
+                "-vv",
+                "--log-file",
+                "/tmp/lsp_python.log"
+            ],
+            "trace.server": "verbose",
+            "filetypes": [
+                "python"
+            ],
+            "settings": {
+                "pyls": {
+                    "enable": true,
+                    "trace": {
+                        "server": "verbose"
+                    },
+                    "commandPath": "",
+                    "configurationSources": [
+                        "pycodestyle"
+                    ],
+                    "plugins": {
+                        "jedi_completion": {
+                            "enabled": true
+                        },
+                        "jedi_hover": {
+                            "enabled": true
+                        },
+                        "jedi_references": {
+                            "enabled": true
+                        },
+                        "jedi_signature_help": {
+                            "enabled": true
+                        },
+                        "jedi_symbols": {
+                            "enabled": true,
+                            "all_scopes": true
+                        },
+                        "mccabe": {
+                            "enabled": true,
+                            "threshold": 15
+                        },
+                        "preload": {
+                            "enabled": true
+                        },
+                        "pycodestyle": {
+                            "enabled": true
+                        },
+                        "pydocstyle": {
+                            "enabled": false,
+                            "match": "(?!test_).*\\.py",
+                            "matchDir": "[^\\.].*"
+                        },
+                        "pyflakes": {
+                            "enabled": true
+                        },
+                        "rope_completion": {
+                            "enabled": true
+                        },
+                        "yapf": {
+                            "enabled": true
+                        }
+                    }
+                }
+            }
+        },
+
+        // Racket LSP (needs racket package + run "raco pkg install racket-langserver")
+        "racket": {
+            "command": "racket",
+            "args": [
+                "--lib",
+                "racket-langserver"
+            ],
+            "filetypes": [
+                "racket"
+            ]
+        },
+
+        // R LSP (needs r package + run "install.packages("languageserver", repos="https://cran.mirror.garr.it/CRAN/")" inside R as superuser)
+        "R": {
+            "enable": true,
+            "command": "/usr/bin/R",
+            "args": [
+                "--slave",
+                "-e",
+                "languageserver::run()"
+            ],
+            "filetypes": [
+                "r"
+            ]
+        },
+
+        // LaTeX LSP (needs texlive-most metapackage and texlab package)
+        "latex": {
+            "command": "/usr/bin/texlab",
+            "filetypes": ["tex", "bib", "plaintex", "context"]
+        },
+
+        // Lua LSP (needs lua53 and luarocks packages + run "luarocks --local --lua-version 5.3 install --server=http://luarocks.org/dev lua-lsp")
+        "lua": {
+            "command": "lua-lsp",
+            "filetypes": ["lua"]
+        },
+
+        // Bash LSP (needs npm package + run "npm i -g bash-language-server" as superuser)
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        },
+
+        // VimL LSP (needs npm package + run "npm install -g vim-language-server" as superuser)
+        "vimls": {
+            "module": "/usr/lib/node_modules/vim-language-server/bin/index.js",
+            "args": ["--node-ipc"],
+            "initializationOptions": {
+                "isNeovim": true,
+                "iskeyword": "@,48-57,_,192-255,-#",
+                "vimruntime": "",
+                "runtimepath": "",
+                "diagnostic": {
+                    "enable": true
+                },
+                "indexes": {
+                    "runtimepath": true,
+                    "gap": 100,
+                    "count": 3,
+                    "projectRootPatterns" : ["strange-root-pattern", ".git", "autoload", "plugin"]
+                },
+                "suggest": {
+                    "fromVimruntime": true,
+                    "fromRuntimepath": false
+                }
+            },
+            "filetypes": [ "vim" ]
+        }
+    },
+
+    // general coc.nvim config
+    "coc.preferences.extensionUpdateCheck": "weekly",
+    "session.directory": "~/.config/nvim/sessions",
+
+    // coc-onmi config
+    "coc.source.omni.enable": true,
+    "coc.source.omni.priority": 3,
+    "coc.source.omni.shortcut": 0,
+    "coc.source.omni.filetypes": [],
+
+    // coc-highlight config
+    "highlight.disableLanguages": ["", "dashboard", "coc-explorer"],
+
+    // coc-list config
+    "list.source.files.args": ["--hidden", "--files"],
+    "list.source.mru.maxLength": 1000,
+    "list.source.mru.ignoreGitIgnore": false,
+    "list.source.mru.excludePatterns": ["**/.git/*","/tmp/*"],
+
+    // coc-git config
+    "git.enableGutters": true,
+    "git.showCommitInFloating": false
+}

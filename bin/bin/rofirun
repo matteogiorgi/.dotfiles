@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+
+NAME=$(basename "$0")
+VER="0.5"
+
+usage()
+{
+    cat <<- EOF
+
+ USAGE:  $NAME [OPTIONS]
+ OPTIONS:
+     -h,--help                  Display this message
+     -v,--version               Display script version
+     -r,--run                   Application launcher
+     -d,--dmenu                 Application launcher
+     -w,--window                Switch between windows
+     -l,--logout                System logout dialog
+     -b,--browser               Browser search by keyword (requires surfraw)
+     -q,--qalculate             Persistant calculator dialog (requires libqalculate)
+     -c,--clipboard             Select previous clipboard entries (requires greenclip)
+ Without any options the run dialog will be opened.
+
+EOF
+}
+
+for arg in "$@"; do
+    case $arg in
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        -v|--version)
+            echo -e "$NAME -- Version $VER"
+            exit 0
+            ;;
+        -r|--run)
+            rofi -modi run,drun -show drun -line-padding 4 \
+                 -columns 2 -width 50 -padding 50 -hide-scrollbar \
+                 -font "mononoki Nerd Font 11" -terminal xterm \
+                 -show-icons -icon-theme "Papirus-Dark"
+            ;;
+        -d|--dmenu)
+            rofi -modi run,drun -show drun \
+                 -display-run '%' -drun-display-format {name} \
+                 -display-drun '%' -drun-display-format {name} \
+                 -hide-scrollbar -config ~/.config/rofi/themes/dmenu.rasi \
+                 -show-icons -icon-theme "Papirus-Dark" \
+                 -font "mononoki Nerd Font 11" -terminal xterm \
+            ;;
+        -w|--window)
+            rofi -modi window -show window -hide-scrollbar \
+                 -columns 1 -lines 5 -width 30 -padding 50 -line-padding 4 \
+                 -font "mononoki Nerd Font 11" -terminal xterm
+            ;;
+        -q|--qalculate)
+            hash qalc &>/dev/null ||
+                { echo "Requires 'libqalculate' installed"; exit 1; }
+
+            rofi -modi "calc:qalc +u8 -nocurrencies" -padding 50 \
+                 -show "calc:qalc +u8 -nocurrencies" -line-padding 4 \
+                 -hide-scrollbar
+            ;;
+        -c|--clipboard)
+            hash greenclip &>/dev/null ||
+                { echo "Requires 'greenclip' installed"; exit 1; }
+
+            rofi -modi "clipboard:greenclip print" -padding 50 \
+                 -line-padding 4 -show "clipboard:greenclip print" \
+                 -hide-scrollbar
+            ;;
+        -b|--browser)
+            hash surfraw &>/dev/null ||
+                { echo "Requires 'surfraw' installed"; exit 1; }
+
+            surfraw -browser="$BROWSER" "$(sr -elvi | awk -F'-' '{print $1}' |
+                sed '/:/d' | awk '{$1=$1};1' |
+                rofi -hide-scrollbar -kb-row-select 'Tab' \
+                     -kb-row-tab 'Control+space' -dmenu \
+                     -mesg 'Tab for Autocomplete' -i -p 'Web Search' \
+                     -padding 50 -line-padding 4)"
+            ;;
+        -l|--logout)
+            if grep -q 'exec startx' $HOME/.*profile; then
+                ANS="$(rofi -sep "|" -dmenu -i -p 'system' -width 20 \
+                    -hide-scrollbar -line-padding 4 -padding 50 \
+                    -font "mononoki Nerd Font 11" \
+                    -lines 3 <<< "  Lock|  Reboot|  Shutdown")"
+            else
+                ANS="$(rofi -sep "|" -dmenu -i -p 'system' -width 20 \
+                    -hide-scrollbar -line-padding 4 -padding 50 \
+                    -font "mononoki Nerd Font 11" \
+                    -lines 4 <<< "  Lock|  Logout|  Reboot|  Shutdown")"
+            fi
+
+            case "$ANS" in
+                *Lock) betterlockscreen -l dim ;;
+                *Reboot) systemctl reboot ;;
+                *Shutdown) systemctl -i poweroff ;;
+                *Logout) loginctl terminate-session $XDG_SESSION_ID;;
+                # *Logout) session-logout || pkill -15 -t tty"$XDG_VTNR" Xorg ;;
+            esac
+            ;;
+        -D|--Display)
+            ANS="$(rofi -sep "|" -dmenu -i -p 'keyboard' -width 25 \
+                -hide-scrollbar -line-padding 4 -padding 50 \
+                -font "mononoki Nerd Font 11" \
+                -lines $(localectl list-locales | wc -l) <<< $(localectl list-locales | awk NF=NF RS= OFS=\|))"
+
+            IFS=' '
+            read -ra ARR <<< "$(localectl list-locales | awk NF=NF RS= OFS=\ )"
+            for i in "${ARR[@]}"; do
+                if [[ "$i" == "$ANS" ]]; then
+                    setxkbmap -layout "$1"
+                    break
+                fi
+            done
+            ;;
+        *)
+            printf "\nOption does not exist: %s\n\n" "$arg"
+            exit 2
+    esac
+done
+
+(( $# == 0 )) && "$0" -r
+
+exit 0

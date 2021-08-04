@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Bluetooth Manager
+Comment=Blueman Bluetooth Manager
+Icon=blueman
+Exec=blueman-manager
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=XFCE;GTK;GNOME;Settings;HardwareSettings;DesktopSettings;XXFCE-SettingsDialog;XXFCE-HardwareSettings;

@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+
+echo "$*" | grep "\.ar\." && {
+    xdohide xterm -e "$EDITOR" "$*" &
+    exit
+}
+
+echo "$1" | grep "\.sent$" && {
+    xdohide sent "$1" &
+    exit
+}
+
+case $(file --mime-type "$*" -bL) in
+    text/* | inode/x-empty | application/json | application/octet-stream)
+        "$EDITOR" "$*"
+        ;;
+    inode/directory)
+        pidof pcmanfm || xdohide pcmanfm "$*"
+        ;;
+    audio/* | video/*)
+        pidof mpv || xdohide mpv "$*"
+        ;;
+    application/pdf | application/postscript | application/djvu)
+        pidof zathura || xdohide zathura "$*"
+        ;;
+    image/gif)
+        pgrep sxiv || xdohide "sxiv -a" "$*"
+        ;;
+    image/*)
+        pidof sxiv || xdohide "sxiv" "$*"
+        ;;
+esac

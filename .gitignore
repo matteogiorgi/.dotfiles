@@ -1,0 +1,110 @@
+# AMP EDITOR
+/amp/.config/amp/syntaxes/*
+
+# MICRO EDITOR
+/micro/.config/micro/backups/*
+/micro/.config/micro/buffers/*
+
+# XED EDITOR
+/xed/.config/*
+
+# VIM EDITOR
+/vim/.vim/plugged/*
+/vim/.vim/.netrwhist
+/simple-vim/.vim/plugged/*
+/simple-vim/.vim/.netrwhist
+
+# NVIM EDITOR
+/nvim/.config/nvim/plugged/*
+/nvim/.config/nvim/undodir/*
+/nvim/.config/nvim/sessions/*
+/nvim/.config/nvim/.netrwhist
+/nvim/.config/nvim/TODO
+
+# VSCODIUM EDITOR
+/vscodium/.config/VSCodium/Backups/*
+/vscodium/.config/VSCodium/Cache/*
+/vscodium/.config/VSCodium/CachedData/*
+/vscodium/.config/VSCodium/CachedExtensionVSIXs/*
+/vscodium/.config/VSCodium/CachedExtensions/*
+/vscodium/.config/VSCodium/Code\ Cache/*
+/vscodium/.config/VSCodium/Crash\ Reports/*
+/vscodium/.config/VSCodium/Dictionaries/*
+/vscodium/.config/VSCodium/GPUCache/*
+/vscodium/.config/VSCodium/Local\ Storage/*
+/vscodium/.config/VSCodium/Service\ Worker/*
+/vscodium/.config/VSCodium/Session\ Storage/*
+/vscodium/.config/VSCodium/blob_storage/*
+/vscodium/.config/VSCodium/clp/*
+/vscodium/.config/VSCodium/databases/*
+/vscodium/.config/VSCodium/exthost\ Crash\ Reports/*
+/vscodium/.config/VSCodium/logs/*
+/vscodium/.config/VSCodium/Cookies
+/vscodium/.config/VSCodium/Cookies-journal
+/vscodium/.config/VSCodium/Network\ Persistent\ State
+/vscodium/.config/VSCodium/Preferences
+/vscodium/.config/VSCodium/QuotaManager
+/vscodium/.config/VSCodium/QuotaManager-journal
+/vscodium/.config/VSCodium/TransportSecurity
+/vscodium/.config/VSCodium/languagepacks.json
+/vscodium/.config/VSCodium/machineid
+/vscodium/.config/VSCodium/rapid_render.json
+/vscodium/.config/VSCodium/storage.json
+
+# QTILE WINDOW MANAGER
+/qtile/.config/qtile/__pycache__/*
+
+# RANGER FILE MANAGER
+/ranger/.config/ranger/__pycache__/*
+/ranger/.config/ranger/plugins/__pycache__/*
+/ranger/.config/ranger/plugins/__init__.py
+/ranger/.config/ranger/plugins/fzf-marks/__pycache__/*
+/ranger/.config/ranger/plugins/ranger-devicons/__pycache__/*
+/ranger/.config/ranger/plugins/ranger-gitplug/__pycache__/*
+
+# VIFM FILE MANAGER
+/vifm/.config/vifm/vifminfo
+
+# BROOT FILE MANAGER
+/broot/.config/broot/launcher/*
+
+# QUTEBROWSER BROWSER
+/qutebrowser/.config/qutebrowser/bookmarks/*
+/qutebrowser/.config/qutebrowser/greasemonkey/*
+/qutebrowser/.config/qutebrowser/autoconfig.yml
+/qutebrowser/.config/qutebrowser/quickmarks
+
+# VIMB BROWSER
+/vimb/.config/vimb/bookmark
+/vimb/.config/vimb/closed
+/vimb/.config/vimb/command
+/vimb/.config/vimb/cookies.db
+/vimb/.config/vimb/history
+/vimb/.config/vimb/search
+
+# VIEB BROWSER
+/vieb/.config/Vieb/Crash\ Reports/*
+/vieb/.config/Vieb/Dictionaries/*
+/vieb/.config/Vieb/Local\ Storage/*
+/vieb/.config/Vieb/Partitions/*
+/vieb/.config/Vieb/Session\ Storage/*
+/vieb/.config/Vieb/blocklists/*
+/vieb/.config/Vieb/favicons/*
+/vieb/.config/Vieb/Network\ Persistent\ State
+/vieb/.config/Vieb/Preferences
+/vieb/.config/Vieb/hist
+/vieb/.config/Vieb/tabs
+/vieb/.config/Vieb/windowstate
+
+# MUCIC ON CONSOLE
+/moc/.moc/cache/*
+/moc/.moc/equalizer
+/moc/.moc/last_directory
+/moc/.moc/pid
+/moc/.moc/socket2
+/moc/.moc/softmixer
+/moc/.moc/*.m3u
+
+# KUPFER MENU
+/kupfer/.config/kupfer/config-kupfer.plugin.*
+/kupfer/.config/kupfer/mnemonics.pickle

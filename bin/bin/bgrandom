@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cd $HOME/Pictures/wallpapers/wallogo
+feh --bg-fill $( echo $( /usr/bin/ls -l | awk '{if (NR!=1) print $9}' | sort -R | tail -1 ))
+cd - 1>/dev/null

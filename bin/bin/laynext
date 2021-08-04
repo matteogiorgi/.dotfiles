@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
+    "gb")
+        setxkbmap -layout it
+        ;;
+    "it")
+        setxkbmap -layout us
+        ;;
+    *)
+        setxkbmap -layout gb
+        ;;
+esac
+xrdb ~/.Xresources
