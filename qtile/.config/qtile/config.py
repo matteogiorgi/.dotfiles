@@ -24,22 +24,23 @@ keynames    = {'gb': 'Gbr', 'it': 'Ita', 'us': 'Usa'}
 wallpapers  = '~/Pictures/wallpapers/wallogo'
 
 
-color_white      = 'BFBFBF'
-color_black      = '1E1F29'
-color_gray       = '3A3C4E'
-color_blue       = '626483'
-color_cyan       = '8BE9FD'
-color_green      = '50FA7B'
-color_red        = 'FF5555'
-color_orange     = 'FFB86C'
-color_yellow     = 'F1FA8C'
-color_magenta    = 'FF79C6'
-color_purple     = 'BD93F9'
-color_lightblue  = '6B89FF'
+color_white      = 'BFBFBF'  #BFBFBF
+color_black      = '1E1F29'  #1E1F29
+color_dark       = '282A36'  #282A36
+color_gray       = '626483'  #626483
+color_blue       = '3A3C4E'  #3A3C4E
+color_cyan       = '8BE9FD'  #8BE9FD
+color_green      = '50FA7B'  #50FA7B
+color_red        = 'FF5555'  #FF5555
+color_orange     = 'FFB86C'  #FFB86C
+color_yellow     = 'F1FA8C'  #F1FA8C
+color_magenta    = 'FF79C6'  #FF79C6
+color_purple     = 'BD93F9'  #BD93F9
+color_lightblue  = '6B89FF'  #6B89FF
 
-color_whitegray  = '97979a'
-color_bluegray   = '586ECA'
-color_purplegray = '9576c5'
+color_whitegray  = '97979a'  #97979a
+color_bluegray   = '586ECA'  #586ECA
+color_purplegray = '9576c5'  #9576c5
 
 
 last_playing = 'spotify'
@@ -82,13 +83,13 @@ keys = [
     # Apps keychords
     KeyChord([mod], "a", [                                                    #                 [A]
         Key([], "j", lazy.spawncmd(prompt='$')),                              # prompt          (J)
-        Key([], "k", lazy.spawn("keyinfo")),                                  # keyinfo         (K)
+        Key([], "k", lazy.spawn("kupfer")),                                   # kupfer          (K)
+        Key([], "h", lazy.spawn("keyinfo")),                                  # keyinfo         (H)
         Key([], "b", lazy.spawn("bgrandom")),                                 # background      (B)
         Key([], "l", lazy.spawn("laynext")),                                  # layout          (L)
         Key([], "w", lazy.spawn(webbrowser)),                                 # webbrowser      (W)
         Key([], "a", lazy.spawn(terminal)),                                   # term            (A)
         Key([], "t", lazy.spawn(terminal+" -e tmux")),                        # tmux            (T)
-        Key([], "h", lazy.spawn(terminal+" -e htop")),                        # htop            (H)
         Key([], "m", lazy.spawn(terminal+" -e mocp")),                        # moc             (M)
         Key([], "c", lazy.spawn(terminal+" -e calcurse")),                    # calcurse        (C)
     ]),
@@ -195,15 +196,15 @@ layout_theme_columns = dict(
     num_columns=1,
     split=False,
     border_on_single=True,
-    border_focus_stack=color_yellow,
-    border_normal_stack=color_white
+    border_focus_stack=color_white,
+    border_normal_stack=color_gray
 )
 
 layout_theme_monad = dict(
     border_width=2,
     margin=20,
-    border_focus=color_yellow,
-    border_normal=color_white
+    border_focus=color_white,
+    border_normal=color_gray
 )
 
 
@@ -220,7 +221,7 @@ widget_defaults = dict(
     font='mononoki Nerd Font',
     fontsize=14,
     padding=6,
-    background=color_black,
+    background=color_dark,
     foreground=color_white
 )
 extension_defaults = widget_defaults.copy()
@@ -242,29 +243,28 @@ widgets_primary_display = [
         highlight_method='text',
         margin_y=2,
         borderwidth=0,
-        active=color_white,
-        inactive=color_white,
+        active=color_gray,
+        inactive=color_gray,
         hide_unused=True,
-        this_current_screen_border=color_yellow,
-        this_screen_border=color_yellow,
-        other_current_screen_border=color_yellow,
-        other_screen_border=color_yellow,
+        this_current_screen_border=color_white,
+        this_screen_border=color_white,
+        other_current_screen_border=color_white,
+        other_screen_border=color_white,
         disable_drag=True
     ),
 
     widget.Spacer(length=6),
 
     widget.TextBox(
-        foreground=color_gray,
+        foreground=color_blue,
         fontsize=10,
         text='',
         padding=0
     ),
 
     widget.TaskList(
-        background=color_black,
-        foreground=color_white,
-        border=color_yellow,
+        foreground=color_gray,
+        border=color_white,
         borderwidth=0,
         highlight_method='text',
         rounded=False,
@@ -282,51 +282,51 @@ widgets_primary_display = [
 
     widget.Spacer(length=36),
 
-    ### black 2 gray ###
+    ### dark 2 blue ###
     widget.TextBox(
-        background=color_black,
-        foreground=color_gray,
+        background=color_dark,
+        foreground=color_blue,
         fontsize=17,
         text='',
         padding=0
     ),
 
     widget.Prompt(
-        background=color_gray,
-        foreground=color_orange,
-        cursor_color=color_orange,
+        background=color_blue,
+        foreground=color_yellow,
+        cursor_color=color_yellow,
         prompt='{prompt} ',
         cursor=True,
         cursorblink=0.25
     ),
 
     widget.Cmus(
-        background=color_gray,
-        play_color=color_yellow,
-        noplay_color=color_white,
+        background=color_blue,
+        play_color=color_white,
+        noplay_color=color_gray,
         max_chars=10
     ),
 
     widget.Moc(
-        background=color_gray,
-        play_color=color_yellow,
-        noplay_color=color_white,
+        background=color_blue,
+        play_color=color_white,
+        noplay_color=color_gray,
         max_chars=10
     ),
 
     widget.Systray(
-        background=color_gray,
+        background=color_blue,
         icon_size=16
     ),
 
     widget.Spacer(
-        background=color_gray,
+        background=color_blue,
         length=8
     ),
 
-    ### gray 2 white ###
+    ### blue 2 white ###
     widget.TextBox(
-        background=color_gray,
+        background=color_blue,
         foreground=color_white,
         fontsize=17,
         text='',
@@ -515,29 +515,28 @@ widgets_secondary_display = [
         highlight_method='text',
         margin_y=2,
         borderwidth=0,
-        active=color_white,
-        inactive=color_white,
+        active=color_gray,
+        inactive=color_gray,
         hide_unused=True,
-        this_current_screen_border=color_yellow,
-        this_screen_border=color_yellow,
-        other_current_screen_border=color_yellow,
-        other_screen_border=color_yellow,
+        this_current_screen_border=color_white,
+        this_screen_border=color_white,
+        other_current_screen_border=color_white,
+        other_screen_border=color_white,
         disable_drag=True
     ),
 
     widget.Spacer(length=6),
 
     widget.TextBox(
-        foreground=color_gray,
+        foreground=color_blue,
         fontsize=10,
         text='',
         padding=0
     ),
 
     widget.TaskList(
-        background=color_black,
-        foreground=color_white,
-        border=color_yellow,
+        foreground=color_gray,
+        border=color_white,
         borderwidth=0,
         highlight_method='text',
         rounded=False,
@@ -555,37 +554,37 @@ widgets_secondary_display = [
 
     widget.Spacer(length=36),
 
-    ### black 2 gray ###
+    ### dark 2 blue ###
     widget.TextBox(
-        background=color_black,
-        foreground=color_gray,
+        background=color_dark,
+        foreground=color_blue,
         fontsize=17,
         text='',
         padding=0
     ),
 
     widget.Cmus(
-        background=color_gray,
-        play_color=color_yellow,
-        noplay_color=color_white,
+        background=color_blue,
+        play_color=color_white,
+        noplay_color=color_gray,
         max_chars=10
     ),
 
     widget.Moc(
-        background=color_gray,
-        play_color=color_yellow,
-        noplay_color=color_white,
+        background=color_blue,
+        play_color=color_white,
+        noplay_color=color_gray,
         max_chars=10
     ),
 
     widget.Spacer(
-        background=color_gray,
-        length=6
+        background=color_blue,
+        length=8
     ),
 
-    ### gray 2 white ###
+    ### blue 2 white ###
     widget.TextBox(
-        background=color_gray,
+        background=color_blue,
         foreground=color_white,
         fontsize=17,
         text='',
@@ -661,8 +660,8 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
-    border_focus=color_yellow,
-    border_normal=color_white,
+    border_focus=color_white,
+    border_normal=color_gray,
     border_width=2,
     float_rules=[
         # Run utility of `xprop` to see the wm class and name of an X client.

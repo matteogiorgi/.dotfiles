@@ -1,0 +1,29 @@
+" IDEAVIM CONF
+
+set number relativenumber
+set highlightedyank
+set ideamarks
+set ideajoin
+set commentary
+set argtextobj
+set textobj-entire
+set NERDTree
+set vim-paragraph-motion
+set textobj-indent
+set exchange
+set surround
+
+
+" INTELLIMACS CONF (follow instructions at https://github.com/MarcoIeni/intellimacs)
+
+source ~/.intellimacs/spacemacs.vim
+source ~/.intellimacs/extra.vim
+source ~/.intellimacs/major.vim
+source ~/.intellimacs/hybrid.vim
+source ~/.intellimacs/which-key.vim
+
+nnoremap Y y$
+nmap , <leader>m
+vmap , <leader>m
+nnoremap <leader>gl :action Vcs.Show.Log<CR>
+vnoremap <leader>gl :action Vcs.Show.Log<CR>

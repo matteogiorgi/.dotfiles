@@ -1,0 +1,52 @@
+<application>
+  <component name="VimHistorySettings">
+    <history>
+      <history-search />
+      <history-cmd>
+        <entry encoding="base64">YWN0aW9uIFJ1bg==</entry>
+        <entry encoding="base64">YWN0aW9uIEFjZUxpbmVBY3Rpb24=</entry>
+      </history-cmd>
+      <history-expr />
+      <history-input />
+    </history>
+  </component>
+  <component name="VimMarksSettings">
+    <globalmarks />
+    <filemarks>
+      <file name="$USER_HOME$/PycharmProjects/test-project/main.py" timestamp="1628448255481">
+        <mark key="]" line="16" column="17" />
+        <mark key="^" line="16" column="17" />
+        <mark key="." line="16" column="16" />
+      </file>
+      <file name="/" timestamp="1628444935747">
+        <mark key="[" line="0" column="0" />
+      </file>
+    </filemarks>
+    <jumps />
+  </component>
+  <component name="VimRegisterSettings">
+    <registers>
+      <register name="1" type="4">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name="&quot;" type="4">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name=":" type="4">
+        <text encoding="base64">YWN0aW9uIFJ1bg==</text>
+      </register>
+      <register name="*" type="4">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name="." type="4">
+        <text encoding="base64">cHJpbnRfaGkoKS5wcmludChwcmludF9oaSgp</text>
+      </register>
+    </registers>
+  </component>
+  <component name="VimSearchSettings">
+    <search>
+      <last-dir encoding="base64">MQ==</last-dir>
+      <show-last encoding="base64">dHJ1ZQ==</show-last>
+    </search>
+  </component>
+</application>

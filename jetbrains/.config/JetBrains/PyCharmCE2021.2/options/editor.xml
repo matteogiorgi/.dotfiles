@@ -1,0 +1,29 @@
+<application>
+  <component name="CodeInsightSettings">
+    <option name="REFORMAT_ON_PASTE" value="1" />
+    <option name="INDENT_TO_CARET_ON_PASTE" value="true" />
+  </component>
+  <component name="DefaultFont">
+    <option name="FONT_FAMILY" value="mononoki Nerd Font" />
+    <option name="FONT_REGULAR_SUB_FAMILY" value="Regular" />
+    <option name="FONT_BOLD_SUB_FAMILY" value="Bold" />
+  </component>
+  <component name="EditorSettings">
+    <option name="languageBreadcrumbsMap">
+      <map>
+        <entry key="HTML" value="true" />
+        <entry key="JSON" value="true" />
+        <entry key="Markdown" value="false" />
+        <entry key="Python" value="true" />
+        <entry key="XHTML" value="true" />
+        <entry key="XML" value="true" />
+        <entry key="yaml" value="true" />
+      </map>
+    </option>
+    <option name="IS_CARET_BLINKING" value="false" />
+    <option name="ARE_GUTTER_ICONS_SHOWN" value="false" />
+    <option name="IS_FOLDING_OUTLINE_SHOWN" value="false" />
+    <option name="SHOW_BREADCRUMBS" value="false" />
+    <option name="IS_INDENT_GUIDES_SHOWN" value="false" />
+  </component>
+</application>

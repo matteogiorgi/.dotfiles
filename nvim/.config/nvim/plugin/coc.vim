@@ -15,18 +15,12 @@ let g:coc_global_extensions = [
             \ ]
 
 
-" The following LSP extensions can be omitted since LSPs are already configured
+" The following LSP extensions works on top of the ones already configured
 " in coc-settings.json so to have less extensions to load.
 
-" let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-vimlsp')
-" let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-json')
-" let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-lua')
-" let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-pyright')
-" let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-clangd')
-" let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-texlab')
-" let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-sh')
-" let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-json')
-" let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-yaml')
+let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-pyright')
+let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-json')
+let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-yaml')
 
 
 augroup hlcursor

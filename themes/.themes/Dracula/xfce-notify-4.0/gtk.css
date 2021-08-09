@@ -43,7 +43,7 @@
 }
 
 #XfceNotifyWindow progressbar progress {
-    background-image: linear-gradient(to right, #BFBFBF, #F1FA8C);
+    background-image: linear-gradient(to right, #BFBFBF, #626483);
     background-color: #3A3C4E;
 }
 

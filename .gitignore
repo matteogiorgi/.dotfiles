@@ -51,6 +51,16 @@
 /vscodium/.config/VSCodium/rapid_render.json
 /vscodium/.config/VSCodium/storage.json
 
+# JETBRAINS IDE
+/jetbrains/.config/JetBrains/IdeaIC2021.1/port
+/jetbrains/.config/JetBrains/IdeaIC2021.1/port.lock
+/jetbrains/.config/JetBrains/IdeaIC2021.1/idea64.vmoptions
+/jetbrains/.config/JetBrains/PyCharmCE2021.2/port
+/jetbrains/.config/JetBrains/PyCharmCE2021.2/port.lock
+/jetbrains/.config/JetBrains/PyCharmCE2021.2/pycharm64.vmoptions
+/jetbrains/.config/JetBrains/PyCharmCE2021.2/updatedBrokenPlugins.db
+/jetbrains/.local/share/JetBrains/consentOptions/*
+
 # QTILE WINDOW MANAGER
 /qtile/.config/qtile/__pycache__/*
 

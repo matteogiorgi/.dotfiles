@@ -228,8 +228,6 @@ command! ClearLastSearch :let @/=""
 " Text movements (comment if using vim-move){{{
 " xnoremap K :move '<-2<CR>gv=gv
 " xnoremap J :move '>+1<CR>gv=gv
-" vnoremap <Tab> >gv
-" vnoremap <S-Tab> <gv
 "}}}
 
 " Menu remaps{{{
@@ -252,6 +250,8 @@ imap <silent><M-h> <Left>
 imap <silent><M-j> <down>
 imap <silent><M-k> <up>
 imap <silent><M-l> <right>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 nnoremap <silent><M-d> }}{j
 nnoremap <silent><M-u> {{j
 nnoremap <silent><C-h> :vertical resize -5<CR>

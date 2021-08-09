@@ -197,5 +197,5 @@ export TERM="xterm-256color"  # screen-256color,xterm-256color,xterm-kitty
 # need the following to avoid ranger loading configs twice
 export RANGER_LOAD_DEFAULT_RC="FALSE"
 
-# set PATH to includes user's bin and cargo's bin (recursively)
-export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin"  # PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
+# set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
+export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
