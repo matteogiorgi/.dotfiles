@@ -73,12 +73,13 @@ endfunction
 " USED IN COMBO WITH COC-LIST AND/OR FZF
 function! utility#GitDir()
     if getcwd() ==? $HOME
-        echon "Can't find any .git"
+        " echon 'Not in a git repository'
         return
     endif
 
     if isdirectory('.git')
-        echon 'cwd: ' . getcwd()
+        " echon 'cwd: ' . getcwd()
+        return
     else
         let l:parent = fnamemodify('getcwd()', ':p:h:h')
         execute 'cd ' . l:parent

@@ -2,27 +2,27 @@ let g:dashboard_default_executive ='fzf'
 let g:dashboard_enable_session = 0
 let g:dashboard_custom_section={
             \ '0_session': {
-                \ 'description': ['  List sessions                             SPC s l'],
+                \ 'description': ['  List sessions                        SPC s l  '],
                 \ 'command': 'CocList sessions'
                 \ },
             \ '1_explorer': {
-                \ 'description': ['  Find files                                SPC f f'],
+                \ 'description': ['  Find files                           SPC f f f'],
                 \ 'command': 'CocList files'
                 \ },
             \ '2_history': {
-                \ 'description': ['  Recent files                              SPC f h'],
+                \ 'description': ['  Recent files                         SPC f f h'],
                 \ 'command': 'CocList mru'
                 \ },
             \ '3_New': {
-                \ 'description': ['  New buffer                                SPC e w'],
+                \ 'description': ['  New buffer                           SPC e w  '],
                 \ 'command': 'DashboardNewFile'
                 \ },
             \ '4_note': {
-                \ 'description': ['  Note index                                SPC n i'],
+                \ 'description': ['  Note index                           SPC n i  '],
                 \ 'command': 'NoteWikiIndex'
                 \ },
             \ '5_quit': {
-                \ 'description': ['  Quit Neovim                               SPC q a'],
+                \ 'description': ['  Quit Neovim                          SPC q q  '],
                 \ 'command': 'qa'
                 \ },
             \ }
@@ -51,3 +51,30 @@ let g:dashboard_custom_header = [
             \ ' \   _-`                            N · V I M                           `-_   / ',
             \ '  ```                                                                      ```  ',
             \ ]
+
+" let g:dashboard_custom_footer = ['N · V I M']
+" let g:dashboard_custom_header = [
+"             \ '',
+"             \ '',
+"             \ '   ⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⠞⠉⢉⣭⣿⣿⠿⣳⣤⠴⠖⠛⣛⣿⣿⡷⠖⣶⣤⡀⠀⠀⠀   ',
+"             \ '    ⠀⠀⠀⠀⠀⠀⠀⣼⠁⢀⣶⢻⡟⠿⠋⣴⠿⢻⣧⡴⠟⠋⠿⠛⠠⠾⢛⣵⣿⠀⠀⠀⠀  ',
+"             \ '    ⣼⣿⡿⢶⣄⠀⢀⡇⢀⡿⠁⠈⠀⠀⣀⣉⣀⠘⣿⠀⠀⣀⣀⠀⠀⠀⠛⡹⠋⠀⠀⠀⠀  ',
+"             \ '    ⣭⣤⡈⢑⣼⣻⣿⣧⡌⠁⠀⢀⣴⠟⠋⠉⠉⠛⣿⣴⠟⠋⠙⠻⣦⡰⣞⠁⢀⣤⣦⣤⠀  ',
+"             \ '    ⠀⠀⣰⢫⣾⠋⣽⠟⠑⠛⢠⡟⠁⠀⠀⠀⠀⠀⠈⢻⡄⠀⠀⠀⠘⣷⡈⠻⣍⠤⢤⣌⣀  ',
+"             \ '    ⢀⡞⣡⡌⠁⠀⠀⠀⠀⢀⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⢿⡀⠀⠀⠀⠸⣇⠀⢾⣷⢤⣬⣉  ',
+"             \ '    ⡞⣼⣿⣤⣄⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⣿⠀⠸⣿⣇⠈⠻  ',
+"             \ '    ⢰⣿⡿⢹⠃⠀⣠⠤⠶⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⣿⠀⠀⣿⠛⡄⠀  ',
+"             \ '    ⠈⠉⠁⠀⠀⠀⡟⡀⠀⠈⡗⠲⠶⠦⢤⣤⣤⣄⣀⣀⣸⣧⣤⣤⠤⠤⣿⣀⡀⠉⣼⡇⠀  ',
+"             \ '    ⣿⣴⣴⡆⠀⠀⠻⣄⠀⠀⠡⠀⠀⠀⠈⠛⠋⠀⠀⠀⡈⠀⠻⠟⠀⢀⠋⠉⠙⢷⡿⡇⠀  ',
+"             \ '    ⣻⡿⠏⠁⠀⠀⢠⡟⠀⠀⠀⠣⡀⠀⠀⠀⠀⠀⢀⣄⠀⠀⠀⠀⢀⠈⠀⢀⣀⡾⣴⠃⠀  ',
+"             \ '    ⢿⠛⠀⠀⠀⠀⢸⠁⠀⠀⠀⠀⠈⠢⠄⣀⠠⠼⣁⠀⡱⠤⠤⠐⠁⠀⠀⣸⠋⢻⡟⠀⠀  ',
+"             \ '    ⠈⢧⣀⣤⣶⡄⠘⣆⠀⠀⠀⠀⠀⠀⠀⢀⣤⠖⠛⠻⣄⠀⠀⠀⢀⣠⡾⠋⢀⡞⠀⠀⠀  ',
+"             \ '    ⠀⠀⠻⣿⣿⡇⠀⠈⠓⢦⣤⣤⣤⡤⠞⠉⠀⠀⠀⠀⠈⠛⠒⠚⢩⡅⣠⡴⠋⠀⠀⠀⠀  ',
+"             \ '    ⠀⠀⠀⠈⠻⢧⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⣻⠿⠋⠀⠀⠀⠀⠀⠀  ',
+"             \ '    ⠀⠀⠀⠀⠀⠀⠉⠓⠶⣤⣄⣀⡀⠀⠀⠀⠀⠀⢀⣀⣠⡴⠖⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀  ',
+"             \ '                                       ',
+"             \ ]
+
+
+" autocmd FileType dashboard set showtabline=0
+" autocmd WinLeave <buffer> set showtabline=1

@@ -1,8 +1,8 @@
-let g:floaterm_title = '$1|$2'
+let g:floaterm_title = 'FT.$1'  " '$1|$2'
 let g:floaterm_wintype = 'float'  " split,float
 let g:floaterm_position = 'bottom'  " center,bottom,tab,botright
 let g:floaterm_width = 1.00
-let g:floaterm_height = 0.30
+let g:floaterm_height = 0.40
 let g:floaterm_opener = 'edit'  " edit,drop
 let g:floaterm_autoclose = 1
 let g:floaterm_autohide = 2
@@ -39,19 +39,50 @@ endfunction
 " I choose not to chose{{{
 function s:chfiler() abort
     if !exists("g:current_filer")
-        let g:current_filer = 'broot'
+        let g:current_filer = 'vifm'
         return
     endif
     
-    if g:current_filer ==? 'broot'
-        let g:current_filer = 'vifm'
-        echomsg 'changed filer to vifm'
-    elseif g:current_filer ==? 'vifm'
+    if g:current_filer ==? 'vifm'
         let g:current_filer = 'ranger'
-        echomsg 'changed filer to ranger'
+        echomsg 'changed seeker to ranger'
     elseif g:current_filer ==? 'ranger'
         let g:current_filer = 'broot'
-        echomsg 'changed filer to broot'
+        echomsg 'changed seeker to broot'
+    else
+        let g:current_filer = 'vifm'
+        echomsg 'changed seeker to vifm'
+    endif
+endfunction
+"}}}
+
+" Open seeker{{{
+function s:fastseek() abort
+    if g:current_filer ==? 'vifm'
+        execute 'FloatermNew vifm'
+    elseif g:current_filer ==? 'ranger'
+        execute 'FloatermNew ranger'
+    elseif g:current_filer ==? 'broot'
+        execute 'FloatermNew broot'
+    else
+        execute 'FloatermNew vifm'
+    endif
+endfunction
+"}}}
+
+" Git client{{{
+function s:tiger() abort
+    execute 'call utility#GitDir()'
+    if isdirectory('.git')
+        execute 'cd %:p:h'
+        if system('echo $(git rev-list --all --count)') == 0
+            execute 'FloatermNew tig status'
+        else
+            execute 'FloatermNew tig'
+        endif
+    else
+        execute 'cd %:p:h'
+        execute "echohl WarningMsg | echomsg 'Not in a git repository'"
     endif
 endfunction
 "}}}
@@ -70,15 +101,17 @@ augroup END
 
 augroup floatermmode
     autocmd!
-    autocmd TermOpen,TermEnter * startinsert | set noshowmode | execute "echohl WarningMsg | echomsg ' (Q) Quit | (W) New | (TAB) Next | (BSP) Prev '"
+    autocmd TermOpen,TermEnter * startinsert | set noshowmode | execute "echohl WarningMsg | echomsg ' Alt + Q (Quit) | W (Wnew) | TAB (Next) | BSP (Prev) '"
     autocmd TermClose,TermLeave * stopinsert | set showmode
 augroup end
 
 
 command! ChFiler call <SID>chfiler()
-command! LaunchFiler execute 'FloatermNew '.g:current_filer
+command! Tiger call <SID>tiger()
+command! FastSeek call <SID>fastseek()
 
 
 nnoremap <silent><M-space> :FloatermToggle<cr>
 nnoremap <silent><M-q> :ChFiler<cr>
-nnoremap <leader>k :LaunchFiler<cr>
+nnoremap <leader>k :FastSeek<cr>
+nnoremap <leader>g :Tiger<cr>

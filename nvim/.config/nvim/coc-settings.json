@@ -27,14 +27,6 @@
             "filetypes": ["haskell", "lhaskell"]
         },
 
-        // Ocaml LSP (NOT WORKING PROPERLY)
-        // needs ocaml and opam packages + run "opam install merlin && opam user-setup install"
-        "ocaml": {
-            "command": "opam",
-            "args": ["config", "exec", "--", "ocaml-language-server", "--stdio"],
-            "filetypes": ["ocaml", "reason"]
-        },
-
         // Prolog LSP
         // needs swi-prolog package + run "pack_install(lsp_server)." inside swipl
         "prolog-lsp": {
@@ -83,13 +75,6 @@
             "filetypes": ["tex", "bib", "plaintex", "context"]
         },
 
-        // Lua LSP (instead of using coc-lua - NOT WORKING PROPERLY)
-        // needs lua53 and luarocks packages + run "luarocks --local --lua-version 5.3 install --server=http://luarocks.org/dev lua-lsp"
-        "lua": {
-            "command": "lua-lsp",
-            "filetypes": ["lua"]
-        },
-
         // Bash LSP (instead of using coc-sh)
         // needs npm package + run "npm i -g bash-language-server" as superuser
         "bash": {
@@ -135,7 +120,7 @@
     "coc.source.omni.enable": true,
     "coc.source.omni.priority": 3,
     "coc.source.omni.shortcut": "0",
-    "coc.source.omni.filetypes": [],
+    "coc.source.omni.filetypes": ["java", "ocaml", "lua"],
 
     // coc-highlight config
     "highlight.disableLanguages": ["", "dashboard", "coc-explorer"],
@@ -148,5 +133,89 @@
 
     // coc-git config
     "git.enableGutters": true,
-    "git.showCommitInFloating": false
+    "git.showCommitInFloating": false,
+
+    // coc-explorer config
+    "explorer.width": 40,
+    "explorer.focus": true,
+    "explorer.autoExpandOptions": ["compact", "uncompact"],
+    "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
+    "explorer.buffer.child.template": "[git | 2] [selection | 1] [bufnr] [name][modified][readonly]",
+    "explorer.buffer.child.labelingTemplate": "[name][bufname][fullpath][modified][readonly][diagnosticError][diagnosticWarning][git]",
+    "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
+    "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+    "explorer.file.showHiddenFiles": true,
+    "explorer.file.reveal.whenOpen": true,
+    "explorer.file.reveal.auto": true,
+    "explorer.file.cdCommand": "cd",
+    "explorer.previewAction.onHover": false,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.icon.source": "builtin",
+    "explorer.quitOnOpen": true,
+    "explorer.position": "left",
+    "explorer.contentWidthType": "win-width",
+    "explorer.file.column.clip.copy": "",
+    "explorer.file.column.clip.cut": "",
+    "explorer.floating.border.chars": ["▀", "█", "▄", "█", "█", "█", "█", "█"],
+    "explorer.floating.border.title": "",
+    "explorer.floating.hideOnCocList": false,
+    "explorer.sources": [
+        // { "name": "bookmark", "expand": false },
+        // { "name": "buffer", "expand": false },
+        { "name": "file", "expand": true }
+    ],
+    "explorer.keyMappings.global": {
+        "gk": "expandablePrev",
+        "gj": "expandableNext",
+        
+        "<space>": "toggleSelection",
+        "<tab>": "actionMenu",
+        
+        "h": "collapse",
+        "l": ["expandable?", "expand", "open"],
+        "J": ["toggleSelection", "nodeNext"],
+        "K": ["toggleSelection", "nodePrev"],
+        "<2-LeftMouse>": [
+            "expandable?",
+            ["expanded?", "collapse", "expand"],
+            "open"
+        ],
+        "o": ["expanded?", "collapse", "expand"],
+        "<cr>": ["expandable?", "cd", "open"],
+        "s": "open:split:plain",                   // "S": "open:split:plain", (H?)
+        "v": "open:vsplit:plain",                  // "V": "open:split:plain",
+        "<bs>": "gotoParent",
+        
+        "Y": "copyFile",
+        "X": "cutFile",
+        "P": "pasteFile",
+        "dd": "delete",
+        
+        "mf": "addFile",
+        "md": "addDirectory",
+        "r": "rename",
+        
+        ".": "toggleHidden",
+        "R": "refresh",
+        
+        "?": "help",
+        "q": "quit",
+        "<esc>": "esc",
+        "!": "systemExecute",
+        "gd": "listDrive",
+        
+        "f": "search",
+        "F": "searchRecursive",
+        
+        "gf": "gotoSource:file",
+        "gb": "gotoSource:buffer",
+        
+        "[[": "sourcePrev",
+        "]]": "sourceNext",
+        
+        "gp": "gitPrev",
+        "gn": "gitNext",
+        "ga": "gitStage",
+        "gr": "gitUnstage"
+    }
 }

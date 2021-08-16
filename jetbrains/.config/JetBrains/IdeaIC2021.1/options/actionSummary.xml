@@ -13,10 +13,10 @@
       <i c="1" l="1628340265645" />
     </e>
     <e n="CloseProject">
-      <i c="1" l="1628340328198" />
+      <i c="2" l="1628582592094" />
     </e>
     <e n="CodeCompletion">
-      <i c="8" l="1628453827747" />
+      <i c="10" l="1628618020538" />
     </e>
     <e n="CodeInspection.OnEditor">
       <i c="1" l="1628368375235" />
@@ -28,19 +28,19 @@
       <i c="1" l="1628340178752" />
     </e>
     <e n="EditorBackSpace">
-      <i c="46" l="1628458567446" />
+      <i c="49" l="1628618011633" />
     </e>
     <e n="EditorChooseLookupItem">
-      <i c="7" l="1628458582619" />
+      <i c="12" l="1628618033848" />
     </e>
     <e n="EditorChooseLookupItemReplace">
       <i c="6" l="1628456804729" />
     </e>
     <e n="EditorDown">
-      <i c="93" l="1628458582324" />
+      <i c="113" l="1628618033440" />
     </e>
     <e n="EditorEnter">
-      <i c="8" l="1628458555919" />
+      <i c="10" l="1628617998214" />
     </e>
     <e n="EditorEscape">
       <i c="2" l="1628339881367" />
@@ -64,10 +64,10 @@
       <i c="6" l="1628456805873" />
     </e>
     <e n="EditorUp">
-      <i c="28" l="1628458574262" />
+      <i c="44" l="1628618028938" />
     </e>
     <e n="Exit">
-      <i c="1" l="1628371810920" />
+      <i c="3" l="1628619934986" />
     </e>
     <e n="ExpressionTypeInfo">
       <i c="4" l="1628453789967" />
@@ -96,6 +96,9 @@
     <e n="IdeaVim.ReloadVimRc.reload">
       <i c="1" l="1628338879545" />
     </e>
+    <e n="InsertLiveTemplate">
+      <i c="1" l="1628618017805" />
+    </e>
     <e n="JumpToLastChange">
       <i c="3" l="1627507559332" />
     </e>
@@ -105,14 +108,20 @@
     <e n="NewClass">
       <i c="2" l="1627504907294" />
     </e>
+    <e n="RecentFiles">
+      <i c="1" l="1628618124961" />
+    </e>
     <e n="Run">
-      <i c="3" l="1628458617034" />
+      <i c="5" l="1628618188533" />
     </e>
     <e n="RunClass">
       <i c="1" l="1627504985322" />
     </e>
     <e n="SaveAll">
-      <i c="7" l="1628458614244" />
+      <i c="11" l="1628618257008" />
+    </e>
+    <e n="SaveDocument">
+      <i c="1" l="1628618254107" />
     </e>
     <e n="SearchEverywhere">
       <i c="2" l="1628439325446" />
@@ -133,7 +142,7 @@
       <i c="2" l="1628444898535" />
     </e>
     <e n="ShowSettings">
-      <i c="21" l="1628456820290" />
+      <i c="23" l="1628617953142" />
     </e>
     <e n="SplitVertically">
       <i c="1" l="1628340236668" />
@@ -145,7 +154,7 @@
       <i c="1" l="1628340121083" />
     </e>
     <e n="ToggleMainMenuAction">
-      <i c="37" l="1628445675248" />
+      <i c="43" l="1628527222525" />
     </e>
     <e n="Tree-selectChild">
       <i c="1" l="1627508511848" />
@@ -175,7 +184,7 @@
       <i c="1" l="1628368402658" />
     </e>
     <e n="com.intellij.ide.ReopenProjectAction">
-      <i c="1" l="1628341113261" />
+      <i c="2" l="1628582598413" />
     </e>
     <e n="com.intellij.ide.plugins.newui.SelectionBasedPluginModelAction$UninstallAction">
       <i c="1" l="1627508234066" />
@@ -187,7 +196,7 @@
       <i c="1" l="1627507496000" />
     </e>
     <e n="com.intellij.openapi.actionSystem.EmptyAction$MyDelegatingAction">
-      <i c="277" l="1628458613024" />
+      <i c="315" l="1628618184282" />
     </e>
     <e n="com.intellij.openapi.editor.impl.EditorMarkupModelImpl$MarkupModelDelegateAction">
       <i c="1" l="1627509133258" />
@@ -198,20 +207,26 @@
     <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
       <i c="19" l="1628439327718" />
     </e>
+    <e n="com.intellij.openapi.project.LightEditActionFactory$SimpleLightEditCompatibleAction">
+      <i c="1" l="1628618130269" />
+    </e>
     <e n="com.intellij.openapi.ui.DialogWrapper$4">
-      <i c="15" l="1628472266109" />
+      <i c="18" l="1628619935908" />
     </e>
     <e n="com.intellij.openapi.ui.impl.DialogWrapperPeerImpl$AnCancelAction">
-      <i c="5" l="1628457067415" />
+      <i c="6" l="1628588589963" />
     </e>
     <e n="com.intellij.openapi.updateSettings.impl.UpdateChecker$showNotification$1">
       <i c="1" l="1628438656298" />
     </e>
     <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$HideAction">
-      <i c="5" l="1628458628985" />
+      <i c="7" l="1628618234439" />
+    </e>
+    <e n="com.intellij.ui.ScrollingUtil$ListMoveDownAction">
+      <i c="2" l="1628618129486" />
     </e>
     <e n="com.intellij.ui.ScrollingUtil$ListMoveUpAction">
-      <i c="2" l="1628453770731" />
+      <i c="4" l="1628618129858" />
     </e>
     <e n="com.maddyhome.idea.vim.extension.nerdtree.NerdTree$NerdDispatcher">
       <i c="56" l="1628453759215" />
@@ -220,7 +235,7 @@
       <i c="1" l="1627508637063" />
     </e>
     <e n="com.maddyhome.idea.vim.ui.ex.ExShortcutKeyAction">
-      <i c="54" l="1628458614225" />
+      <i c="62" l="1628588557251" />
     </e>
   </component>
 </application>

@@ -5,7 +5,7 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -39,7 +39,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3296875" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.33010203" />
       <window_info anchor="bottom" id="TODO" order="4" />
       <window_info anchor="bottom" id="Problems View" order="5" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
@@ -56,32 +56,36 @@
   </component>
   <component name="Trusted.Project.Settings" hasCheckedIfOldProject="true" trusted="YES" />
   <component name="WindowStateProjectService">
-    <state width="1236" height="288" key="GridCell.Tab.0.bottom" timestamp="1628445780226">
+    <state width="1256" height="295" key="GridCell.Tab.0.bottom" timestamp="1629048271535">
       <screen x="0" y="0" width="1280" height="1024" />
     </state>
-    <state width="1236" height="288" key="GridCell.Tab.0.bottom/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628445780226" />
-    <state width="1236" height="288" key="GridCell.Tab.0.center" timestamp="1628445780225">
+    <state width="1256" height="295" key="GridCell.Tab.0.bottom/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1629048271535" />
+    <state width="1256" height="295" key="GridCell.Tab.0.center" timestamp="1629048271534">
       <screen x="0" y="0" width="1280" height="1024" />
     </state>
-    <state width="1236" height="288" key="GridCell.Tab.0.center/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628445780225" />
-    <state width="1236" height="288" key="GridCell.Tab.0.left" timestamp="1628445780225">
+    <state width="1256" height="295" key="GridCell.Tab.0.center/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1629048271534" />
+    <state width="1256" height="295" key="GridCell.Tab.0.left" timestamp="1629048271534">
       <screen x="0" y="0" width="1280" height="1024" />
     </state>
-    <state width="1236" height="288" key="GridCell.Tab.0.left/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628445780225" />
-    <state width="1236" height="288" key="GridCell.Tab.0.right" timestamp="1628445780226">
+    <state width="1256" height="295" key="GridCell.Tab.0.left/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1629048271534" />
+    <state width="1256" height="295" key="GridCell.Tab.0.right" timestamp="1629048271535">
       <screen x="0" y="0" width="1280" height="1024" />
     </state>
-    <state width="1236" height="288" key="GridCell.Tab.0.right/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628445780226" />
-    <state x="147" y="170" key="SettingsEditor" timestamp="1628446551099">
+    <state width="1256" height="295" key="GridCell.Tab.0.right/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1629048271535" />
+    <state x="147" y="170" key="SettingsEditor" timestamp="1628617909584">
       <screen x="0" y="0" width="1280" height="1024" />
     </state>
-    <state x="147" y="170" key="SettingsEditor/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628446551099" />
+    <state x="147" y="170" key="SettingsEditor/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628617909584" />
+    <state x="301" y="249" key="search.everywhere.popup" timestamp="1628526682479">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state x="301" y="249" key="search.everywhere.popup/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628526682479" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>

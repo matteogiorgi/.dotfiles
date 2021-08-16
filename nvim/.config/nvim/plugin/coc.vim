@@ -10,6 +10,7 @@ let g:coc_global_extensions = [
             \ 'coc-git',
             \ 'coc-snippets',
             \ 'coc-yank',
+            \ 'coc-explorer',
             \ 'coc-floaterm',
             \ 'coc-marketplace',
             \ ]
@@ -21,6 +22,16 @@ let g:coc_global_extensions = [
 let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-pyright')
 let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-json')
 let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-yaml')
+
+let g:coc_explorer_global_presets = {
+            \ 'float': {
+            \     'position': 'floating',
+            \     'floating-position': [float2nr(0.50*&columns-20),float2nr(0.10*&lines)],
+            \     'floating-width': 40,
+            \     'floating-height': float2nr(0.50*&lines),
+            \     'open-action-strategy': 'select',
+            \     },
+            \ }
 
 
 augroup hlcursor
@@ -90,24 +101,26 @@ nmap     <leader>cgr <Plug>(coc-references)
 nmap <silent><tab>   <Plug>(coc-diagnostic-next)
 nmap <silent><S-tab> <Plug>(coc-diagnostic-prev)
 
-nnoremap <silent><M-return> :CocList vimcommands<CR>
 nnoremap <silent>K          :call <SID>ShowDoc()<CR>
+nnoremap <silent><M-return> :CocList vimcommands<CR>
+nnoremap <leader>h          :CocCommand explorer --preset float<CR>
 nnoremap <leader>l          :CocList buffers<CR>
 
-nnoremap <leader>ff :CocList files<CR>
-nnoremap <leader>fg :call <SID>FindInGit()<CR>
-nnoremap <leader>fh :CocList mru<CR>
-nnoremap <leader>fl :CocList words<CR>
-nnoremap <leader>fm :CocList marks<CR>
-nnoremap <leader>fw :CocList grep<CR>
+nnoremap <leader>fl  :CocList words<CR>
+nnoremap <leader>fm  :CocList marks<CR>
+nnoremap <leader>fw  :CocList grep<CR>
+nnoremap <leader>fy  :CocList registers<CR>
+nnoremap <leader>fff :CocList files<CR>
+nnoremap <leader>ffg :call <SID>FindInGit()<CR>
+nnoremap <leader>ffh :CocList mru<CR>
 
-nnoremap <leader>ss :CocCommand session.save<CR>
-nnoremap <leader>sl :CocList sessions<CR>
+nnoremap <leader>el :CocList sessions<CR>
+nnoremap <leader>es :CocCommand session.save<CR>
 
-nmap <leader>ap <Plug>(coc-cursors-position)
-nmap <leader>aw <Plug>(coc-cursors-word)
-xmap <leader>ar <Plug>(coc-cursors-range)
-nmap <leader>ao <Plug>(coc-cursors-operator)
+nmap <leader>mp <Plug>(coc-cursors-position)
+nmap <leader>mw <Plug>(coc-cursors-word)
+xmap <leader>mr <Plug>(coc-cursors-range)
+nmap <leader>mo <Plug>(coc-cursors-operator)
 
 
 
@@ -154,8 +167,6 @@ nmap <leader>ao <Plug>(coc-cursors-operator)
 "         execute 'CocCommand explorer ' . getcwd()
 "     endif
 " endfunction
-
-" nnoremap <leader>ee :call coc#Explorer()<CR>
 
 
 

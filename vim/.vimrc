@@ -108,10 +108,16 @@ xnoremap K :move '<-2<CR>gv=gv
 xnoremap J :move '>+1<CR>gv=gv
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-nnoremap <leader>r :%s///gc<Left><Left><Left>
-xnoremap <leader>r :s///gc<Left><Left><Left>
 nnoremap <C-h> :vertical resize -5<CR>
 nnoremap <C-l> :vertical resize +5<CR>
 nnoremap <C-j> :resize -5<CR>
 nnoremap <C-k> :resize +5<CR>
+nnoremap gr :%s///gc<Left><Left><Left>
+xnoremap gr :s///gc<Left><Left><Left>
 "}}}
+
+
+
+
+" command! -nargs=1 ReplaceNormal execute '%s//<args>/gc'
+" command! -nargs=1 ReplaceVisual execute 's//<args>/gc'

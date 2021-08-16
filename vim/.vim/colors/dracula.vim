@@ -29,7 +29,7 @@ let g:dracula#palette.neobg     = ['#282936', 236]
 let g:dracula#palette.neofg     = ['#BFBFBF', 253]
 let g:dracula#palette.neonc     = ['#626483',  61]
 let g:dracula#palette.neoline   = ['#3A3C4E', 238]
-let g:dracula#palette.neoend    = ['#2A2C38', 237]
+let g:dracula#palette.neoend    = ['#2E2F3E', 237]  " ['#2A2C38', 237]
 let g:dracula#palette.neohl     = ['#F1FA8C', 228]
 
 "

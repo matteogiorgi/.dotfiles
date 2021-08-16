@@ -3,7 +3,7 @@ if has('linebreak') | let &showbreak='⤷ ' | endif
 
 syntax on
 set background=dark
-colorscheme dracula  " doom,dracula
+colorscheme doom  " doom,dracula
 filetype plugin indent on
 
 set exrc

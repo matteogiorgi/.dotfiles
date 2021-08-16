@@ -26,17 +26,18 @@
     <property name="PyCharm.InitialConfiguration.V5" value="true" />
     <property name="PyCharm.InitialConfiguration.V6" value="true" />
     <property name="PyCharm.InitialConfiguration.V7" value="true" />
-    <property name="SettingsSearchHistory" value="gutter&#10;menu" />
-    <property name="appcds.runOnSecondStart" value="PC-212.4746.96-8e90b9879391eedfb904e7f6582bcfd89d80e87de2b445c98cf14f169840db89" />
+    <property name="SettingsSearchHistory" value="line&#10;gutter&#10;menu" />
+    <property name="appcds.runOnSecondStart" value="PC-212.4746.96-d8cd6a393b51a418b2b3f4a66a960290ffc53c9690534fe51f2757b6edc75131" />
     <property name="ask.about.ctrl.y.shortcut.v2" value="true" />
     <property name="experimentalFeature.terminal.shell.command.handling" value="false" />
-    <property name="file.gist.reindex.count" value="4095" />
+    <property name="file.gist.reindex.count" value="4098" />
     <property name="fileTypeChangedCounter" value="2" />
     <property name="fileTypeDetectors" value="com.intellij.ide.scratch.ScratchFileServiceImpl$Detector:org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector" />
     <property name="ide.memory.adjusted" value="true" />
     <property name="ide.updates.previous.build.number" value="PC-212.4746.96" />
-    <property name="ideavim.statistics.timestamp" value="1628444779645" />
+    <property name="ideavim.statistics.timestamp" value="1629048077670" />
     <property name="registry.to.advanced.settings.migration.build" value="PC-212.4746.96" />
+    <property name="selected.color.option.type" value="CARET_ROW_COLOR" />
     <property name="tabnine-notifications-shown-unsupported-cpu" value="true" />
     <property name="tasks.pass.word.conversion.enforced" value="true" />
   </component>

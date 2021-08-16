@@ -13,13 +13,17 @@
         <entry encoding="base64">YWN0aW9uIENvbXBpbGVEaXJ0eQ==</entry>
         <entry encoding="base64">YWN0aW9uIFNwbGl0VmVydGljYWxseQ==</entry>
         <entry encoding="base64">YWN0aW9uIENsb3NlQWxsRWRpdG9ycw==</entry>
-        <entry encoding="base64">YWN0aW9uIENsb3NlUHJvamVjdA==</entry>
         <entry encoding="base64">YWN0aW9uIENvZGVJbnNwZWN0aW9uLk9uRWRpdG9y</entry>
         <entry encoding="base64">YWN0aW9uIEZpbmQ=</entry>
-        <entry encoding="base64">YWN0aW9uIEV4aXQ=</entry>
         <entry encoding="base64">TkVSRFRyZWVUb2dnbGU=</entry>
+        <entry encoding="base64">YWN0aW9uIENsb3NlUHJvamVjdA==</entry>
         <entry encoding="base64">dw==</entry>
+        <entry encoding="base64">YWN0aW9uIFJlY2VudEZpbGVz</entry>
+        <entry encoding="base64">YWN0aW9uIENvbXBpbGU=</entry>
         <entry encoding="base64">YWN0aW9uIFJ1bg==</entry>
+        <entry encoding="base64">YWN0aW9uIFNhdmVEb2N1bWVudA==</entry>
+        <entry encoding="base64">YWN0aW9uIFNhdmVBbGw=</entry>
+        <entry encoding="base64">YWN0aW9uIEV4aXQ=</entry>
       </history-cmd>
       <history-expr />
       <history-input />
@@ -28,25 +32,27 @@
   <component name="VimMarksSettings">
     <globalmarks />
     <filemarks>
-      <file name="$USER_HOME$/IdeaProjects/test-ptoject/src/Test.java" timestamp="1628458610043">
-        <mark key="'" line="2" column="28" />
-        <mark key="[" line="4" column="27" />
-        <mark key="]" line="4" column="32" />
-        <mark key="^" line="4" column="32" />
-        <mark key="." line="4" column="31" />
+      <file name="$USER_HOME$/IdeaProjects/test-ptoject/src/Test.java" timestamp="1628618294780">
+        <mark key="'" line="1" column="41" />
+        <mark key="[" line="3" column="0" />
+        <mark key="]" line="3" column="0" />
+        <mark key="." line="3" column="0" />
       </file>
       <file name="$USER_HOME$/.ideavimrc" timestamp="1627574387886">
         <mark key="'" line="122" column="0" />
       </file>
-      <file name="/" timestamp="1628445036439">
+      <file name="/" timestamp="1628617969647">
         <mark key="[" line="0" column="0" />
       </file>
     </filemarks>
     <jumps>
-      <jump line="3" column="11" filename="$USER_HOME$/IdeaProjects/test-ptoject/src/Test.java" />
-      <jump line="2" column="28" filename="$USER_HOME$/IdeaProjects/test-ptoject/src/Test.java" />
       <jump line="77" column="0" filename="$USER_HOME$/.ideavimrc" />
       <jump line="122" column="0" filename="$USER_HOME$/.ideavimrc" />
+      <jump line="4" column="0" filename="$USER_HOME$/IdeaProjects/test-ptoject/src/Test.java" />
+      <jump line="0" column="18" filename="$USER_HOME$/IdeaProjects/test-ptoject/src/Test.java" />
+      <jump line="3" column="4" filename="$USER_HOME$/IdeaProjects/test-ptoject/src/Test.java" />
+      <jump line="2" column="26" filename="$USER_HOME$/IdeaProjects/test-ptoject/src/Test.java" />
+      <jump line="1" column="41" filename="$USER_HOME$/IdeaProjects/test-ptoject/src/Test.java" />
     </jumps>
   </component>
   <component name="VimRegisterSettings">
@@ -54,14 +60,29 @@
       <register name="0" type="2">
         <text encoding="base64">ICAgICAgICBTeXN0ZW0ub3V0LnByaW50bG4oImhlbGxvIik7CiAgICAgICAgU3lzdGVtLm91dC5wcmludGxuKCJoZWxsbyIpOwogICAgfQo=</text>
       </register>
+      <register name="1" type="2">
+        <text encoding="base64">ICAgICAgICBTeXN0ZW0ub3V0LnByaW50bG4oInRlc3QiKTsK</text>
+      </register>
       <register name="&quot;" type="2">
-        <text encoding="base64">ICAgICAgICBTeXN0ZW0ub3V0LnByaW50bG4oImhlbGxvIik7CiAgICAgICAgU3lzdGVtLm91dC5wcmludGxuKCJoZWxsbyIpOwogICAgfQo=</text>
+        <text encoding="base64">ICAgICAgICBTeXN0ZW0ub3V0LnByaW50bG4oInRlc3QiKTsK</text>
+      </register>
+      <register name="2" type="2">
+        <text encoding="base64">ICAgICAgICBTeXN0ZW0ub3V0LnByaW50bG4oImhlbGxvIik7Cg==</text>
+      </register>
+      <register name="3" type="2">
+        <text encoding="base64">ICAgICAgICBTeXN0ZW0ub3V0LnByaW50bG4oImhlbGxvIik7Cg==</text>
+      </register>
+      <register name="4" type="2">
+        <text encoding="base64">ICAgICAgICBTeXN0ZW0ub3V0LnByaW50bG4oKTsK</text>
       </register>
       <register name=":" type="4">
-        <text encoding="base64">YWN0aW9uIFJ1bg==</text>
+        <text encoding="base64">YWN0aW9uIEV4aXQ=</text>
+      </register>
+      <register name="*" type="2">
+        <text encoding="base64">ICAgICAgICBTeXN0ZW0ub3V0LnByaW50bG4oInRlc3QiKTsK</text>
       </register>
       <register name="." type="4">
-        <text encoding="base64">IiJ0ZXN0</text>
+        <text encoding="base64">Ow==</text>
       </register>
     </registers>
   </component>

@@ -6,21 +6,21 @@
  */
 
 * {
-    background-color:           #1E1F29;
-    border-color:               #1E1F29;
+    background-color:           #282A36;
+    border-color:               #282A36;
     text-color:                 #BFBFBF;
     height:                     20px;
-    font:                       "mononoki Nerd Font 11";
-    prompt-font:                "mononoki Nerd Font 11";
-    prompt-background:          #1E1F29;
+    font:                       "mononoki Nerd Font Bold 11";
+    prompt-font:                "mononoki Nerd Font Bold 11";
+    prompt-background:          #282A36;
     prompt-foreground:          #BFBFBF;
     prompt-padding:             2px;
-    selected-normal-background: #1E1F29;
+    selected-normal-background: #282A36;
     selected-normal-foreground: #F1FA8C;
 }
 #window {
-    anchor: south;
-    location: south;
+    anchor: north;
+    location: north;
     width: 100%;
     padding: 0px;
     children: [ horibox ];

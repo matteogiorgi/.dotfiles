@@ -122,6 +122,7 @@ function s:ScratchBuffer()
     file! SCRATCH
     setlocal buftype=nofile
     setlocal bufhidden=delete
+    setlocal nobuflisted
     setlocal noswapfile
 endfunction
 "}}}

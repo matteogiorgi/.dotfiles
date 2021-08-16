@@ -1,7 +1,7 @@
 let g:which_key_sep = '→'
 let g:which_key_max_size = 0
 let g:which_key_vertical = 0
-let g:which_key_hspace = 10
+let g:which_key_hspace = 12
 let g:which_key_sort_horizontal = 0
 let g:which_key_disable_default_offset = 1
 let g:which_key_centered = 1
@@ -40,12 +40,14 @@ let g:which_key_use_floating_win = 1
 
 " Generics{{{
 let g:which_key_map = { 'name' : 'Menu',
-            \ 'j' : 'jumper',
-            \ 'k' : 'kfiler',
-            \ 'l' : 'lister',
+            \ 'l' : 'listbuf',
+            \ 'a' : 'alignat',
+            \ 'j' : 'jumpto',
             \ 'r' : 'replace',
-            \ 't' : 'tabular',
             \ 'u' : 'undotree',
+            \ 'h' : 'explore',
+            \ 'k' : 'fastseek',
+            \ 'g' : 'gitcli',
             \ }
 "}}}
 
@@ -58,7 +60,7 @@ let g:which_key_map['n'] = { 'name' : '+Notes',
 "}}}
 
 " Replace{{{
-let g:which_key_map['a'] = { 'name' : '+Amulti',
+let g:which_key_map['m'] = { 'name' : '+Multi',
             \ 'p' : 'position',
             \ 'w' : 'word',
             \ 'r' : 'range',
@@ -82,26 +84,39 @@ let g:which_key_map['c'] = { 'name' : '+COCopt',
 
 " Find{{{
 let g:which_key_map['f'] = { 'name' : '+Find',
-            \ 'f' : 'files',
-            \ 'g' : 'git',
-            \ 'h' : 'history',
             \ 'l' : 'lines',
             \ 'm' : 'marks',
-            \ 'w' : 'word',
+            \ 'w' : 'words',
+            \ 'y' : 'yanks',
+            \ 'f' : { 'name' : '+Files',
+            \     'f' : './',
+            \     'g' : 'git',
+            \     'h' : 'mru',
+            \     }
             \ }
 "}}}
 
-" Edit{{{
-let g:which_key_map['e'] = { 'name' : '+Edit',
-            \ 'w' : 'window',
-            \ 't' : 'tab',
+" Workspace{{{
+let g:which_key_map['w'] = { 'name' : '+WinCMD',
+            \ 'w' : 'winext',
+            \ 'r' : 'rotate',
+            \ 'e' : 'equalize',
+            \ 't' : 'totab',
+            \ 'n' : { 'name' : '+New',
+            \     't' : 'tab',
+            \     'w' : 'window',
+            \     },
+            \ 'o' : { 'name' : '+Only',
+            \     't' : 'tab',
+            \     'w' : 'window',
+            \     }
             \ }
 "}}}
 
-" Session{{{
-let g:which_key_map['s'] = { 'name' : '+Session',
-            \ 's' : 'save',
+" Sessions{{{
+let g:which_key_map['e'] = { 'name' : '+EditSS',
             \ 'l' : 'list',
+            \ 's' : 'save',
             \ }
 "}}}
 
@@ -109,13 +124,13 @@ let g:which_key_map['s'] = { 'name' : '+Session',
 let g:which_key_map['q'] = { 'name' : '+Quit',
             \ 'w' : 'window',
             \ 't' : 'tab',
-            \ 'a' : 'all',
+            \ 'q' : 'all',
             \ }
 "}}}
 
 " Save{{{
 let g:which_key_map['z'] = { 'name' : '+Save',
-            \ 'f' : 'file',
+            \ 'z' : 'file',
             \ 'a' : 'all',
             \ }
 "}}}
@@ -129,7 +144,7 @@ let g:which_key_map['d'] = { 'name' : '+Delete',
 "}}}
 
 " Surround{{{
-let g:which_key_map['w'] = { 'name' : '+Wrap',
+let g:which_key_map['s'] = { 'name' : '+Surrnd',
             \ 's' : 'select',
             \ 'w' : 'word',
             \ 'l' : 'line',

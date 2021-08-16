@@ -1,2 +1,2 @@
-nnoremap <leader>t :Tabularize<space>/
-vnoremap <leader>t :Tabularize<space>/
+nnoremap <leader>a :Tabularize<space>/
+vnoremap <leader>a :Tabularize<space>/

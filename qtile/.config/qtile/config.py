@@ -17,8 +17,6 @@ from libqtile.lazy import lazy
 
 mod         = "mod4"
 
-webbrowser  = "brave"
-terminal    = "alacritty"
 keyboards   = ['gb', 'it', 'us']
 keynames    = {'gb': 'Gbr', 'it': 'Ita', 'us': 'Usa'}
 wallpapers  = '~/Pictures/wallpapers/wallogo'
@@ -73,50 +71,65 @@ keys = [
         Key([], "x", lazy.spawn("xkill")),                                    # xkill           (X)
     ]),
 
+    # Apps keychords
+    KeyChord([mod], "a", [                                                    #                 [A]
+        Key([], "a", lazy.spawn("kupfer")),                                   # kupfer          (A)
+        Key([], "h", lazy.spawn("keyinfo")),                                  # keyinfo         (H)
+        Key([], "j", lazy.spawn("bgrandom")),                                 # next wallpaper  (N)
+        Key([], "l", lazy.spawn("laynext")),                                  # layout          (L)
+        Key([], "k", lazy.spawn("kitty")),                                    # kitty           (K)
+        Key([], "e", lazy.spawn("emacs")),                                    # emacs           (E)
+        Key([], "b", lazy.spawn("brave")),                                    # browser         (B)
+        Key([], "t", lazy.spawn("xterm -e tmux")),                            # tmux            (T)
+        Key([], "m", lazy.spawn("xterm -e mocp")),                            # moc             (M)
+        Key([], "c", lazy.spawn("xterm -e calcurse")),                        # calcurse        (C)
+    ]),
+
     # Windows keychords
     KeyChord([mod], "w", [                                                    #                 [W]
+        Key([], "w", lazy.next_layout()),                                     # window layout   (L)
         Key([], "f", lazy.window.toggle_floating()),                          # floating        (F)
         Key([], "i", lazy.window.toggle_minimize()),                          # iconify         (I)
         Key([], "m", lazy.window.toggle_maximize()),                          # maximize        (M)
-    ]),
-
-    # Apps keychords
-    KeyChord([mod], "a", [                                                    #                 [A]
-        Key([], "j", lazy.spawncmd(prompt='$')),                              # prompt          (J)
-        Key([], "k", lazy.spawn("kupfer")),                                   # kupfer          (K)
-        Key([], "h", lazy.spawn("keyinfo")),                                  # keyinfo         (H)
-        Key([], "b", lazy.spawn("bgrandom")),                                 # background      (B)
-        Key([], "l", lazy.spawn("laynext")),                                  # layout          (L)
-        Key([], "w", lazy.spawn(webbrowser)),                                 # webbrowser      (W)
-        Key([], "a", lazy.spawn(terminal)),                                   # term            (A)
-        Key([], "t", lazy.spawn(terminal+" -e tmux")),                        # tmux            (T)
-        Key([], "m", lazy.spawn(terminal+" -e mocp")),                        # moc             (M)
-        Key([], "c", lazy.spawn(terminal+" -e calcurse")),                    # calcurse        (C)
+        Key([], "s", lazy.layout.toggle_split()),                             # split           (S)
+        Key([], "h", lazy.layout.swap_column_left()),                         # flip left       (H)
+        Key([], "l", lazy.layout.swap_column_right()),                        # flip right      (L)
     ]),
 
     # Windows keymaps
-    Key([mod], "q", lazy.window.kill()),                                      # kill window
-    Key([mod], "f", lazy.layout.flip()),                                      # switch master-stack
-    Key([mod], "j", lazy.layout.shuffle_down()),                              # move window down
-    Key([mod], "k", lazy.layout.shuffle_up()),                                # move window up
+    Key([mod], "q", lazy.window.kill()),
+    Key([mod], "0", lazy.layout.normalize()),
+    Key([mod], "j", lazy.layout.down()),
+    Key([mod], "k", lazy.layout.up()),
+    Key([mod], "h", lazy.layout.left()),
+    Key([mod], "l", lazy.layout.right()),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
 
-    # Change layout and move through windows
-    Key([mod], "BackSpace", lazy.next_layout()),                              # next layout
-    Key([mod], "space", lazy.layout.down()),                                  # next window
+    # Windows ratio keymaps
+    Key([mod, "control"], "j",
+        lazy.layout.decrease_ratio(),
+        lazy.layout.grow_down()),
+    Key([mod, "control"], "k",
+        lazy.layout.increase_ratio(),
+        lazy.layout.grow_up()),
+    Key([mod, "control"], "h",
+        lazy.layout.decrease_nmaster(),
+        lazy.layout.grow_left()),
+    Key([mod, "control"], "l",
+        lazy.layout.increase_nmaster(),
+        lazy.layout.grow_right()),
 
     # Move between groups
-    Key([mod], "h", lazy.screen.prev_group()),                                # previous group
-    Key([mod], "l", lazy.screen.next_group()),                                # next group
-
-    # Change windows ratios manually
-    Key([mod], "plus", lazy.layout.grow()),                                   # plus
-    Key([mod], "minus", lazy.layout.shrink()),                                # minus
-    Key([mod], "0", lazy.layout.normalize()),                                 # zero
+    Key([mod], "Tab", lazy.screen.next_group()),                              # next group
+    Key([mod], "BackSpace", lazy.screen.prev_group()),                        # previous group
 
     # Rofi-menu keymaps
-    Key([mod], "Return", lazy.spawn("rofirun -r")),                           # super-menu
+    Key([mod], "space" , lazy.spawncmd(prompt='$')),                          # prompt dmenu-like
     Key([mod], "Escape", lazy.spawn("rofirun -l")),                           # logout-menu
-    Key([mod], "Tab", lazy.spawn("rofirun -w")),                              # windows-menu
+    Key([mod], "Return", lazy.spawn("rofirun -r")),                           # main-menu
 
 
     # Volume (uncomment the one that works for you)
@@ -190,30 +203,38 @@ keys.append(KeyChord([mod], "m", keylist))
 #     ])
 
 
-layout_theme_columns = dict(
+layout_theme_pile = dict(
     border_width=2,
-    margin=20,
+    margin=10,
+    margin_on_single=10,
     num_columns=1,
+    insert_position=0,
     split=False,
     border_on_single=True,
+    border_focus=color_white,
     border_focus_stack=color_white,
+    border_normal=color_gray,
     border_normal_stack=color_gray
 )
 
-layout_theme_monad = dict(
+layout_theme_tile = dict(
+    add_after_last=False,
+    add_on_top=True,
+    expand=True,
+    master_length=1,
+    ratio=0.5,
+    ratio_increment=0.1,
+    shift_windows=False,
     border_width=2,
-    margin=20,
+    margin=10,
     border_focus=color_white,
     border_normal=color_gray
 )
 
 
 layouts = [
-    layout.Columns(name='Pile', **layout_theme_columns),
-    layout.MonadTall(name='Tall', **layout_theme_monad),
-    layout.MonadWide(name='Wide', **layout_theme_monad),
-    # layout.Floating(name='Float', **layout_theme_monad),
-    # layout.Max(name='Max'),
+    layout.Columns(name='Pile', **layout_theme_pile),
+    layout.Tile(name='Tile', **layout_theme_tile)
 ]
 
 
@@ -234,7 +255,7 @@ def toggle_calcurse():
             os.path.exists(home+'/.calcurse/.calcurse.pid'):
         os.system('killall calcurse')  # os.remove(home+"...")
     else:
-        qtile.cmd_spawn(terminal+' -e calcurse')
+        qtile.cmd_spawn('xterm -e calcurse')
 
 
 # Widgets list on primary screen bar
@@ -273,9 +294,9 @@ widgets_primary_display = [
         padding_y=3,
         max_title_width=200,
         title_width_method='None',
-        txt_floating='*',
-        txt_minimized='-',
-        txt_maximized='+',
+        txt_floating='FLO·',
+        txt_minimized='ICO·',
+        txt_maximized='MAX·',
         urgent_alert_method='text',
         urgent_border=color_orange
     ),
@@ -545,9 +566,9 @@ widgets_secondary_display = [
         padding_y=3,
         max_title_width=200,
         title_width_method='None',
-        txt_floating='*',
-        txt_minimized='-',
-        txt_maximized='+',
+        txt_floating='FLO·',
+        txt_minimized='ICO·',
+        txt_maximized='MAX·',
         urgent_alert_method='text',
         urgent_border=color_orange
     ),
@@ -638,8 +659,18 @@ widgets_secondary_display = [
 
 
 screens = [
-    Screen(top=bar.Bar(widgets_primary_display, 20)),
-    Screen(top=bar.Bar(widgets_secondary_display, 20)),
+    Screen(
+        top=bar.Bar(widgets_primary_display, 20),
+        bottom=bar.Gap(0),
+        left=bar.Gap(0),
+        right=bar.Gap(0)
+    ),
+    Screen(
+        top=bar.Bar(widgets_secondary_display, 20),
+        bottom=bar.Gap(0),
+        left=bar.Gap(0),
+        right=bar.Gap(0)
+    ),
 ]
 
 
@@ -709,6 +740,26 @@ def idle_dialogues(window):
 def autostart():
     home = os.path.expanduser('~')
     subprocess.Popen([home + '/.config/qtile/autostart.sh'])
+
+
+# @hook.subscribe.layout_change
+# def _(lay, grp):
+#     if lay.name == "Doub":
+#         screens[0].bottom=bar.Gap(5)
+#         screens[0].left=bar.Gap(5)
+#         screens[0].right=bar.Gap(5)
+#         screens[1].bottom=bar.Gap(5)
+#         screens[1].left=bar.Gap(5)
+#         screens[1].right=bar.Gap(5)
+#     else:
+#         screens[0].bottom=bar.Gap(0)
+#         screens[0].left=bar.Gap(0)
+#         screens[0].right=bar.Gap(0)
+#         screens[1].bottom=bar.Gap(0)
+#         screens[1].left=bar.Gap(0)
+#         screens[1].right=bar.Gap(0)
+
+#     grp.layout_all()
 
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this

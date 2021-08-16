@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # I suppose there's at least xterm installed
-if [[ -f /bin/alacritty ]]; then
+if [[ -f /bin/alacritty  && $TERM == 'alacritty' ]]; then
     alacritty -e nvimpager -p ~/.keys.txt
 else
     xterm -e nvimpager -p ~/.keys.txt

@@ -70,11 +70,11 @@ endif
 
 " NeoColors
 let s:neodark  = '#1E1F29'
-let s:neobg    = '#282936'
+let s:neobg    = '#282A36'
 let s:neofg    = '#BFBFBF'
 let s:neonc    = '#626483'
 let s:neoline  = '#3A3C4E'
-let s:neoend   = '#2A2C38'
+let s:neoend   = '#2E2F3E'  " '#2A2C38'
 let s:neohl    = '#F1FA8C'
 let s:neotitle = '#F92772'
 let s:neosel   = '#6B89FF'

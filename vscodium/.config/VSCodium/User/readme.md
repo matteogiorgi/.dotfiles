@@ -1,43 +1,61 @@
-## Generic extensions installed
-
-- Vim
-- British dictionary
-- Italian dictionary
-- Tabnine autocomplete
-- Git graph
-- Activitus bar
-- Natty (color scheme)
-- Material Icon Themes
-- Material Product Icons
+# Install VsCodium from AUR
 
 
-## LSP & language plugins installed
-
-- LaTex Workshop
-- Python (MS-Python)
-- VSCoq
 
 
----
+## Packages
+
+- vscodium-bin
+- vscodium-bin-marketplace
 
 
-## Usefull generic extensions not installed
-
-- Code runner
-- Office viewer
 
 
-## Usefull LSP & language plugins not installed
+## Generic extensions
 
-- Lua
-- Bash IDE
-- Clangd
-- Haskell (+ Haskell syntax)
-- Pyright (instead of MS-Python)
-- Texlab (instead of LaTex Workshop)
-- Fennel (syntax)
-- Scheme (syntax)
-- Language support for Java (RedHat)
-- Project manager for Java
-- Debugger for Java
-- Maven for Java
+- English (ms-ceintl.vscode-language-pack-en-gb)
+- Italian (ms-ceintl.vscode-language-pack-it)
+- Dracula (dracula-theme.theme-dracula)
+- Material-Icon-Theme (pkief.material-icon-theme)
+- Material-Product-Icons (pkief.material-product-icons)
+- Tabnine (tabnine.tabnine-vscode)
+- Git-Graph (mhutchie.git-graph)
+- VSpaceCode (vspacecode.vspacecode)
+    - VscodeVim (vscodevim.vim)
+    - Edamagit (kahole.magit)
+    - File-Browser (bodil.file-browser)
+    - Fuzzy-Search (jacobdufault.fuzzy-search)
+    - Which-Key (vspacecode.whichkey)
+
+
+
+
+## LSPs & languages extensions
+
+
+- MARKDOWN
+    - Markdown (yzhang.markdown-all-in-one)
+- LATEX
+    - LaTex Workshop (james-yu.latex-workshop)
+    - LaTex Utilities (tecosaur.latex-utilities)
+- R
+    - R (ikuyadeu.r)
+    - R-Debugger (rdebugger.r-debugger)
+- PYTHON
+    - Python (ms-python.python)
+    - Pylance (ms-python.vscode-pylance)
+    - Jupyter (ms-toolsai.jupyter)
+- JULIA
+    - Julia (julialang.language-julia)
+- C/C++
+    - C/C++ (ms-vscode.cpptools)
+- JAVA
+    - Java Extensions Pack (vscjava.vscode-java-pack)
+        - Language Support for Java (redhat.java)
+        - Java Test Runner (vscjava.vscode-java-test)
+        - Debugger for Java (vscjava.vscode-java-debug)
+        - Maven for Java (vscjava.vscode-maven)
+        - Project Manager for Java (vscjava.vscode-java-dependency)
+        - IntelliCode (visualstudioexptteam.vscodeintellicode)
+- COQ
+    - VSCoq (maximedenes.vscoq)

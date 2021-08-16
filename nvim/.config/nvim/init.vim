@@ -9,15 +9,14 @@
 "     vim-surround··············https://github.com/tpope/vim-surround
 "     vim-repeat················https://github.com/tpope/vim-repeat
 "     vim-commentary············https://github.com/tpope/vim-commentary
-"     vim-fugitive··············https://github.com/tpope/vim-fugitive
 "     vim-smalls················https://github.com/t9md/vim-smalls
-"     vim-which-key·············https://github.com/liuchengxu/vim-which-key
-"     dashboard-nvim············https://github.com/glepnir/dashboard-nvim
 "     undotree··················https://github.com/mbbill/undotree
 "     tabular···················https://github.com/godlygeek/tabular
 "     vim-move··················https://github.com/matze/vim-move
 "     vim-pandoc-syntax·········https://github.com/vim-pandoc/vim-pandoc-syntax
 "     vim-floaterm··············https://github.com/voldikss/vim-floaterm
+"     vim-which-key·············https://github.com/liuchengxu/vim-which-key
+"     dashboard-nvim············https://github.com/glepnir/dashboard-nvim
 
 
 "                              LOCAL-PLUGINS 
@@ -41,6 +40,7 @@
 "    coc-git···················https://github.com/neoclide/coc-git
 "    coc-snippets··············https://github.com/neoclide/coc-snippets
 "    coc-yank··················https://github.com/neoclide/coc-yank
+"    coc-explorer··············https://github.com/weirongxu/coc-explorer
 "    coc-floaterm··············https://github.com/voldikss/coc-floaterm
 "    coc-marketplace···········https://github.com/fannheyward/coc-marketplace
 
@@ -74,15 +74,14 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
     Plug 't9md/vim-smalls'
-    Plug 'liuchengxu/vim-which-key'
-    Plug 'glepnir/dashboard-nvim'
     Plug 'mbbill/undotree'
     Plug 'godlygeek/tabular'
     Plug 'matze/vim-move'
     Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'voldikss/vim-floaterm'
+    Plug 'liuchengxu/vim-which-key'
+    Plug 'glepnir/dashboard-nvim'
 
     " Local plugins
     Plug '~/.config/nvim/loplugin/lines'
@@ -108,7 +107,7 @@ endif
 " Color syntax{{{
 syntax on
 set background=dark
-colorscheme dracula  " doom,dracula
+colorscheme doom  " doom,dracula
 filetype plugin indent on
 "}}}
 
@@ -157,7 +156,7 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=  " let &colorcolumn = '81,'.join(range(81,999),',')
 set signcolumn=auto:2
 set cmdheight=1
-set fillchars+=vert:\ ,eob:\ ,fold:─
+set fillchars+=vert:\│,eob:\ ,fold:-
 set guioptions-=e
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
@@ -231,29 +230,31 @@ command! ClearLastSearch :let @/=""
 "}}}
 
 " Menu remaps{{{
-nnoremap <leader>qw :q<CR>
-nnoremap <leader>qt :tabclose<CR>
-nnoremap <leader>qa :qa<CR>
-nnoremap <leader>zf :w<CR>
-nnoremap <leader>za :wa<CR>
-nnoremap <leader>dq :bdelete<CR>
-nnoremap <leader>df :Bclose<CR>
-nnoremap <leader>da :bufdo<space>bd<bar>cd<space>$HOME<bar>Dashboard<CR>
-nnoremap <leader>ew :DashboardNewFile<CR>
-nnoremap <leader>et :tabnew<CR>
-nnoremap <leader>r  :%s///gc<Left><Left><Left>
+nnoremap <leader>qw  :q<CR>
+nnoremap <leader>qt  :tabclose<CR>
+nnoremap <leader>qq  :qa<CR>
+nnoremap <leader>zz  :w<CR>
+nnoremap <leader>za  :wa<CR>
+nnoremap <leader>dq  :bdelete<CR>
+nnoremap <leader>df  :Bclose<CR>
+nnoremap <leader>da  :bufdo<space>bd<bar>cd<space>$HOME<bar>Dashboard<CR>
+nnoremap <leader>r   :%s///gc<Left><Left><Left>
 xnoremap <leader>r   :s///gc<Left><Left><Left>
+nnoremap <leader>ww  :wincmd w<cr>
+nnoremap <leader>wr  :wincmd r<cr>
+nnoremap <leader>we  :wincmd =<cr>
+nnoremap <leader>wt  :wincmd T<cr>
+nnoremap <leader>wnw :enew<CR>
+nnoremap <leader>wnt :tabnew<CR>
+nnoremap <leader>wow :only<CR>
+nnoremap <leader>wot :tabonly<CR>
 "}}}
 
 " Outofmenu remaps{{{
-imap <silent><M-h> <Left>
-imap <silent><M-j> <down>
-imap <silent><M-k> <up>
-imap <silent><M-l> <right>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-nnoremap <silent><M-d> }}{j
-nnoremap <silent><M-u> {{j
+nnoremap <silent><M-d> }}{jzz
+nnoremap <silent><M-u> {{jzz
 nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
 nnoremap <silent><C-j> :resize -5<CR>
@@ -272,15 +273,10 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 0gt
-nnoremap <silent><M-t>         :wincmd T<cr>
-nnoremap <silent><M-r>         :wincmd r<cr>
-nnoremap <silent><M-=>         :wincmd =<cr>
 nnoremap <silent><M-Tab>       :tabnext<cr>
 nnoremap <silent><M-Backspace> :tabprev<cr>
-nnoremap <silent><M-<>         :tabm -1<cr>
-nnoremap <silent><M->>         :tabm +1<cr>
-nnoremap <silent><M-o>         :only<CR>
-nnoremap <silent><M-O>         :tabonly<CR>
+nnoremap <silent><M-C-h>       :tabm -1<cr>
+nnoremap <silent><M-C-l>       :tabm +1<cr>
 "}}}
 
 
