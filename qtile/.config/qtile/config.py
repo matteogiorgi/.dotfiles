@@ -17,6 +17,7 @@ from libqtile.lazy import lazy
 
 mod         = "mod4"
 
+terminal    = 'lxterminal'
 keyboards   = ['gb', 'it', 'us']
 keynames    = {'gb': 'Gbr', 'it': 'Ita', 'us': 'Usa'}
 wallpapers  = '~/Pictures/wallpapers/wallogo'
@@ -41,7 +42,7 @@ color_bluegray   = '586ECA'  #586ECA
 color_purplegray = '9576c5'  #9576c5
 
 
-last_playing = 'spotify'
+last_playing = 'clementine'
 
 def playpause(qtile):
     global last_playing
@@ -65,24 +66,23 @@ def next_prev(state):
 keys = [
     # System keychords
     KeyChord([mod], "s", [                                                    #                 [S]
-        Key([], "q", lazy.shutdown()),                                        # quit            (Q)
-        Key([], "r", lazy.restart()),                                         # restart         (R)
         Key([], "s", lazy.spawn("xfce4-settings-manager")),                   # settings        (S)
         Key([], "x", lazy.spawn("xkill")),                                    # xkill           (X)
+        Key([], "q", lazy.shutdown()),                                        # quit            (Q)
+        Key([], "r", lazy.restart()),                                         # restart         (R)
     ]),
 
     # Apps keychords
     KeyChord([mod], "a", [                                                    #                 [A]
-        Key([], "a", lazy.spawn("kupfer")),                                   # kupfer          (A)
-        Key([], "h", lazy.spawn("keyinfo")),                                  # keyinfo         (H)
-        Key([], "j", lazy.spawn("bgrandom")),                                 # next wallpaper  (N)
-        Key([], "l", lazy.spawn("laynext")),                                  # layout          (L)
-        Key([], "k", lazy.spawn("kitty")),                                    # kitty           (K)
-        Key([], "e", lazy.spawn("emacs")),                                    # emacs           (E)
-        Key([], "b", lazy.spawn("brave")),                                    # browser         (B)
-        Key([], "t", lazy.spawn("xterm -e tmux")),                            # tmux            (T)
-        Key([], "m", lazy.spawn("xterm -e mocp")),                            # moc             (M)
-        Key([], "c", lazy.spawn("xterm -e calcurse")),                        # calcurse        (C)
+        Key([], "t", lazy.spawn(terminal + " -e tmux")),                      # tmux            (T)
+        Key([], "m", lazy.spawn(terminal + " -e mocp")),                      # moc             (M)
+        Key([], "c", lazy.spawn(terminal + " -e calcurse")),                  # calcurse        (C)
+        Key([], "a", lazy.spawn("kitty")),                                    # terminal        (A)
+        Key([], "w", lazy.spawn("brave")),                                    # web-browser     (W)
+        Key([], "e", lazy.spawn("emacs")),                                    # editor          (E)
+        Key([], "i", lazy.spawn("keyinfo")),                                  # info            (I)
+        Key([], "b", lazy.spawn("bgrandom")),                                 # background      (B)
+        Key([], "n", lazy.spawn("laynext")),                                  # next-layout     (N)
     ]),
 
     # Windows keychords
@@ -127,9 +127,9 @@ keys = [
     Key([mod], "BackSpace", lazy.screen.prev_group()),                        # previous group
 
     # Rofi-menu keymaps
-    Key([mod], "space" , lazy.spawncmd(prompt='$')),                          # prompt dmenu-like
+    Key([mod], "space", lazy.spawn("kupfer")),                                # kupfer-menu
+    Key([mod], "Return", lazy.spawncmd(prompt='$')),                          # qtile-prompt
     Key([mod], "Escape", lazy.spawn("rofirun -l")),                           # logout-menu
-    Key([mod], "Return", lazy.spawn("rofirun -r")),                           # main-menu
 
 
     # Volume (uncomment the one that works for you)
@@ -171,15 +171,15 @@ keys = [
 
 # Groups management (main solution)
 group_names = [
-        ("₁ ", 1),
-        ("₂ ", 2),
-        ("₃ ", 3),
-        ("₄ ", 4),
-        ("₅ ", 5),
-        ("₆ ", 6),
-        ("₇ ", 7),
-        ("₈ ", 8),
-        ("₉ ", 9)
+        ("₁ ", 1),
+        ("₂ ", 2),
+        ("₃ ", 3),
+        ("₄ ", 4),
+        ("₅ ", 5),
+        ("₆ ", 6),
+        ("₇ ", 7),
+        ("₈ ", 8),
+        ("₉ ", 9)
 ]
 groups  = [Group(name, position=pos) for name, pos in group_names]
 keylist = []
@@ -255,7 +255,7 @@ def toggle_calcurse():
             os.path.exists(home+'/.calcurse/.calcurse.pid'):
         os.system('killall calcurse')  # os.remove(home+"...")
     else:
-        qtile.cmd_spawn('xterm -e calcurse')
+        qtile.cmd_spawn(terminal + ' -e calcurse')
 
 
 # Widgets list on primary screen bar

@@ -233,19 +233,19 @@ command! ClearLastSearch :let @/=""
 nnoremap <leader>qw  :q<CR>
 nnoremap <leader>qt  :tabclose<CR>
 nnoremap <leader>qq  :qa<CR>
-nnoremap <leader>zz  :w<CR>
-nnoremap <leader>za  :wa<CR>
-nnoremap <leader>dq  :bdelete<CR>
-nnoremap <leader>df  :Bclose<CR>
-nnoremap <leader>da  :bufdo<space>bd<bar>cd<space>$HOME<bar>Dashboard<CR>
+nnoremap <leader>zz  :wa<CR>
+nnoremap <leader>zb  :w<CR>
+nnoremap <leader>dd  :bdelete<CR>
+nnoremap <leader>db  :Bclose<CR>
+nnoremap <leader>dr  :bufdo<space>bd<bar>cd<space>$HOME<bar>Dashboard<CR>
 nnoremap <leader>r   :%s///gc<Left><Left><Left>
 xnoremap <leader>r   :s///gc<Left><Left><Left>
 nnoremap <leader>ww  :wincmd w<cr>
 nnoremap <leader>wr  :wincmd r<cr>
 nnoremap <leader>we  :wincmd =<cr>
 nnoremap <leader>wt  :wincmd T<cr>
-nnoremap <leader>wnw :enew<CR>
-nnoremap <leader>wnt :tabnew<CR>
+nnoremap <leader>ew  :enew<CR>
+nnoremap <leader>et  :tabnew<CR>
 nnoremap <leader>wow :only<CR>
 nnoremap <leader>wot :tabonly<CR>
 "}}}

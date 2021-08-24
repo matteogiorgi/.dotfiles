@@ -2,27 +2,31 @@ let g:dashboard_default_executive ='fzf'
 let g:dashboard_enable_session = 0
 let g:dashboard_custom_section={
             \ '0_session': {
-                \ 'description': ['  List sessions                        SPC s l  '],
+                \ 'description': ['  List sessions                        SPC e s l'],
                 \ 'command': 'CocList sessions'
                 \ },
-            \ '1_explorer': {
+            \ '1_mru': {
+                \ 'description': ['  Find recent                          SPC f f h'],
+                \ 'command': 'CocList mru'
+                \ },
+            \ '2_files': {
                 \ 'description': ['  Find files                           SPC f f f'],
                 \ 'command': 'CocList files'
                 \ },
-            \ '2_history': {
-                \ 'description': ['  Recent files                         SPC f f h'],
-                \ 'command': 'CocList mru'
-                \ },
-            \ '3_New': {
-                \ 'description': ['  New buffer                           SPC e w  '],
-                \ 'command': 'DashboardNewFile'
-                \ },
-            \ '4_note': {
-                \ 'description': ['  Note index                           SPC n i  '],
+            \ '3_note': {
+                \ 'description': ['  Note index                           SPC n i ·'],
                 \ 'command': 'NoteWikiIndex'
                 \ },
-            \ '5_quit': {
-                \ 'description': ['  Quit Neovim                          SPC q q  '],
+            \ '4_scratch': {
+                \ 'description': ['  Scratch buffer                       SPC n s ·'],
+                \ 'command': 'ScratchBuffer'
+                \ },
+            \ '5_new': {
+                \ 'description': ['  New buffer                           SPC e w ·'],
+                \ 'command': 'enew'
+                \ },
+            \ '6_quit': {
+                \ 'description': ['  Quit editor                          SPC q q ·'],
                 \ 'command': 'qa'
                 \ },
             \ }

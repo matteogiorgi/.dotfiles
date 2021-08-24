@@ -39,7 +39,7 @@ endfunction
 " I choose not to chose{{{
 function s:chfiler() abort
     if !exists("g:current_filer")
-        let g:current_filer = 'vifm'
+        let g:current_filer = 'broot'
         return
     endif
     
@@ -57,7 +57,7 @@ endfunction
 "}}}
 
 " Open seeker{{{
-function s:fastseek() abort
+function s:fastfinder() abort
     if g:current_filer ==? 'vifm'
         execute 'FloatermNew vifm'
     elseif g:current_filer ==? 'ranger'
@@ -71,7 +71,7 @@ endfunction
 "}}}
 
 " Git client{{{
-function s:tiger() abort
+function s:gitcli() abort
     execute 'call utility#GitDir()'
     if isdirectory('.git')
         execute 'cd %:p:h'
@@ -101,17 +101,18 @@ augroup END
 
 augroup floatermmode
     autocmd!
-    autocmd TermOpen,TermEnter * startinsert | set noshowmode | execute "echohl WarningMsg | echomsg ' Alt + Q (Quit) | W (Wnew) | TAB (Next) | BSP (Prev) '"
+    autocmd TermOpen,TermEnter * startinsert | set noshowmode | execute "echohl WarningMsg | echomsg ' Alt + Q (Quit) | N (New) | TAB (Next) | BSP (Prev) '"
     autocmd TermClose,TermLeave * stopinsert | set showmode
 augroup end
 
 
 command! ChFiler call <SID>chfiler()
-command! Tiger call <SID>tiger()
-command! FastSeek call <SID>fastseek()
+command! GitCLI call <SID>gitcli()
+command! FastFinder call <SID>fastfinder()
 
 
 nnoremap <silent><M-space> :FloatermToggle<cr>
 nnoremap <silent><M-q> :ChFiler<cr>
-nnoremap <leader>k :FastSeek<cr>
-nnoremap <leader>g :Tiger<cr>
+
+nnoremap <leader>k :FastFinder<cr>
+nnoremap <leader>g :GitCLI<cr>

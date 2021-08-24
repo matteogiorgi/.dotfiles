@@ -1,8 +1,37 @@
 ---
-title: Beamer presentation
-author: Matteo
+title: Beamer document
+subtitle: "slides presentation"
+author: |
+    | Matteo Giorgi
+    | UNIPI
+date: "01/01/2021"
+header-includes:
+    - \usepackage{fontspec}
+    - \usepackage{libertine}
+    - \usepackage{libertinust1math}
+    - \usepackage[T1]{fontenc}
+    - \usepackage[utf8]{inputenc}
+    - \usepackage{beamer/beamercolorthemedracula}
+    - \usecolortheme{dracula}
+    - |
+        ```{=latex}
+        \directlua{luaotfload.add_fallback(
+                     "myfallback",
+                     {"NotoColorEmoji:mode=harf;"}
+                   )}
+        \setmainfont[RawFeature={fallback=myfallback}]{LatinModernRoman}
+        \setmonofont[RawFeature={fallback=myfallback}]{UbuntuMono}
+        ```
+output: 
+    beamer_presentation:
+        theme: "default"
 always_allow_html: true
-urlcolor: black
-linkcolor: black
+linkcolor: draculapink
+filecolor: draculagreen
+citecolor: draculapurple
+urlcolor:  draculacyan
+toccolor:  draculaorange
 fontsize: 12pt
+fontfamily: libertine
+monofont: "Ubuntu Mono"
 ---

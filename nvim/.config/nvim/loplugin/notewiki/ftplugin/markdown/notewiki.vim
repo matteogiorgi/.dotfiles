@@ -7,6 +7,8 @@ nmap <buffer> <leader>nb  <Plug>(NoteBrowse)<cr>
 nmap <buffer> <leader>npp <Plug>(PdfDocument)<cr>
 nmap <buffer> <leader>npb <Plug>(PdfBeamer)<cr>
 nmap <buffer> <leader>nph <Plug>(HtmlPage)<cr>
+nmap <buffer> <leader>npg <Plug>(Geoteo)<cr>
+nmap <buffer> <leader>npl <Plug>(LatexHtml)<cr>
 
 nmap <buffer> <tab> <Plug>(NextLink)
 nmap <buffer> <S-tab> <Plug>(PrevLink)

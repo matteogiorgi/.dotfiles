@@ -84,12 +84,12 @@ for arg in "$@"; do
                 ANS="$(rofi -sep "|" -dmenu -i -p 'system' -width 30 \
                     -hide-scrollbar -line-padding 4 -padding 50 \
                     -font "mononoki Nerd Font 11" \
-                    -lines 3 <<< "  Lock screen|  Reboot system|  Shutdown PC")"
+                    -lines 3 <<< "  Lock|  Reboot|  Shutdown")"
             else
                 ANS="$(rofi -sep "|" -dmenu -i -p 'system' -width 30 \
                     -hide-scrollbar -line-padding 4 -padding 50 \
                     -font "mononoki Nerd Font 11" \
-                    -lines 4 <<< "  Lock screen|  Logout user|  Reboot system|  Shutdown PC")"
+                    -lines 4 <<< "  Lock|  Logout|  Reboot|  Shutdown")"
             fi
 
             case "$ANS" in

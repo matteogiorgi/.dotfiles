@@ -40,14 +40,14 @@ let g:which_key_use_floating_win = 1
 
 " Generics{{{
 let g:which_key_map = { 'name' : 'Menu',
-            \ 'l' : 'listbuf',
-            \ 'a' : 'alignat',
-            \ 'j' : 'jumpto',
+            \ 'a' : 'align',
+            \ 'l' : 'list',
+            \ 'j' : 'jump',
             \ 'r' : 'replace',
-            \ 'u' : 'undotree',
-            \ 'h' : 'explore',
-            \ 'k' : 'fastseek',
-            \ 'g' : 'gitcli',
+            \ 'u' : 'undo',
+            \ 'g' : 'git',
+            \ 'k' : 'fuzzy',
+            \ 'h' : 'xplore',
             \ }
 "}}}
 
@@ -102,10 +102,6 @@ let g:which_key_map['w'] = { 'name' : '+WinCMD',
             \ 'r' : 'rotate',
             \ 'e' : 'equalize',
             \ 't' : 'totab',
-            \ 'n' : { 'name' : '+New',
-            \     't' : 'tab',
-            \     'w' : 'window',
-            \     },
             \ 'o' : { 'name' : '+Only',
             \     't' : 'tab',
             \     'w' : 'window',
@@ -114,32 +110,36 @@ let g:which_key_map['w'] = { 'name' : '+WinCMD',
 "}}}
 
 " Sessions{{{
-let g:which_key_map['e'] = { 'name' : '+EditSS',
-            \ 'l' : 'list',
-            \ 's' : 'save',
+let g:which_key_map['e'] = { 'name' : '+Edit',
+            \ 't' : 'tab',
+            \ 'w' : 'window',
+            \ 's' : { 'name' : '+Session',
+            \     'l' : 'list',
+            \     's' : 'save',
+            \     }
             \ }
 "}}}
 
 " Quit{{{
 let g:which_key_map['q'] = { 'name' : '+Quit',
+            \ 'q' : 'all',
             \ 'w' : 'window',
             \ 't' : 'tab',
-            \ 'q' : 'all',
             \ }
 "}}}
 
 " Save{{{
 let g:which_key_map['z'] = { 'name' : '+Save',
-            \ 'z' : 'file',
-            \ 'a' : 'all',
+            \ 'z' : 'all',
+            \ 'b' : 'buffer',
             \ }
 "}}}
 
 " Delete{{{
 let g:which_key_map['d'] = { 'name' : '+Delete',
-            \ 'q' : '&quit',
-            \ 'f' : 'file',
-            \ 'a' : 'all',
+            \ 'r' : '&reset',
+            \ 'd' : '&quit',
+            \ 'b' : 'buffer',
             \ }
 "}}}
 

@@ -114,8 +114,8 @@ nnoremap <leader>fff :CocList files<CR>
 nnoremap <leader>ffg :call <SID>FindInGit()<CR>
 nnoremap <leader>ffh :CocList mru<CR>
 
-nnoremap <leader>el :CocList sessions<CR>
-nnoremap <leader>es :CocCommand session.save<CR>
+nnoremap <leader>esl :CocList sessions<CR>
+nnoremap <leader>ess :CocCommand session.save<CR>
 
 nmap <leader>mp <Plug>(coc-cursors-position)
 nmap <leader>mw <Plug>(coc-cursors-word)

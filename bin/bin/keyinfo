@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
-# I suppose there's at least xterm installed
-if [[ -f /bin/alacritty  && $TERM == 'alacritty' ]]; then
+# I supposing there's at least xterm installed
+if [[ -f /bin/kitty  && $MYTERM == "kitty" ]]; then
+    kitty -e nvimpager -p ~/.keys.txt
+elif [[ -f /bin/alacritty  && $MYTERM == "alacritty" ]]; then
     alacritty -e nvimpager -p ~/.keys.txt
+elif [[ -f /bin/lxterminal  && $MYTERM == "lxterminal" ]]; then
+    lxterminal -e nvimpager -p ~/.keys.txt
 else
     xterm -e nvimpager -p ~/.keys.txt
 fi

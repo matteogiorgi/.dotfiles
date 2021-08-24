@@ -452,6 +452,7 @@ export GOPATH="$HOME/go"      # go directory should stay in $HOME
 
 # better not export $TERM: problems with broot image preview
 export TERM="xterm-256color"  # screen-256color,xterm-256color,xterm-kitty
+export MYTERM="lxterminal"    # kitty,alacritty,lxterminal,xterm
 
 # need the following to avoid ranger loading configs twice
 export RANGER_LOAD_DEFAULT_RC="FALSE"
