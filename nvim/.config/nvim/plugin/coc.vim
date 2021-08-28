@@ -103,7 +103,7 @@ nmap <silent><S-tab> <Plug>(coc-diagnostic-prev)
 
 nnoremap <silent>K          :call <SID>ShowDoc()<CR>
 nnoremap <silent><M-return> :CocList vimcommands<CR>
-nnoremap <leader>h          :CocCommand explorer --preset float<CR>
+nnoremap <leader>k          :CocCommand explorer --preset float<CR>
 nnoremap <leader>l          :CocList buffers<CR>
 
 nnoremap <leader>fl  :CocList words<CR>

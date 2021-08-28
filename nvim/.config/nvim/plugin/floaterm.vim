@@ -114,5 +114,5 @@ command! FastFinder call <SID>fastfinder()
 nnoremap <silent><M-space> :FloatermToggle<cr>
 nnoremap <silent><M-q> :ChFiler<cr>
 
-nnoremap <leader>k :FastFinder<cr>
+nnoremap <leader>h :FastFinder<cr>
 nnoremap <leader>g :GitCLI<cr>

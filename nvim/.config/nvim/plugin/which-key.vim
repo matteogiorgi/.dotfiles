@@ -46,8 +46,8 @@ let g:which_key_map = { 'name' : 'Menu',
             \ 'r' : 'replace',
             \ 'u' : 'undo',
             \ 'g' : 'git',
-            \ 'k' : 'fuzzy',
-            \ 'h' : 'xplore',
+            \ 'h' : 'fuzzy',
+            \ 'k' : 'xplore',
             \ }
 "}}}
 
