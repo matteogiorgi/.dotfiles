@@ -17,32 +17,32 @@
 "     vim-floaterm··············https://github.com/voldikss/vim-floaterm
 "     vim-which-key·············https://github.com/liuchengxu/vim-which-key
 "     dashboard-nvim············https://github.com/glepnir/dashboard-nvim
+"     notewiki··················https://github.com/matteogiorgi/notewiki
 
 
 "                              LOCAL-PLUGINS 
 "
-"    lines·····················$HOME/.config/nvim/loplugin/lines
-"    bclose····················$HOME/.config/nvim/loplugin/bclose
-"    utility···················$HOME/.config/nvim/loplugin/utility
-"    notewiki··················$HOME/.config/nvim/loplugin/notewiki
-"    painter···················$HOME/.config/nvim/loplugin/painter
-"    coq·······················$HOME/.config/nvim/loplugin/coq
+"     lines·····················$HOME/.config/nvim/loplugin/lines
+"     bclose····················$HOME/.config/nvim/loplugin/bclose
+"     utility···················$HOME/.config/nvim/loplugin/utility
+"     painter···················$HOME/.config/nvim/loplugin/painter
+"     coq·······················$HOME/.config/nvim/loplugin/coq
 
 
 "                              COC-EXTENSIONS
 "
-"    coc-dictionary············https://github.com/neoclide/coc-sources
-"    coc-omni··················https://github.com/neoclide/coc-sources
-"    coc-syntax················https://github.com/neoclide/coc-sources
-"    coc-tabnine···············https://github.com/neoclide/coc-tabnine
-"    coc-highlight·············https://github.com/neoclide/coc-highlight
-"    coc-lists·················https://github.com/neoclide/coc-lists
-"    coc-git···················https://github.com/neoclide/coc-git
-"    coc-snippets··············https://github.com/neoclide/coc-snippets
-"    coc-yank··················https://github.com/neoclide/coc-yank
-"    coc-explorer··············https://github.com/weirongxu/coc-explorer
-"    coc-floaterm··············https://github.com/voldikss/coc-floaterm
-"    coc-marketplace···········https://github.com/fannheyward/coc-marketplace
+"     coc-dictionary············https://github.com/neoclide/coc-sources
+"     coc-omni··················https://github.com/neoclide/coc-sources
+"     coc-syntax················https://github.com/neoclide/coc-sources
+"     coc-tabnine···············https://github.com/neoclide/coc-tabnine
+"     coc-highlight·············https://github.com/neoclide/coc-highlight
+"     coc-lists·················https://github.com/neoclide/coc-lists
+"     coc-git···················https://github.com/neoclide/coc-git
+"     coc-snippets··············https://github.com/neoclide/coc-snippets
+"     coc-yank··················https://github.com/neoclide/coc-yank
+"     coc-explorer··············https://github.com/weirongxu/coc-explorer
+"     coc-floaterm··············https://github.com/voldikss/coc-floaterm
+"     coc-marketplace···········https://github.com/fannheyward/coc-marketplace
 
 
 
@@ -82,12 +82,12 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
     Plug 'voldikss/vim-floaterm'
     Plug 'liuchengxu/vim-which-key'
     Plug 'glepnir/dashboard-nvim'
+    Plug 'matteogiorgi/notewiki'
 
     " Local plugins
     Plug '~/.config/nvim/loplugin/lines'
     Plug '~/.config/nvim/loplugin/bclose'
     Plug '~/.config/nvim/loplugin/utility'
-    Plug '~/.config/nvim/loplugin/notewiki'
     Plug '~/.config/nvim/loplugin/painter'
     Plug '~/.config/nvim/loplugin/coq'
 call plug#end()
@@ -107,7 +107,7 @@ endif
 " Color syntax{{{
 syntax on
 set background=dark
-colorscheme doom  " doom,dracula
+colorscheme doom  " doom,dracula,spooky
 filetype plugin indent on
 "}}}
 
