@@ -151,7 +151,7 @@
     "explorer.previewAction.onHover": false,
     "explorer.icon.enableNerdfont": true,
     "explorer.icon.source": "builtin",
-    "explorer.quitOnOpen": true,
+    "explorer.quitOnOpen": false,
     "explorer.position": "left",
     "explorer.contentWidthType": "win-width",
     "explorer.file.column.clip.copy": "",
@@ -160,8 +160,8 @@
     "explorer.floating.border.title": "",
     "explorer.floating.hideOnCocList": false,
     "explorer.sources": [
-        // { "name": "bookmark", "expand": false },
-        // { "name": "buffer", "expand": false },
+        { "name": "bookmark", "expand": true },
+        { "name": "buffer", "expand": true },
         { "name": "file", "expand": true }
     ],
     "explorer.keyMappings.global": {

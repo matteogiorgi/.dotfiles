@@ -1,7 +1,7 @@
 let g:which_key_sep = '→'
 let g:which_key_max_size = 0
 let g:which_key_vertical = 0
-let g:which_key_hspace = 12
+let g:which_key_hspace = 14
 let g:which_key_sort_horizontal = 0
 let g:which_key_disable_default_offset = 1
 let g:which_key_centered = 1
@@ -44,10 +44,8 @@ let g:which_key_map = { 'name' : 'Menu',
             \ 'l' : 'list',
             \ 'j' : 'jump',
             \ 'r' : 'replace',
-            \ 'u' : 'undo',
-            \ 'g' : 'git',
-            \ 'h' : 'fuzzy',
-            \ 'k' : 'xplore',
+            \ 'u' : 'undo3',
+            \ 'k' : 'cmds',
             \ }
 "}}}
 
@@ -92,6 +90,11 @@ let g:which_key_map['f'] = { 'name' : '+Find',
             \     'f' : './',
             \     'g' : 'git',
             \     'h' : 'mru',
+            \     },
+            \ 't' : { 'name' : '+Term',
+            \     't' : 'tree',
+            \     'f' : 'file',
+            \     'g' : 'git',
             \     }
             \ }
 "}}}
@@ -167,6 +170,28 @@ let g:which_key_map.0 = 'which_key_ignore'
 "}}}
 
 
+augroup notesettings
+    autocmd!
+    autocmd BufEnter *
+                \ if &filetype ==? 'markdown'  || &filetype ==? 'markdown.pandoc' || &filetype ==? 'pandoc' |
+                \     let g:which_key_map['n'] = { 'name' : '+Notes',
+                \         'i' : 'index',
+                \         'b' : 'browse',
+                \         's' : 'scratch',
+                \         'p' : { 'name' : '+Pandoc',
+                \             'p' : 'pdf',
+                \             'b' : 'beamer',
+                \             'h' : 'html',
+                \             },
+                \         } |
+                \ else |
+                \     let g:which_key_map['n'] = { 'name' : '+Notes',
+                \         'i' : 'index',
+                \         'b' : 'browse',
+                \         's' : 'scratch',
+                \         } |
+                \ endif
+augroup end
 
 
 nnoremap <silent><leader> :WhichKey<space>' '<CR>

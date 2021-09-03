@@ -33,6 +33,8 @@
 ## LSPs & languages extensions
 
 
+- ORGMODE
+    - Org Mode (vscode-org-mode.org-mode)
 - MARKDOWN
     - Markdown (yzhang.markdown-all-in-one)
 - LATEX

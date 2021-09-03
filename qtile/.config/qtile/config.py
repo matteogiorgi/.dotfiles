@@ -35,11 +35,13 @@ color_orange     = 'FFB86C'  #FFB86C
 color_yellow     = 'F1FA8C'  #F1FA8C
 color_magenta    = 'FF79C6'  #FF79C6
 color_purple     = 'BD93F9'  #BD93F9
-color_lightblue  = '6B89FF'  #6B89FF
+color_lightblue  = '95A4DF'  #95A4DF
+color_lightred   = 'FF6E6E'  #FF6E6E
+color_lightwhite = 'A8A8B0'  #A8A8B0
 
-color_whitegray  = '97979a'  #97979a
-color_bluegray   = '586ECA'  #586ECA
-color_purplegray = '9576c5'  #9576c5
+color_whitegray  = '86868E'  #86868E
+color_bluegray   = '7783B2'  #7783B2
+color_purplegray = '9576C5'  #9576C5
 
 
 last_playing = 'clementine'
@@ -68,21 +70,23 @@ keys = [
     KeyChord([mod], "s", [                                                    #                 [S]
         Key([], "s", lazy.spawn("xfce4-settings-manager")),                   # settings        (S)
         Key([], "x", lazy.spawn("xkill")),                                    # xkill           (X)
-        Key([], "q", lazy.shutdown()),                                        # quit            (Q)
-        Key([], "r", lazy.restart()),                                         # restart         (R)
+        Key([], "e", lazy.shutdown()),                                        # exit-qtile      (E)
+        Key([], "l", lazy.restart()),                                         # load-config     (L)
+        Key([], "q", lazy.spawn("systemctl -i poweroff")),                    # quit-systen     (Q)
+        Key([], "r", lazy.spawn("systemctl reboot")),                         # reboot-systen   (R)
     ]),
 
     # Apps keychords
     KeyChord([mod], "a", [                                                    #                 [A]
+        Key([], "a", lazy.spawncmd(prompt='$')),                              # qtile-prompt    (A)
         Key([], "t", lazy.spawn(terminal + " -e tmux")),                      # tmux            (T)
         Key([], "m", lazy.spawn(terminal + " -e mocp")),                      # moc             (M)
         Key([], "c", lazy.spawn(terminal + " -e calcurse")),                  # calcurse        (C)
-        Key([], "a", lazy.spawn("kitty")),                                    # terminal        (A)
-        Key([], "w", lazy.spawn("brave")),                                    # web-browser     (W)
+        Key([], "w", lazy.spawn("firefox")),                                  # web-browser     (W)
         Key([], "e", lazy.spawn("emacs")),                                    # editor          (E)
         Key([], "i", lazy.spawn("keyinfo")),                                  # info            (I)
         Key([], "b", lazy.spawn("bgrandom")),                                 # background      (B)
-        Key([], "n", lazy.spawn("laynext")),                                  # next-layout     (N)
+        Key([], "l", lazy.spawn("laynext")),                                  # next-layout     (N)
     ]),
 
     # Windows keychords
@@ -126,10 +130,10 @@ keys = [
     Key([mod], "Tab", lazy.screen.next_group()),                              # next group
     Key([mod], "BackSpace", lazy.screen.prev_group()),                        # previous group
 
-    # Rofi-menu keymaps
+    # Menu keymaps
     Key([mod], "space", lazy.spawn("kupfer")),                                # kupfer-menu
-    Key([mod], "Return", lazy.spawncmd(prompt='$')),                          # qtile-prompt
-    Key([mod], "Escape", lazy.spawn("rofirun -l")),                           # logout-menu
+    Key([mod], "Return", lazy.spawn("kitty")),                                # terminal
+    Key([mod], "Escape", lazy.spawn("betterlockscreen -l dim")),              # lockscreen
 
 
     # Volume (uncomment the one that works for you)
@@ -345,82 +349,82 @@ widgets_primary_display = [
         length=8
     ),
 
-    ### blue 2 white ###
+    ### blue 2 lightwhite ###
     widget.TextBox(
         background=color_blue,
-        foreground=color_white,
+        foreground=color_lightwhite,
         fontsize=17,
         text='',
         padding=0
     ),
 
-    widget.Spacer(background=color_white, length=6),  # +0
+    widget.Spacer(background=color_lightwhite, length=6),  # +0
 
     widget.TextBox(
-        background=color_white,
+        background=color_lightwhite,
         foreground=color_black,
         text='',
         padding=0
     ),
 
-    widget.Spacer(background=color_white, length=0),  # +4
+    widget.Spacer(background=color_lightwhite, length=0),  # +4
 
     widget.Battery(
-        background=color_white,
+        background=color_lightwhite,
         foreground=color_black,
         format='{percent:2.0%}',
         padding=4
     ),
 
-    widget.Spacer(background=color_white, length=2),  # +4
+    widget.Spacer(background=color_lightwhite, length=2),  # +4
 
     widget.TextBox(
-        background=color_white,
+        background=color_lightwhite,
         foreground=color_whitegray,
         fontsize=10,
         text='',
         padding=0
     ),
 
-    widget.Spacer(background=color_white, length=6),  # +0
+    widget.Spacer(background=color_lightwhite, length=6),  # +0
 
     widget.TextBox(
-        background=color_white,
+        background=color_lightwhite,
         foreground=color_black,
         text='',
         padding=0
     ),
 
-    widget.Spacer(background=color_white, length=1),  # +5
+    widget.Spacer(background=color_lightwhite, length=1),  # +5
 
     widget.PulseVolume(
-        background=color_white,
+        background=color_lightwhite,
         foreground=color_black,
         padding=5
     ),
 
-    widget.Spacer(background=color_white, length=1),  # +5
+    widget.Spacer(background=color_lightwhite, length=1),  # +5
 
-    ### white 2 lightblue ###
-    widget.Spacer(background='bbbcc2', length=1),
-    widget.Spacer(background='b7bac5', length=1),
-    widget.Spacer(background='b2b7c9', length=1),
-    widget.Spacer(background='aeb4cc', length=1),
-    widget.Spacer(background='aab2cf', length=1),
-    widget.Spacer(background='a6afd2', length=1),
-    widget.Spacer(background='a2acd5', length=1),
-    widget.Spacer(background='9da9d9', length=1),
-    widget.Spacer(background='99a7dc', length=1),
-    widget.Spacer(background='95a4df', length=1),
-    widget.Spacer(background='91a1e2', length=1),
-    widget.Spacer(background='8d9fe5', length=1),
-    widget.Spacer(background='889ce9', length=1),
-    widget.Spacer(background='8499ec', length=1),
-    widget.Spacer(background='8096ef', length=1),
-    widget.Spacer(background='7c94f2', length=1),
-    widget.Spacer(background='7891f5', length=1),
-    widget.Spacer(background='738ef9', length=1),
-    widget.Spacer(background='6f8cfc', length=1),
+    ### lightwhite 2 lightblue ###
+    widget.Spacer(background='a7a8b2', length=1),
+    widget.Spacer(background='a6a8b5', length=1),
+    widget.Spacer(background='a5a7b7', length=1),
+    widget.Spacer(background='a4a7b9', length=1),
+    widget.Spacer(background='a3a7bc', length=1),
+    widget.Spacer(background='a2a7be', length=1),
+    widget.Spacer(background='a1a7c0', length=1),
+    widget.Spacer(background='a0a6c3', length=1),
+    widget.Spacer(background='9fa6c5', length=1),
+    widget.Spacer(background='9ea6c8', length=1),
+    widget.Spacer(background='9ea6ca', length=1),
+    widget.Spacer(background='9da6cc', length=1),
+    widget.Spacer(background='9ca5cf', length=1),
+    widget.Spacer(background='9ba5d1', length=1),
+    widget.Spacer(background='9aa5d3', length=1),
+    widget.Spacer(background='99a5d6', length=1),
+    widget.Spacer(background='98a5d8', length=1),
+    widget.Spacer(background='97a4da', length=1),
+    widget.Spacer(background='96a4dd', length=1),
 
     widget.Spacer(background=color_lightblue, length=6),  # +0
 
@@ -470,25 +474,25 @@ widgets_primary_display = [
     widget.Spacer(background=color_lightblue, length=3),  # +0
 
     ### lightblue 2 purple ###
-    widget.Spacer(background='6f8aff', length=1),
-    widget.Spacer(background='738afe', length=1),
-    widget.Spacer(background='778afe', length=1),
-    widget.Spacer(background='7b8bfe', length=1),
-    widget.Spacer(background='808cfe', length=1),
-    widget.Spacer(background='848cfd', length=1),
-    widget.Spacer(background='888cfd', length=1),
-    widget.Spacer(background='8c8dfd', length=1),
-    widget.Spacer(background='908efc', length=1),
-    widget.Spacer(background='948efc', length=1),
-    widget.Spacer(background='988efc', length=1),
-    widget.Spacer(background='9c8ffb', length=1),
-    widget.Spacer(background='a090fb', length=1),
-    widget.Spacer(background='a490fb', length=1),
-    widget.Spacer(background='a890fa', length=1),
-    widget.Spacer(background='ad91fa', length=1),
-    widget.Spacer(background='b192fa', length=1),
-    widget.Spacer(background='b592fa', length=1),
-    widget.Spacer(background='b992f9', length=1),
+    widget.Spacer(background='97a3e0', length=1),
+    widget.Spacer(background='99a2e2', length=1),
+    widget.Spacer(background='9ba1e3', length=1),
+    widget.Spacer(background='9da1e4', length=1),
+    widget.Spacer(background='9fa0e6', length=1),
+    widget.Spacer(background='a19fe7', length=1),
+    widget.Spacer(background='a39ee8', length=1),
+    widget.Spacer(background='a59de9', length=1),
+    widget.Spacer(background='a79ceb', length=1),
+    widget.Spacer(background='a99cec', length=1),
+    widget.Spacer(background='ab9bed', length=1),
+    widget.Spacer(background='ad9aef', length=1),
+    widget.Spacer(background='af99f0', length=1),
+    widget.Spacer(background='b198f1', length=1),
+    widget.Spacer(background='b397f2', length=1),
+    widget.Spacer(background='b596f4', length=1),
+    widget.Spacer(background='b796f5', length=1),
+    widget.Spacer(background='b995f6', length=1),
+    widget.Spacer(background='bb94f8', length=1),
 
     widget.Spacer(background=color_purple, length=4),
 
@@ -603,58 +607,58 @@ widgets_secondary_display = [
         length=8
     ),
 
-    ### blue 2 white ###
+    ### blue 2 lightwhite ###
     widget.TextBox(
         background=color_blue,
-        foreground=color_white,
+        foreground=color_lightwhite,
         fontsize=17,
         text='',
         padding=0
     ),
 
-    widget.Spacer(background=color_white, length=6),  # +0
+    widget.Spacer(background=color_lightwhite, length=6),  # +0
 
     widget.TextBox(
-        background=color_white,
+        background=color_lightwhite,
         foreground=color_black,
         text=' ',
         padding=0
     ),
 
     widget.CurrentLayout(
-        background=color_white,
+        background=color_lightwhite,
         foreground=color_black,
         padding=1
     ),
 
-    widget.Spacer(background=color_white, length=6),  # +0
+    widget.Spacer(background=color_lightwhite, length=6),  # +0
 
     widget.TextBox(
-        background=color_white,
+        background=color_lightwhite,
         foreground=color_whitegray,
         fontsize=10,
         text='',
         padding=0
     ),
 
-    widget.Spacer(background=color_white, length=6),  # +0
+    widget.Spacer(background=color_lightwhite, length=6),  # +0
 
     widget.TextBox(
-        background=color_white,
+        background=color_lightwhite,
         foreground=color_black,
         text=' ',
         padding=0
     ),
 
     widget.Clock(
-        background=color_white,
+        background=color_lightwhite,
         foreground=color_black,
         padding=0,
         format='%H:%M',
         mouse_callbacks={'Button1': toggle_calcurse}
     ),
 
-    widget.Spacer(background=color_white, length=9)
+    widget.Spacer(background=color_lightwhite, length=9)
 ]
 
 

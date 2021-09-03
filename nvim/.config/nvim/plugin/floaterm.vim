@@ -1,8 +1,8 @@
-let g:floaterm_title = 'FT.$1'  " '$1|$2'
+let g:floaterm_title = 'FT $1.$2'  " '$1|$2'
 let g:floaterm_wintype = 'float'  " split,float
 let g:floaterm_position = 'bottom'  " center,bottom,tab,botright
 let g:floaterm_width = 1.00
-let g:floaterm_height = 0.40
+let g:floaterm_height = 0.40  " 0.40,1.00
 let g:floaterm_opener = 'edit'  " edit,drop
 let g:floaterm_autoclose = 1
 let g:floaterm_autohide = 2
@@ -106,13 +106,13 @@ augroup floatermmode
 augroup end
 
 
-command! ChFiler call <SID>chfiler()
 command! GitCLI call <SID>gitcli()
 command! FastFinder call <SID>fastfinder()
+command! ChFiler call <SID>chfiler()
 
 
 nnoremap <silent><M-space> :FloatermToggle<cr>
-nnoremap <silent><M-q> :ChFiler<cr>
+nnoremap <silent><M-return> :ChFiler<cr>
 
-nnoremap <leader>h :FastFinder<cr>
-nnoremap <leader>g :GitCLI<cr>
+nnoremap <leader>ftg :GitCLI<cr>
+nnoremap <leader>ftf :FastFinder<cr>

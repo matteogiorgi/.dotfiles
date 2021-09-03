@@ -47,10 +47,15 @@ augroup end
 
 augroup explorerwindow
     autocmd! BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+    " autocmd! VimLeavePre * execute 'CocCommand explorer --quit'
 augroup end
 
 augroup explorercursorline
     autocmd! User CocExplorerOpenPost set cursorline
+augroup end
+
+augroup explorerequalize
+    autocmd! User CocExplorerOpenPost,CocExplorerQuitPost execute 'wincmd ='
 augroup end
 
 
@@ -101,10 +106,10 @@ nmap     <leader>cgr <Plug>(coc-references)
 nmap <silent><tab>   <Plug>(coc-diagnostic-next)
 nmap <silent><S-tab> <Plug>(coc-diagnostic-prev)
 
-nnoremap <silent>K          :call <SID>ShowDoc()<CR>
-nnoremap <silent><M-return> :CocList vimcommands<CR>
-nnoremap <leader>k          :CocCommand explorer --preset float<CR>
-nnoremap <leader>l          :CocList buffers<CR>
+nnoremap <silent>K   :call <SID>ShowDoc()<CR>
+nnoremap <leader>k   :CocList vimcommands<CR>
+nnoremap <leader>l   :CocList buffers<CR>
+nnoremap <leader>ftt :CocCommand explorer<CR>
 
 nnoremap <leader>fl  :CocList words<CR>
 nnoremap <leader>fm  :CocList marks<CR>

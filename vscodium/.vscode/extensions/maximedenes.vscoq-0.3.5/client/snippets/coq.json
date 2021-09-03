@@ -1,0 +1,156 @@
+{
+  "reflexivity": {
+    "prefix": "reflexivity",
+    "body": ["reflexivity."]
+  },
+  "Abstract": {
+    "prefix": "abstract",
+    "body": ["abstract ${1}.\n$0"],
+    "description": "abstract $expr."
+  },
+  "Abstract Using": {
+    "prefix": "abstract",
+    "body": ["abstract ${1} using ${2}.\n$0"],
+    "description": "abstract $expr using $ident."
+  },
+  "Lemma": {
+    "prefix": "Lemma",
+    "body": [
+      "Lemma ${1}: ${2}.",
+      "Proof.",
+      "\t$0",
+      "Qed.\n"
+      ],
+    "description": "Lemma..."
+  },
+  "Theorem": {
+    "prefix": "Theorem",
+    "body": [
+      "Theorem ${1}: ${2}.",
+      "Proof.",
+      "\t$0",
+      "Qed.\n"
+      ],
+    "description": "Theorem..."
+  },
+  "Definition": {
+    "prefix": "Definition",
+    "body": ["Definition $1 := $2.\n"],
+    "description": "Definition..."
+  },
+  "Notation (Simple)": {
+    "prefix": "Notation",
+    "body": [ "Notation \"$1\" := ($2).\n$0" ],
+    "description": "Notation"
+  },
+  "Notation (Full)": {
+    "prefix": "Notation",
+    "body": [
+      "Notation \"$1\" :=",
+      "\t($2)",
+      "\t(at level $3, ${4|no,left,right|} associativity)",
+      "\t: ${5:scope}.\n"
+    ],
+    "description": "Notation, level, associativity, scope"
+  },
+  "Section": {
+    "prefix": "Section",
+    "body": [
+      "Section ${1:name}.",
+      "\t$0",
+      "End ${1:name}.\n"
+      ],
+    "description": "Section..."
+  },
+  "Module": {
+    "prefix": "Module",
+    "body": [
+      "Module ${1:name}.",
+      "\t$0",
+      "End ${1:name}.\n"
+      ],
+    "description": "Module..."
+  },
+  "Module Type": {
+    "prefix": "Module Type",
+    "body": [
+      "Module Type ${1:name}.",
+      "\t$0",
+      "End ${1:name}.\n"
+      ],
+    "description": "Module Type..."
+  },
+  "Obligation Tactic": {
+    "prefix": "Obligation Tactic",
+    "body": ["Obligation Tactic := ${1:expr}."]
+  },
+  "Local Obligation Tactic": {
+    "prefix": "Local Obligation Tactic",
+    "body": ["Local Obligation Tactic := ${1:expr}."]
+  },
+  "Global Obligation Tactic": {
+    "prefix": "Global Obligation Tactic",
+    "body": ["Global Obligation Tactic := ${1:expr}."]
+  },
+  "Show Obligation Tactic": {
+    "prefix": "Show Obligation Tactic",
+    "body": ["Show Obligation Tactic."]
+  },
+  "Obligations": {
+    "prefix": "Obligations",
+    "body": ["Obligations."]
+  },
+  "Obligations of...": {
+    "prefix": "Obligations of",
+    "body": ["Obligations of ${1:ident}."]
+  },
+  "Obligation (num)": {
+    "prefix": "Obligation",
+    "body": ["Obligation ${1:num}."]
+  },
+  "Obligation (num) of...": {
+    "prefix": "Obligation of",
+    "body": ["Obligation ${1:num} of ${2:ident}."]
+  },
+  "Next Obligation": {
+    "prefix": "Next Obligation",
+    "body": ["Next Obligation."]
+  },
+  "Next Obligation of...": {
+    "prefix": "Next Obligation of",
+    "body": ["Next Obligation of ${1:ident}."]
+  },
+  "Solve Obligation": {
+    "prefix": "Solve Obligation",
+    "body": ["Solve Obligation."]
+  },
+  "Solve Obligation of...": {
+    "prefix": "Solve Obligation of",
+    "body": ["Solve Obligation of ${1:ident}."]
+  },
+  "Solve Obligation of... with...": {
+    "prefix": "Solve Obligation of",
+    "body": ["Solve Obligation of ${1:ident} with ${2:expr}."]
+  },
+  "Solve All Obligations": {
+    "prefix": "Solve All Obligations",
+    "body": ["Solve All Obligations."]
+  },
+  "Admit Obligations": {
+    "prefix": "Admit Obligations",
+    "body": ["Admit Obligations."]
+  },
+  "Admit Obligations of...": {
+    "prefix": "Admit Obligations of",
+    "body": ["Admit Obligations of ${1:ident}."]
+  },
+  "Preterm": {
+    "prefix": "Preterm",
+    "body": ["Preterm."]
+  },
+  "Preterm of...": {
+    "prefix": "Preterm of",
+    "body": ["Preterm of ${1:ident}."]
+  }
+
+}

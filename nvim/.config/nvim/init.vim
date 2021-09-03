@@ -253,8 +253,8 @@ nnoremap <leader>wot :tabonly<CR>
 " Outofmenu remaps{{{
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-nnoremap <silent><M-d> }}{jzz
-nnoremap <silent><M-u> {{jzz
+nnoremap <silent><M-d> }}{j
+nnoremap <silent><M-u> {{j
 nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
 nnoremap <silent><C-j> :resize -5<CR>

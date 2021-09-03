@@ -23,22 +23,22 @@
 !rofi.hlbg:                           #34405a
 !rofi.bc:                             #789ee1
 
-! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
-rofi.color-normal: #282A36,  #BFBFBF,  #282A36,  #BFBFBF,  #282A36
+! State:           'bg',    'fg',    'bgalt', 'hlbg',  'hlfg'
+rofi.color-normal: #282A36, #BFBFBF, #282A36, #BFBFBF, #282A36
 
-!                  'background', 'border'
-rofi.color-window: #282A36,      #BFBFBF
-rofi.bw:                             2
-!rofi.location:                       0
-!rofi.padding:                        20
-!rofi.levenshtein-sort:               true
-rofi.case-sensitive:                 false
-rofi.fuzzy:                          true
-rofi.line-margin:                    2
-rofi.separator-style:                none
-rofi.hide-scrollbar:                 true
-!rofi.markup-rows:                    false
-!rofi.scrollbar-width:                8
+!                  'bg',    'border'
+rofi.color-window: #282A36, #BFBFBF
+rofi.bw: 2
+!rofi.location: 0
+!rofi.padding: 20
+!rofi.levenshtein-sort: true
+rofi.case-sensitive: false
+rofi.fuzzy: true
+rofi.line-margin: 2
+rofi.separator-style: none
+rofi.hide-scrollbar: true
+!rofi.markup-rows: false
+!rofi.scrollbar-width: 8
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

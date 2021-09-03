@@ -67,6 +67,20 @@ UXTerm.vt100.translations: #override \n\
 
 
 
+! Rofi config
+
+! rofi.color-normal: #282A36, #BFBFBF, #282A36, #BFBFBF, #282A36
+! rofi.color-window: #282A36, #BFBFBF
+! rofi.bw: 2
+! rofi.case-sensitive: false
+! rofi.fuzzy: true
+! rofi.line-margin: 2
+! rofi.separator-style: none
+! rofi.hide-scrollbar: true
+
+
+
+
 ! Dracula palette
 
 *.background: #282A36
