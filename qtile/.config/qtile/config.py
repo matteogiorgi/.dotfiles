@@ -70,23 +70,25 @@ keys = [
     KeyChord([mod], "s", [                                                    #                 [S]
         Key([], "s", lazy.spawn("xfce4-settings-manager")),                   # settings        (S)
         Key([], "x", lazy.spawn("xkill")),                                    # xkill           (X)
-        Key([], "e", lazy.shutdown()),                                        # exit-qtile      (E)
-        Key([], "l", lazy.restart()),                                         # load-config     (L)
-        Key([], "q", lazy.spawn("systemctl -i poweroff")),                    # quit-systen     (Q)
-        Key([], "r", lazy.spawn("systemctl reboot")),                         # reboot-systen   (R)
+        Key([], "l", lazy.spawn("betterlockscreen -l dim")),                  # lockscreen      (L)
+        Key([], "q", lazy.shutdown()),                                        # exit            (Q)
+        Key([], "r", lazy.restart()),                                         # restart         (R)
+        Key(["shift"], "q", lazy.spawn("systemctl -i poweroff")),             # quit-systen     (Shift-Q)
+        Key(["shift"], "r", lazy.spawn("systemctl reboot")),                  # reboot-systen   (Shift-R)
     ]),
 
     # Apps keychords
     KeyChord([mod], "a", [                                                    #                 [A]
-        Key([], "a", lazy.spawncmd(prompt='$')),                              # qtile-prompt    (A)
+        Key([], "a", lazy.spawncmd(prompt='$')),                              # prompt          (A)
+        Key([], "k", lazy.spawn("kitty")),                                    # kitty           (K)
+        Key([], "e", lazy.spawn("emacs")),                                    # emacs           (E)
+        Key([], "f", lazy.spawn("firefox")),                                  # firefox         (F)
+        Key([], "b", lazy.spawn("bgrandom")),                                 # background      (B)
+        Key([], "l", lazy.spawn("laynext")),                                  # layout          (L)
+        Key([], "i", lazy.spawn("keyinfo")),                                  # info            (I)
         Key([], "t", lazy.spawn(terminal + " -e tmux")),                      # tmux            (T)
         Key([], "m", lazy.spawn(terminal + " -e mocp")),                      # moc             (M)
         Key([], "c", lazy.spawn(terminal + " -e calcurse")),                  # calcurse        (C)
-        Key([], "w", lazy.spawn("firefox")),                                  # web-browser     (W)
-        Key([], "e", lazy.spawn("emacs")),                                    # editor          (E)
-        Key([], "i", lazy.spawn("keyinfo")),                                  # info            (I)
-        Key([], "b", lazy.spawn("bgrandom")),                                 # background      (B)
-        Key([], "l", lazy.spawn("laynext")),                                  # next-layout     (N)
     ]),
 
     # Windows keychords
@@ -114,16 +116,16 @@ keys = [
 
     # Windows ratio keymaps
     Key([mod, "control"], "j",
-        lazy.layout.decrease_ratio(),
+        lazy.layout.decrease_nmaster(),
         lazy.layout.grow_down()),
     Key([mod, "control"], "k",
-        lazy.layout.increase_ratio(),
+        lazy.layout.increase_nmaster(),
         lazy.layout.grow_up()),
     Key([mod, "control"], "h",
-        lazy.layout.decrease_nmaster(),
+        lazy.layout.decrease_ratio(),
         lazy.layout.grow_left()),
     Key([mod, "control"], "l",
-        lazy.layout.increase_nmaster(),
+        lazy.layout.increase_ratio(),
         lazy.layout.grow_right()),
 
     # Move between groups
@@ -131,9 +133,9 @@ keys = [
     Key([mod], "BackSpace", lazy.screen.prev_group()),                        # previous group
 
     # Menu keymaps
-    Key([mod], "space", lazy.spawn("kupfer")),                                # kupfer-menu
-    Key([mod], "Return", lazy.spawn("kitty")),                                # terminal
-    Key([mod], "Escape", lazy.spawn("betterlockscreen -l dim")),              # lockscreen
+    Key([mod], "Return", lazy.spawn("rofirun -r")),                           # app-menu
+    Key([mod], "Escape", lazy.spawn("rofirun -l")),                           # logout-menu
+    Key([mod], "space", lazy.spawn("rofirun -w")),                            # windows-menu
 
 
     # Volume (uncomment the one that works for you)

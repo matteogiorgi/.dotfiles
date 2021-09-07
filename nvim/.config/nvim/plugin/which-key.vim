@@ -105,20 +105,22 @@ let g:which_key_map['w'] = { 'name' : '+WinCMD',
             \ 'r' : 'rotate',
             \ 'e' : 'equalize',
             \ 't' : 'totab',
-            \ 'o' : { 'name' : '+Only',
-            \     't' : 'tab',
-            \     'w' : 'window',
-            \     }
             \ }
 "}}}
 
 " Sessions{{{
 let g:which_key_map['e'] = { 'name' : '+Edit',
-            \ 't' : 'tab',
-            \ 'w' : 'window',
+            \ 't' : { 'name' : '+Tab',
+            \     't' : 'new',
+            \     'o' : 'only',
+            \     },
+            \ 'w' : { 'name' : '+Window',
+            \     'w' : 'new',
+            \     'o' : 'only',
+            \     },
             \ 's' : { 'name' : '+Session',
-            \     'l' : 'list',
             \     's' : 'save',
+            \     'l' : 'list',
             \     }
             \ }
 "}}}

@@ -244,10 +244,10 @@ nnoremap <leader>ww  :wincmd w<cr>
 nnoremap <leader>wr  :wincmd r<cr>
 nnoremap <leader>we  :wincmd =<cr>
 nnoremap <leader>wt  :wincmd T<cr>
-nnoremap <leader>ew  :enew<CR>
-nnoremap <leader>et  :tabnew<CR>
-nnoremap <leader>wow :only<CR>
-nnoremap <leader>wot :tabonly<CR>
+nnoremap <leader>ett :tabnew<CR>
+nnoremap <leader>eto :only<CR>
+nnoremap <leader>eww :enew<CR>
+nnoremap <leader>ewo :tabonly<CR>
 "}}}
 
 " Outofmenu remaps{{{

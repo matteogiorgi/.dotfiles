@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
+    Plug 'matteogiorgi/notewiki'
 call plug#end()
 "}}}
 
@@ -49,8 +50,8 @@ set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM
 set matchpairs+=<:>
 set autochdir
 set hidden
-set updatetime=300  "default = 4000ms
-set timeoutlen=300  "default = 1000ms
+set updatetime=4000  "default = 4000ms
+set timeoutlen=2000  "default = 1000ms
 set encoding=UTF-8 t_Co=256 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=  " let &colorcolumn = '81,'.join(range(81,999),',')

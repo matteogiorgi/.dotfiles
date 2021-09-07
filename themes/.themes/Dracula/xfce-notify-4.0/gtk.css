@@ -1,15 +1,15 @@
-/* We set some default options here.  This is loaded with a low priority,
+/* We set some default options here. This is loaded with a low priority,
  * the rest will use whatever default colors are in your main gtk theme */
 #XfceNotifyWindow {
-    background-color: #1E1F29;
+    background-color: #282A36;
     border-radius: 0px;
-    border: 2px solid #BFBFBF;
+    border: 2px solid #2e2f3e;
     padding: 20px;
 }
 
 #XfceNotifyWindow:hover {
-    background-color: #1E1F29;
-    border: 2px solid #BFBFBF;
+    background-color: #282A36;
+    border: 2px solid #2e2f3e;
 }
 
 #XfceNotifyWindow label,
@@ -25,7 +25,7 @@
     border-style: none;
     box-shadow: none;
     background-image: none;
-    background-color: #3A3C4E;
+    background-color: #2e2f3e;
     color: #BFBFBF;
 }
 
@@ -44,12 +44,12 @@
 
 #XfceNotifyWindow progressbar progress {
     background-image: linear-gradient(to right, #BFBFBF, #626483);
-    background-color: #3A3C4E;
+    background-color: #2e2f3e;
 }
 
 #XfceNotifyWindow progressbar trough {
     background-image: none;
-    background-color: #3A3C4E;
+    background-color: #2e2f3e;
     border: 0px;
     border-radius: 5px;
 }
