@@ -66,13 +66,14 @@
         "language-julia.interrupt"
     ],
     "julia.enableTelemetry": false,
-    "window.menuBarVisibility": "hidden",
     "window.zoomLevel": 0,
     "window.restoreWindows": "none",
     "window.titleBarStyle": "native",
+    "window.menuBarVisibility": "toggle",
     "keyboard.dispatch": "keyCode",
     "breadcrumbs.enabled": true,
     "diffEditor.ignoreTrimWhitespace": false,
+    "files.autoSave": "afterDelay",
     "files.exclude": {
         "**/.*": true,
         "**/.classpath": true,

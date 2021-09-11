@@ -23,25 +23,27 @@ keynames    = {'gb': 'Gbr', 'it': 'Ita', 'us': 'Usa'}
 wallpapers  = '~/Pictures/wallpapers/wallogo'
 
 
-color_white      = 'BFBFBF'  #BFBFBF
-color_black      = '1E1F29'  #1E1F29
-color_dark       = '282A36'  #282A36
-color_gray       = '626483'  #626483
-color_blue       = '3A3C4E'  #3A3C4E
-color_cyan       = '8BE9FD'  #8BE9FD
-color_green      = '50FA7B'  #50FA7B
-color_red        = 'FF5555'  #FF5555
-color_orange     = 'FFB86C'  #FFB86C
-color_yellow     = 'F1FA8C'  #F1FA8C
-color_magenta    = 'FF79C6'  #FF79C6
-color_purple     = 'BD93F9'  #BD93F9
-color_lightblue  = '95A4DF'  #95A4DF
-color_lightred   = 'FF6E6E'  #FF6E6E
-color_lightwhite = 'A8A8B0'  #A8A8B0
+color_white       = 'BFBFBF'  #BFBFBF
+color_black       = '1E1F29'  #1E1F29
+color_dark        = '282A36'  #282A36
+color_gray        = '626483'  #626483
+color_blue        = '3A3C4E'  #3A3C4E
+color_cyan        = '8BE9FD'  #8BE9FD
+color_green       = '50FA7B'  #50FA7B
+color_red         = 'FF5555'  #FF5555
+color_orange      = 'FFB86C'  #FFB86C
+color_yellow      = 'F1FA8C'  #F1FA8C
+color_magenta     = 'FF79C6'  #FF79C6
+color_purple      = 'BD93F9'  #BD93F9
+color_lightred    = 'FF6E6E'  #FF6E6E
 
-color_whitegray  = '86868E'  #86868E
-color_bluegray   = '7783B2'  #7783B2
-color_purplegray = '9576C5'  #9576C5
+color_lightwhite  = 'A8A8B0'  #A8A8B0
+color_lightblue   = '95A4DF'  #95A4DF
+color_lightpurple = 'af8ce7'  #af8ce7
+
+color_whitegray   = '86868E'  #86868E
+color_bluegray    = '7783B2'  #7783B2
+color_purplegray  = '8b71b8'  #8b71b8
 
 
 last_playing = 'clementine'
@@ -476,30 +478,30 @@ widgets_primary_display = [
     widget.Spacer(background=color_lightblue, length=3),  # +0
 
     ### lightblue 2 purple ###
-    widget.Spacer(background='97a3e0', length=1),
-    widget.Spacer(background='99a2e2', length=1),
-    widget.Spacer(background='9ba1e3', length=1),
-    widget.Spacer(background='9da1e4', length=1),
-    widget.Spacer(background='9fa0e6', length=1),
-    widget.Spacer(background='a19fe7', length=1),
-    widget.Spacer(background='a39ee8', length=1),
-    widget.Spacer(background='a59de9', length=1),
-    widget.Spacer(background='a79ceb', length=1),
-    widget.Spacer(background='a99cec', length=1),
-    widget.Spacer(background='ab9bed', length=1),
-    widget.Spacer(background='ad9aef', length=1),
-    widget.Spacer(background='af99f0', length=1),
-    widget.Spacer(background='b198f1', length=1),
-    widget.Spacer(background='b397f2', length=1),
-    widget.Spacer(background='b596f4', length=1),
-    widget.Spacer(background='b796f5', length=1),
-    widget.Spacer(background='b995f6', length=1),
-    widget.Spacer(background='bb94f8', length=1),
+    widget.Spacer(background='96a3df', length=1),
+    widget.Spacer(background='98a2e0', length=1),
+    widget.Spacer(background='99a0e0', length=1),
+    widget.Spacer(background='9a9fe1', length=1),
+    widget.Spacer(background='9c9ee1', length=1),
+    widget.Spacer(background='9d9de1', length=1),
+    widget.Spacer(background='9e9ce2', length=1),
+    widget.Spacer(background='9f9ae2', length=1),
+    widget.Spacer(background='a199e3', length=1),
+    widget.Spacer(background='a298e3', length=1),
+    widget.Spacer(background='a397e3', length=1),
+    widget.Spacer(background='a596e4', length=1),
+    widget.Spacer(background='a694e4', length=1),
+    widget.Spacer(background='a793e5', length=1),
+    widget.Spacer(background='a892e5', length=1),
+    widget.Spacer(background='aa91e5', length=1),
+    widget.Spacer(background='ab90e6', length=1),
+    widget.Spacer(background='ac8ee6', length=1),
+    widget.Spacer(background='ae8de7', length=1),
 
-    widget.Spacer(background=color_purple, length=4),
+    widget.Spacer(background=color_lightpurple, length=4),
 
     widget.Wallpaper(
-        background=color_purple,
+        background=color_lightpurple,
         foreground=color_black,
         directory=wallpapers,
         random_selection=True,
@@ -508,31 +510,31 @@ widgets_primary_display = [
     ),
 
     widget.TextBox(
-        background=color_purple,
+        background=color_lightpurple,
         foreground=color_purplegray,
         fontsize=10,
         text='',
         padding=0
     ),
 
-    widget.Spacer(background=color_purple, length=6),
+    widget.Spacer(background=color_lightpurple, length=6),
 
     widget.TextBox(
-        background=color_purple,
+        background=color_lightpurple,
         foreground=color_black,
         text=' ',
         padding=0
     ),
 
     widget.Clock(
-        background=color_purple,
+        background=color_lightpurple,
         foreground=color_black,
         padding=0,
         format='%H:%M',
         mouse_callbacks={'Button1': toggle_calcurse}
     ),
 
-    widget.Spacer(background=color_purple, length=9)
+    widget.Spacer(background=color_lightpurple, length=9)
 ]
 
 

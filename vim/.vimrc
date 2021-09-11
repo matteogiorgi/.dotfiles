@@ -56,7 +56,7 @@ set encoding=UTF-8 t_Co=256 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=  " let &colorcolumn = '81,'.join(range(81,999),',')
 set cmdheight=1
-set fillchars+=vert:\ ,eob:\ ,fold:─
+set fillchars+=vert:\ ,eob:\ ,fold:-
 set wildchar=<Tab> wildmenu wildmode=full
 set laststatus=2 showtabline=2
 "}}}
