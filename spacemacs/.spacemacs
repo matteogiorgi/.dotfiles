@@ -32,30 +32,42 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(javascript
-     python
-     html
-     ;; ----------------------------------------------------------------
+   '(;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-return-key-behavior 'complete
+                      auto-completion-tab-key-behavior 'cycle
+                      auto-completion-complete-with-key-sequence nil
+                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-private-snippets-directory nil)
      better-defaults
      emacs-lisp
      git
      helm
-     ;; lsp
+     lsp
      markdown
      multiple-cursors
      org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     ;; version-control
-     treemacs)
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
+     spell-checking
+     syntax-checking
+     version-control
+     (treemacs :variables
+               treemacs-use-follow-mode 't
+               treemacs-use-filewatch-mode t
+               treemacs-use-scope-type 'Perspectives
+               treemacs-use-git-mode 'deferred)
+     (c-c++ :variables
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-clang-support t)
+     javascript
+     python
+     html)
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -176,7 +188,7 @@ It should only modify the values of Spacemacs settings."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner "~/.logos/emacs.png"
 
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
@@ -188,8 +200,8 @@ It should only modify the values of Spacemacs settings."
    ;; pair of numbers, e.g. `(recents-by-project . (7 .  5))', where the first
    ;; number is the project limit and the second the limit on the recent files
    ;; within a project.
-   dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 5))
+   dotspacemacs-startup-lists '((recents . 7)
+                                (projects . 3))
 
    ;; True if the home buffer should respond to resize events. (default t)
    dotspacemacs-startup-buffer-responsive t
@@ -223,9 +235,9 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(dracula
-                         spacemacs-dark
-                         spacemacs-light)
+   dotspacemacs-themes '(doom-dracula
+                         dracula
+                         spacemacs-dark)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -549,6 +561,8 @@ before packages are loaded."
   (setq default-text-properties '(line-spacing 0.10 line-height 1.00))
   (spacemacs/toggle-highlight-current-line-globally-off)
   (spacemacs/toggle-vi-tilde-fringe-off))
+
+
 
 
 ;; Do not write anything past this comment. This is where Emacs will
