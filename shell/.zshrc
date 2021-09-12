@@ -444,8 +444,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 export PAGER="most" && [[ -f /bin/nvimpager ]] && export PAGER="nvimpager"        # nvimpager,nvim +Man!
 export MANPAGER="most" && [[ -f /bin/nvimpager ]] && export MANPAGER="nvimpager"  # nvimpager,nvim +Man!
-export VISUAL="vim" && [[ -f /bin/nvim ]] && export VISUAL="nvimpager"            # nvim,vim,amp,micro,vscodium
-export EDITOR="vim" && [[ -f /bin/nvim ]] && export EDITOR="nvimpager"            # nvim,vim,amp,micro,vscodium
+export VISUAL="vim" && [[ -f /bin/nvim ]] && export VISUAL="nvim"                 # nvim,vim,amp,micro,vscodium
+export EDITOR="vim" && [[ -f /bin/nvim ]] && export EDITOR="nvim"                 # nvim,vim,amp,micro,vscodium
 export BROWSER="qutebrowser"                                                      # qutebrowser,luakit,vimb
 export READER="zathura"
 export GOPATH="$HOME/go"                                                          # go directory should stay in $HOME
