@@ -49,14 +49,6 @@ let g:which_key_map = { 'name' : 'Menu',
             \ }
 "}}}
 
-" NoteWiki{{{
-let g:which_key_map['n'] = { 'name' : '+Notes',
-            \ 'i' : 'index',
-            \ 'b' : 'browse',
-            \ 's' : 'scratch',
-            \ }
-"}}}
-
 " Replace{{{
 let g:which_key_map['m'] = { 'name' : '+Multi',
             \ 'p' : 'position',
@@ -90,11 +82,6 @@ let g:which_key_map['f'] = { 'name' : '+Find',
             \     'f' : './',
             \     'g' : 'git',
             \     'h' : 'mru',
-            \     },
-            \ 't' : { 'name' : '+Term',
-            \     't' : 'tree',
-            \     'f' : 'file',
-            \     'g' : 'git',
             \     }
             \ }
 "}}}

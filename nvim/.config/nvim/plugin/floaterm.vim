@@ -112,7 +112,3 @@ command! ChFiler call <SID>chfiler()
 
 
 nnoremap <silent><M-space> :FloatermToggle<cr>
-nnoremap <silent><M-return> :ChFiler<cr>
-
-nnoremap <leader>ftg :GitCLI<cr>
-nnoremap <leader>ftf :FastFinder<cr>

@@ -1,10 +1,10 @@
 " Plugin list{{{
 call plug#begin('~/.vim/plugged')
+    Plug 'ervandew/supertab'
     Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
-    Plug 'matteogiorgi/notewiki'
 call plug#end()
 "}}}
 
@@ -51,12 +51,12 @@ set matchpairs+=<:>
 set autochdir
 set hidden
 set updatetime=4000  "default = 4000ms
-set timeoutlen=2000  "default = 1000ms
+set timeoutlen=1000  "default = 1000ms
 set encoding=UTF-8 t_Co=256 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=  " let &colorcolumn = '81,'.join(range(81,999),',')
 set cmdheight=1
-" set fillchars+=vert:\ ,eob:\ ,fold:-
+set fillchars+=vert:\│,eob:\ ,fold:-
 set wildchar=<Tab> wildmenu wildmode=full
 set laststatus=2 showtabline=2
 "}}}
@@ -115,6 +115,11 @@ nnoremap <C-j> :resize -5<CR>
 nnoremap <C-k> :resize +5<CR>
 nnoremap gr :%s///gc<Left><Left><Left>
 xnoremap gr :s///gc<Left><Left><Left>
+nnoremap <leader>w <C-w>
+nnoremap <leader>e :Explore<cr>
+nnoremap <leader>f :FZF<cr>
+nnoremap <leader>wd :Bclose<cr>
+nnoremap <leader><tab> :buffers<cr>:buffer<space>
 "}}}
 
 

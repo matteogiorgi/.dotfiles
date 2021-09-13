@@ -280,12 +280,14 @@ set background=dark
 call s:h('Normal'   , s:fg , g:dracula_colorterm || has('gui_running') ? s:bg : s:none )
 call s:h('WildMenu' , s:bg , s:purple  , [s:attrs.bold])
 if has('nvim')
+  call s:h('VertSplit'        , s:neofg , s:none    , [s:attrs.bold])
   call s:h('StatusLine'       , s:neofg , s:neoline , [s:attrs.bold])
   call s:h('StatusLineTerm'   , s:neofg , s:neoline , [s:attrs.bold])
   call s:h('StatusLineNC'     , s:neonc , s:neoline , [s:attrs.bold])
   call s:h('StatusLineTermNC' , s:neonc , s:neoline , [s:attrs.bold])
   call s:h('CursorLine'       , s:none  , s:neoend)
 else
+  call s:h('VertSplit'        , s:neofg   , s:none  , [s:attrs.bold])
   call s:h('StatusLine'       , s:neoline , s:neofg , [s:attrs.bold])  " s:none , s:bglighter , [s:attrs.bold]
   call s:h('StatusLineTerm'   , s:neoline , s:neofg , [s:attrs.bold])  " s:none , s:bglighter , [s:attrs.bold]
   call s:h('StatusLineNC'     , s:neoline , s:neofg)                   " s:none , s:bglight
@@ -321,7 +323,7 @@ hi! link TabLine      StatusLineNC      " DraculaBoundary
 hi! link TabLineFill  StatusLineNC      " DraculaBgDarker
 hi! link TabLineSel   StatusLine        " Normal
 hi! link Title        DraculaGreenBold
-hi! link VertSplit    StatusLineNC      " DraculaBoundary
+" hi! link VertSplit    StatusLineNC      " DraculaBoundary
 hi! link Visual       DraculaSelection
 hi! link VisualNOS    Visual
 hi! link WarningMsg   DraculaOrangeInverse
