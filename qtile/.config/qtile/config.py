@@ -71,8 +71,8 @@ keys = [
     # System keychords
     KeyChord([mod], "s", [                                                    #                 [S]
         Key([], "s", lazy.spawn("xfce4-settings-manager")),                   # settings        (S)
-        Key([], "x", lazy.spawn("xkill")),                                    # xkill           (X)
         Key([], "l", lazy.spawn("betterlockscreen -l dim")),                  # lockscreen      (L)
+        Key([], "x", lazy.spawn("xkill")),                                    # xkill           (X)
         Key([], "q", lazy.shutdown()),                                        # exit            (Q)
         Key([], "r", lazy.restart()),                                         # restart         (R)
         Key(["shift"], "q", lazy.spawn("systemctl -i poweroff")),             # quit-systen     (Shift-Q)
@@ -134,10 +134,10 @@ keys = [
     Key([mod], "Tab", lazy.screen.next_group()),                              # next group
     Key([mod], "BackSpace", lazy.screen.prev_group()),                        # previous group
 
-    # Menu keymaps
+    # Rofi keymap
+    Key([mod], "space", lazy.spawn("rofirun -w")),                            # windows-menu
     Key([mod], "Return", lazy.spawn("rofirun -r")),                           # app-menu
     Key([mod], "Escape", lazy.spawn("rofirun -l")),                           # logout-menu
-    Key([mod], "space", lazy.spawn("rofirun -w")),                            # windows-menu
 
 
     # Volume (uncomment the one that works for you)

@@ -20,6 +20,7 @@
     border-radius:    0;
     border-color:     @bordercolor;
     padding:          50;
+    width:            calc(20%);
 }
 
 #mainbox {
@@ -44,8 +45,8 @@
     spacing:      4px ;
     scrollbar:    false;
     padding:      4px 0px 0px ;
-    lines:        5;
-    columns:      2;
+    lines:        3;
+    columns:      1;
 }
 
 #element {

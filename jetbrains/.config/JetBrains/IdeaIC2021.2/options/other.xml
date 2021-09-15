@@ -1,0 +1,52 @@
+<application>
+  <component name="ProjectPluginTrackerManager">
+    <trackers>
+      <map>
+        <entry key="1vxXjO8okbOyH5kpSB9cgNKPzeJ">
+          <value>
+            <ProjectPluginTracker />
+          </value>
+        </entry>
+      </map>
+    </trackers>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="FileTemplates.SelectedTemplate" value="HTML File" />
+    <property name="InstalledPluginsSearchHistory" value="intellimacs&#10;intellima&#10;intellim&#10;intelli&#10;intell" />
+    <property name="MarketplacePluginsSearchHistory" value="tabnine&#10;tabnin&#10;tabni&#10;tabnime&#10;tabnim" />
+    <property name="NonModalCommitCustomization.IsApplied" value="true" />
+    <property name="PluginConfigurable.selectionTab" value="1" />
+    <property name="SettingsSearchHistory" value="gutter&#10;navigation&#10;relative&#10;font&#10;line number" />
+    <property name="appcds.runOnSecondStart" value="IC-212.5080.55-8febd27f51ac5ce29559f6661295b6853dde0ab741d90d355004873d731fb4fc" />
+    <property name="ask.about.ctrl.y.shortcut.v2" value="true" />
+    <property name="build.toolwindow.Build Output.selection.state" value="com.intellij.build.BuildTreeConsoleView" />
+    <property name="com.intellij.openapi.roots.ui.configuration.TabbedModuleEditor.selectedEditor" value="Sources" />
+    <property name="defaultJdkConfigured" value="true" />
+    <property name="eclipse.projects.detected" value="" />
+    <property name="file.gist.reindex.count" value="1" />
+    <property name="fileTypeChangedCounter" value="5" />
+    <property name="fileTypeDetectors" value="com.android.tools.idea.fileTypes.profiler.MemoryCaptureFileType$Detector:com.android.tools.idea.sqlite.fileType.SqliteFileTypeDetector:com.intellij.ide.scratch.ScratchFileServiceImpl$Detector:org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector" />
+    <property name="got.it.tooltip.reader.mode.got.it" value="1" />
+    <property name="ide.memory.adjusted" value="true" />
+    <property name="ide.updates.old.dirs.scan.scheduled" value="1632232435437" />
+    <property name="ide.updates.previous.build.number" value="IC-212.5080.55" />
+    <property name="ide.updates.whats.new.shown.for" value="212" />
+    <property name="ideavim.statistics.timestamp" value="1631640316927" />
+    <property name="installed.kotlin.plugin.version" value="212-1.5.10-release-896-IJ5080.55" />
+    <property name="jdk.selected.JAVA_MODULE" value="16" />
+    <property name="lastSeenTip" value="neue-Scratch.html" />
+    <property name="lastTimeTipsWereShown" value="1628617947723" />
+    <property name="packagesearch.endpoint.url.fulltext" value="https://package-search.services.jetbrains.com/api/search/idea/fulltext" />
+    <property name="packagesearch.endpoint.url.suggest" value="https://package-search.services.jetbrains.com/api/search/idea/suggest" />
+    <property name="packagesearch.status.updated.ts" value="1631627621373" />
+    <property name="project.wizard.group" value="JAVA_MODULE" />
+    <property name="registry.to.advanced.settings.migration.build" value="IC-212.5080.55" />
+    <property name="seenTips" value="neue-CodeCompletionMiddle.html,neue-Compare.html,neue-LensMode.html,neue-MultiselectionWords.html,neue-ExternalJavaDoc.html,neue-Scratch.html" />
+    <property name="selected.color.option.type" value="CARET_ROW_COLOR" />
+    <property name="tabnine-notifications-shown-unsupported-cpu" value="true" />
+    <property name="tasks.pass.word.conversion.enforced" value="true" />
+  </component>
+  <component name="ToolbarSettingsService">
+    <option name="NEW_TOOLBAR_SETTINGS" value="NO_TOOLBAR_NO_NAVBAR" />
+  </component>
+</application>

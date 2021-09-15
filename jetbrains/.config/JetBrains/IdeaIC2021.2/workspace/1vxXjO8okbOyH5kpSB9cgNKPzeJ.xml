@@ -1,0 +1,157 @@
+<project version="4">
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="-1">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#63#64#0" expanded="true" />
+                <element signature="e#106#107#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>print</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/src/Test.java" />
+    </changedPaths>
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1" />
+    <panes />
+  </component>
+  <component name="TerminalArrangementManager">
+    <option name="mySelectedTabIndex" value="-1" />
+  </component>
+  <component name="ToolWindowManager">
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25040454" />
+      <window_info id="Structure" order="1" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Commit" order="3" />
+      <window_info id="Learn" order="4" />
+      <window_info id="Pull Requests" order="5" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.3296875" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3296875" />
+      <window_info anchor="bottom" id="TODO" order="4" />
+      <window_info anchor="bottom" id="Problems View" order="5" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3296875" />
+      <window_info anchor="bottom" id="Services" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Build" order="10" />
+      <window_info anchor="right" id="Layout Validation" order="0" />
+    </layout>
+    <recentWindows>
+      <value>Run</value>
+      <value>Project</value>
+      <value>Terminal</value>
+      <value>Event Log</value>
+    </recentWindows>
+  </component>
+  <component name="Trusted.Project.Settings" hasCheckedIfOldProject="true" trusted="YES" />
+  <component name="WindowStateProjectService">
+    <state x="20" y="40" width="1236" height="960" key="#Project_Structure" timestamp="1627504887439">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state x="20" y="40" width="1236" height="960" key="#Project_Structure/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1627504887439" />
+    <state width="1236" height="288" key="GridCell.Tab.0.bottom" timestamp="1628619936028">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state width="1236" height="288" key="GridCell.Tab.0.bottom/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628619936028" />
+    <state width="1236" height="288" key="GridCell.Tab.0.center" timestamp="1628619936027">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state width="1236" height="288" key="GridCell.Tab.0.center/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628619936027" />
+    <state width="1236" height="288" key="GridCell.Tab.0.left" timestamp="1628619936026">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state width="1236" height="288" key="GridCell.Tab.0.left/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628619936026" />
+    <state width="1236" height="288" key="GridCell.Tab.0.right" timestamp="1628619936027">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state width="1236" height="288" key="GridCell.Tab.0.right/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628619936027" />
+    <state x="185" y="177" width="970" height="700" key="SettingsEditor" timestamp="1628617984508">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state x="185" y="177" width="970" height="700" key="SettingsEditor/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628617984508" />
+    <state width="498" height="244" key="SwitcherDM" timestamp="1628618130272">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state width="498" height="244" key="SwitcherDM/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628618130272" />
+    <state x="301" y="249" width="672" height="684" key="search.everywhere.popup" timestamp="1628439326963">
+      <screen x="0" y="0" width="1280" height="1024" />
+    </state>
+    <state x="301" y="249" width="672" height="684" key="search.everywhere.popup/0.0.1280.1024/1280.124.1600.900@0.0.1280.1024" timestamp="1628439326963" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar:///usr/lib/jvm/java-16-openjdk/lib/src.zip!/java.base/java/io/PrintStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="781">
+          <caret line="1369" selection-start-line="1369" selection-end-line="1369" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.ideavimrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#63#64#0" expanded="true" />
+            <element signature="e#106#107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI" />
+      <state key="GlobalLibrariesConfigurable.UI" />
+      <state key="JdkListConfigurable.UI" />
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>test-ptoject</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI" />
+    </states>
+  </component>
+</project>

@@ -17,7 +17,8 @@
   <component name="VimMarksSettings">
     <globalmarks />
     <filemarks>
-      <file name="$USER_HOME$/PycharmProjects/test-project/main.py" timestamp="1629048260612">
+      <file name="$USER_HOME$/PycharmProjects/test-project/main.py" timestamp="1631628019009">
+        <mark key="'" line="16" column="0" />
         <mark key="]" line="14" column="41" />
         <mark key="^" line="14" column="41" />
         <mark key="." line="14" column="40" />
@@ -26,7 +27,9 @@
         <mark key="[" line="0" column="0" />
       </file>
     </filemarks>
-    <jumps />
+    <jumps>
+      <jump line="16" column="0" filename="$USER_HOME$/PycharmProjects/test-project/main.py" />
+    </jumps>
   </component>
   <component name="VimRegisterSettings">
     <registers>

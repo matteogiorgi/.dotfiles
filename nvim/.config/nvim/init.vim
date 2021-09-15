@@ -27,6 +27,7 @@
 "     utility···················$HOME/.config/nvim/loplugin/utility
 "     painter···················$HOME/.config/nvim/loplugin/painter
 "     coq·······················$HOME/.config/nvim/loplugin/coq
+"     loremipsum················$HOME/.config/nvim/loplugin/loremipsum
 
 
 "                              COC-EXTENSIONS
@@ -90,6 +91,7 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
     Plug '~/.config/nvim/loplugin/utility'
     Plug '~/.config/nvim/loplugin/painter'
     Plug '~/.config/nvim/loplugin/coq'
+    Plug '~/.config/nvim/loplugin/loremipsum'
 call plug#end()
 "}}}
 

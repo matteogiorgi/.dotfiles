@@ -58,7 +58,7 @@
       <i c="3" l="1629048286242" />
     </e>
     <e n="com.intellij.openapi.actionSystem.EmptyAction$MyDelegatingAction">
-      <i c="91" l="1629048267983" />
+      <i c="92" l="1631627568281" />
     </e>
     <e n="com.intellij.openapi.keymap.impl.ui.KeymapPanel$AddKeyboardShortcutAction">
       <i c="1" l="1628443821464" />
@@ -67,13 +67,13 @@
       <i c="5" l="1628526685232" />
     </e>
     <e n="com.intellij.openapi.ui.DialogWrapper$4">
-      <i c="9" l="1629048297947" />
+      <i c="10" l="1631640322809" />
     </e>
     <e n="com.intellij.openapi.ui.impl.DialogWrapperPeerImpl$AnCancelAction">
       <i c="3" l="1628617655393" />
     </e>
     <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$HideAction">
-      <i c="5" l="1629048083474" />
+      <i c="6" l="1631627729587" />
     </e>
     <e n="com.intellij.openapi.wm.impl.welcomeScreen.ActionGroupPanelWrapper$5">
       <i c="2" l="1628442223080" />
