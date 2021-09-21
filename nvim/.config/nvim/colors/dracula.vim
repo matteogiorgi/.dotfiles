@@ -25,7 +25,7 @@ let g:dracula#palette.yellow    = ['#F1FA8C', 228]
 " NeoColors
 "
 let g:dracula#palette.neodark   = ['#1E1F29', 234]
-let g:dracula#palette.neobg     = ['#282936', 236]
+let g:dracula#palette.neobg     = ['#282A36', 236]
 let g:dracula#palette.neofg     = ['#BFBFBF', 253]
 let g:dracula#palette.neonc     = ['#626483',  61]
 let g:dracula#palette.neoline   = ['#3A3C4E', 238]

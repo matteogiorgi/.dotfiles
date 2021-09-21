@@ -1,7 +1,7 @@
 /* Custom dracula theme */
 
 * {
-    font: "mononoki Nerd Font 11";
+    font: "mononoki Nerd Font 9";
     terminal: "xterm";
     foreground: #f8f8f2;
     background: #282a36;

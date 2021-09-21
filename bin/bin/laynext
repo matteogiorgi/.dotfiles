@@ -11,4 +11,6 @@ case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
         setxkbmap -layout gb
         ;;
 esac
-xrdb ~/.Xresources
+
+# xmodmap ~/.Xmodmap
+# xrdb ~/.Xresources

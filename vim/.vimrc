@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
+    Plug 'matteogiorgi/notewiki'
 call plug#end()
 "}}}
 

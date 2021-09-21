@@ -151,7 +151,7 @@
     "explorer.previewAction.onHover": false,
     "explorer.icon.enableNerdfont": true,
     "explorer.icon.source": "builtin",
-    "explorer.quitOnOpen": false,
+    "explorer.quitOnOpen": true,
     "explorer.position": "left",
     "explorer.contentWidthType": "win-width",
     "explorer.file.column.clip.copy": "",

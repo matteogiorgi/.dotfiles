@@ -10,7 +10,8 @@
 xrdb -load ~/.Xresources &
 xmodmap ~/.Xmodmap &
 xfsettingsd &
-/usr/bin/qtile start  # exec qtile
+# /usr/bin/qtile start  # exec qtile
+/usr/bin/awesome start  # exec awesome
 
 # To be able to launch this file from a login manager (such as lightdm),
 # create the file "/usr/shared/xsessions/qtile.desktop" with the following content
