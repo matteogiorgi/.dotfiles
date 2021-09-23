@@ -1,5 +1,9 @@
 setlocal bufhidden=wipe
 
+" only for neovim{{{
+" setlocal signcolumn=yes:1
+"}}}
+
 
 " 1.upadir
 " 2.opendir
@@ -22,10 +26,24 @@ nmap <buffer> <S-Tab> mu
 " 7.execute
 " 8.find
 nmap <buffer> d d
-nmap <buffer> b %:w<CR>:buffer #<CR>
+nmap <buffer> f %:w<CR>:buffer #<CR>
 nmap <buffer> R R
 nmap <buffer> D D
 nmap <buffer> c mtmc
 nmap <buffer> m mtmm
 nmap <buffer> x mx
-nmap <buffer> f :FZF<cr>
+nmap <buffer> F :FZF<cr>
+
+
+
+
+" OLD MAPS
+" noremap <buffer> d h
+" noremap <buffer> h gj
+" noremap <buffer> t gk
+" noremap <buffer> n l
+" noremap <buffer> e d
+" noremap <buffer> l n
+
+" noremap <buffer> h -
+" noremap <buffer> l <return>

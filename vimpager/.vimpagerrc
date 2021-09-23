@@ -1,0 +1,27 @@
+syntax on
+color dracula16
+
+set runtimepath+=~/.vim_runtime
+set clipboard=unnamedplus
+set mouse=a
+set hlsearch
+set incsearch
+set encoding=UTF-8
+scriptencoding utf-8
+set noswapfile
+set nobackup
+set showmode
+set showcmd
+set nocursorline
+set noerrorbells
+set t_Co=256
+
+if exists('+termguicolors')
+    set termguicolors
+endif
+
+nnoremap <silent>j 5<C-e>
+nnoremap <silent>k 5<C-y>
+
+nnoremap <silent><M-d> }}{ zz
+nnoremap <silent><M-u> {{ zz

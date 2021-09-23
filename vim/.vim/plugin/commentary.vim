@@ -1,5 +1,7 @@
-" normal comment -> gcc
-" visual commant -> gcc
+" Maps
+nmap <silent><leader><space> gcc<CR>
+vmap <silent><leader><space> gc<CR>
+
 
 augroup personalcomments
     autocmd FileType c,cpp setlocal commentstring=//\ %s

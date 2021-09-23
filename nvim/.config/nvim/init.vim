@@ -107,7 +107,7 @@ endif
 " Color syntax{{{
 syntax on
 set background=dark
-colorscheme doom  " doom,dracula,spooky
+colorscheme dracula  " doom,dracula,spooky
 filetype plugin indent on
 "}}}
 

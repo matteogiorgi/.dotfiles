@@ -83,9 +83,9 @@ awful.layout.layouts = { -- awful.layout.suit.tile,
                          -- awful.layout.suit.corner.ne,
                          -- awful.layout.suit.corner.sw,
                          -- awful.layout.suit.corner.se,
-                         awful.layout.suit.max,
                          awful.layout.suit.magnifier,
                          awful.layout.suit.corner.nw,
+                         awful.layout.suit.max,
                          awful.layout.suit.floating }
 -- }}}
 
@@ -251,6 +251,8 @@ awful.screen.connect_for_each_screen(function(s)
                                          s.mytasklist = awful.widget.tasklist { screen = s,
                                                                                 filter = awful.widget.tasklist.filter.currenttags,
                                                                                 buttons = tasklist_buttons }
+
+                                         -- s.mytasklist.forced_height = 10
                                      
                                          -- Create the wibox
                                          s.mywibox = awful.wibar({ position = "top",
@@ -271,7 +273,7 @@ awful.screen.connect_for_each_screen(function(s)
 
                                                            -- Middle widget
                                                            { layout = wibox.layout.fixed.horizontal,
-                                                             s.mytasklist },
+                                                             wibox.container.constraint(s.mytasklist, "max", s.workarea.width/4) },
 
                                                            -- Right widgets
                                                            { layout = wibox.layout.fixed.horizontal,

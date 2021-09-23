@@ -1,0 +1,221 @@
+{
+    // LSPs config (https://github.com/neoclide/coc.nvim/wiki/Language-servers)
+    "languageserver": {
+
+        // FORTRAN LSP
+        // needs gcc-fortran (gfortran) and pip3 packages + run "pip install fortran-language-server"
+        "fortran": {
+            "command": "fortls",
+            "filetypes": ["fortran"],
+            "rootPatterns": [".fortls", ".git/"]
+        },
+
+        // C LSP (instead of using coc-clangd)
+        // needs clang package
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+        },
+
+        // Haskell LSP
+        // needs ghc package
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+            "filetypes": ["haskell", "lhaskell"]
+        },
+
+        // Prolog LSP
+        // needs swi-prolog package + run "pack_install(lsp_server)." inside swipl
+        "prolog-lsp": {
+            "command": "swipl",
+            "args": [
+                "-g", "use_module(library(lsp_server)).",
+                "-g", "lsp_server:main",
+                "-t", "halt",
+                "--", "stdio"
+            ],
+            "filetypes": ["prolog"]
+        },
+
+        // Racket LSP
+        // needs racket package + run "raco pkg install racket-langserver"
+        "racket": {
+            "command": "racket",
+            "args": [
+                "--lib",
+                "racket-langserver"
+            ],
+            "filetypes": [
+                "racket"
+            ]
+        },
+
+        // R LSP
+        // needs r package + run "install.packages("languageserver", repos="https://cran.mirror.garr.it/CRAN/")" inside R as superuser
+        "R": {
+            "enable": true,
+            "command": "/usr/bin/R",
+            "args": [
+                "--slave",
+                "-e",
+                "languageserver::run()"
+            ],
+            "filetypes": [
+                "r"
+            ]
+        },
+
+        // LaTeX LSP (instead of using coc-texlab)
+        // needs texlive-most metapackage and texlab package
+        "latex": {
+            "command": "/usr/bin/texlab",
+            "filetypes": ["tex", "bib", "plaintex", "context"]
+        },
+
+        // Bash LSP (instead of using coc-sh)
+        // needs npm package + run "npm i -g bash-language-server" as superuser
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        },
+
+        // VimL LSP (instead of using coc-vimlsp)
+        // needs npm package + run "npm install -g vim-language-server" as superuser
+        "vimls": {
+            "module": "/usr/lib/node_modules/vim-language-server/bin/index.js",
+            "args": ["--node-ipc"],
+            "initializationOptions": {
+                "isNeovim": true,
+                "iskeyword": "@,48-57,_,192-255,-#",
+                "vimruntime": "",
+                "runtimepath": "",
+                "diagnostic": {
+                    "enable": true
+                },
+                "indexes": {
+                    "runtimepath": true,
+                    "gap": 100,
+                    "count": 3,
+                    "projectRootPatterns" : ["strange-root-pattern", ".git", "autoload", "plugin"]
+                },
+                "suggest": {
+                    "fromVimruntime": true,
+                    "fromRuntimepath": false
+                }
+            },
+            "filetypes": [ "vim" ]
+        }
+    },
+
+    // general coc.nvim config
+    "coc.preferences.extensionUpdateCheck": "weekly",
+    "session.directory": "~/.config/nvim/sessions",
+
+    // coc-onmi config
+    "coc.source.omni.enable": true,
+    "coc.source.omni.priority": 3,
+    "coc.source.omni.shortcut": "0",
+    "coc.source.omni.filetypes": ["java", "ocaml", "lua"],
+
+    // coc-highlight config
+    "highlight.disableLanguages": ["", "dashboard", "coc-explorer"],
+
+    // coc-list config
+    "list.source.files.args": ["--hidden", "--files"],
+    "list.source.mru.maxLength": 1000,
+    "list.source.mru.ignoreGitIgnore": false,
+    "list.source.mru.excludePatterns": ["**/.git/*","/tmp/*"],
+
+    // coc-git config
+    "git.enableGutters": true,
+    "git.showCommitInFloating": false,
+
+    // coc-explorer config
+    "explorer.width": 40,
+    "explorer.focus": true,
+    "explorer.autoExpandOptions": ["compact", "uncompact"],
+    "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
+    "explorer.buffer.child.template": "[git | 2] [selection | 1] [bufnr] [name][modified][readonly]",
+    "explorer.buffer.child.labelingTemplate": "[name][bufname][fullpath][modified][readonly][diagnosticError][diagnosticWarning][git]",
+    "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
+    "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+    "explorer.file.showHiddenFiles": true,
+    "explorer.file.reveal.whenOpen": true,
+    "explorer.file.reveal.auto": true,
+    "explorer.file.cdCommand": "cd",
+    "explorer.previewAction.onHover": false,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.icon.source": "builtin",
+    "explorer.quitOnOpen": true,
+    "explorer.position": "left",
+    "explorer.contentWidthType": "win-width",
+    "explorer.file.column.clip.copy": "",
+    "explorer.file.column.clip.cut": "",
+    "explorer.floating.border.chars": ["▀", "█", "▄", "█", "█", "█", "█", "█"],
+    "explorer.floating.border.title": "",
+    "explorer.floating.hideOnCocList": false,
+    "explorer.sources": [
+        { "name": "bookmark", "expand": true },
+        { "name": "buffer", "expand": true },
+        { "name": "file", "expand": true }
+    ],
+    "explorer.keyMappings.global": {
+        "gk": "expandablePrev",
+        "gj": "expandableNext",
+        
+        "<space>": "toggleSelection",
+        "<tab>": "actionMenu",
+        
+        "h": "collapse",
+        "l": ["expandable?", "expand", "open"],
+        "J": ["toggleSelection", "nodeNext"],
+        "K": ["toggleSelection", "nodePrev"],
+        "<2-LeftMouse>": [
+            "expandable?",
+            ["expanded?", "collapse", "expand"],
+            "open"
+        ],
+        "o": ["expanded?", "collapse", "expand"],
+        "<cr>": ["expandable?", "cd", "open"],
+        "s": "open:split:plain",                   // "S": "open:split:plain", (H?)
+        "v": "open:vsplit:plain",                  // "V": "open:split:plain",
+        "<bs>": "gotoParent",
+        
+        "Y": "copyFile",
+        "X": "cutFile",
+        "P": "pasteFile",
+        "dd": "delete",
+        
+        "mf": "addFile",
+        "md": "addDirectory",
+        "r": "rename",
+        
+        ".": "toggleHidden",
+        "R": "refresh",
+        
+        "?": "help",
+        "q": "quit",
+        "<esc>": "esc",
+        "!": "systemExecute",
+        "gd": "listDrive",
+        
+        "f": "search",
+        "F": "searchRecursive",
+        
+        "gf": "gotoSource:file",
+        "gb": "gotoSource:buffer",
+        
+        "[[": "sourcePrev",
+        "]]": "sourceNext",
+        
+        "gp": "gitPrev",
+        "gn": "gitNext",
+        "ga": "gitStage",
+        "gr": "gitUnstage"
+    }
+}

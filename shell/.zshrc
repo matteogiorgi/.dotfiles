@@ -193,7 +193,7 @@ function xload () { xrdb ~/.Xresources ; }
 function reload () { source ~/.zshrc ; }
 
 # Show keychords and keymaps:
-function keyinfo () { nvimpager -p ~/.keys.txt ; }
+function keyinfo () { most ~/.keys.txt ; }
 
 # Cycle through keyboard layout:
 function laynext () {
@@ -442,13 +442,13 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 ### Environment variables
 #########################
 
-export PAGER="most" && [[ -f /bin/nvimpager ]] && export PAGER="nvimpager"        # nvimpager,nvim +Man!
-export MANPAGER="most" && [[ -f /bin/nvimpager ]] && export MANPAGER="nvimpager"  # nvimpager,nvim +Man!
-export VISUAL="vim" && [[ -f /bin/nvim ]] && export VISUAL="nvim"                 # nvim,vim,amp,micro,vscodium
-export EDITOR="vim" && [[ -f /bin/nvim ]] && export EDITOR="nvim"                 # nvim,vim,amp,micro,vscodium
-export BROWSER="qutebrowser"                                                      # qutebrowser,luakit,vimb
+export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,nvimpager,vim/nvim +Man!
+export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,nvimpager,vim/nvim +Man!
+export VISUAL="vi" && [[ -f /bin/vim ]] && export VISUAL="vim"                  # vim,nvim,amp,micro,vscodium
+export EDITOR="vi" && [[ -f /bin/vim ]] && export EDITOR="vim"                  # vim,nvim,amp,micro,vscodium
+export BROWSER="qutebrowser"                                                    # qutebrowser,luakit,vimb
 export READER="zathura"
-export GOPATH="$HOME/go"                                                          # go directory should stay in $HOME
+export GOPATH="$HOME/go"                                                        # go directory should stay in $HOME
 
 # better not export $TERM: problems with broot image preview
 export TERM="xterm-256color"  # screen-256color,xterm-256color,xterm-kitty
