@@ -34,6 +34,9 @@ let g:coc_explorer_global_presets = {
             \ }
 
 
+
+highlight! link CocExplorerSelectUI StatusLine
+
 augroup cocstatusline
     autocmd!
     autocmd FileType list set laststatus=0 noshowmode noruler
@@ -116,14 +119,15 @@ nnoremap <silent>K   :call <SID>ShowDoc()<CR>
 nnoremap <leader>k   :CocList vimcommands<CR>
 nnoremap <leader>l   :CocList buffers<CR>
 nnoremap <leader>ee  :CocCommand explorer<CR>
+nnoremap <leader>wa  :CocList windows<CR>
 
 nnoremap <leader>fl  :CocList words<CR>
 nnoremap <leader>fm  :CocList marks<CR>
-nnoremap <leader>fw  :CocList grep<CR>
+nnoremap <leader>fg  :CocList grep<CR>
 nnoremap <leader>fy  :CocList registers<CR>
 nnoremap <leader>fff :CocList files<CR>
 nnoremap <leader>ffg :call <SID>FindInGit()<CR>
-nnoremap <leader>ffh :CocList mru<CR>
+nnoremap <leader>ffr :CocList mru<CR>
 
 nnoremap <leader>esl :CocList sessions<CR>
 nnoremap <leader>ess :CocCommand session.save<CR>

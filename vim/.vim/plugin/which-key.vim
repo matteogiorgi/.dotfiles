@@ -76,19 +76,20 @@ let g:which_key_map['c'] = { 'name' : '+COCopt',
 let g:which_key_map['f'] = { 'name' : '+Find',
             \ 'l' : 'lines',
             \ 'm' : 'marks',
-            \ 'w' : 'words',
+            \ 'g' : 'grep',
             \ 'y' : 'yanks',
             \ 'f' : { 'name' : '+Files',
             \     'f' : './',
             \     'g' : 'git',
-            \     'h' : 'mru',
+            \     'r' : 'recent',
             \     }
             \ }
 "}}}
 
 " Workspace{{{
 let g:which_key_map['w'] = { 'name' : '+WinCMD',
-            \ 'w' : 'winext',
+            \ 'w' : 'winnext',
+            \ 'a' : 'allwin',
             \ 'r' : 'rotate',
             \ 'e' : 'equalize',
             \ 't' : 'totab',
@@ -130,7 +131,7 @@ let g:which_key_map['z'] = { 'name' : '+Save',
 
 " Delete{{{
 let g:which_key_map['d'] = { 'name' : '+Delete',
-            \ 'r' : '&reset',
+            \ 's' : '&splash',
             \ 'd' : '&quit',
             \ 'b' : 'buffer',
             \ }
@@ -156,7 +157,6 @@ let g:which_key_map.6   = 'which_key_ignore'
 let g:which_key_map.7   = 'which_key_ignore'
 let g:which_key_map.8   = 'which_key_ignore'
 let g:which_key_map.9   = 'which_key_ignore'
-let g:which_key_map.0   = 'which_key_ignore'
 let g:which_key_map.w.h = 'which_key_ignore'
 let g:which_key_map.w.j = 'which_key_ignore'
 let g:which_key_map.w.k = 'which_key_ignore'
@@ -165,8 +165,9 @@ let g:which_key_map.w.H = 'which_key_ignore'
 let g:which_key_map.w.J = 'which_key_ignore'
 let g:which_key_map.w.K = 'which_key_ignore'
 let g:which_key_map.w.L = 'which_key_ignore'
-let g:which_key_map.t   = 'which_key_ignore'
-let g:which_key_map.T   = 'which_key_ignore'
+let g:which_key_map.0   = 'which_key_ignore'
+let g:which_key_map.i   = 'which_key_ignore'
+let g:which_key_map.h   = 'which_key_ignore'
 "}}}
 
 

@@ -64,7 +64,14 @@ function xload () { xrdb ~/.Xresources ; }
 function reload () { source ~/.bashrc ; }
 
 # Show keychords and keymaps:
-function keyinfo () { most ~/.keys.txt ; }
+function keyinfo () {
+    if [ -f /bin/vimpager ]
+    then
+        vimpager ~/.keys.txt
+    else
+        most ~/.keys.txt
+    fi
+}
 
 # Cycle through keyboard layout:
 function laynext () {

@@ -13,6 +13,7 @@
 
 # VIM EDITOR
 /vim/.vim/plugged/*
+/vim/.vim/undodir/*
 /vim/.vim/.netrwhist
 /simple-vim/.vim/plugged/*
 /simple-vim/.vim/.netrwhist

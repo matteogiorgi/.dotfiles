@@ -7,11 +7,13 @@
 #    xorg-xmodmap to run .Xmodmap
 #    xfsettingsd to launch xsettings demon
 
+# `xmodmap ~/.Xmodmap` will be runned directly
+# by rc.lua at the end of the script
+
 xrdb -load ~/.Xresources &
-xmodmap ~/.Xmodmap &
 xfsettingsd &
-# /usr/bin/qtile start  # exec qtile
-/usr/bin/awesome start  # exec awesome
+/usr/bin/awesome start  # exec awesome (or qtile)
+
 
 # To be able to launch this file from a login manager (such as lightdm),
 # create the file "/usr/shared/xsessions/qtile.desktop" with the following content

@@ -13,11 +13,13 @@
 #        `/usr/lib/xfce4/notifyd/xfce4-notifyd` for Arch
 #        `/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd` for Ubuntu
 
+# `xmodmap ~/.Xmodmap` will be runned directly
+# by rc.lua at the end of the script
+
 picom &
 ~/.fehbg &
 xfce4-volumed-pulse &
 nm-applet &
 blueman-applet &
 xfce4-power-manager &
-xmodmap ~/.Xmodmap &
 /usr/lib/xfce4/notifyd/xfce4-notifyd

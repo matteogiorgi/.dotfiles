@@ -49,4 +49,5 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+(package! evil-tutor)
 (package! proof-general)

@@ -268,8 +268,7 @@ awful.screen.connect_for_each_screen(function(s)
                                                            -- Left widgets
                                                            { layout = wibox.layout.fixed.horizontal,
                                                              -- mylauncher,
-                                                             s.mytaglist,
-                                                             s.mypromptbox },
+                                                             s.mytaglist },
 
                                                            -- Middle widget
                                                            { layout = wibox.layout.fixed.horizontal,
@@ -277,6 +276,7 @@ awful.screen.connect_for_each_screen(function(s)
 
                                                            -- Right widgets
                                                            { layout = wibox.layout.fixed.horizontal,
+                                                             s.mypromptbox,
                                                              wibox.widget.systray({ forced_height=14 }),
                                                              volumecfg.widget,
                                                              BAT0,
@@ -555,3 +555,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- launch autostart
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
+awful.spawn("setxkbmap -layout gb")
+awful.spawn("keyswap")

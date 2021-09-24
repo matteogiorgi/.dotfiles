@@ -1,6 +1,6 @@
 setlocal statusline=\ Coc-Explorer
 
-map <buffer> <silent><M-h> <Nop>
-map <buffer> <silent><M-j> <Nop>
-map <buffer> <silent><M-k> <Nop>
-" map <buffer> <silent><M-l> <Nop>
+map <buffer> <leader>wh <Nop>
+map <buffer> <leader>wj <Nop>
+map <buffer> <leader>wk <Nop>
+" map <buffer> <leader>wl <Nop>

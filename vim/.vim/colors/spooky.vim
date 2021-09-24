@@ -133,7 +133,7 @@ else
 endif
 
 call s:hi('LineNr', s:palette.neonc, [], 'none')
-call s:hi('FoldColumn', s:palette.gray07, s:palette.gray01, 'none')
+call s:hi('FoldColumn', s:palette.gray07, s:palette.neobg, 'none')  " [],s:palette.gray01
 call s:hi('CursorLine', [], s:palette.neoend, 'none')
 call s:hi('CursorLineNr', s:palette.neofg, [], 'bold')
 

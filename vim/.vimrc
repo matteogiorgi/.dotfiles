@@ -13,18 +13,12 @@
 "     undotree··················https://github.com/mbbill/undotree
 "     tabular···················https://github.com/godlygeek/tabular
 "     vim-move··················https://github.com/matze/vim-move
-"     vim-pandoc-syntax·········https://github.com/vim-pandoc/vim-pandoc-syntax
-"     notewiki··················https://github.com/matteogiorgi/notewiki
 "     vim-which-key·············https://github.com/liuchengxu/vim-which-key
-
-
-"                              LOCAL-PLUGINS 
-"
-"     lines·····················$HOME/.vim/loplugin/lines
-"     bclose····················$HOME/.vim/loplugin/bclose
-"     utility···················$HOME/.vim/loplugin/utility
-"     startscreen···············$HOME/.vim/loplugin/startscreen
-"     coq·······················$HOME/.vim/loplugin/coq
+"     vim-pandoc-syntax·········https://github.com/vim-pandoc/vim-pandoc-syntax
+"     vim-notewiki··············https://github.com/matteogiorgi/vim-notewiki
+"     vim-lines·················https://github.com/matteogiorgi/vim-lines
+"     vim-utility···············https://github.com/matteogiorgi/vim-utility
+"     vim-startscreen···········https://github.com/matteogiorgi/vim-startscreen
 
 
 "                              COC-EXTENSIONS
@@ -63,7 +57,6 @@ augroup end
 
 " Plugin list{{{
 call plug#begin('~/.vim/plugged')
-    " Remote plugins
     Plug 'neoclide/coc.nvim', {'branch' : 'release'}
     Plug 'sheerun/vim-polyglot'
     Plug 'honza/vim-snippets'
@@ -75,16 +68,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'mbbill/undotree'
     Plug 'godlygeek/tabular'
     Plug 'matze/vim-move'
-    Plug 'vim-pandoc/vim-pandoc-syntax'
-    Plug 'matteogiorgi/notewiki'
     Plug 'liuchengxu/vim-which-key'
-
-    " Local plugins
-    Plug '~/.vim/loplugin/lines'
-    Plug '~/.vim/loplugin/bclose'
-    Plug '~/.vim/loplugin/utility'
-    Plug '~/.vim/loplugin/startscreen'
-    Plug '~/.vim/loplugin/coq'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
+    Plug 'matteogiorgi/vim-notewiki'
+    Plug 'matteogiorgi/vim-lines'
+    Plug 'matteogiorgi/vim-utility'
+    Plug 'matteogiorgi/vim-startscreen'
 call plug#end()
 "}}}
 
@@ -223,8 +212,12 @@ command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
 command! RemoveSpaces :%s/\s\+$//e
 command! Squish execute "normal \ggVGgq"
 command! ClearLastSearch :let @/=""
-command! Copy execute "normal \-r!xclip -o -sel clip"
-command! Pasta execute "visual !xclip -f -sel clip"
+"}}}
+
+" Copy/Pasta commands{{{
+"(`pacman -S gvim` for it)
+command! Copy execute 'visual "+y'
+command! Pasta execute 'normal "+p'
 "}}}
 
 " Text movements (comment if using vim-move){{{
@@ -240,7 +233,7 @@ nnoremap <leader>zz  :wa<CR>
 nnoremap <leader>zb  :w<CR>
 nnoremap <leader>dd  :bdelete<CR>
 nnoremap <leader>db  :Bclose<CR>
-nnoremap <leader>dr  :bufdo<space>bd<bar>cd<space>$HOME<bar>call startscreen#start()<CR>
+nnoremap <leader>ds  :bufdo<space>bd<bar>cd<space>$HOME<bar>Startscreen<CR>
 nnoremap <leader>r   :%s///gc<Left><Left><Left>
 xnoremap <leader>r   :s///gc<Left><Left><Left>
 nnoremap <leader>ww  :wincmd w<cr>
@@ -256,8 +249,11 @@ nnoremap <leader>ewo :only<CR>
 " Outofmenu remaps{{{
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-" nnoremap <silent><M-d> }}{j
-" nnoremap <silent><M-u> {{j
+nnoremap <leader>h :help<space>
+nnoremap <leader>i <C-a>
+vnoremap <leader>i <C-a>
+nnoremap <silent>- }}{j
+nnoremap <silent>_ {{j
 nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
 nnoremap <silent><C-j> :resize -5<CR>
@@ -275,11 +271,9 @@ nnoremap <leader>6 6gt
 nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
-nnoremap <leader>0 0gt
-" nnoremap <leader>t :tabnext<cr>  " gt
-" nnoremap <leader>T :tabprev<cr>  " gT
-nnoremap <leader>t :tabm +1<cr>
-nnoremap <leader>T :tabm -1<cr>
+nnoremap <leader>0     :tabnext<cr>
+nnoremap <silent><C-n> :+tabmove<cr>
+nnoremap <silent><C-p> :-tabmove<cr>
 "}}}
 
 
