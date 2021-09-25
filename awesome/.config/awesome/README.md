@@ -13,8 +13,8 @@ This is basically the default config with a minimal theme (doom) and three widge
 
 ## Other usefull programs
 
-- pavucontrol
-- lxappearence
-- arandr
-- pcmanfm
-- geany
+- pavucontrol (pulsaudio gui volume control)
+- lxappearence (gtk gui theme switcher)
+- arandr (gui xrandr)
+- pcmanfm (gui file manager)
+- geany (gui editor)

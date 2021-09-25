@@ -129,7 +129,7 @@ kbdcfg.switch = function ()
  -- Mouse bindings
 kbdcfg.widget:buttons(awful.util.table.join(awful.button({ }, 1, function ()
                                                                      kbdcfg.switch()
-                                                                     awful.spawn("keyswap")
+                                                                     awful.spawn.with_shell("xmodmap ~/.Xmodmap")
                                                                  end)))
 
 mykeyboardlayout = kbdcfg.widget  -- awful.widget.keyboardlayout()
@@ -558,5 +558,3 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- launch autostart
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
-awful.spawn("setxkbmap -layout gb")
-awful.spawn("keyswap")

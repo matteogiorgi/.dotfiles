@@ -192,16 +192,6 @@ function xload () { xrdb ~/.Xresources ; }
 # Reload shell config file:
 function reload () { source ~/.zshrc ; }
 
-# Show keychords and keymaps:
-function keyinfo () {
-    if [ -f /bin/vimpager ]
-    then
-        vimpager ~/.keys.txt
-    else
-        most ~/.keys.txt
-    fi
-}
-
 # Cycle through keyboard layout:
 function laynext () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
@@ -215,7 +205,7 @@ function laynext () {
             setxkbmap -layout gb
             ;;
     esac
-    xrdb ~/.Xresources
+    keyswap
 }
 
 # Change wallpaper randomly:
@@ -314,13 +304,31 @@ alias wget="wget -c"
 alias histg="history | grep"
 alias myip="curl http://ipecho.net/plain; echo"
 alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
-alias folders='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
-alias grep='grep --color=auto'
+alias folders="find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn"
+alias grep="grep --color=auto"
 
 # use exa instead of ls (if present)
 alias ls="ls -CF --color=auto" && [[ -f /bin/exa ]] && alias ls="exa -GF --git --icons --color=auto"
 alias ll="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias ll="exa -la --git --icons --group-directories-first"
 alias lt="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias lt="exa -la --git --icons --group-directories-first --tree"
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+
+# doom-emacs
+alias emacs="/usr/bin/emacs -nw"
+alias eclient="emacsclient -c -a 'emacs'"
+alias doomsync="~/.emacs.d/bin/doom sync"
+alias doomdoctor="~/.emacs.d/bin/doom doctor"
+alias doomupgrade="~/.emacs.d/bin/doom upgrade"
+alias doompurge="~/.emacs.d/bin/doom purge"
+
+# pacman and paru
+alias pacsyu='sudo pacman -Syyu'
+alias parsyu='paru -Syu --noconfirm'
+alias parsua='paru -Sua --noconfirm'
 
 # aliases for vifm, ranger, shfm and fff
 alias vifm="_vfm"

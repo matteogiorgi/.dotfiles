@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-zathura --mode fullscreen ~/.cheatsheet/cheatsheet.pdf
