@@ -1,1 +1,0 @@
-{"id":44682,"xmlId":"com.guiwang.plugin.AssemblyPlugin","name":"Assembly string","description":"e.g.: `SELECT U.* FROM USER U` to `buf.append(\"SELECT U.* FROM USER U\");`","tags":["Editor"],"vendor":"None","version":"1.0","notes":"選中內容首位添加字符串","dependencies":["com.intellij.modules.lang"],"since":"145.0","size":4427}

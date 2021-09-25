@@ -28,4 +28,4 @@
 --style="numbers,changes,header"
 
 # Specific pager (bat uses by default the PAGER environment variable)
---pager="nvimpager"  # "nvim +Man!"
+--pager="vimpager"  # vimpager,nvimpager,nvim +Man!

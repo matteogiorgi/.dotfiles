@@ -1,27 +1,38 @@
 syntax on
-color dracula16
+set background=dark
+colorscheme dracula  " dracula,spooky
+filetype plugin indent on
 
-set runtimepath+=~/.vim_runtime
+if exists('+termguicolors') | set termguicolors | endif
+if has('linebreak') | let &showbreak='⤷ ' | endif
+
+set shell=zsh
+set nocompatible
+set runtimepath-=~/.vim
+set runtimepath+=~/.vimpager
 set clipboard=unnamedplus
-set mouse=a
-set hlsearch
-set incsearch
-set encoding=UTF-8
-scriptencoding utf-8
-set noswapfile
-set nobackup
-set showmode
-set showcmd
-set nocursorline
-set noerrorbells
-set t_Co=256
-
-if exists('+termguicolors')
-    set termguicolors
-endif
+set nonumber norelativenumber mouse=a
+set ruler scrolloff=8 sidescrolloff=8
+set hlsearch incsearch
+set nowrap nospell
+set ignorecase smartcase smartindent
+set noswapfile nobackup
+set showmode showcmd
+set cursorline noerrorbells novisualbell
+set splitbelow splitright
+set noequalalways
+set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM
+set matchpairs+=<:>
+set autochdir
+set hidden
+set termencoding=utf-8 encoding=utf-8 t_Co=256 | scriptencoding utf-8
+set colorcolumn=
+set cmdheight=1
+set fillchars+=vert:\│,eob:\ ,fold:-
+set wildchar=<Tab> wildmenu wildmode=full
+set laststatus=0 showtabline=0
 
 nnoremap <silent>j 5<C-e>
 nnoremap <silent>k 5<C-y>
-
-nnoremap <silent><M-d> }}{ zz
-nnoremap <silent><M-u> {{ zz
+nnoremap <silent>d }}{
+nnoremap <silent>u {{

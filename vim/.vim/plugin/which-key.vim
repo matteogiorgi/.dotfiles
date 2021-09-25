@@ -99,6 +99,8 @@ let g:which_key_map['w'] = { 'name' : '+WinCMD',
 " Sessions{{{
 let g:which_key_map['e'] = { 'name' : '+Edit',
             \ 'e' : 'explorer',
+            \ 'f' : 'files',
+            \ 'g' : 'git',
             \ 't' : { 'name' : '+Tab',
             \     't' : 'new',
             \     'o' : 'only',

@@ -136,8 +136,10 @@ mykeyboardlayout = kbdcfg.widget  -- awful.widget.keyboardlayout()
 
 
 -- {{{ Wibar
--- Create a textclock widget
+-- Create a textclock (and calendar) widget
 mytextclock = wibox.widget.textclock(' %H:%M')
+local calendar = require("calendar")
+calendar({}):attach(mytextclock)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(awful.button({ }, 1, function(t) t:view_only() end),
@@ -189,10 +191,10 @@ local BAT0 = battery_widget { ac = "AC",
                               adapter = "BAT0",
                               ac_prefix = "",  -- AC:
                               battery_prefix = "",  -- Bat:
-                              percent_colors = { { 25, "red" },
-                                                 { 50, "orange" },
-                                                 { 75, "yellow" },
-                                                 { 999, "green" } },
+                              percent_colors = { { 25, "#ff5555" },
+                                                 { 50, "#ffb86c" },
+                                                 { 75, "#f1fa8c" },
+                                                 { 999, "#50fa7b" } },
                               listen = true,
                               timeout = 10,
                               widget_text = "${AC_BAT}${color_on}${percent}%${color_off}",
@@ -229,10 +231,11 @@ awful.screen.connect_for_each_screen(function(s)
                                          set_wallpaper(s)
                                      
                                          -- Each screen has its own tag table.
-                                         awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])  -- { "₁  ", "₂  ", "₃  ", "₄  ", "₅  ", "₆  ", "₇  ", "₈  ", "₉  " }
+                                         -- "₁  ", "₂  ", "₃  ", "₄  ", "₅  ", "₆  ", "₇  ", "₈  ", "₉  "
+                                         awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
                                      
                                          -- Create a promptbox for each screen
-                                         s.mypromptbox = awful.widget.prompt()
+                                         s.mypromptbox = awful.widget.prompt({ bg_cursor = "#282a36" })
 
                                          -- Create an imagebox widget which will contain an icon indicating which layout we're using.
                                          -- We need one layoutbox per screen.
@@ -272,12 +275,12 @@ awful.screen.connect_for_each_screen(function(s)
 
                                                            -- Middle widget
                                                            { layout = wibox.layout.fixed.horizontal,
-                                                             wibox.container.constraint(s.mytasklist, "max", s.workarea.width/4) },
+                                                             wibox.container.constraint(s.mytasklist, "max", s.workarea.width/3) },
 
                                                            -- Right widgets
                                                            { layout = wibox.layout.fixed.horizontal,
                                                              s.mypromptbox,
-                                                             wibox.widget.systray({ forced_height=14 }),
+                                                             wibox.widget.systray(),
                                                              volumecfg.widget,
                                                              BAT0,
                                                              mykeyboardlayout,

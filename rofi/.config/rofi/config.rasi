@@ -19,8 +19,8 @@
     border:           2;
     border-radius:    0;
     border-color:     @bordercolor;
-    padding:          50;
-    width:            calc(20%);
+    padding:          30;
+    width:            calc(250px);
 }
 
 #mainbox {

@@ -18,6 +18,7 @@
 "     vim-notewiki··············https://github.com/matteogiorgi/vim-notewiki
 "     vim-lines·················https://github.com/matteogiorgi/vim-lines
 "     vim-utility···············https://github.com/matteogiorgi/vim-utility
+"     vim-explore···············https://github.com/matteogiorgi/vim-explore
 "     vim-startscreen···········https://github.com/matteogiorgi/vim-startscreen
 
 
@@ -73,6 +74,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'matteogiorgi/vim-notewiki'
     Plug 'matteogiorgi/vim-lines'
     Plug 'matteogiorgi/vim-utility'
+    Plug 'matteogiorgi/vim-explore'
     Plug 'matteogiorgi/vim-startscreen'
 call plug#end()
 "}}}
@@ -240,6 +242,7 @@ nnoremap <leader>ww  :wincmd w<cr>
 nnoremap <leader>wr  :wincmd r<cr>
 nnoremap <leader>we  :wincmd =<cr>
 nnoremap <leader>wt  :wincmd T<cr>
+nnoremap <leader>eg  :!tig<CR>
 nnoremap <leader>ett :tabnew<CR>
 nnoremap <leader>eto :tabonly<CR>
 nnoremap <leader>eww :enew<CR>

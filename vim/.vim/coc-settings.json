@@ -114,7 +114,7 @@
 
     // general coc.nvim config
     "coc.preferences.extensionUpdateCheck": "weekly",
-    "session.directory": "~/.config/nvim/sessions",
+    "session.directory": "~/.vim/sessions",
 
     // coc-onmi config
     "coc.source.omni.enable": true,

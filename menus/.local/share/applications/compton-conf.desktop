@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Qt5 Settings
-GenericName=Qt Configuration
-Comment=Qt5 Configuration Tool
-Exec=qt5ct
-Icon=compton
-Terminal=false
-Type=Application
-Categories=Settings;DesktopSettings;Qt;LXQt;XXFCE-SettingsDialog;XXFCE-PersonalSettings;

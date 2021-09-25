@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Pulseaudio Volume Control
-Comment=Pulseaudio Audio Manager
-Icon=gnome-music
-Exec=pavucontrol
-Terminal=false
-Type=Application
-StartupNotify=true
-Categories=XFCE;GTK;GNOME;Settings;HardwareSettings;DesktopSettings;XXFCE-SettingsDialog;XXFCE-HardwareSettings;

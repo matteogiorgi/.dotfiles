@@ -9,6 +9,12 @@
 # -> Use `buckle` to simulate buckling spring keyboard-like sound.
 # -> Use `cbatticon` instead of xfce-power-manager systray if needed
 # -> Use `volctl` to manage volume inside the systray
+
+# -> To enable notifications use
+#        `xfce4-volumed-pulse`
+#        `xfce4-power-manager`
+#        `/usr/lib/xfce4/notifyd/xfce4-notifyd`
+
 # -> Make sure you have the right path for xfce4-notifyd:
 #        `/usr/lib/xfce4/notifyd/xfce4-notifyd` for Arch
 #        `/usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd` for Ubuntu
@@ -16,10 +22,8 @@
 # `xmodmap ~/.Xmodmap` will be runned directly
 # by rc.lua at the end of the script
 
+
 picom &
 ~/.fehbg &
-xfce4-volumed-pulse &
 nm-applet &
-blueman-applet &
-xfce4-power-manager &
-/usr/lib/xfce4/notifyd/xfce4-notifyd
+blueman-applet
