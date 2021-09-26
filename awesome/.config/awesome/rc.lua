@@ -90,24 +90,24 @@ awful.layout.layouts = { -- awful.layout.suit.tile,
 -- }}}
 
 
--- {{{ Menu
--- Create a launcher widget and a main menu
-myawesomemenu = { { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-                  { "manual", terminal .. " -e man awesome" },
-                  { "edit config", editor_cmd .. " " .. awesome.conffile },
-                  { "restart", awesome.restart },
-                  { "quit", function() awesome.quit() end } }
+-- -- {{{ Menu DEACTIVE
+-- -- Create a launcher widget and a main menu
+-- myawesomemenu = { { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+--                   { "manual", terminal .. " -e man awesome" },
+--                   { "edit config", editor_cmd .. " " .. awesome.conffile },
+--                   { "restart", awesome.restart },
+--                   { "quit", function() awesome.quit() end } }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal } } })
+-- mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+--                                     { "open terminal", terminal } } })
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
+-- mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
+--                                      menu = mymainmenu })
 
--- Menubar configuration
--- Set the terminal for applications that require it
-menubar.utils.terminal = terminal
--- }}}
+-- -- Menubar configuration
+-- -- Set the terminal for applications that require it
+-- menubar.utils.terminal = terminal
+-- -- }}}
 
 
 -- Keyboard map indicator and switcher
@@ -115,7 +115,7 @@ kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
 kbdcfg.layout = { { "gb", "" , "gb" },
                   { "it", "" , "it" },
-                  { "us", "" , "us" } } 
+                  { "us", "" , "us" } }
 kbdcfg.current = 1
 kbdcfg.widget = wibox.widget.textbox()
 kbdcfg.widget:set_text(" " .. kbdcfg.layout[kbdcfg.current][3] .. " ")
@@ -125,6 +125,7 @@ kbdcfg.switch = function ()
                     kbdcfg.widget:set_text(" " .. t[3] .. " ")
                     os.execute( kbdcfg.cmd .. " " .. t[1] .. " " .. t[2] )
                 end
+
 
  -- Mouse bindings
 kbdcfg.widget:buttons(awful.util.table.join(awful.button({ }, 1, function ()
@@ -170,20 +171,24 @@ local tasklist_buttons = gears.table.join(awful.button({ }, 1, function (c)
                                           awful.button({ }, 4, function() awful.client.focus.byidx(1) end),
                                           awful.button({ }, 5, function() awful.client.focus.byidx(-1) end))
 
-local function set_wallpaper(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
-        end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end
 
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", set_wallpaper)
+-- -- {{{ Wallpaper DEACTIVE
+-- local function set_wallpaper(s)
+--     -- Wallpaper
+--     if beautiful.wallpaper then
+--         local wallpaper = beautiful.wallpaper
+--         -- If wallpaper is a function, call it with the screen
+--         if type(wallpaper) == "function" then
+--             wallpaper = wallpaper(s)
+--         end
+--         gears.wallpaper.maximized(wallpaper, s, true)
+--     end
+-- end
+
+-- -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
+-- screen.connect_signal("property::geometry", set_wallpaper)
+-- -- }}}
+
 
 -- Battery widget
 local battery_widget = require("battery-widget")
@@ -191,10 +196,9 @@ local BAT0 = battery_widget { ac = "AC",
                               adapter = "BAT0",
                               ac_prefix = "",  -- AC:
                               battery_prefix = "",  -- Bat:
-                              percent_colors = { { 25, "#ff5555" },
-                                                 { 50, "#ffb86c" },
-                                                 { 75, "#f1fa8c" },
-                                                 { 999, "#50fa7b" } },
+                              percent_colors = { { 25, "#ff6e6e" },
+                                                 { 50, "#ffffa5" },
+                                                 { 999, "#6ff994" } },
                               listen = true,
                               timeout = 10,
                               widget_text = "${AC_BAT}${color_on}${percent}%${color_off}",
@@ -204,6 +208,7 @@ local BAT0 = battery_widget { ac = "AC",
                               alert_timeout = 0,
                               alert_title = "Low battery !",
                               alert_text = "${AC_BAT}${time_est}" }
+
 
 -- Volume widget
 local volume_control = require("volume-control")
@@ -228,14 +233,16 @@ volumecfg = volume_control({ device = nil,
 
 awful.screen.connect_for_each_screen(function(s)
                                          -- Wallpaper
-                                         set_wallpaper(s)
-                                     
+                                         -- set_wallpaper(s)
+
                                          -- Each screen has its own tag table.
                                          -- "₁  ", "₂  ", "₃  ", "₄  ", "₅  ", "₆  ", "₇  ", "₈  ", "₉  "
                                          awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
-                                     
+
                                          -- Create a promptbox for each screen
-                                         s.mypromptbox = awful.widget.prompt({ bg_cursor = "#282a36" })
+                                         s.mypromptbox = awful.widget.prompt({ fg = "#95a4df",
+                                                                               fg_cursor = "#95a4df",
+                                                                               bg_cursor = "#1e1f29" })
 
                                          -- Create an imagebox widget which will contain an icon indicating which layout we're using.
                                          -- We need one layoutbox per screen.
@@ -249,37 +256,38 @@ awful.screen.connect_for_each_screen(function(s)
                                          s.mytaglist = awful.widget.taglist { screen = s,
                                                                               filter = awful.widget.taglist.filter.all,
                                                                               buttons = taglist_buttons }
-                                     
+
                                          -- Create a tasklist widget
                                          s.mytasklist = awful.widget.tasklist { screen = s,
                                                                                 filter = awful.widget.tasklist.filter.currenttags,
                                                                                 buttons = tasklist_buttons }
 
                                          -- s.mytasklist.forced_height = 10
-                                     
+
                                          -- Create the wibox
                                          s.mywibox = awful.wibar({ position = "top",
                                                                    screen = s,
                                                                    height = 18,
                                                                    opacity = 1.0,
                                                                    border_width = 0 })
-                                     
+
                                          -- Add widgets to the wibox
                                          s.mywibox:setup { -- All widgets
                                                            layout = wibox.layout.align.horizontal,
+                                                           -- expand = "none",
 
                                                            -- Left widgets
                                                            { layout = wibox.layout.fixed.horizontal,
                                                              -- mylauncher,
-                                                             s.mytaglist },
+                                                             s.mytaglist,
+                                                             s.mypromptbox },
 
                                                            -- Middle widget
                                                            { layout = wibox.layout.fixed.horizontal,
-                                                             wibox.container.constraint(s.mytasklist, "max", s.workarea.width/3) },
+                                                             wibox.container.constraint(s.mytasklist, "max", s.workarea.width/4) },
 
                                                            -- Right widgets
                                                            { layout = wibox.layout.fixed.horizontal,
-                                                             s.mypromptbox,
                                                              wibox.widget.systray(),
                                                              volumecfg.widget,
                                                              BAT0,
@@ -304,7 +312,7 @@ globalkeys = gears.table.join(awful.key({ modkey }, "s", hotkeys_popup.show_help
                               awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
                               awful.key({ modkey }, "j", function() awful.client.focus.byidx(1) end, { description = "focus next by index", group = "client" }),
                               awful.key({ modkey }, "k", function() awful.client.focus.byidx(-1) end, { description = "focus previous by index", group = "client" }),
-                              awful.key({ modkey }, "w", function() mymainmenu:show() end, { description = "show main menu", group = "awesome" }),
+                              -- awful.key({ modkey }, "w", function() mymainmenu:show() end, { description = "show main menu", group = "awesome" }),
 
                               -- Layout manipulation
                               awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.byidx(1) end, { description = "swap with next client by index", group = "client" }),
@@ -457,8 +465,6 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
-
-
 awful.rules.rules = { { rule = { },  -- All clients will match this rule.
                         properties = { border_width = beautiful.border_width,
                                       border_color = beautiful.border_normal,

@@ -19,15 +19,15 @@ theme.bg_minimize   = "#282a36"
 theme.bg_systray    = "#282a36"
 
 theme.fg_normal     = "#bfbfbf"
-theme.fg_focus      = "#ffb86c"
-theme.fg_urgent     = "#ff5555"
+theme.fg_focus      = "#ffb68c"
+theme.fg_urgent     = "#ff6e6e"
 theme.fg_minimize   = "#626483"
 
 theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(1)
 theme.border_normal = "#bfbfbf"
-theme.border_focus  = "#ffb86c"
-theme.border_marked = "#ff5555"
+theme.border_focus  = "#ffb68c"
+theme.border_marked = "#ff6e6e"
 
 -- There are other variable sets
 -- overriding the default one when

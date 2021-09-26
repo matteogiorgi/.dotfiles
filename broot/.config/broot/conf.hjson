@@ -227,13 +227,18 @@
 
         # Edit with others than $EDITOR
 		{
-			shortcut: k
+			invocation: kak
 			execution: "kak {file}"
 			leave_broot: false
 		}
 		{
-			shortcut: v
-			execution: "vim {file}"
+			invocation: nvim
+			execution: "nvim {file}"
+			leave_broot: false
+		}
+		{
+			invocation: emacs
+			execution: "/usr/bin/emacs -nw {file}"
 			leave_broot: false
 		}
 
