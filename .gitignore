@@ -19,7 +19,7 @@
 /ranger/.config/ranger/plugins/ranger-gitplug/__pycache__/*
 
 # VIFM FILE MANAGER
-/vifm/.config/vifm/vifminfo
+/vifm/.config/vifm/vifminfo*
 
 # BROOT FILE MANAGER
 /broot/.config/broot/launcher/*
