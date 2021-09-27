@@ -11,10 +11,11 @@ This is basically the default config with a minimal theme (doom) and three widge
 - xsettingsd (xsettings deamon)
 
 
-## Other usefull programs
+## Other usefull GUI programs
 
-- pavucontrol (pulsaudio gui volume control)
-- lxappearence (gtk gui theme switcher)
-- arandr (gui xrandr)
-- pcmanfm (gui file manager)
-- geany (gui editor)
+- pavucontrol (pulsaudio volume control)
+- lxappearence (gtk theme switcher)
+- arandr (xrandr interface)
+- xarchiver (archive manager)
+- pcmanfm (file manager)
+- geany (text editor)

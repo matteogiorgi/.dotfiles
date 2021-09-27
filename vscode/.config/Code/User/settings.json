@@ -1,0 +1,163 @@
+{
+    "update.mode": "manual",
+    "editor.fontFamily": "'mononoki Nerd Font','Hasklig','Droid Sans Mono','monospace',monospace,'Droid Sans Fallback'",
+    "editor.codeLensFontFamily": "'mononoki Nerd Font','Hasklig','Droid Sans Mono','monospace',monospace,'Droid Sans Fallback'",
+    "editor.fontSize": 12,
+    "editor.codeLensFontSize": 12,
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "solid",
+    "editor.renderLineHighlight": "none",
+    "editor.renderLineHighlightOnlyWhenFocus": true,
+    "editor.rulers": [],
+    "editor.lineNumbers": "on",
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderIndentGuides": false,
+    "editor.folding": false,
+    "editor.wordWrap": "on",
+    "editor.tabCompletion": "on",
+    "editor.semanticHighlighting.enabled": true,
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.suggestSelection": "first",
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": false,
+    "workbench.sideBar.location": "left",
+    "workbench.startupEditor": "none",
+    "workbench.editor.untitled.hint": "hidden",
+    "workbench.editor.showTabs": false,
+    "workbench.editor.tabSizing": "fit",
+    "workbench.editor.pinnedTabSizing": "fit",
+    "workbench.editor.tabCloseButton": "right",
+    "workbench.editor.scrollToSwitchTabs": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.enablePreview": false,
+    "workbench.tree.indent": 16,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.colorTheme": "Dracula",
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.editorAssociations": {
+        "*.png": "imagePreview.previewEditor",
+        "*.jpg": "imagePreview.previewEditor",
+        "*.pdf": "default",
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#3A3C4E",
+        "statusBar.noFolderBackground": "#3A3C4E",
+        "statusBar.debuggingBackground": "#3A3C4E",
+        "statusBar.foreground": "#BFBFBF",
+        "statusBar.debuggingForeground": "#BFBFBF"
+    },
+    "terminal.explorerKind": "external",
+    "terminal.external.linuxExec": "alacritty",
+    "terminal.integrated.defaultProfile.linux": "/bin/zsh",
+    "terminal.integrated.fontFamily": "'mononoki Nerd Font','Hasklig','Droid Sans Mono','monospace',monospace,'Droid Sans Fallback'",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.profiles.linux": {
+        "/bin/zsh (migrated)": {
+            "path": "/bin/zsh",
+            "args": []
+        }
+    },
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.enableTelemetry": false,
+    "window.zoomLevel": 0,
+    "window.restoreWindows": "none",
+    "window.titleBarStyle": "native",
+    "window.menuBarVisibility": "toggle",
+    "keyboard.dispatch": "keyCode",
+    "breadcrumbs.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/.*": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "tabnine.experimentalAutoImports": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.insert": "underline",
+    "vim.cursorStylePerMode.replace": "block",
+    "vim.cursorStylePerMode.visual": "block",
+    "vim.cursorStylePerMode.visualblock": "block",
+    "vim.cursorStylePerMode.visualline": "block",
+    "vim.smartRelativeLine": true,
+    "vim.disableExtension": false,
+    "vim.easymotion": true,
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": [" "],
+            "after": ["leader", "leader", "leader", "b", "d", "w"]
+        }
+    ],
+    "vim.easymotionMarkerFontFamily": "mononoki Nerd Font",
+    "vim.easymotionMarkerYOffset": 0,
+    "vim.easymotionMarkerHeight": 16,
+    "vim.easymotionMarkerFontSize": "16",
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["f", "d"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": ["#3A3C4E", "#BFBFBF"],
+    "vim.statusBarColors.insert": ["#6B89FF", "#1E1F29"],
+    "vim.statusBarColors.visual": ["#626483", "#1E1F29"],
+    "vim.statusBarColors.visualline": ["#626483", "#1E1F29"],
+    "vim.statusBarColors.visualblock": ["#626483", "#1E1F29"],
+    "vim.statusBarColors.replace": ["#FF6E6E", "#1E1F29"],
+    "vim.statusBarColors.commandlineinprogress": ["#FFFFA5", "#1E1F29"],
+    "vim.statusBarColors.searchinprogressmode": ["#FFFFA5", "#1E1F29"],
+    "vim.statusBarColors.easymotionmode": ["#FFFFA5", "#1E1F29"],
+    "vim.statusBarColors.easymotioninputmode": ["#FFFFA5", "#1E1F29"],
+    "vim.statusBarColors.surroundinputmode": ["#FFFFA5", "#1E1F29"],
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"]
+        },
+        {
+            "before": [","],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"]
+        },
+        {
+            "before": [","],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ]
+}

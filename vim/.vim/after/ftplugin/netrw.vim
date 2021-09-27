@@ -1,10 +1,5 @@
 setlocal bufhidden=wipe
 
-" only for neovim{{{
-" setlocal signcolumn=yes:1
-"}}}
-
-
 " 1.upadir
 " 2.opendir
 " 3.(un)hide
@@ -33,17 +28,3 @@ nmap <buffer> c mtmc
 nmap <buffer> m mtmm
 nmap <buffer> x mx
 nmap <buffer> F :FZF<cr>
-
-
-
-
-" OLD MAPS
-" noremap <buffer> d h
-" noremap <buffer> h gj
-" noremap <buffer> t gk
-" noremap <buffer> n l
-" noremap <buffer> e d
-" noremap <buffer> l n
-
-" noremap <buffer> h -
-" noremap <buffer> l <return>

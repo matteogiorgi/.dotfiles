@@ -6,9 +6,7 @@ let g:pandoc#syntax#style#emphases = 1
 let g:pandoc#syntax#style#underline_special = 1
 
 
-" Uncomment the following lines
-" if you don't have vim-pandoc plugin
-
+" I don't have vim-pandoc plugin, poor me!
 augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END

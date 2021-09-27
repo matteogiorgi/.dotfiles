@@ -29,8 +29,8 @@ let g:which_key_position = 'botright'
 let g:which_key_use_floating_win = 0
 
 
-" in case you wana hide the statusline in
-" window-mode, uncomment the following autogroup
+" I want to hide the statusline
+" (specially in window-mode)
 augroup whichkeystatusline
     autocmd!
     autocmd FileType which_key set laststatus=0 noshowmode noruler
@@ -169,6 +169,7 @@ let g:which_key_map.w.K = 'which_key_ignore'
 let g:which_key_map.w.L = 'which_key_ignore'
 let g:which_key_map.0   = 'which_key_ignore'
 let g:which_key_map.i   = 'which_key_ignore'
+let g:which_key_map.I   = 'which_key_ignore'
 let g:which_key_map.h   = 'which_key_ignore'
 "}}}
 

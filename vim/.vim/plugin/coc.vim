@@ -11,28 +11,12 @@ let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-yank',
             \ 'coc-explorer',
-            \ 'coc-floaterm',
             \ 'coc-marketplace',
             \ ]
 
-
-" The following LSP extensions works on top of the ones already configured
-" in coc-settings.json so to have less extensions to load.
-
-let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-pyright')
-let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-json')
-let g:coc_global_extensions = add(g:coc_global_extensions, 'coc-yaml')
-
-let g:coc_explorer_global_presets = {
-            \ 'float': {
-            \     'position': 'floating',
-            \     'floating-position': [float2nr(0.50*&columns-20),float2nr(0.10*&lines)],
-            \     'floating-width': 40,
-            \     'floating-height': float2nr(0.50*&lines),
-            \     'open-action-strategy': 'select',
-            \     },
-            \ }
-
+" If you want an extension to work on top of the ones already configured
+" in coc-settings.json, use the marketplace or just add the following:
+" let g:coc_global_extensions = add(g:coc_global_extensions, 'some-coc-extension')
 
 
 highlight! link CocExplorerSelectUI StatusLine
@@ -136,79 +120,3 @@ nmap <leader>mp <Plug>(coc-cursors-position)
 nmap <leader>mw <Plug>(coc-cursors-word)
 xmap <leader>mr <Plug>(coc-cursors-range)
 nmap <leader>mo <Plug>(coc-cursors-operator)
-
-
-
-
-""" EXPLORER CONFIG """
-
-" let g:coc_explorer_global_presets = {
-"             \ 'float01': {
-"             \     'position': 'floating',
-"             \     'floating-position': [float2nr(0.50*&columns-20),float2nr(0.10*&lines)],
-"             \     'floating-width': 40,
-"             \     'floating-height': float2nr(0.50*&lines),
-"             \     'open-action-strategy': 'select',
-"             \     },
-"             \ 'float02': {
-"             \     'position': 'floating',
-"             \     'floating-position': [float2nr(0.50*&columns-20),float2nr(0.10*&lines)],
-"             \     'floating-width': 40,
-"             \     'floating-height': float2nr(0.50*&lines),
-"             \     'open-action-strategy': 'sourceSource',
-"             \     },
-"             \ }
-
-" function coc#Explorer(...) abort
-"     if (a:0 > 0)
-"         if (a:1 ==? 'float01')
-"             execute 'CocCommand explorer --preset float01 ' . getcwd()
-"         elseif (a:1 ==? 'float02')
-"             execute 'CocCommand explorer --preset float02 ' . getcwd()
-"         elseif (a:1 ==? 'float03')
-"             let l:winnr        = winnr()
-"             let l:winheight    = winheight(l:winnr)
-"             let l:winwidth     = winwidth(l:winnr)
-"             let l:winposheight = win_screenpos(l:winnr)[0]
-"             let l:winposwidth  = win_screenpos(l:winnr)[1]
-"             let l:posheight    = float2nr(l:winposheight + 0.10*l:winheight)
-"             let l:poswidth     = float2nr(l:winposwidth + 0.50*l:winwidth - 20)
-"             let l:height       = float2nr(0.50*l:winheight)
-"             execute 'CocCommand explorer --position floating --floating-position '.l:poswidth.','.l:posheight.
-"                         \ ' --floating-width 40 --floating-height '.l:height.
-"                         \ ' --sources buffer+,file+ --open-action-strategy sourceWindow ' . getcwd()
-"         endif
-"     else
-"         execute 'CocCommand explorer ' . getcwd()
-"     endif
-" endfunction
-
-
-
-
-""" NO MAN'S LAND """
-
-" nmap <leader>rn <Plug>(coc-rename)
-" xmap <leader>f  <Plug>(coc-format-selected)
-" nmap <leader>f  <Plug>(coc-format-selected)
-
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>ac <Plug>(coc-codeaction)
-" nmap <leader>qf <Plug>(coc-fix-current)
-
-" nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-" nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-" inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-" inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-" vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-" vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-
-" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>

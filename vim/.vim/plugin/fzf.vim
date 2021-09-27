@@ -48,17 +48,3 @@ let g:fzf_action = {
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_preview_window = ['right:60%', 'ctrl-/']
 let g:fzf_layout = { 'window': 'enew' }
-
-" other layouts (uncomment the one you prefere)
-" let g:fzf_layout = { 'down': '30%' }
-" let g:fzf_layout = { 'window': 'tabnew' }
-" let g:fzf_layout = {
-"             \ 'window': {
-"             \     'width': 0.30,
-"             \     'height': 0.70,
-"             \     'yoffset': 0.50,
-"             \     'xoffset': 0.50,
-"             \     'border': 'sharp',
-"             \     'highlight': 'Normal',
-"             \     }
-"             \ }

@@ -154,10 +154,6 @@ set guifont=Hasklig:h8.0
 set laststatus=2 showtabline=2
 "}}}
 
-" Just for nvim{{{
-" set signcolumn=auto:2
-"}}}
-
 " Set completion{{{
 set path+=**
 set omnifunc=syntaxcomplete#Complete
@@ -255,8 +251,10 @@ vnoremap <S-Tab> <gv
 nnoremap <leader>h :help<space>
 nnoremap <leader>i <C-a>
 vnoremap <leader>i <C-a>
+vnoremap <leader>I g<C-a>
 nnoremap <silent>- }}{j
 nnoremap <silent>_ {{j
+nnoremap <silent>Y y$
 nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
 nnoremap <silent><C-j> :resize -5<CR>
@@ -278,17 +276,3 @@ nnoremap <leader>0     :tabnext<cr>
 nnoremap <silent><C-n> :+tabmove<cr>
 nnoremap <silent><C-p> :-tabmove<cr>
 "}}}
-
-
-
-
-" command! -nargs=1 ReplaceNormal execute '%s//<args>/gc'
-" command! -nargs=1 ReplaceVisual execute 's//<args>/gc'
-
-" remember to check ad set the default web-browser with:
-" xdg-settings get default-web-browser
-" xdg-settings set default-web-browser brave-browser.desktop
-
-" add support to a plugin for vim-repeat whit the following command:
-" silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
-" remember to install `xsel` too
