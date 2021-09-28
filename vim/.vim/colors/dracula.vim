@@ -286,7 +286,9 @@ call s:h('StatusLineNC'     , s:neonc   , s:neoline , [s:attrs.bold])  " s:none 
 call s:h('StatusLineTermNC' , s:neonc   , s:neoline , [s:attrs.bold])  " s:none , s:bglight
 call s:h('CursorLine'       , s:none    , s:neoend)                    " s:none , s:subtle
 
-hi! link ColorColumn  DraculaBgDark
+hi! default link netrwMarkFile Search
+
+hi! link ColorColumn  CursorLine        " DraculaBgDark
 hi! link CursorColumn CursorLine
 hi! link CursorLineNr DraculaYellow
 hi! link DiffAdd      DraculaGreen

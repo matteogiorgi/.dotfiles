@@ -88,6 +88,8 @@ inoremap <silent><expr> <C-Space> coc#refresh()
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
             \ : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
+nnoremap <silent><C-q> :CocCommand explorer --toggle<CR>
+
 nnoremap <leader>ca  :CocAction<CR>
 nnoremap <leader>cc  :CocCommand<CR>
 nnoremap <leader>cl  :CocList<CR>
@@ -102,7 +104,6 @@ nmap <silent><S-tab> <Plug>(coc-diagnostic-prev)
 nnoremap <silent>K   :call <SID>ShowDoc()<CR>
 nnoremap <leader>k   :CocList vimcommands<CR>
 nnoremap <leader>l   :CocList buffers<CR>
-nnoremap <leader>ee  :CocCommand explorer<CR>
 nnoremap <leader>wa  :CocList windows<CR>
 
 nnoremap <leader>fl  :CocList words<CR>

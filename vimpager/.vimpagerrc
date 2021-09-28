@@ -34,5 +34,5 @@ set laststatus=0 showtabline=0
 
 nnoremap <silent>j 5<C-e>
 nnoremap <silent>k 5<C-y>
-nnoremap <silent>d }}{
-nnoremap <silent>u {{
+nnoremap <silent>d <C-d>
+nnoremap <silent>u <C-u>

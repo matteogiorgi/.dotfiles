@@ -97,25 +97,10 @@ colorscheme dracula  " dracula,spooky
 filetype plugin indent on
 "}}}
 
-" Simple painter{{{
-highlight! OverLength term=reverse gui=reverse
-highlight! default link netrwMarkFile Search
-"}}}
-
-" Set extra{{{
-set exrc
-set title
-"}}}
-
-" Set cursor{{{
-set guicursor=n-v:block-Cursor
-set guicursor+=c:hor100-cCursor
-set guicursor+=i:hor100-iCursor
-set guicursor+=a:blinkon0  " blinkwait700-blinkon400-blinkoff250
-"}}}
-
 
 " Set mainstuff{{{
+set exrc
+set title
 set shell=zsh  " zsh,bash
 set nocompatible    " nvim is always nocompatible
 set runtimepath+=~/.vim_runtime  " add whatever
@@ -141,17 +126,10 @@ set updatetime=300  "default = 4000ms
 set timeoutlen=300  "default = 1000ms
 set termencoding=utf-8 encoding=utf-8 t_Co=256 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
-set colorcolumn=   " let &colorcolumn = '81,'.join(range(81,999),',')
+set colorcolumn=
 set cmdheight=1
 set fillchars+=vert:\│,eob:\ ,fold:-
 set wildchar=<Tab> wildmenu wildmode=full
-set guioptions-=e
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
-set guifont=Hasklig:h8.0
-set laststatus=2 showtabline=2
 "}}}
 
 " Set completion{{{
@@ -198,8 +176,8 @@ augroup end
 " Overlength behaviour{{{
 augroup overlengthtoggle
     autocmd!
-    autocmd InsertEnter * match OverLength /\%81v/
-    autocmd InsertLeave * match none
+    autocmd InsertEnter * let &colorcolumn = '81,'.join(range(81,999),',')
+    autocmd InsertLeave * set colorcolumn=
 augroup end
 "}}}
 
@@ -252,8 +230,6 @@ nnoremap <leader>h :help<space>
 nnoremap <leader>i <C-a>
 vnoremap <leader>i <C-a>
 vnoremap <leader>I g<C-a>
-nnoremap <silent>- }}{j
-nnoremap <silent>_ {{j
 nnoremap <silent>Y y$
 nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
