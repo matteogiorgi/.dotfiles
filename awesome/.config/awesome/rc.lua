@@ -90,9 +90,9 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
+    awful.layout.suit.max,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
-    awful.layout.suit.max,
     awful.layout.suit.floating }
 -- }}}
 
@@ -174,8 +174,8 @@ local battery_widget = require("battery-widget")
 local BAT0 = battery_widget {
     ac = "AC",
     adapter = "BAT0",
-    ac_prefix = "",
-    battery_prefix = "",
+    ac_prefix = " ",
+    battery_prefix = " ",
     percent_colors = {
         { 20, "#ff6e6e" },
         { 50, "#ffffa5" },
@@ -208,8 +208,8 @@ volumecfg = volume_control({
         font = nil,
         callback = nil,
         widget_text = {
-            on = '% 3d%% ',
-            off = '% 3dM '
+            on = '% 3d%%',
+            off = '% 3dM'
         },
         tooltip_text = [[
             Volume: ${volume}% ${state}
@@ -280,6 +280,9 @@ awful.screen.connect_for_each_screen(
                 widget = wibox.container.background,
             },
         }
+        -- Create a systray
+        s.systray = wibox.widget.systray()
+        s.systray.visible = false
 
         -- Create the wibox
         s.mywibox = awful.wibar({
@@ -310,7 +313,7 @@ awful.screen.connect_for_each_screen(
             -- Right widgets
             {
                 layout = wibox.layout.fixed.horizontal,
-                wibox.widget.systray(),
+                s.systray,
                 volumecfg.widget,
                 BAT0,
                 mykeyboardlayout,
@@ -381,6 +384,11 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioRaiseVolume", function() volumecfg:up() end),
     awful.key({}, "XF86AudioLowerVolume", function() volumecfg:down() end),
     awful.key({}, "XF86AudioMute", function() volumecfg:toggle() end),
+
+    -- Systray
+    awful.key({ modkey }, "i",
+        function() awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible end,
+        { description = "Toggle systray visibility", group = "custom" }),
 
     -- Prompt
     awful.key({ modkey }, "r", function() awful.screen.focused().mypromptbox:run () end, { description = "run prompt", group = "launcher" }),
