@@ -1,3 +1,3 @@
 let g:fmExplore = 'vifm'  " ranger,vifm
 
-nnoremap <Leader>ee :Explore<cr>
+nnoremap <Leader>e :Explore<cr>

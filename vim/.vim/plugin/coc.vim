@@ -102,21 +102,23 @@ nmap     <leader>cgr <Plug>(coc-references)
 nmap <silent><tab>   <Plug>(coc-diagnostic-next)
 nmap <silent><S-tab> <Plug>(coc-diagnostic-prev)
 
-nnoremap <silent>K   :call <SID>ShowDoc()<CR>
-nnoremap <leader>k   :CocList vimcommands<CR>
-nnoremap <leader>l   :CocList buffers<CR>
-nnoremap <leader>wa  :CocList windows<CR>
+nnoremap <silent>K  :call <SID>ShowDoc()<CR>
+nnoremap <leader>d  :CocList diagnostics<CR>
+nnoremap <leader>bb :CocList buffers<CR>
+nnoremap <leader>ww :CocList windows<CR>
 
 nnoremap <leader>fl  :CocList words<CR>
 nnoremap <leader>fm  :CocList marks<CR>
+nnoremap <leader>fc  :CocList changes<CR>
 nnoremap <leader>fg  :CocList grep<CR>
 nnoremap <leader>fy  :CocList registers<CR>
 nnoremap <leader>fff :CocList files<CR>
 nnoremap <leader>ffg :call <SID>FindInGit()<CR>
 nnoremap <leader>ffr :CocList mru<CR>
 
-nnoremap <leader>esl :CocList sessions<CR>
-nnoremap <leader>ess :CocCommand session.save<CR>
+nnoremap <leader>SS :CocList sessions<CR>
+nnoremap <leader>Ss :CocCommand session.save<CR>
+nnoremap <leader>Sr :CocCommand session.restart<CR>
 
 nmap <leader>mp <Plug>(coc-cursors-position)
 nmap <leader>mw <Plug>(coc-cursors-word)

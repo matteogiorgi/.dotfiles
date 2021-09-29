@@ -1,7 +1,7 @@
 let g:which_key_sep = '→'
 let g:which_key_max_size = 0
 let g:which_key_vertical = 0
-let g:which_key_hspace = 14
+let g:which_key_hspace = 12
 let g:which_key_sort_horizontal = 0
 let g:which_key_disable_default_offset = 1
 let g:which_key_centered = 1
@@ -40,17 +40,17 @@ augroup END
 
 " Generics{{{
 let g:which_key_map = { 'name' : 'Menu',
+            \ 'e' : 'explore',
             \ 'a' : 'align',
-            \ 'l' : 'list',
-            \ 'j' : 'jump',
+            \ 'j' : 'jumpto',
             \ 'r' : 'replace',
             \ 'u' : 'undo3',
-            \ 'k' : 'cmds',
+            \ 'd' : 'diagstics',
             \ }
 "}}}
 
 " Replace{{{
-let g:which_key_map['m'] = { 'name' : '+Multi',
+let g:which_key_map['m'] = { 'name' : '+MultiCrs',
             \ 'p' : 'position',
             \ 'w' : 'word',
             \ 'r' : 'range',
@@ -74,11 +74,12 @@ let g:which_key_map['c'] = { 'name' : '+COCopt',
 
 " Find{{{
 let g:which_key_map['f'] = { 'name' : '+Find',
-            \ 'l' : 'lines',
-            \ 'm' : 'marks',
+            \ 'l' : 'line',
+            \ 'm' : 'mark',
+            \ 'c' : 'change',
             \ 'g' : 'grep',
-            \ 'y' : 'yanks',
-            \ 'f' : { 'name' : '+Files',
+            \ 'y' : 'yank',
+            \ 'f' : { 'name' : '+File',
             \     'f' : './',
             \     'g' : 'git',
             \     'r' : 'recent',
@@ -86,55 +87,51 @@ let g:which_key_map['f'] = { 'name' : '+Find',
             \ }
 "}}}
 
-" Workspace{{{
+" Windows{{{
 let g:which_key_map['w'] = { 'name' : '+WinCMD',
-            \ 'w' : 'winnext',
-            \ 'a' : 'allwin',
+            \ 'w' : 'windows',
+            \ 'd' : 'delete',
+            \ 'l' : 'list',
             \ 'r' : 'rotate',
             \ 'e' : 'equalize',
             \ 't' : 'totab',
+            \ 'n' : 'new',
+            \ 'o' : 'only1',
+            \ }
+"}}}
+
+" Tabs{{{
+let g:which_key_map['t'] = { 'name' : '+TabCMD',
+            \ 't' : 'tabs',
+            \ 'd' : 'delete',
+            \ 'n' : 'new',
+            \ 'o' : 'only1',
+            \ }
+"}}}
+
+" Buffers{{{
+let g:which_key_map['b'] = { 'name' : '+BufCMD',
+            \ 'b' : 'buffers',
+            \ 'w' : 'write',
+            \ 'W' : 'writeall',
+            \ 'd' : 'delete',
+            \ 'D' : 'delWin',
             \ }
 "}}}
 
 " Sessions{{{
-let g:which_key_map['e'] = { 'name' : '+Edit',
-            \ 'e' : 'explorer',
-            \ 'g' : 'gitclient',
-            \ 't' : { 'name' : '+Tab',
-            \     't' : 'new',
-            \     'o' : 'only',
-            \     },
-            \ 'w' : { 'name' : '+Window',
-            \     'w' : 'new',
-            \     'o' : 'only',
-            \     },
-            \ 's' : { 'name' : '+Session',
-            \     's' : 'save',
-            \     'l' : 'list',
-            \     }
+let g:which_key_map['S'] = { 'name' : '+SsnCMD',
+            \ 'S' : 'sessions',
+            \ 's' : 'save',
+            \ 'r' : 'restart',
             \ }
 "}}}
 
 " Quit{{{
 let g:which_key_map['q'] = { 'name' : '+Quit',
-            \ 'q' : 'all',
-            \ 'w' : 'window',
-            \ 't' : 'tab',
-            \ }
-"}}}
-
-" Save{{{
-let g:which_key_map['z'] = { 'name' : '+Save',
-            \ 'z' : 'all',
-            \ 'b' : 'buffer',
-            \ }
-"}}}
-
-" Delete{{{
-let g:which_key_map['d'] = { 'name' : '+Delete',
-            \ 's' : '&splash',
-            \ 'd' : '&quit',
-            \ 'b' : 'buffer',
+            \ 'q' : 'quitEvil',
+            \ 'Q' : 'quitWrite',
+            \ 's' : 'splash',
             \ }
 "}}}
 
@@ -148,16 +145,18 @@ let g:which_key_map['s'] = { 'name' : '+Surrnd',
             \ }
 "}}}
 
+
 " Ignore{{{
-let g:which_key_map.1   = 'which_key_ignore'
-let g:which_key_map.2   = 'which_key_ignore'
-let g:which_key_map.3   = 'which_key_ignore'
-let g:which_key_map.4   = 'which_key_ignore'
-let g:which_key_map.5   = 'which_key_ignore'
-let g:which_key_map.6   = 'which_key_ignore'
-let g:which_key_map.7   = 'which_key_ignore'
-let g:which_key_map.8   = 'which_key_ignore'
-let g:which_key_map.9   = 'which_key_ignore'
+let g:which_key_map.1 = 'which_key_ignore'
+let g:which_key_map.2 = 'which_key_ignore'
+let g:which_key_map.3 = 'which_key_ignore'
+let g:which_key_map.4 = 'which_key_ignore'
+let g:which_key_map.5 = 'which_key_ignore'
+let g:which_key_map.6 = 'which_key_ignore'
+let g:which_key_map.7 = 'which_key_ignore'
+let g:which_key_map.8 = 'which_key_ignore'
+let g:which_key_map.9 = 'which_key_ignore'
+let g:which_key_map.0 = 'which_key_ignore'
 let g:which_key_map.w.h = 'which_key_ignore'
 let g:which_key_map.w.j = 'which_key_ignore'
 let g:which_key_map.w.k = 'which_key_ignore'
@@ -166,10 +165,6 @@ let g:which_key_map.w.H = 'which_key_ignore'
 let g:which_key_map.w.J = 'which_key_ignore'
 let g:which_key_map.w.K = 'which_key_ignore'
 let g:which_key_map.w.L = 'which_key_ignore'
-let g:which_key_map.0   = 'which_key_ignore'
-let g:which_key_map.i   = 'which_key_ignore'
-let g:which_key_map.I   = 'which_key_ignore'
-let g:which_key_map.h   = 'which_key_ignore'
 "}}}
 
 

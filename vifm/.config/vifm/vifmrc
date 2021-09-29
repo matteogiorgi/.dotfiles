@@ -541,7 +541,7 @@ nnoremap = <C-w>=
 
 " quick-save & exit
 nnoremap q ZZ
-nnoremap <C-q> :q<cr>
+nnoremap <C-q> :q!<cr>
 
 " swallow current file (or directory)
 nnoremap <C-s> :swallow<cr>

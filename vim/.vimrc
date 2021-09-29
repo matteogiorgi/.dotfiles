@@ -131,6 +131,7 @@ set colorcolumn=
 set cmdheight=1
 set fillchars+=vert:\│,eob:\ ,fold:-
 set wildchar=<Tab> wildmenu wildmode=full
+set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
 "}}}
 
 " Set completion{{{
@@ -203,34 +204,36 @@ command! Pasta execute 'normal "+p'
 "}}}
 
 " Menu remaps{{{
-nnoremap <leader>qw  :q<CR>
-nnoremap <leader>qt  :tabclose<CR>
-nnoremap <leader>qq  :qa<CR>
-nnoremap <leader>zz  :wa<CR>
-nnoremap <leader>zb  :w<CR>
-nnoremap <leader>dd  :bdelete<CR>
-nnoremap <leader>db  :Bclose<CR>
-nnoremap <leader>ds  :bufdo<space>bd<bar>cd<space>$HOME<bar>Startscreen<CR>
-nnoremap <leader>r   :%s///gc<Left><Left><Left>
-xnoremap <leader>r   :s///gc<Left><Left><Left>
-nnoremap <leader>ww  :wincmd w<cr>
-nnoremap <leader>wr  :wincmd r<cr>
-nnoremap <leader>we  :wincmd =<cr>
-nnoremap <leader>wt  :wincmd T<cr>
-nnoremap <leader>eg  :!tig<CR>
-nnoremap <leader>ett :tabnew<CR>
-nnoremap <leader>eto :tabonly<CR>
-nnoremap <leader>eww :enew<CR>
-nnoremap <leader>ewo :only<CR>
+nnoremap <leader>r  :%s///gc<Left><Left><Left>
+xnoremap <leader>r  :s///gc<Left><Left><Left>
+nnoremap <leader>qq :quitall<CR>
+nnoremap <leader>qQ :wall<bar>quitall<CR>
+nnoremap <leader>qs :bufdo<space>bd<bar>cd<space>$HOME<bar>Startscreen<CR>
+nnoremap <leader>bw :write<CR>
+nnoremap <leader>bW :wall<CR>
+nnoremap <leader>bd :Bclose<CR>
+nnoremap <leader>bD :bdelete<CR>
+nnoremap <leader>wd :wincmd q<cr>
+nnoremap <leader>wr :wincmd r<cr>
+nnoremap <leader>we :wincmd =<cr>
+nnoremap <leader>wt :wincmd T<cr>
+nnoremap <leader>wn :enew<CR>
+nnoremap <leader>wo :only<CR>
+nnoremap <leader>tt :tabs<CR>
+nnoremap <leader>td :tabclose<CR>
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>to :tabonly<CR>
 "}}}
 
 " Outofmenu remaps{{{
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-nnoremap <leader>h :help<space>
-nnoremap <leader>i <C-a>
-vnoremap <leader>i <C-a>
-vnoremap <leader>I g<C-a>
+nnoremap <Up> <C-a>
+vnoremap <Up> <C-a>
+nnoremap <Down> <C-x>
+vnoremap <Down> <C-x>
+nnoremap <Left>  :tabprevious<CR>
+nnoremap <Right> :tabnext<CR>
 nnoremap <silent>Y y$
 nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
@@ -249,7 +252,7 @@ nnoremap <leader>6 6gt
 nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
-nnoremap <leader>0     :tabnext<cr>
-nnoremap <silent><C-n> :+tabmove<cr>
-nnoremap <silent><C-p> :-tabmove<cr>
+nnoremap <leader>0 :0tabmove<cr>
+nnoremap <silent><Backspace> :b#<cr>
+nnoremap <silent><Return> :wincmd w<cr>
 "}}}
