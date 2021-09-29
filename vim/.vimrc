@@ -28,6 +28,7 @@
 "     coc-omni··················https://github.com/neoclide/coc-sources
 "     coc-syntax················https://github.com/neoclide/coc-sources
 "     coc-tabnine···············https://github.com/neoclide/coc-tabnine
+"     coc-kite··················https://github.com/neoclide/coc-kite
 "     coc-highlight·············https://github.com/neoclide/coc-highlight
 "     coc-lists·················https://github.com/neoclide/coc-lists
 "     coc-git···················https://github.com/neoclide/coc-git

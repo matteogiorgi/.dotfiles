@@ -179,7 +179,7 @@ local BAT0 = battery_widget {
     percent_colors = {
         { 20, "#ff6e6e" },
         { 50, "#ffffa5" },
-        { 999, "#6ff994" }
+        { 999, "#69ff94" }
     },
     listen = true,
     timeout = 10,
@@ -208,8 +208,8 @@ volumecfg = volume_control({
         font = nil,
         callback = nil,
         widget_text = {
-            on = '% 3d%%',
-            off = '% 3dM'
+            on = '% 3d±',
+            off = ' mute'
         },
         tooltip_text = [[
             Volume: ${volume}% ${state}
@@ -226,9 +226,10 @@ awful.screen.connect_for_each_screen(
 
         -- Create a promptbox for each screen
         s.mypromptbox = awful.widget.prompt({
-                fg = "#bd93f9",
-                fg_cursor = "#bd93f9",
-                bg_cursor = "#1e1f29" })
+                prompt = '$ ',
+                fg = "#95a4df",
+                fg_cursor = "#ff6e6e",
+                bg_cursor = "#282a36" })
 
         -- Create an imagebox widget which will contain an icon indicating which layout we're using.
         -- We need one layoutbox per screen.
@@ -300,8 +301,8 @@ awful.screen.connect_for_each_screen(
             -- Left widgets
             {
                 layout = wibox.layout.fixed.horizontal,
-                s.mytaglist,
-                s.mypromptbox
+                s.mypromptbox,
+                s.mytaglist
             },
 
             -- Middle widget
@@ -315,9 +316,9 @@ awful.screen.connect_for_each_screen(
                 layout = wibox.layout.fixed.horizontal,
                 s.systray,
                 volumecfg.widget,
-                BAT0,
                 mykeyboardlayout,
                 s.mylayoutbox,
+                BAT0,
                 mytextclock
             }
         }
@@ -386,16 +387,16 @@ globalkeys = gears.table.join(
     awful.key({}, "XF86AudioMute", function() volumecfg:toggle() end),
 
     -- Systray
-    awful.key({ modkey }, "i",
+    awful.key({ modkey }, "0",
         function() awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible end,
         { description = "Toggle systray visibility", group = "custom" }),
 
     -- Prompt
-    awful.key({ modkey }, "r", function() awful.screen.focused().mypromptbox:run () end, { description = "run prompt", group = "launcher" }),
-    awful.key({ modkey }, "x",
+    awful.key({ modkey }, "w", function() awful.screen.focused().mypromptbox:run () end, { description = "run prompt", group = "launcher" }),
+    awful.key({ modkey }, "p",
         function()
             awful.prompt.run {
-                prompt = "Run Lua code: ",
+                prompt = "# ",
                 textbox = awful.screen.focused().mypromptbox.widget,
                 exe_callback = awful.util.eval,
                 history_path = awful.util.get_cache_dir() .. "/history_eval"

@@ -1,5 +1,6 @@
 {
-    // LSPs config (https://github.com/neoclide/coc.nvim/wiki/Language-servers)
+    // LSPs config (https://github.com/neoclide/coc.nvim/wiki/Language-servers) for the following languages:
+    // FORTRAN, C/C++, Haskell, Prolog, Racket, R, Python, LaTeX, Bash, VimL
     "languageserver": {
 
         // FORTRAN LSP
@@ -19,7 +20,7 @@
         },
 
         // Haskell LSP
-        // needs ghc package
+        // needs ghc and haskell-language-server packages
         "haskell": {
             "command": "haskell-language-server-wrapper",
             "args": ["--lsp"],
@@ -69,7 +70,7 @@
         },
 
         // Python LSP
-        // needs python3 package + "pip install python-language-server" + "pip install 'python-language-server[all]'"
+        // needs python3 and pip3 packages + "pip install python-language-server" + "pip install 'python-language-server[all]'"
         "python": {
             "command": "python",
             "args": [
@@ -190,7 +191,7 @@
     "coc.source.omni.enable": true,
     "coc.source.omni.priority": 3,
     "coc.source.omni.shortcut": "0",
-    "coc.source.omni.filetypes": ["java", "ocaml", "lua"],
+    "coc.source.omni.filetypes": ["java", "ocaml", "lua", "julia"],
 
     // coc-highlight config
     "highlight.disableLanguages": ["", "startscreen", "coc-explorer"],

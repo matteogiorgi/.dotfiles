@@ -11,6 +11,7 @@
 
 - Dracula (dracula-theme.theme-dracula)
 - Tabnine (tabnine.tabnine-vscode)
+- Kite (kiteco.kite)
 - VSpaceCode (vspacecode.vspacecode)
     - VscodeVim (vscodevim.vim)
     - Edamagit (kahole.magit)

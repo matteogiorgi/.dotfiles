@@ -5,6 +5,7 @@ let g:coc_global_extensions = [
             \ 'coc-omni',
             \ 'coc-syntax',
             \ 'coc-tabnine',
+            \ 'coc-kite',
             \ 'coc-highlight',
             \ 'coc-lists',
             \ 'coc-git',
