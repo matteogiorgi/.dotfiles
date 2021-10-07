@@ -170,7 +170,7 @@ call s:hi('PmenuThumb', s:palette.gray03, s:palette.gray09, 'none')
 call s:hi('StatusLine', s:palette.neofg, s:palette.neoline, 'bold')
 call s:hi('StatusLineNC', s:palette.neonc, s:palette.neoline, 'bold')
 call s:hi('WildMenu', s:palette.gray08, [], '')
-call s:hi('VertSplit', s:palette.gray03, s:palette.gray03, 'none')
+call s:hi('VertSplit', s:palette.neoline, s:palette.neobg, 'none')  " s:palette.gray03
 
 call s:hi('DiffAdd', s:palette.blackest, s:palette.green, '')
 call s:hi('DiffChange', s:palette.blackest, s:palette.blue, '')

@@ -180,8 +180,8 @@ c.colors.prompts.selected.bg = base02
 # Foreground color of the statusbar.
 c.colors.statusbar.normal.fg = base0B
 
-# Background color of the statusbar.
-c.colors.statusbar.normal.bg = base00
+# Background color of the statusbar. (base00)
+c.colors.statusbar.normal.bg = base01
 
 # Foreground color of the statusbar in insert mode.
 c.colors.statusbar.insert.fg = base00
@@ -204,8 +204,8 @@ c.colors.statusbar.private.bg = base01
 # Foreground color of the statusbar in command mode.
 c.colors.statusbar.command.fg = base05
 
-# Background color of the statusbar in command mode.
-c.colors.statusbar.command.bg = base00
+# Background color of the statusbar in command mode. (base00)
+c.colors.statusbar.command.bg = base01
 
 # Foreground color of the statusbar in private browsing + command mode.
 c.colors.statusbar.command.private.fg = base05

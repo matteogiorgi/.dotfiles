@@ -1,7 +1,7 @@
 let g:which_key_sep = '→'
 let g:which_key_max_size = 0
 let g:which_key_vertical = 0
-let g:which_key_hspace = 12
+let g:which_key_hspace = 13
 let g:which_key_sort_horizontal = 0
 let g:which_key_disable_default_offset = 1
 let g:which_key_centered = 1
@@ -27,15 +27,6 @@ let g:which_key_display_names = {
             \ }
 let g:which_key_position = 'botright'
 let g:which_key_use_floating_win = 0
-
-
-" I want to hide the statusline
-" (specially in window-mode)
-augroup whichkeystatusline
-    autocmd!
-    autocmd FileType which_key set laststatus=0 noshowmode noruler
-                \ | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-augroup END
 
 
 " Generics{{{
@@ -95,8 +86,11 @@ let g:which_key_map['w'] = { 'name' : '+WinCMD',
             \ 'r' : 'rotate',
             \ 'e' : 'equalize',
             \ 't' : 'totab',
-            \ 'n' : 'new',
-            \ 'o' : 'only1',
+            \ 'o' : 'onlyone',
+            \ 'n' : { 'name' : '+New',
+            \     's' : 'split',
+            \     'v' : 'vsplit',
+            \     }
             \ }
 "}}}
 
@@ -105,7 +99,7 @@ let g:which_key_map['t'] = { 'name' : '+TabCMD',
             \ 't' : 'tabs',
             \ 'd' : 'delete',
             \ 'n' : 'new',
-            \ 'o' : 'only1',
+            \ 'o' : 'onlyone',
             \ }
 "}}}
 
@@ -116,6 +110,7 @@ let g:which_key_map['b'] = { 'name' : '+BufCMD',
             \ 'W' : 'writeall',
             \ 'd' : 'delete',
             \ 'D' : 'delWin',
+            \ 'n' : 'new',
             \ }
 "}}}
 
@@ -147,16 +142,26 @@ let g:which_key_map['s'] = { 'name' : '+Surrnd',
 
 
 " Ignore{{{
-let g:which_key_map.1 = 'which_key_ignore'
-let g:which_key_map.2 = 'which_key_ignore'
-let g:which_key_map.3 = 'which_key_ignore'
-let g:which_key_map.4 = 'which_key_ignore'
-let g:which_key_map.5 = 'which_key_ignore'
-let g:which_key_map.6 = 'which_key_ignore'
-let g:which_key_map.7 = 'which_key_ignore'
-let g:which_key_map.8 = 'which_key_ignore'
-let g:which_key_map.9 = 'which_key_ignore'
-let g:which_key_map.0 = 'which_key_ignore'
+let g:which_key_map.0   = 'which_key_ignore'
+let g:which_key_map.1   = 'which_key_ignore'
+let g:which_key_map.2   = 'which_key_ignore'
+let g:which_key_map.3   = 'which_key_ignore'
+let g:which_key_map.4   = 'which_key_ignore'
+let g:which_key_map.5   = 'which_key_ignore'
+let g:which_key_map.6   = 'which_key_ignore'
+let g:which_key_map.7   = 'which_key_ignore'
+let g:which_key_map.8   = 'which_key_ignore'
+let g:which_key_map.9   = 'which_key_ignore'
+let g:which_key_map.t.0 = 'which_key_ignore'
+let g:which_key_map.t.1 = 'which_key_ignore'
+let g:which_key_map.t.2 = 'which_key_ignore'
+let g:which_key_map.t.3 = 'which_key_ignore'
+let g:which_key_map.t.4 = 'which_key_ignore'
+let g:which_key_map.t.5 = 'which_key_ignore'
+let g:which_key_map.t.6 = 'which_key_ignore'
+let g:which_key_map.t.7 = 'which_key_ignore'
+let g:which_key_map.t.8 = 'which_key_ignore'
+let g:which_key_map.t.9 = 'which_key_ignore'
 let g:which_key_map.w.h = 'which_key_ignore'
 let g:which_key_map.w.j = 'which_key_ignore'
 let g:which_key_map.w.k = 'which_key_ignore'
@@ -168,6 +173,16 @@ let g:which_key_map.w.L = 'which_key_ignore'
 "}}}
 
 
+" I want to hide the statusline
+" (specially in window-mode)
+augroup whichkeystatusline
+    autocmd!
+    autocmd FileType which_key set laststatus=0 noshowmode noruler
+                \ | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup end
+
+" notewiki shortcuts
+" (Pandoc shortcuts are hidden when inside non-markdown filetype)
 augroup notesettings
     autocmd!
     autocmd BufEnter *
@@ -178,7 +193,6 @@ augroup notesettings
                 \         's' : 'scratch',
                 \         'p' : { 'name' : '+Pandoc',
                 \             'p' : 'pdf',
-                \             'b' : 'beamer',
                 \             'h' : 'html',
                 \             },
                 \         } |

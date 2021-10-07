@@ -1,6 +1,6 @@
 {
     // LSPs config (https://github.com/neoclide/coc.nvim/wiki/Language-servers) for the following languages:
-    // FORTRAN, C/C++, Haskell, Prolog, Racket, R, Python, LaTeX, Bash, VimL
+    // FORTRAN, C/C++, Haskell, Prolog, Racket, R, Python, Go, LaTeX, Bash, VimL
     "languageserver": {
 
         // FORTRAN LSP
@@ -139,6 +139,15 @@
             }
         },
 
+        // Go LSP (instead of using coc-go)
+        // needs go and gopls packages
+        "golang": {
+            "command": "gopls",
+            "args": ["serve", "-debug", "0.0.0.0:8484", "-rpc.trace"],
+            "rootPatterns": ["go.mod"],
+            "filetypes": ["go"]
+        },
+
         // LaTeX LSP (instead of using coc-texlab)
         // needs texlive-most metapackage and texlab package
         "latex": {
@@ -206,6 +215,11 @@
     // coc-git config
     "git.enableGutters": true,
     "git.showCommitInFloating": false,
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
 
     // coc-explorer config
     "explorer.width": 40,

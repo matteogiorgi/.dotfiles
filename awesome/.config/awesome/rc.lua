@@ -65,7 +65,7 @@ end
 beautiful.init("~/.config/awesome/themes/doom/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
+terminal = "lxterminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
