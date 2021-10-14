@@ -1,47 +1,34 @@
 let g:which_key_sep = '→'
 let g:which_key_max_size = 0
 let g:which_key_vertical = 0
-let g:which_key_hspace = 13
+let g:which_key_hspace = 14
 let g:which_key_sort_horizontal = 0
 let g:which_key_disable_default_offset = 1
 let g:which_key_centered = 1
-let g:which_key_floating_opts = {
-            \ 'row': '+2',
-            \ 'col': '+0',
-            \ 'width': '+0',
-            \ 'height': '-2'
-            \ }
 let g:which_key_default_group_name = '?'
 let g:which_key_timeout = 300
+let g:which_key_position = 'botright'
+let g:which_key_use_floating_win = 0
 let g:which_key_exit = [
             \ "\<C-[>",
             \ "\<Esc>",
             \ "\<Space>",
             \ ]
-let g:which_key_display_names = {
-            \ ' '    : 'SPC',
-            \ '<C-H>': 'BS',
-            \ '<C-I>': '⇆',
-            \ '<TAB>': '⇆',
-            \ '<CR>' : '↵',
-            \ }
-let g:which_key_position = 'botright'
-let g:which_key_use_floating_win = 0
 
 
 " Generics{{{
 let g:which_key_map = { 'name' : 'Menu',
-            \ 'e' : 'explore',
-            \ 'a' : 'align',
-            \ 'j' : 'jumpto',
+            \ 'j' : 'jump2',
+            \ 'l' : 'locate',
             \ 'r' : 'replace',
             \ 'u' : 'undo3',
-            \ 'd' : 'diagstics',
+            \ 'v' : 'vifm',
+            \ 'd' : 'diagnst',
             \ }
 "}}}
 
 " Replace{{{
-let g:which_key_map['m'] = { 'name' : '+MultiCrs',
+let g:which_key_map['m'] = { 'name' : '+MCrss',
             \ 'p' : 'position',
             \ 'w' : 'word',
             \ 'r' : 'range',
@@ -85,9 +72,10 @@ let g:which_key_map['w'] = { 'name' : '+WinCMD',
             \ 'l' : 'list',
             \ 'r' : 'rotate',
             \ 'e' : 'equalize',
-            \ 't' : 'totab',
-            \ 'o' : 'onlyone',
+            \ 't' : '2tab',
+            \ 'o' : 'one',
             \ 'n' : { 'name' : '+New',
+            \     'n' : 'editnew',
             \     's' : 'split',
             \     'v' : 'vsplit',
             \     }
@@ -99,7 +87,7 @@ let g:which_key_map['t'] = { 'name' : '+TabCMD',
             \ 't' : 'tabs',
             \ 'd' : 'delete',
             \ 'n' : 'new',
-            \ 'o' : 'onlyone',
+            \ 'o' : 'one',
             \ }
 "}}}
 
@@ -115,18 +103,17 @@ let g:which_key_map['b'] = { 'name' : '+BufCMD',
 "}}}
 
 " Sessions{{{
-let g:which_key_map['S'] = { 'name' : '+SsnCMD',
-            \ 'S' : 'sessions',
-            \ 's' : 'save',
+let g:which_key_map['h'] = { 'name' : '+Sessn',
             \ 'r' : 'restart',
+            \ 's' : 'saved',
+            \ 'w' : 'write',
             \ }
 "}}}
 
 " Quit{{{
 let g:which_key_map['q'] = { 'name' : '+Quit',
-            \ 'q' : 'quitEvil',
-            \ 'Q' : 'quitWrite',
-            \ 's' : 'splash',
+            \ 'q' : 'quit',
+            \ 'Q' : 'w&q',
             \ }
 "}}}
 
@@ -142,6 +129,7 @@ let g:which_key_map['s'] = { 'name' : '+Surrnd',
 
 
 " Ignore{{{
+let g:which_key_map.k   = 'which_key_ignore'
 let g:which_key_map.0   = 'which_key_ignore'
 let g:which_key_map.1   = 'which_key_ignore'
 let g:which_key_map.2   = 'which_key_ignore'
@@ -193,6 +181,7 @@ augroup notesettings
                 \         's' : 'scratch',
                 \         'p' : { 'name' : '+Pandoc',
                 \             'p' : 'pdf',
+                \             'b' : 'beamer',
                 \             'h' : 'html',
                 \             },
                 \         } |

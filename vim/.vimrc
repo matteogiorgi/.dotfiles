@@ -3,41 +3,18 @@
 "                  [ https://github.com/junegunn/vim-plug ]
 "
 "     coc-nvim··················https://github.com/neoclide/coc.nvim
-"     vim-polyglot··············https://github.com/sheerun/vim-polyglot
 "     vim-snippets··············https://github.com/honza/vim-snippets
-"     auto-pairs················https://github.com/jiangmiao/auto-pairs
 "     vim-surround··············https://github.com/tpope/vim-surround
 "     vim-repeat················https://github.com/tpope/vim-repeat
 "     vim-commentary············https://github.com/tpope/vim-commentary
-"     vim-fugitive··············https://github.com/tpope/vim-fugitive
 "     vim-smalls················https://github.com/t9md/vim-smalls
 "     undotree··················https://github.com/mbbill/undotree
-"     tabular···················https://github.com/godlygeek/tabular
-"     vim-move··················https://github.com/matze/vim-move
 "     vim-which-key·············https://github.com/liuchengxu/vim-which-key
 "     vim-pandoc-syntax·········https://github.com/vim-pandoc/vim-pandoc-syntax
 "     vim-notewiki··············https://github.com/matteogiorgi/vim-notewiki
 "     vim-lines·················https://github.com/matteogiorgi/vim-lines
-"     vim-utility···············https://github.com/matteogiorgi/vim-utility
-"     vim-explore···············https://github.com/matteogiorgi/vim-explore
 "     vim-startscreen···········https://github.com/matteogiorgi/vim-startscreen
-"     doom-one··················https://github.com/romgrk/doom-one.vim
-
-
-"                              COC-EXTENSIONS
-"
-"     coc-dictionary············https://github.com/neoclide/coc-sources
-"     coc-omni··················https://github.com/neoclide/coc-sources
-"     coc-syntax················https://github.com/neoclide/coc-sources
-"     coc-tabnine···············https://github.com/neoclide/coc-tabnine
-"     coc-kite··················https://github.com/neoclide/coc-kite
-"     coc-highlight·············https://github.com/neoclide/coc-highlight
-"     coc-lists·················https://github.com/neoclide/coc-lists
-"     coc-git···················https://github.com/neoclide/coc-git
-"     coc-snippets··············https://github.com/neoclide/coc-snippets
-"     coc-yank··················https://github.com/neoclide/coc-yank
-"     coc-explorer··············https://github.com/weirongxu/coc-explorer
-"     coc-marketplace···········https://github.com/fannheyward/coc-marketplace
+"     vim-vifm··················https://github.com/matteogiorgi/vim-vifm
 
 
 
@@ -62,25 +39,18 @@ augroup end
 " Plugin list{{{
 call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch' : 'release'}
-    Plug 'sheerun/vim-polyglot'
     Plug 'honza/vim-snippets'
-    Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
     Plug 't9md/vim-smalls'
     Plug 'mbbill/undotree'
-    Plug 'godlygeek/tabular'
-    Plug 'matze/vim-move'
     Plug 'liuchengxu/vim-which-key'
     Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'matteogiorgi/vim-notewiki'
     Plug 'matteogiorgi/vim-lines'
-    Plug 'matteogiorgi/vim-utility'
-    Plug 'matteogiorgi/vim-explore'
     Plug 'matteogiorgi/vim-startscreen'
-    Plug 'romgrk/doom-one.vim'
+    Plug 'matteogiorgi/vim-vifm'
 call plug#end()
 "}}}
 
@@ -209,16 +179,17 @@ command! Pasta execute 'normal "+p'
 "}}}
 
 " Text movements (comment if using vim-move){{{
-" xnoremap K :move '<-2<CR>gv=gv
-" xnoremap J :move '>+1<CR>gv=gv
+xnoremap K :move '<-2<CR>gv=gv
+xnoremap J :move '>+1<CR>gv=gv
 "}}}
 
 " Menu remaps{{{
+nnoremap <leader>k   :
+nnoremap <leader>l   :FZF<cr>
 nnoremap <leader>r   :%s///gc<Left><Left><Left>
 xnoremap <leader>r   :s///gc<Left><Left><Left>
 nnoremap <leader>qq  :quitall<CR>
 nnoremap <leader>qQ  :wall<bar>quitall<CR>
-nnoremap <leader>qs  :bufdo<space>bd<bar>cd<space>$HOME<bar>Startscreen<CR>
 nnoremap <leader>bw  :write<CR>
 nnoremap <leader>bW  :wall<CR>
 nnoremap <leader>bd  :Bclose<CR>
@@ -228,6 +199,7 @@ nnoremap <leader>wd  :wincmd q<cr>
 nnoremap <leader>wr  :wincmd r<cr>
 nnoremap <leader>we  :wincmd =<cr>
 nnoremap <leader>wt  :wincmd T<cr>
+nnoremap <leader>wnn :enew<cr>
 nnoremap <leader>wns :wincmd s<cr>
 nnoremap <leader>wnv :wincmd v<cr>
 nnoremap <leader>wo  :only<CR>
@@ -246,8 +218,9 @@ nnoremap <silent><S-Left> :tabmove -1<cr>
 nnoremap <silent><S-Right> :tabmove +1<cr>
 nnoremap <silent>Y y$
 tnoremap <silent><C-q> <C-\><C-n>
+tnoremap <silent><C-n> <C-w>w
 nnoremap <silent><Up> {
-nnoremap <silent><Down> }}{
+nnoremap <silent><Down> }
 nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
 nnoremap <silent><C-j> :resize -5<CR>
@@ -277,5 +250,5 @@ nnoremap <leader>t7 :7tabmove<cr>
 nnoremap <leader>t8 :8tabmove<cr>
 nnoremap <leader>t9 :9tabmove<cr>
 nnoremap <silent><C-p> :b#<cr>
-nnoremap <silent><C-w> :wincmd w<cr>
+nnoremap <silent><C-n> :wincmd w<cr>
 "}}}

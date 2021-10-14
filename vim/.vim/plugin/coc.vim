@@ -1,18 +1,29 @@
+
+"                              COC-EXTENSIONS
+"                  [ https://github.com/neoclide/coc.nvim ]
+"
+"     coc-marketplace···········https://github.com/fannheyward/coc-marketplace
+"     coc-dictionary············https://github.com/neoclide/coc-sources
+"     coc-highlight·············https://github.com/neoclide/coc-highlight
+"     coc-snippets··············https://github.com/neoclide/coc-snippets
+"     coc-lists·················https://github.com/neoclide/coc-lists
+"     coc-git···················https://github.com/neoclide/coc-git
+"     coc-yank··················https://github.com/neoclide/coc-yank
+
+
+
+
 " Coc configuration file path and main extensions list
 let g:coc_config_home = '~/.vim'
 let g:coc_global_extensions = [
+            \ 'coc-marketplace',
             \ 'coc-dictionary',
-            \ 'coc-omni',
-            \ 'coc-syntax',
-            \ 'coc-tabnine',
-            \ 'coc-kite',
             \ 'coc-highlight',
+            \ 'coc-pairs',
+            \ 'coc-snippets',
             \ 'coc-lists',
             \ 'coc-git',
-            \ 'coc-snippets',
             \ 'coc-yank',
-            \ 'coc-explorer',
-            \ 'coc-marketplace',
             \ ]
 
 " If you want an extension to work on top of the ones already configured
@@ -37,19 +48,6 @@ augroup formatgroup
     autocmd!
     autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-augroup explorerwindow
-    autocmd! BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
-    autocmd! VimLeavePre * execute 'CocCommand explorer --quit'
-augroup end
-
-augroup explorercursorline
-    autocmd! User CocExplorerOpenPost set cursorline
-augroup end
-
-augroup explorerequalize
-    autocmd! User CocExplorerOpenPost,CocExplorerQuitPost execute 'wincmd ='
 augroup end
 
 
@@ -89,8 +87,6 @@ inoremap <silent><expr> <C-Space> coc#refresh()
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
             \ : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
-nnoremap <silent><C-q> :CocCommand explorer --toggle<CR>
-
 nnoremap <leader>ca  :CocAction<CR>
 nnoremap <leader>cc  :CocCommand<CR>
 nnoremap <leader>cl  :CocList<CR>
@@ -116,9 +112,9 @@ nnoremap <leader>fff :CocList files<CR>
 nnoremap <leader>ffg :call <SID>FindInGit()<CR>
 nnoremap <leader>ffr :CocList mru<CR>
 
-nnoremap <leader>SS :CocList sessions<CR>
-nnoremap <leader>Ss :CocCommand session.save<CR>
-nnoremap <leader>Sr :CocCommand session.restart<CR>
+nnoremap <leader>hr :CocCommand session.restart<CR>
+nnoremap <leader>hs :CocList sessions<CR>
+nnoremap <leader>hw :CocCommand session.save<CR>
 
 nmap <leader>mp <Plug>(coc-cursors-position)
 nmap <leader>mw <Plug>(coc-cursors-word)

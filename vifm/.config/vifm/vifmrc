@@ -140,8 +140,6 @@ command! reload :write | restart
 
 command! background :!feh --bg-fill %f
 command! lockscreen :!betterlockscreen -u %f
-command! wallvideo  :!wallset --video %f
-command! wallquit   :!wallset --quit
 command! swallow    :!swallow %f
 
 

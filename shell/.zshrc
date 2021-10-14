@@ -111,7 +111,7 @@ NC="\e[m"               # Color Reset
 
 PR_NO_COLOR="%{$terminfo[sgr0]%}"
 PS1="[%(!.${PR_RED}%n.$PR_LIGHT_YELLOW%n)%(!.${PR_LIGHT_YELLOW}@.$PR_RED@)$PR_NO_COLOR%(!.${PR_LIGHT_RED}%U%m%u.${PR_LIGHT_GREEN}%U%m%u)$PR_NO_COLOR:%(!.${PR_RED}%2c.${PR_BLUE}%2c)$PR_NO_COLOR]%(?..[${PR_LIGHT_RED}%?$PR_NO_COLOR])%(!.${PR_LIGHT_RED}#.${PR_LIGHT_GREEN}$) "
-RPS1="$PR_LIGHT_YELLOW(%D{%m-%d %H:%M})$PR_NO_COLOR"
+RPS1="$PR_LIGHT_YELLOW(%D{%a %d %b, %H:%M}) $PR_LIGHT_BLUE($(battery)%%)$PR_NO_COLOR"
 unsetopt ALL_EXPORT
 
 
@@ -183,15 +183,6 @@ function makezip () { zip -r "${1%%/}.zip" "$1" ; }
 # ps motherfuckers:
 function my_ps () { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
 
-# Set custom keys:
-function keyswap () { xmodmap ~/.Xmodmap ; }
-
-# Reload xresources:
-function xload () { xrdb ~/.Xresources ; }
-
-# Reload shell config file:
-function reload () { source ~/.zshrc ; }
-
 # Cycle through keyboard layout:
 function laynext () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
@@ -214,18 +205,6 @@ function bgrandom () {
     feh --bg-fill $( echo $( /usr/bin/ls -l | awk '{if (NR!=1) print $9}' | sort -R | tail -1 ))
     cd - 1>/dev/null
 }
-
-# Set background:
-function background () { feh --bg-fill $1 ; }
-
-# Set lockscreen:
-function lockscreen () { betterlockscreen -u $1 ; }
-
-# Start video-wallpaper:
-function wallvideo () { wallset --video $1 ; }
-
-# Stop video-wallpaper:
-function wallquit () { wallset --quit ; }
 
 # Jump directorys upwards until it hits a directory with multiple folders:
 function up () {
@@ -256,17 +235,6 @@ function _vfm () {
         return 1
     fi
     cd "$dst"
-}
-
-# Change directory exiting from ranger
-function _rfm () {
-    local tempfile="$(mktemp -t tmp.XXXXXX)"
-    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
-    fi
-    rm -f -- "$tempfile"
 }
 
 # Change directory exiting from shfm
@@ -306,6 +274,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 alias folders="find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn"
 alias grep="grep --color=auto"
+alias reload="source ~/.zshrc"
 
 # use exa instead of ls (if present)
 alias ls="ls -CF --color=auto" && [[ -f /bin/exa ]] && alias ls="exa -GF --git --icons --color=auto"
@@ -317,24 +286,33 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
 
-# doom-emacs
-alias emacs="/usr/bin/emacs -nw"
-alias eclient="emacsclient -c -a 'emacs'"
-alias doomsync="~/.emacs.d/bin/doom sync"
-alias doomdoctor="~/.emacs.d/bin/doom doctor"
-alias doomupgrade="~/.emacs.d/bin/doom upgrade"
-alias doompurge="~/.emacs.d/bin/doom purge"
-
-# pacman and paru
+# pacman and paru aliases
 alias pacsyu='sudo pacman -Syyu'
 alias parsyu='paru -Syu --noconfirm'
 alias parsua='paru -Sua --noconfirm'
 
-# aliases for vifm, ranger, shfm and fff
+# aliases for vifm, shfm and fff
 alias vifm="_vfm"
-alias ranger="_rfm"
 alias shfm="_sfm"
 alias fff="_ffm"
+
+# logout aliases
+alias reboot="systemctl reboot"
+alias poweroff="systemctl -i poweroff"
+
+# stow aliases
+alias stow="stow -S"
+alias restow="stow -R"
+alias unstow="stow -D"
+
+# xresources and keyboard aliases
+alias xload="xrdb ~/.Xresources"
+alias keyswap="xmodmap ~/.Xmodmap"
+
+# background and lockscreen aliases
+alias background="feh --bg-fill $1"
+alias lockscreen="betterlockscreen -u $1"
+alias lock="betterlockscreen -l dim"
 
 
 ### Bind keys
@@ -457,20 +435,16 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 ### Environment variables
 #########################
 
-export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,nvimpager,vim/nvim +Man!
-export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,nvimpager,vim/nvim +Man!
-export VISUAL="vi" && [[ -f /bin/vim ]] && export VISUAL="vim"                  # vim,nvim,amp,micro,vscodium
-export EDITOR="vi" && [[ -f /bin/vim ]] && export EDITOR="vim"                  # vim,nvim,amp,micro,vscodium
-export BROWSER="qutebrowser"                                                    # qutebrowser,luakit,vimb
-export READER="zathura"
 export GOPATH="$HOME/go"                                                        # go directory should stay in $HOME
+export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,vim/nvim +Man!
+export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,vim/nvim +Man!
+export VISUAL="vi" && [[ -f /bin/vim ]] && export VISUAL="vim"                  # vim,kak
+export EDITOR="vi" && [[ -f /bin/vim ]] && export EDITOR="vim"                  # vim,kak
+export BROWSER="vimb"
+export READER="zathura"
 
 # better not export $TERM: problems with broot image preview
-export TERM="xterm-256color"  # screen-256color,xterm-256color,xterm-kitty
-export MYTERM="lxterminal"    # kitty,alacritty,lxterminal,xterm
-
-# need the following to avoid ranger loading configs twice
-export RANGER_LOAD_DEFAULT_RC="FALSE"
+export TERM="xterm-256color"  # xterm-256color,screen-256color
 
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
