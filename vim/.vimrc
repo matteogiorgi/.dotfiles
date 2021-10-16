@@ -7,11 +7,13 @@
 "     vim-surround··············https://github.com/tpope/vim-surround
 "     vim-repeat················https://github.com/tpope/vim-repeat
 "     vim-commentary············https://github.com/tpope/vim-commentary
+"     vim-fugitive··············https://github.com/tpope/vim-fugitive
 "     vim-smalls················https://github.com/t9md/vim-smalls
 "     undotree··················https://github.com/mbbill/undotree
 "     vim-which-key·············https://github.com/liuchengxu/vim-which-key
 "     vim-pandoc-syntax·········https://github.com/vim-pandoc/vim-pandoc-syntax
 "     vim-notewiki··············https://github.com/matteogiorgi/vim-notewiki
+"     vim-utility···············https://github.com/matteogiorgi/vim-utility
 "     vim-lines·················https://github.com/matteogiorgi/vim-lines
 "     vim-startscreen···········https://github.com/matteogiorgi/vim-startscreen
 "     vim-vifm··················https://github.com/matteogiorgi/vim-vifm
@@ -43,11 +45,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-fugitive'
     Plug 't9md/vim-smalls'
     Plug 'mbbill/undotree'
     Plug 'liuchengxu/vim-which-key'
     Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'matteogiorgi/vim-notewiki'
+    Plug 'matteogiorgi/vim-utility'
     Plug 'matteogiorgi/vim-lines'
     Plug 'matteogiorgi/vim-startscreen'
     Plug 'matteogiorgi/vim-vifm'
@@ -68,7 +72,7 @@ endif
 " Color syntax{{{
 syntax on
 set background=dark
-colorscheme dracula17  " spooky,dracula17,doom-one
+colorscheme dracula16
 filetype plugin indent on
 "}}}
 
@@ -91,6 +95,7 @@ set ignorecase smartcase smartindent
 set noswapfile nobackup
 set showmode showcmd
 set cursorline noerrorbells novisualbell
+set cursorlineopt=number  " number,line
 set splitbelow splitright
 set noequalalways
 set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM
@@ -184,7 +189,6 @@ xnoremap J :move '>+1<CR>gv=gv
 "}}}
 
 " Menu remaps{{{
-nnoremap <leader>k   :
 nnoremap <leader>l   :FZF<cr>
 nnoremap <leader>r   :%s///gc<Left><Left><Left>
 xnoremap <leader>r   :s///gc<Left><Left><Left>

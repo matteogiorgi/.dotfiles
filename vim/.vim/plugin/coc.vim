@@ -5,6 +5,7 @@
 "     coc-marketplace···········https://github.com/fannheyward/coc-marketplace
 "     coc-dictionary············https://github.com/neoclide/coc-sources
 "     coc-highlight·············https://github.com/neoclide/coc-highlight
+"     coc-pairs·················https://github.com/neoclide/coc-pairs
 "     coc-snippets··············https://github.com/neoclide/coc-snippets
 "     coc-lists·················https://github.com/neoclide/coc-lists
 "     coc-git···················https://github.com/neoclide/coc-git
@@ -112,9 +113,10 @@ nnoremap <leader>fff :CocList files<CR>
 nnoremap <leader>ffg :call <SID>FindInGit()<CR>
 nnoremap <leader>ffr :CocList mru<CR>
 
-nnoremap <leader>hr :CocCommand session.restart<CR>
-nnoremap <leader>hs :CocList sessions<CR>
-nnoremap <leader>hw :CocCommand session.save<CR>
+nnoremap <leader>gs :CocList gstatus<CR>
+nnoremap <leader>gg :CocList commits<CR>
+nnoremap <leader>gb :CocList bcommits<CR>
+nnoremap <leader>gc :CocCommand git.showCommit<CR>
 
 nmap <leader>mp <Plug>(coc-cursors-position)
 nmap <leader>mw <Plug>(coc-cursors-word)

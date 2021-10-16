@@ -102,11 +102,12 @@ let g:which_key_map['b'] = { 'name' : '+BufCMD',
             \ }
 "}}}
 
-" Sessions{{{
-let g:which_key_map['h'] = { 'name' : '+Sessn',
-            \ 'r' : 'restart',
-            \ 's' : 'saved',
-            \ 'w' : 'write',
+" Git{{{
+let g:which_key_map['g'] = { 'name' : '+Git',
+            \ 's' : 'status',
+            \ 'g' : 'commits',
+            \ 'b' : 'buffer',
+            \ 'c' : 'chunk',
             \ }
 "}}}
 
@@ -129,7 +130,6 @@ let g:which_key_map['s'] = { 'name' : '+Surrnd',
 
 
 " Ignore{{{
-let g:which_key_map.k   = 'which_key_ignore'
 let g:which_key_map.0   = 'which_key_ignore'
 let g:which_key_map.1   = 'which_key_ignore'
 let g:which_key_map.2   = 'which_key_ignore'

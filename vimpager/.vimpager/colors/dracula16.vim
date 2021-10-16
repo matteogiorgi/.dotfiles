@@ -2,10 +2,7 @@
 
 " base16-vim (https://github.com/chriskempson/base16-vim) by Chris Kempson (http://chriskempson.com)
 " Dracula scheme by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
-" dracula17 by Matteo Giorgi based on the previous ;)
-
-let s:gui17        = "2e2f3e"  " #2e2f3e
-let g:base16_gui17 = "2e2f3e"  " #2e2f3e
+" dracula16 by Matteo Giorgi based on the previous ;)
 
 " GUI color definitions
 let s:gui00        = "282a36"  " #282a36
@@ -138,7 +135,7 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "dracula17"
+let g:colors_name = "dracula16"
 
 " Highlighting function
 " Optional variables are attributes and guisp
@@ -184,9 +181,9 @@ call <sid>hi("Folded",        s:gui03, s:gui01, s:cterm03, s:cterm01, "", "")
 call <sid>hi("IncSearch",     s:gui01, s:gui09, s:cterm01, s:cterm09, "none", "")
 call <sid>hi("Italic",        "", "", "", "", "none", "")
 call <sid>hi("Macro",         s:gui08, "", s:cterm08, "", "", "")
-call <sid>hi("MatchParen",    "", s:gui03, "", s:cterm03,  "", "")
-call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "", "")
-call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "", "")
+call <sid>hi("MatchParen",    "", s:gui02, "", s:cterm02,  "", "")
+call <sid>hi("ModeMsg",       s:gui0A, "", s:cterm0A, "", "", "")
+call <sid>hi("MoreMsg",       s:gui0A, "", s:cterm0A, "", "", "")
 call <sid>hi("Question",      s:gui0D, "", s:cterm0D, "", "", "")
 call <sid>hi("Search",        s:gui01, s:gui0A, s:cterm01, s:cterm0A,  "", "")
 call <sid>hi("Substitute",    s:gui01, s:gui0A, s:cterm01, s:cterm0A, "none", "")
@@ -203,18 +200,18 @@ call <sid>hi("Cursor",        s:gui00, s:gui05, s:cterm00, s:cterm05, "", "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "", "")
 call <sid>hi("LineNr",        s:gui03, s:gui00, s:cterm03, s:cterm00, "", "")
 call <sid>hi("SignColumn",    s:gui03, s:gui00, s:cterm03, s:cterm00, "", "")
-call <sid>hi("StatusLine",    s:gui04, s:gui01, s:cterm04, s:cterm01, "bold", "")
-call <sid>hi("StatusLineNC",  s:gui03, s:gui01, s:cterm03, s:cterm01, "bold", "")
+call <sid>hi("StatusLine",    s:gui0D, s:gui01, s:cterm0D, s:cterm01, "none", "")
+call <sid>hi("StatusLineNC",  s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("VertSplit",     s:gui01, "", s:cterm01, "", "none", "")
-call <sid>hi("ColorColumn",   "", s:gui17, "", s:cterm01, "none", "")
-call <sid>hi("CursorColumn",  "", s:gui17, "", s:cterm01, "none", "")
-call <sid>hi("CursorLine",    "", s:gui17, "", s:cterm01, "none", "")
-call <sid>hi("CursorLineNr",  s:gui04, s:gui00, s:cterm04, s:cterm00, "bold", "")
+call <sid>hi("ColorColumn",   "", s:gui02, "", s:cterm02, "none", "")
+call <sid>hi("CursorColumn",  "", s:gui02, "", s:cterm02, "none", "")
+call <sid>hi("CursorLine",    "", s:gui02, "", s:cterm02, "none", "")
+call <sid>hi("CursorLineNr",  s:gui0A, s:gui00, s:cterm0A, s:cterm00, "none", "")  " 04,00
 call <sid>hi("QuickFixLine",  "", s:gui01, "", s:cterm01, "none", "")
 call <sid>hi("PMenu",         s:gui05, s:gui01, s:cterm05, s:cterm01, "none", "")
 call <sid>hi("PMenuSel",      s:gui01, s:gui05, s:cterm01, s:cterm05, "", "")
-call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm03, s:cterm01, "bold", "")
-call <sid>hi("TabLineSel",    s:gui0B, s:gui01, s:cterm0B, s:cterm01, "bold", "")
+call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
+call <sid>hi("TabLineSel",    s:gui0D, s:gui01, s:cterm0D, s:cterm01, "none", "")
 call <sid>hi("TabLineFill",   s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
 
 " Standard syntax highlighting
@@ -293,10 +290,10 @@ call <sid>hi("gitcommitDiscardedFile",  s:gui08, "", s:cterm08, "", "bold", "")
 call <sid>hi("gitcommitSelectedFile",   s:gui0B, "", s:cterm0B, "", "bold", "")
 
 " GitGutter highlighting
-call <sid>hi("GitGutterAdd",           s:gui0B, s:gui17, s:cterm0B, s:cterm01, "", "")
-call <sid>hi("GitGutterChange",        s:gui0D, s:gui17, s:cterm0D, s:cterm01, "", "")
-call <sid>hi("GitGutterDelete",        s:gui08, s:gui17, s:cterm08, s:cterm01, "", "")
-call <sid>hi("GitGutterChangeDelete",  s:gui0E, s:gui17, s:cterm0E, s:cterm01, "", "")
+call <sid>hi("GitGutterAdd",           s:gui0B, s:gui00, s:cterm0B, s:cterm00, "", "")
+call <sid>hi("GitGutterChange",        s:gui0D, s:gui00, s:cterm0D, s:cterm00, "", "")
+call <sid>hi("GitGutterDelete",        s:gui08, s:gui00, s:cterm08, s:cterm00, "", "")
+call <sid>hi("GitGutterChangeDelete",  s:gui0E, s:gui00, s:cterm0E, s:cterm00, "", "")
 
 " HTML highlighting
 call <sid>hi("htmlBold",    s:gui0A, "", s:cterm0A, "", "", "")
@@ -403,5 +400,5 @@ call <sid>hi("javaOperator",     s:gui0D, "", s:cterm0D, "", "", "")
 delf <sid>hi
 
 " Remove color variables
-unlet s:gui00 s:gui01 s:gui02 s:gui03  s:gui04  s:gui05  s:gui06  s:gui07  s:gui08  s:gui09 s:gui0A  s:gui0B  s:gui0C  s:gui0D  s:gui0E  s:gui0F s:gui17
+unlet s:gui00 s:gui01 s:gui02 s:gui03  s:gui04  s:gui05  s:gui06  s:gui07  s:gui08  s:gui09 s:gui0A  s:gui0B  s:gui0C  s:gui0D  s:gui0E  s:gui0F
 unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06 s:cterm07 s:cterm08 s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F
