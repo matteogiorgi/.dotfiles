@@ -32,7 +32,7 @@ To launch leftwm append `exec dbus-launch leftwm` in your `~/.xinitrc`. For a fu
 ## Other usefull GUI programs with dotfiles
 
 - zathura (document viewer)
-- alacritty/xterm (terminal emulators)
+- alacritty (terminal emulator)
 
 
 ### and without
@@ -44,3 +44,4 @@ To launch leftwm append `exec dbus-launch leftwm` in your `~/.xinitrc`. For a fu
 - pcmanfm (file manager)
 - mpv (reproduce audio/video)
 - sxiv (image viewer)
+- st (terminal emulator)

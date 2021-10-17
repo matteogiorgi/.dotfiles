@@ -30,13 +30,13 @@ key = "u"
 
 [[keybind]]
 command = "Execute"
-value = "dmenu_run -i -nb '#282a36' -nf '#ff9500' -sb '#ff9500' -sf '#282a36' -fn 'mononoki Nerd Font:regular:pixelsize=14'"
+value = "dmenu_run -i -nb '#282a36' -nf '#ff9500' -sb '#ff9500' -sf '#282a36' -fn 'mononoki Nerd Font:regular:pixelsize=12' -h 20"
 modifier = ["modkey"]
 key = "space"
 
 [[keybind]]
 command = "Execute"
-value = "alacritty"
+value = "st"
 modifier = ["modkey"]
 key = "Return"
 
