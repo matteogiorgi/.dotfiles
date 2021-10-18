@@ -30,13 +30,31 @@ key = "u"
 
 [[keybind]]
 command = "Execute"
+value = "rofirun -r"
+modifier = ["modkey"]
+key = "a"
+
+[[keybind]]
+command = "Execute"
+value = "rofirun -l"
+modifier = ["modkey"]
+key = "q"
+
+[[keybind]]
+command = "Execute"
+value = "rofirun -w"
+modifier = ["modkey"]
+key = "w"
+
+[[keybind]]
+command = "Execute"
 value = "dmenu_run -i -nb '#282a36' -nf '#ff9500' -sb '#ff9500' -sf '#282a36' -fn 'mononoki Nerd Font:regular:pixelsize=12' -h 20"
 modifier = ["modkey"]
 key = "space"
 
 [[keybind]]
 command = "Execute"
-value = "st"
+value = "alacritty"
 modifier = ["modkey"]
 key = "Return"
 
@@ -65,7 +83,7 @@ key = "l"
 [[keybind]]
 command = "MoveToLastWorkspace"
 modifier = ["modkey", "Shift"]
-key = "w"
+key = "s"
 
 [[keybind]]
 command = "SwapTags"

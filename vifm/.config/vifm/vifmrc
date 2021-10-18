@@ -136,6 +136,12 @@ command! reload :write | restart
 
 " ------------------------------------------------------------------------------
 
+" edit files
+command! vim :!vim %f
+command! kak :!kak %f
+command! amp :!amp %f
+
+
 " background & lockscreen
 
 command! background :!feh --bg-fill %f

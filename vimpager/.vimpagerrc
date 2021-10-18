@@ -18,7 +18,7 @@ set nowrap nospell
 set ignorecase smartcase smartindent
 set noswapfile nobackup
 set showmode showcmd
-set cursorline noerrorbells novisualbell
+set nocursorline noerrorbells novisualbell
 set splitbelow splitright
 set noequalalways
 set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM

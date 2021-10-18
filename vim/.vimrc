@@ -189,6 +189,8 @@ xnoremap J :move '>+1<CR>gv=gv
 "}}}
 
 " Menu remaps{{{
+nnoremap <leader>h   :
+nnoremap <leader>k   /
 nnoremap <leader>l   :FZF<cr>
 nnoremap <leader>r   :%s///gc<Left><Left><Left>
 xnoremap <leader>r   :s///gc<Left><Left><Left>

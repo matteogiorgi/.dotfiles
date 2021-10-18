@@ -130,6 +130,8 @@ let g:which_key_map['s'] = { 'name' : '+Surrnd',
 
 
 " Ignore{{{
+let g:which_key_map.h   = 'which_key_ignore'
+let g:which_key_map.k   = 'which_key_ignore'
 let g:which_key_map.0   = 'which_key_ignore'
 let g:which_key_map.1   = 'which_key_ignore'
 let g:which_key_map.2   = 'which_key_ignore'

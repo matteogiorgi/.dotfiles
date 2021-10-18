@@ -227,13 +227,18 @@
 
         # Edit with others than $EDITOR
 		{
+			invocation: vim
+			execution: "vim {file}"
+			leave_broot: false
+		}
+		{
 			invocation: kak
 			execution: "kak {file}"
 			leave_broot: false
 		}
 		{
-			invocation: vim
-			execution: "vim {file}"
+			invocation: amp
+			execution: "amp {file}"
 			leave_broot: false
 		}
 

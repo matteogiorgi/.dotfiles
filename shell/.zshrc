@@ -244,12 +244,6 @@ function _sfm () {
     rm -f ~/tmp.XXXXXX
 }
 
-# Change directory exiting from fff
-function _ffm () {
-    fff "$@"
-    cd "$(cat "$FFF_CD_FILE")"  # ${XDG_CACHE_HOME:=${HOME}/.cache}/fff/fff.d"
-}
-
 
 ### Set alias
 #############
@@ -294,7 +288,6 @@ alias parsua='paru -Sua --noconfirm'
 # aliases for vifm, shfm and fff
 alias vifm="_vfm"
 alias shfm="_sfm"
-alias fff="_ffm"
 
 # logout aliases
 alias reboot="systemctl reboot"
@@ -428,18 +421,15 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 [[ -f $HOME/.config/fzf/completion.zsh ]] && source $HOME/.config/fzf/completion.zsh
 [[ -f $HOME/.config/fzf/key-bindings.zsh ]] && source $HOME/.config/fzf/key-bindings.zsh
 
-# fff
-[[ -f $HOME/bin/fff/.fffrc ]] && source $HOME/bin/fff/.fffrc
 
-
-### Environment variables
-#########################
+### Environment variables (remember to install vi, vim, most, vimb, zathura)
+############################################################################
 
 export GOPATH="$HOME/go"                                                        # go directory should stay in $HOME
-export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,vim/nvim +Man!
-export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,vim/nvim +Man!
-export VISUAL="vi" && [[ -f /bin/vim ]] && export VISUAL="vim"                  # vim,kak
-export EDITOR="vi" && [[ -f /bin/vim ]] && export EDITOR="vim"                  # vim,kak
+export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,vim
+export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,vim
+export VISUAL="vi" && [[ -f /bin/vim ]] && export VISUAL="vim"                  # vi,vim,kak
+export EDITOR="vi" && [[ -f /bin/vim ]] && export EDITOR="vim"                  # vi,vim,kak
 export BROWSER="vimb"
 export READER="zathura"
 
