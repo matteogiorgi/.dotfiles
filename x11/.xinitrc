@@ -6,4 +6,5 @@
 
 xrdb -load ~/.Xresources &
 xsettingsd &
-exec dbus-launch leftwm
+/usr/bin/bspwm start
+# exec dbus-launch leftwm
