@@ -60,7 +60,7 @@ super + {_,shift + }n
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
-super + bracket{left,right}
+super + {Left,Right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
@@ -68,7 +68,7 @@ super + {grave,Tab}
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
-super + {left,right}
+super + bracket{left,right}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
