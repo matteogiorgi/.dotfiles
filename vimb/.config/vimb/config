@@ -1,6 +1,6 @@
 # Remember to pair vimb with tabbed: '% tabbed -c vimb -e'
 # Homepage that vimb opens if started without a URI.
-set home-page=https://matteogiorgi.github.io
+set home-page=https://www.geoteo.net/start.html
 
 # Path to the default download directory. If no download directory is set,
 # download will be written into current directory. The following pattern will
@@ -10,7 +10,7 @@ set download-path=~/tmp/
 # Command with placeholder '%s' called if form field is opened with $EDITOR to
 # spawn the editor-like `x-terminal-emulator -e vim %s'. To use Gvim as the
 # editor, it's necessary to call it with `-f' to run it in the foreground.
-set editor-command=xterm -e "vim %s"
+set editor-command=alacritty -e "vim %s"
 
 # If enabled the inputbox will be hidden whenever it contains no text.
 set input-autohide=true
@@ -68,16 +68,21 @@ nmap + zI
 nmap - zO
 nmap = zz
 
+# Map page movements
+# H (previous page), L (next page)
+nmap H <C-o>
+nmap L <C-i>
+
 # GUI color settings
 # Color scheme: Base16 Eighties (https://github.com/chriskempson/base16)
-set completion-css=color:#d3d0c8;background-color:#393939;font:10pt mononoki Nerd Font;
-set completion-hover-css=color:#d3d0c8;background-color:#393939;font:10pt mononoki Nerd Font;
-set completion-selected-css=color:#d3d0c8;background-color:#515151;font:10pt mononoki Nerd Font;
-set input-css=color:#d3d0c8;background-color:#393939;font:10pt mononoki Nerd Font;
-set input-error-css=color:#f2777a;background-color:#393939;font:10pt mononoki Nerd Font;
-set status-css=color:#ffcc66;background-color:#393939;font:10pt mononoki Nerd Font;
-set status-ssl-css=color:#99cc99;background-color:#393939;font:10pt mononoki Nerd Font;
-set status-ssl-invalid-css=color:#f2777a;background-color:#393939;font:10pt mononoki Nerd Font;
+set completion-css=color:#e9e9f4;background-color:#3a3c4e;font:10pt mononoki Nerd Font;
+set completion-hover-css=color:#e9e9f4;background-color:#3a3c4e;font:10pt mononoki Nerd Font;
+set completion-selected-css=color:#e9e9f4;background-color:#4d4f68;font:10pt mononoki Nerd Font;
+set input-css=color:#e9e9f4;background-color:#3a3c4e;font:10pt mononoki Nerd Font;
+set input-error-css=color:#ea51b2;background-color:#3a3c4e;font:10pt mononoki Nerd Font;
+set status-css=color:#ebff87;background-color:#3a3c4e;font:10pt mononoki Nerd Font;
+set status-ssl-css=color:#00f769;background-color:#3a3c4e;font:10pt mononoki Nerd Font;
+set status-ssl-invalid-css=color:#ea51b2;background-color:#3a3c4e;font:10pt mononoki Nerd Font;
 
 
 set download-path=~/tmp

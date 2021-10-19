@@ -12,27 +12,33 @@ focus_new_windows = true
 
 [[keybind]]
 command = "Execute"
-value = "pamixer -i 5"
-modifier = ["modkey"]
-key = "i"
-
-[[keybind]]
-command = "Execute"
-value = "pamixer -d 5"
-modifier = ["modkey"]
-key = "o"
-
-[[keybind]]
-command = "Execute"
-value = "pamixer -t"
+value = "pamixer -i 3"
 modifier = ["modkey"]
 key = "u"
 
 [[keybind]]
 command = "Execute"
-value = "rofirun -r"
+value = "pamixer -d 3"
+modifier = ["modkey"]
+key = "i"
+
+[[keybind]]
+command = "Execute"
+value = "pamixer -t"
+modifier = ["modkey"]
+key = "o"
+
+[[keybind]]
+command = "Execute"
+value = "rofirun -a"
 modifier = ["modkey"]
 key = "a"
+
+[[keybind]]
+command = "Execute"
+value = "rofirun -r"
+modifier = ["modkey"]
+key = "r"
 
 [[keybind]]
 command = "Execute"
@@ -50,13 +56,19 @@ key = "w"
 command = "Execute"
 value = "dmenu_run -i -nb '#282a36' -nf '#ff9500' -sb '#ff9500' -sf '#282a36' -fn 'mononoki Nerd Font:regular:pixelsize=12' -h 20"
 modifier = ["modkey"]
-key = "space"
+key = "d"
 
 [[keybind]]
 command = "Execute"
 value = "alacritty"
 modifier = ["modkey"]
 key = "Return"
+
+[[keybind]]
+command = "Execute"
+value = "vimb"
+modifier = ["modkey"]
+key = "space"
 
 [[keybind]]
 command = "CloseWindow"

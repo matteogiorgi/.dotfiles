@@ -44,6 +44,7 @@ For a fully functional desktop system, remember to install the following program
 - lxappearence (gui gtk theme switcher)
 - arandr (xrandr gui interface)
 - pcmanfm (gui file manager)
+- xarchiver (gui archive manager)
 - brave (web browser)
 - dmenu (menu launcher)
 - st/xterm (terminal emulators)
