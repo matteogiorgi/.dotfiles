@@ -30,10 +30,10 @@ for arg in "$@"; do
             exit 0
             ;;
         -r|--run)
-            rofi -modi run,drun -show drun
+            rofi -modi run,drun -show drun -i -p 'apps'
             ;;
         -w|--window)
-            rofi -modi window -show window
+            rofi -modi window -show window -i -p 'wins'
             ;;
         -l|--logout)
             if grep -q 'exec startx' $HOME/.*profile; then

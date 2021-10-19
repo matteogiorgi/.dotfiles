@@ -101,6 +101,8 @@ nmap <silent><S-tab> <Plug>(coc-diagnostic-prev)
 
 nnoremap <silent>K  :call <SID>ShowDoc()<CR>
 nnoremap <leader>d  :CocList diagnostics<CR>
+nnoremap <leader>h  :CocList cmdhistory<CR>
+nnoremap <leader>k  :CocList vimcommands<CR>
 nnoremap <leader>bb :CocList buffers<CR>
 nnoremap <leader>ww :CocList windows<CR>
 

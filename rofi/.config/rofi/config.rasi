@@ -2,10 +2,10 @@
 
 * {
     font: "mononoki Nerd Font 9";
-    terminal: "xterm";
+    terminal: "alacritty";
     foreground: #f8f8f2;
     background: #282a36;
-    active-background: #2e2f3e;
+    active-background: #4d4f68;
     urgent-background: #ff5555;
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;

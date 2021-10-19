@@ -1,7 +1,7 @@
 let g:which_key_sep = '→'
 let g:which_key_max_size = 0
 let g:which_key_vertical = 0
-let g:which_key_hspace = 14
+let g:which_key_hspace = 20
 let g:which_key_sort_horizontal = 0
 let g:which_key_disable_default_offset = 1
 let g:which_key_centered = 1
@@ -18,7 +18,9 @@ let g:which_key_exit = [
 
 " Generics{{{
 let g:which_key_map = { 'name' : 'Menu',
+            \ 'h' : 'history',
             \ 'j' : 'jump2',
+            \ 'k' : 'commands',
             \ 'l' : 'locate',
             \ 'r' : 'replace',
             \ 'u' : 'undo3',
@@ -130,8 +132,6 @@ let g:which_key_map['s'] = { 'name' : '+Surrnd',
 
 
 " Ignore{{{
-let g:which_key_map.h   = 'which_key_ignore'
-let g:which_key_map.k   = 'which_key_ignore'
 let g:which_key_map.0   = 'which_key_ignore'
 let g:which_key_map.1   = 'which_key_ignore'
 let g:which_key_map.2   = 'which_key_ignore'
