@@ -3,11 +3,17 @@
 export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 
-#### AUTOSTART ####
+
+
+## AUTOSTART
+############
+
+# picom
 if [ -x "$(command -v picom)" ]; then
     picom --daemon --experimental-backends &> /dev/null
 fi
 
+# wallpaper
 if [ -x "$(command -v feh)" ]; then
     FILE=/etc/resolv.conf
     if [ -f ~/.fehbg ]; then
@@ -17,6 +23,7 @@ if [ -x "$(command -v feh)" ]; then
     fi
 fi
 
+# polybar
 monitors="$(polybar -m | wc -l)"
 for i in `seq 1 $monitors`;
 do
@@ -26,18 +33,30 @@ do
     monitor=$monitor polybar -c $SCRIPTPATH/polybar.ini mainbar &> /dev/null &
 done
 
-sxhkd &
+# network, bluetooth, keys
 nm-applet &
 blueman-applet &
+sxhkd &
+
+# keylayout
 setxkbmap -layout gb
 xmodmap ~/.Xmodmap
 
 
-#### MONITORS (xrandr --listactivemonitors) ####
+
+
+## MONITORS
+###########
+
+# (xrandr --listactivemonitors)
 bspc monitor LVDS1 -d 1 2 3 4 5 6 7 8 9
 
 
-#### BSPWM configuration ####
+
+
+## BSPWM config
+###############
+
 bspc config border_radius                 0
 bspc config border_width                  1
 bspc config window_gap                    10
@@ -61,7 +80,11 @@ bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
 
 
-#### BSPWM coloring ####
+
+
+## BSPWM coloring
+#################
+
 bspc config normal_border_color		      "#4d4f68"
 bspc config active_border_color	          "#1e1f29"
 bspc config focused_border_color	      "#ff9500"
@@ -69,13 +92,21 @@ bspc config presel_feedback_color	      "#ff9500"
 bspc config urgent_border_color 	      "#ff6e6e"
 
 
-#### POLYBAR hidden when fullscreen for vlc, youtube, mpv ####
+
+
+## POLYBAR hidden when fullscreen for vlc, youtube, mpv
+#######################################################
+
 # xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_DisplayPort-0)
 # xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_DisplayPort-1)
 # xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_HDMI-A-0)
 
 
-#### BSPC rule ####
+
+
+## BSPC rule
+############
+
 # bspc rule -a Gimp desktop='^8' state=floating follow=on
 # bspc rule -a Chromium desktop='^2'
 # bspc rule -a mplayer2 state=floating

@@ -7,10 +7,12 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 <p align="center"><img width="100%" src="assets/scrot_2.png"/></p>
 
 
-## Workflow
+## I'm using BSPWM nowadays!
 
-For a fully functional desktop system, remember to install the following programs too:
+### Necessary programs
 
+- sxhkd (keybinder)
+- polybar (desktop bar)
 - picom (compositor effects)
 - feh (img viewer and wallpaper setter)
 - networkmanager (for network-manager-applet)
@@ -18,9 +20,10 @@ For a fully functional desktop system, remember to install the following program
 - xorg-xrdb (load Xresources)
 - xorg-xmodmap (run Xmodmap)
 - xsettingsd (xsettings deamon)
+- xdotool
 
 
-### Core programs (already preconfigured)
+### Core utility programs (already preconfigured)
 
 - zsh/bash (shells)
 - alacritty/termite (terminal emulators)

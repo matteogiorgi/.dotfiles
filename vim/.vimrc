@@ -7,7 +7,6 @@
 "     vim-surround··············https://github.com/tpope/vim-surround
 "     vim-repeat················https://github.com/tpope/vim-repeat
 "     vim-commentary············https://github.com/tpope/vim-commentary
-"     vim-fugitive··············https://github.com/tpope/vim-fugitive
 "     vim-smalls················https://github.com/t9md/vim-smalls
 "     undotree··················https://github.com/mbbill/undotree
 "     vim-which-key·············https://github.com/liuchengxu/vim-which-key
@@ -45,7 +44,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
     Plug 't9md/vim-smalls'
     Plug 'mbbill/undotree'
     Plug 'liuchengxu/vim-which-key'
