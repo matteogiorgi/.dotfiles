@@ -21,6 +21,7 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 - xorg-xmodmap (run Xmodmap)
 - xsettingsd (xsettings deamon)
 - xdotool
+- xrandr
 
 
 ### Core utility programs (already preconfigured)
@@ -52,3 +53,4 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 - dmenu (menu launcher)
 - st/xterm (terminal emulators)
 - vi (text editor)
+- calcurse (calendar/agenda)

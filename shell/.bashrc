@@ -59,15 +59,18 @@ function laynext () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
         "gb")
             setxkbmap -layout it
+            echo "it layout"
             ;;
         "it")
             setxkbmap -layout us
+            echo "us layout"
             ;;
         *)
             setxkbmap -layout gb
+            echo "gb layout"
             ;;
     esac
-    keyswap
+    xmodmap ~/.Xmodmap
 }
 
 # Change wallpaper randomly:

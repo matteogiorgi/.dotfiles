@@ -111,7 +111,7 @@ NC="\e[m"               # Color Reset
 
 PR_NO_COLOR="%{$terminfo[sgr0]%}"
 PS1="[%(!.${PR_RED}%n.$PR_LIGHT_YELLOW%n)%(!.${PR_LIGHT_YELLOW}@.$PR_RED@)$PR_NO_COLOR%(!.${PR_LIGHT_RED}%U%m%u.${PR_LIGHT_GREEN}%U%m%u)$PR_NO_COLOR:%(!.${PR_RED}%2c.${PR_BLUE}%2c)$PR_NO_COLOR]%(?..[${PR_LIGHT_RED}%?$PR_NO_COLOR])%(!.${PR_LIGHT_RED}#.${PR_LIGHT_GREEN}$) "
-RPS1="$PR_LIGHT_YELLOW(%D{%a %d %b, %H:%M}) $PR_LIGHT_BLUE($(battery)%%)$PR_NO_COLOR"
+RPS1="$PR_LIGHT_YELLOW(%D{%a %d %b, %H:%M}) $PR_LIGHT_BLUE$(battery)%%$PR_NO_COLOR"
 unsetopt ALL_EXPORT
 
 
@@ -188,15 +188,18 @@ function laynext () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
         "gb")
             setxkbmap -layout it
+            echo "it layout"
             ;;
         "it")
             setxkbmap -layout us
+            echo "us layout"
             ;;
         *)
             setxkbmap -layout gb
+            echo "gb layout"
             ;;
     esac
-    keyswap
+    xmodmap ~/.Xmodmap
 }
 
 # Change wallpaper randomly:

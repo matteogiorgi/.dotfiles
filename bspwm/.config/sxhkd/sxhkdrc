@@ -63,7 +63,7 @@ super + {p,b,comma,period}
 super + {_,shift + }n
 	bspc node -f {next,prev}.local
 
-# focus the next/previous desktop in the current monitor
+# focus the next/previous desktop in the current monitor (bracket{left,right})
 super + {Left,Right}
 	bspc desktop -f {prev,next}.local
 
@@ -72,7 +72,7 @@ super + {grave,Tab}
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
-super + bracket{left,right}
+super + {Up,Down}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
@@ -124,6 +124,40 @@ super + {Left,Down,Up,Right}
 
 
 
+## SPECIAL KEYS
+###############
+
+# brightness up
+XF86MonBrightnessUp
+	xbacklight -inc 10
+
+# brightness down
+XF86MonBrightnessDown
+	xbacklight -dec 10
+
+# media prev/next
+XF86Audio{Prev,Next}
+	playerctl {previous,next}
+
+# media play/pause
+XF86AudioPlay
+	playerctl play-pause
+
+# volume up
+XF86AudioRaiseVolume
+	pamixer -i 3 --allow-boost
+
+# volume down
+XF86AudioLowerVolume
+	pamixer -d 3 --allow-boost
+
+# volume mute
+XF86AudioMute
+	pamixer -t
+
+
+
+
 ## APPLICATION KEYBINDINGS
 ##########################
 
@@ -131,31 +165,22 @@ super + {Left,Down,Up,Right}
 super + Return
 	alacritty
 
-# rofi app
-super + a
-	rofirun -a
+# kill xwindows
+super + space
+	xkill
 
 # rofi run
 super + r
 	rofirun -r
 
-# rofi quit
-super + q
-	rofirun -l
-
 # rofi windows
 super + w
 	rofirun -w
 
-# vimb browser
-super + space
-	vimb
+# rofi quit
+super + q
+	rofirun -q
 
 # run dmenu
 super + d
 	dmenu_run -i -nb '#282a36' -nf '#ff9500' -sb '#ff9500' -sf '#282a36' -fn 'mononoki Nerd Font:regular:pixelsize=12' -h 20
-
-# volume up/down/mute
-super + {u,i,o}
-  pamixer {-i 3,-d 3,-t}
-

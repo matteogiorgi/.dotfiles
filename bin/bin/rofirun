@@ -11,10 +11,9 @@ usage()
  OPTIONS:
      -h,--help                  Display this message
      -v,--version               Display script version
-     -a,--app                   Display launcher
-     -r,--run                   Display prompt
+     -r,--run                   Display prompt/launcher
      -w,--window                Switch between windows
-     -l,--logout                System logout dialog
+     -q,--quit                  System logout dialog
  Without any options the run dialog will be opened.
 
 EOF
@@ -30,16 +29,13 @@ for arg in "$@"; do
             echo -e "$NAME -- Version $VER"
             exit 0
             ;;
-        -a|--app)
-            rofi -modi drun -show drun -i
-            ;;
         -r|--run)
             rofi -modi run -show run -i
             ;;
         -w|--window)
             rofi -modi window -show window -i
             ;;
-        -l|--logout)
+        -q|--quit)
             if grep -q 'exec startx' $HOME/.*profile; then
                 ANS="$(rofi -sep "|" -dmenu -i -p 'system' \
                     -lines 3 <<< "Lock|Reboot|Shutdown")"
