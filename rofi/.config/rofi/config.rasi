@@ -1,22 +1,24 @@
 /* Custom dracula theme */
 
 * {
-    font: "mononoki Nerd Font 9";
-    terminal: "alacritty";
-    foreground: #f8f8f2;
-    background: #282a36;
-    active-background: #4d4f68;
-    urgent-background: #ff5555;
-    selected-background: @active-background;
+    font:                       "mononoki Nerd Font 9";
+    terminal:                   "alacritty";
+    foreground:                 #f8f8f2;
+    background:                 #282a36;
+    urgent-background:          #ff6e6e;
+    selected-foreground:        #ff9500;
+    selected-active-foreground: #ffd79e;
+    selected-background:        @background;
     selected-urgent-background: @urgent-background;
-    selected-active-background: @active-background;
-    separatorcolor: @active-background;
-    bordercolor: @active-background;
+    selected-active-background: @background;
+    active-background:          @background;
+    separatorcolor:             @background;
+    bordercolor:                @background;
 }
 
 #window {
     background-color: @background;
-    border:           1;
+    border:           0;
     border-radius:    0;
     border-color:     @bordercolor;
     padding:          30;
@@ -70,8 +72,8 @@
 }
 
 #element.selected.normal {
-    background-color: @selected-background;
-    text-color:       @foreground;
+    background-color: @background;
+    text-color:       @selected-foreground;
 }
 
 #element.selected.urgent {
@@ -81,7 +83,7 @@
 
 #element.selected.active {
     background-color: @selected-active-background;
-    text-color:       @foreground;
+    text-color:       @selected-active-foreground;
 }
 
 #element.alternate.normal {
@@ -129,12 +131,13 @@
 
 #entry {
     spacing:    0;
-    text-color: @foreground;
+    text-color: @selected-foreground;
 }
 
 #prompt {
-    spacing:    0;
-    text-color: @foreground;
+    spacing:          0;
+    text-color:       @background;
+    background-color: @selected-foreground;
 }
 
 #inputbar {
@@ -142,8 +145,14 @@
 }
 
 #textbox-prompt-colon {
-    expand:     false;
-    str:        ":";
-    margin:     0px 0.3em 0em 0em ;
-    text-color: @foreground;
+    expand:           false;
+    str:              "";
+    margin:           0px 0.3em 0em 0em ;
+    text-color:       @background;
+    background-color: @selected-foreground;
+}
+
+entry {
+    placeholder: "";
+    blink:       false;
 }

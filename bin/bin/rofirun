@@ -38,16 +38,16 @@ for arg in "$@"; do
         -q|--quit)
             if grep -q 'exec startx' $HOME/.*profile; then
                 ANS="$(rofi -sep "|" -dmenu -i -p 'system' \
-                    -lines 3 <<< "Lock|Reboot|Shutdown")"
+                    -lines 3 <<< "lock|reboot|shutdown")"
             else
                 ANS="$(rofi -sep "|" -dmenu -i -p 'system' \
-                    -lines 4 <<< "Lock|Logout|Reboot|Shutdown")"
+                    -lines 4 <<< "lock|logout|reboot|shutdown")"
             fi
             case "$ANS" in
-                *Lock) betterlockscreen -l dim ;;
-                *Reboot) systemctl reboot ;;
-                *Shutdown) systemctl -i poweroff ;;
-                *Logout) loginctl terminate-session $XDG_SESSION_ID ;;
+                *lock) betterlockscreen -l dim ;;
+                *reboot) systemctl reboot ;;
+                *shutdown) systemctl -i poweroff ;;
+                *logout) loginctl terminate-session $XDG_SESSION_ID ;;
             esac
             ;;
         *)

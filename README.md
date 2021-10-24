@@ -36,7 +36,7 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 - bat (glorified cat)
 - tig (git client)
 - touchcursor (fancy keymaps)
-- vimb (web browser)
+- qutebrowser (web browser)
 - rofi (menu launcher)
 - zathura (document viewer)
 - sxiv (image viewer)
@@ -54,3 +54,4 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 - st/xterm (terminal emulators)
 - vi (text editor)
 - calcurse (calendar/agenda)
+- bashtop (glorified top)
