@@ -166,15 +166,15 @@ alias lock="betterlockscreen -l dim"
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
 
 
-### Environment variables (remember to install vi, vim, most, vimb, zathura)
-############################################################################
+### Environment variables (remember to install vim, amp, most, brave, zathura)
+##############################################################################
 
 export GOPATH="$HOME/go"                                                        # go directory should stay in $HOME
 export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,vim
 export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,vim
-export VISUAL="vi" && [[ -f /bin/vim ]] && export VISUAL="vim"                  # vi,vim,kak
-export EDITOR="vi" && [[ -f /bin/vim ]] && export EDITOR="vim"                  # vi,vim,kak
-export BROWSER="vimb"
+export VISUAL="amp" && [[ -f /bin/vim ]] && export VISUAL="vim"                  # vim,amp
+export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"                  # vim,amp
+export BROWSER="brave"
 export READER="zathura"
 
 # better not export $TERM: problems with broot image preview

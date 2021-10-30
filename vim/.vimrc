@@ -4,6 +4,7 @@
 "
 "     coc-nvim··················https://github.com/neoclide/coc.nvim
 "     vim-snippets··············https://github.com/honza/vim-snippets
+"     autopairs·················https://github.com/jiangmiao/auto-pairs
 "     vim-surround··············https://github.com/tpope/vim-surround
 "     vim-repeat················https://github.com/tpope/vim-repeat
 "     vim-commentary············https://github.com/tpope/vim-commentary
@@ -41,6 +42,7 @@ augroup end
 call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch' : 'release'}
     Plug 'honza/vim-snippets'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
@@ -70,7 +72,7 @@ endif
 " Color syntax{{{
 syntax on
 set background=dark
-colorscheme dracula16
+colorscheme dracula17
 filetype plugin indent on
 "}}}
 
@@ -93,7 +95,7 @@ set ignorecase smartcase smartindent
 set noswapfile nobackup
 set showmode showcmd
 set cursorline noerrorbells novisualbell
-set cursorlineopt=number  " number,line
+set cursorlineopt=number,line  " number,line
 set splitbelow splitright
 set noequalalways
 set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM

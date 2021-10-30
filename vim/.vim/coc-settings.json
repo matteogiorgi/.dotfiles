@@ -1,5 +1,5 @@
 {
-    // LSPs config for those languages I use and do not have an extension [https://github.com/neoclide/coc.nvim/wiki/Language-servers].
+    // LSPs config for those languages I use the most or and/or do not have an extension [https://github.com/neoclide/coc.nvim/wiki/Language-servers].
     // For those that have one, add their extension to the extensions list at the beginning of `~/.vim/plugin/coc.vim` or use coc-marketplace to add it on the fly.
     "languageserver": {
 
@@ -9,6 +9,14 @@
             "command": "fortls",
             "filetypes": ["fortran"],
             "rootPatterns": [".fortls", ".git/"]
+        },
+
+        // C LSP (instead of using coc-clangd)
+        // needs clang package
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
         },
 
         // Haskell LSP
@@ -31,6 +39,33 @@
             "filetypes": [
                 "racket"
             ]
+        },
+
+        // VimL LSP (instead of using coc-vimlsp)
+        // needs npm package + run "npm install -g vim-language-server" as superuser
+        "vimls": {
+            "module": "/usr/lib/node_modules/vim-language-server/bin/index.js",
+            "args": ["--node-ipc"],
+            "initializationOptions": {
+                "isNeovim": true,
+                "iskeyword": "@,48-57,_,192-255,-#",
+                "vimruntime": "",
+                "runtimepath": "",
+                "diagnostic": {
+                    "enable": true
+                },
+                "indexes": {
+                    "runtimepath": true,
+                    "gap": 100,
+                    "count": 3,
+                    "projectRootPatterns" : ["strange-root-pattern", ".git", "autoload", "plugin"]
+                },
+                "suggest": {
+                    "fromVimruntime": true,
+                    "fromRuntimepath": false
+                }
+            },
+            "filetypes": [ "vim" ]
         }
     },
 
@@ -40,11 +75,6 @@
 
     // coc-highlight config
     "highlight.disableLanguages": ["", "startscreen"],
-
-    // coc-pairs config
-    "pairs.disableLanguages": [],
-    "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
-    "pairs.enableBackspace": true,
 
     // coc-list config
     "list.source.files.args": ["--hidden", "--files"],

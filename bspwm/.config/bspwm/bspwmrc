@@ -11,7 +11,8 @@ export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 bspc config border_radius                 0
 bspc config border_width                  1
 bspc config window_gap                    10
-bspc config top_padding                   20
+bspc config -m LVDS1 top_padding          20
+bspc config -m VGA1 top_padding           0
 bspc config bottom_padding                0
 bspc config left_padding                  0
 bspc config right_padding                 0
@@ -58,11 +59,12 @@ xmodmap ~/.Xmodmap
 ###########
 
 if [[ $(xrandr -q | grep 'VGA1 connected') ]]; then
+    # xrandr --output LVDS1 --primary --mode 1600x900 --rotate normal --output VGA1 --mode 1280x1024 --rotate normal --left-of LVDS1
     xrandr --output LVDS1 --primary --mode 1600x900 --rotate normal --output VGA1 --mode 1024x768 --rotate normal --left-of LVDS1
 fi
 
 bspc monitor LVDS1 -d 1 2 3 4 5 6 7 8 9 0
-bspc monitor VGA1 -d 1 2 3 4 5 6 7 8 9 0
+bspc monitor VGA1 -d 1
 
 
 
@@ -109,7 +111,7 @@ if [ -x "$(command -v polybar)" ]; then
     killall -q polybar
     while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
     polybar -c $SCRIPTPATH/polybar.ini master &
-    if [[ $(xrandr -q | grep 'VGA1 connected') ]]; then
-        polybar -c $SCRIPTPATH/polybar.ini slave &
-    fi
+    # if [[ $(xrandr -q | grep 'VGA1 connected') ]]; then
+    #     polybar -c $SCRIPTPATH/polybar.ini slave &
+    # fi
 fi

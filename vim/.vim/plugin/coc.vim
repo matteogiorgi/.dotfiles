@@ -5,7 +5,6 @@
 "     coc-marketplace···········https://github.com/fannheyward/coc-marketplace
 "     coc-dictionary············https://github.com/neoclide/coc-sources
 "     coc-highlight·············https://github.com/neoclide/coc-highlight
-"     coc-pairs·················https://github.com/neoclide/coc-pairs
 "     coc-snippets··············https://github.com/neoclide/coc-snippets
 "     coc-lists·················https://github.com/neoclide/coc-lists
 "     coc-git···················https://github.com/neoclide/coc-git
@@ -20,7 +19,6 @@ let g:coc_global_extensions = [
             \ 'coc-marketplace',
             \ 'coc-dictionary',
             \ 'coc-highlight',
-            \ 'coc-pairs',
             \ 'coc-snippets',
             \ 'coc-lists',
             \ 'coc-git',

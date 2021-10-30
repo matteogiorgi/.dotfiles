@@ -9,7 +9,7 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 
 ## I'm using BSPWM nowadays!
 
-### Necessary programs
+### Necessary tools
 
 - sxhkd (keybinder)
 - polybar (desktop bar)
@@ -27,8 +27,8 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 ### Core utility programs (already preconfigured)
 
 - zsh/bash (shells)
-- alacritty/termite (terminal emulators)
-- vim/kakoune (text editors)
+- alacritty/xterm (terminal emulators)
+- vim/amp (text editors)
 - vifm/broot (file managers)
 - fzf (fuzzy finder)
 - tmux (terminal multiplexer)
@@ -36,8 +36,7 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 - bat (glorified cat)
 - tig (git client)
 - touchcursor (fancy keymaps)
-- qutebrowser (web browser)
-- rofi (menu launcher)
+- rofi (glorified dmenu)
 - zathura (document viewer)
 - sxiv (image viewer)
 
@@ -47,11 +46,8 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 - pavucontrol (gui pulsaudio volume control)
 - lxappearence (gui gtk theme switcher)
 - arandr (xrandr gui interface)
-- pcmanfm (gui file manager)
-- xarchiver (gui archive manager)
+- pcmanfm/xarchiver (gui file/archive manager)
 - brave (web browser)
-- dmenu (menu launcher)
-- st/xterm (terminal emulators)
-- vi (text editor)
+- typora (notes editor)
 - calcurse (calendar/agenda)
-- bashtop (glorified top)
+- htop (glorified top)

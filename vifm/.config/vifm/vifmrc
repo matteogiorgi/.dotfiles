@@ -137,9 +137,8 @@ command! reload :write | restart
 " ------------------------------------------------------------------------------
 
 " edit files
-command! vi  :!vi  %f
 command! vim :!vim %f
-command! kak :!kak %f
+command! amp :!amp %f
 
 
 " background & lockscreen

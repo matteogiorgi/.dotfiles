@@ -34,7 +34,7 @@ XTerm.vt100.translations: #override \n\
     Ctrl Alt <Key> -: smaller-vt-font() \n\
     Ctrl Alt <Key> +: larger-vt-font()
 
-XTerm*cursorBlink: on
+XTerm*cursorBlink: off
 XTerm*cursorOnTime: 400
 XTerm*cursorOffTime: 250
 XTerm*cursorColor: #bfbfbf
@@ -64,7 +64,7 @@ UXTerm.vt100.translations: #override \n\
     Ctrl Alt <Key> j: smaller-vt-font() \n\
     Ctrl Alt <Key> k: larger-vt-font()
 
-UXTerm*cursorBlink: on
+UXTerm*cursorBlink: off
 UXTerm*cursorOnTime: 400
 UXTerm*cursorOffTime: 250
 UXTerm*cursorColor: #bfbfbf
@@ -77,20 +77,6 @@ UXTerm*cursorColor: #bfbfbf
 Sxiv.foreground: #bfbfbf
 Sxiv.background: #282a36
 Sxiv.font: mononoki Nerd Font:style=regular:size=8.5
-
-
-
-
-! Rofi config
-
-! rofi.color-normal: #282A36, #BFBFBF, #282A36, #BFBFBF, #282A36
-! rofi.color-window: #282A36, #BFBFBF
-! rofi.bw: 2
-! rofi.case-sensitive: false
-! rofi.fuzzy: true
-! rofi.line-margin: 2
-! rofi.separator-style: none
-! rofi.hide-scrollbar: true
 
 
 
