@@ -2,7 +2,7 @@
 
 " base16-vim (https://github.com/chriskempson/base16-vim) by Chris Kempson (http://chriskempson.com)
 " Dracula scheme by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
-" dracula16 by Matteo Giorgi based on the previous ;)
+" dracula17 by Matteo Giorgi based on the previous ;)
 
 " GUI color definitions
 let s:gui00        = "282a36"  " #282a36
@@ -37,6 +37,8 @@ let s:gui0E        = "b45bcf"  " #b45bcf
 let g:base16_gui0E = "b45bcf"  " #b45bcf
 let s:gui0F        = "00f769"  " #00f769
 let g:base16_gui0F = "00f769"  " #00f769
+let s:gui17        = "2e2f3e"  " #2e2f3e
+let g:base16_gui17 = "2e2f3e"  " #2e2f3e
 
 " Terminal color definitions
 let s:cterm00        = "00"
@@ -135,7 +137,7 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "dracula16"
+let g:colors_name = "dracula17"
 
 " Highlighting function
 " Optional variables are attributes and guisp
@@ -203,10 +205,10 @@ call <sid>hi("SignColumn",    s:gui03, s:gui00, s:cterm03, s:cterm00, "", "")
 call <sid>hi("StatusLine",    s:gui0D, s:gui01, s:cterm0D, s:cterm01, "none", "")
 call <sid>hi("StatusLineNC",  s:gui03, s:gui01, s:cterm03, s:cterm01, "none", "")
 call <sid>hi("VertSplit",     s:gui01, "", s:cterm01, "", "none", "")
-call <sid>hi("ColorColumn",   "", s:gui02, "", s:cterm02, "none", "")
-call <sid>hi("CursorColumn",  "", s:gui02, "", s:cterm02, "none", "")
-call <sid>hi("CursorLine",    "", s:gui02, "", s:cterm02, "none", "")
-call <sid>hi("CursorLineNr",  s:gui0A, s:gui00, s:cterm0A, s:cterm00, "none", "")  " 04,00
+call <sid>hi("ColorColumn",   "", s:gui17, "", s:cterm02, "none", "")
+call <sid>hi("CursorColumn",  "", s:gui17, "", s:cterm02, "none", "")
+call <sid>hi("CursorLine",    "", s:gui17, "", s:cterm02, "none", "")
+call <sid>hi("CursorLineNr",  s:gui0A, "", s:cterm0A, "", "none", "")  " 04,00
 call <sid>hi("QuickFixLine",  "", s:gui01, "", s:cterm01, "none", "")
 call <sid>hi("PMenu",         s:gui05, s:gui01, s:cterm05, s:cterm01, "none", "")
 call <sid>hi("PMenuSel",      s:gui01, s:gui05, s:cterm01, s:cterm05, "", "")
