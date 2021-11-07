@@ -50,6 +50,8 @@ bspc config urgent_border_color   "#ff6e6e"
 ###########
 
 setxkbmap -layout gb
+# setxkbmap -layout it
+# setxkbmap -layout us
 xmodmap ~/.Xmodmap
 
 

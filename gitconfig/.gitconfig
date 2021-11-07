@@ -3,8 +3,8 @@
 	name = Matteo Giorgi
 
 [core]
-	editor = nvim
-    pager = delta
+	editor = vim
+    pager = vimpager
 
 [github]
 	user = matteogiorgi
