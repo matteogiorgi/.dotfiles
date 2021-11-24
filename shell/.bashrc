@@ -45,6 +45,27 @@ NC='\[\e[m\]'			# Color Reset
 ALERT="${BWhite}${On_Red}" # Bold White on red background
 
 
+### Environment variables (remember to install vim, amp, most, brave, zathura)
+##############################################################################
+
+export GOPATH="$HOME/go"                                                        # go directory should stay in $HOME
+export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,vim
+export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,vim
+export VISUAL="amp" && [[ -f /bin/vim ]] && export VISUAL="vim"                 # vim,amp
+export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"                 # vim,amp
+export BROWSER="brave"
+export READER="zathura"
+
+# better not export $TERM: problems with broot image preview
+export TERM="xterm-256color"  # xterm-256color,screen-256color
+
+# set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
+export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
+
+# it is not a good idea to add --preview option to $FZF_DEFAULT_OPTS but you could do it anyway
+# export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+
+
 ### Set prompt
 ##############
 
@@ -78,6 +99,14 @@ function bgrandom () {
     cd $HOME/Pictures/wallpapers/wallogo
     feh --bg-fill $( echo $( /usr/bin/ls -l | awk '{if (NR!=1) print $9}' | sort -R | tail -1 ))
     cd - 1>/dev/null
+}
+
+# Edit office files from within vim:
+function docxedit () {
+    doc=$(basename -- "$1")
+    new="${doc%.*}".md
+    pandoc $doc -o $new
+    vim $new
 }
 
 # Change directory exiting from vifm
@@ -144,11 +173,11 @@ alias unstow="stow -D"
 # xresources and keyboard aliases
 alias xload="xrdb ~/.Xresources"
 alias keyswap="xmodmap ~/.Xmodmap"
+alias touchreset="systemctl --user restart touchcursor.service"
 
 # background and lockscreen aliases
-alias background="feh --bg-fill $1"
-alias lockscreen="betterlockscreen -u $1"
-alias lock="betterlockscreen -l dim"
+alias background="feh --bg-fill "
+alias lockscreen="slock"
 
 
 ### Source some shit
@@ -164,21 +193,3 @@ alias lock="betterlockscreen -l dim"
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
-
-
-### Environment variables (remember to install vim, amp, most, brave, zathura)
-##############################################################################
-
-export GOPATH="$HOME/go"                                                        # go directory should stay in $HOME
-export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,vim
-export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,vim
-export VISUAL="amp" && [[ -f /bin/vim ]] && export VISUAL="vim"                  # vim,amp
-export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"                  # vim,amp
-export BROWSER="brave"
-export READER="zathura"
-
-# better not export $TERM: problems with broot image preview
-export TERM="xterm-256color"  # xterm-256color,screen-256color
-
-# set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
-export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"

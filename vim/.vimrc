@@ -63,6 +63,9 @@ call plug#end()
 if exists('+termguicolors') | set termguicolors | endif
 if has('linebreak') | let &showbreak='⤷ ' | endif
 if has('persistent_undo')
+    if !isdirectory(expand('~/.vim/undodir'))
+        execute "!mkdir ~/.vim/undodir"
+    endif
     set undodir=$HOME/.vim/undodir
     set undofile
 endif
@@ -84,7 +87,7 @@ set shell=zsh  " zsh,bash
 set nocompatible    " nvim is always nocompatible
 set runtimepath+=~/.vim_runtime  " add whatever
 set clipboard=unnamedplus
-set number relativenumber mouse=a
+set number relativenumber mouse=a  " a,n,v,i,c
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set ruler scrolloff=8 sidescrolloff=8
 set autoindent
@@ -189,7 +192,6 @@ xnoremap J :move '>+1<CR>gv=gv
 "}}}
 
 " Menu remaps{{{
-nnoremap <leader>l   :FZF<cr>
 nnoremap <leader>r   :%s///gc<Left><Left><Left>
 xnoremap <leader>r   :s///gc<Left><Left><Left>
 nnoremap <leader>qq  :quitall<CR>

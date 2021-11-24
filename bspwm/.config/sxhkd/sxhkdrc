@@ -114,7 +114,7 @@ ctrl + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-ctrl + alt + {Left,Down,Up,Right}
+ctrl + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
@@ -145,11 +145,11 @@ XF86AudioPlay
 
 # volume up
 XF86AudioRaiseVolume
-	pamixer -i 3 --allow-boost
+    pamixer -i 5 --allow-boost
 
 # volume down
 XF86AudioLowerVolume
-	pamixer -d 3 --allow-boost
+    pamixer -d 5 --allow-boost
 
 # volume mute
 XF86AudioMute
@@ -161,26 +161,14 @@ XF86AudioMute
 ## APPLICATION KEYBINDINGS
 ##########################
 
+# run dmenu
+super + space
+	dmenu_run -i -nb '#282a36' -nf '#ff9500' -sb '#ff9500' -sf '#282a36' -fn 'mononoki Nerd Font:regular:pixelsize=12' -h 20
+
 # terminal emulator
 super + Return
 	alacritty
 
 # kill xwindows
-super + space
+super + x
 	xkill
-
-# rofi run
-super + r
-	rofirun -r
-
-# rofi windows
-super + w
-	rofirun -w
-
-# rofi quit
-super + q
-	rofirun -q
-
-# run dmenu
-super + d
-	dmenu_run -i -nb '#282a36' -nf '#ff9500' -sb '#ff9500' -sf '#282a36' -fn 'mononoki Nerd Font:regular:pixelsize=12' -h 20

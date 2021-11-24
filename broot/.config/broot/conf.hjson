@@ -250,11 +250,6 @@
 			execution: "feh --bg-fill {file}"
 			leave_broot: false
 		}
-		{
-			invocation: lockscreen {file}
-			execution: "betterlockscreen -u {file}"
-			leave_broot: false
-		}
 	]
 
 	###############################################################

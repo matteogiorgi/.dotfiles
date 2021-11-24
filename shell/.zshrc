@@ -9,37 +9,37 @@
 # setopt NOHUP
 # setopt NOTIFY
 # setopt NO_FLOW_CONTROL
-setopt INC_APPEND_HISTORY SHARE_HISTORY
-setopt APPEND_HISTORY
 # setopt AUTO_LIST
 # setopt AUTO_REMOVE_SLASH
 # setopt AUTO_RESUME
-unsetopt BG_NICE
+# setopt HASH_CMDS
+setopt INC_APPEND_HISTORY SHARE_HISTORY
+setopt APPEND_HISTORY
 setopt CORRECT
 setopt EXTENDED_HISTORY
-# setopt HASH_CMDS
 setopt MENUCOMPLETE
 setopt ALL_EXPORT
+unsetopt BG_NICE
 
 
 ### Set/unset shell options
 ############################
 
-setopt   notify globdots correct pushdtohome cdablevars autolist
-setopt   correctall autocd recexact longlistjobs
-setopt   autoresume histignoredups pushdsilent
-setopt   autopushd pushdminus extendedglob rcquotes mailwarning
+setopt notify globdots correct pushdtohome cdablevars autolist
+setopt correctall autocd recexact longlistjobs
+setopt autoresume histignoredups pushdsilent
+setopt autopushd pushdminus extendedglob rcquotes mailwarning
 unsetopt bgnice autoparamslash
 
 
 ### Autoload zsh modules when they are referenced
 #################################################
 
+# zmodload -ap zsh/mapfile mapfile
 autoload -U history-search-end
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
-# zmodload -ap zsh/mapfile mapfile
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
@@ -106,12 +106,32 @@ On_White='\e[47m'       # White
 NC="\e[m"               # Color Reset
 
 
+### Environment variables (remember to install vim, amp, most, brave, zathura)
+##############################################################################
+
+export GOPATH="$HOME/go"                                                        # go directory should stay in $HOME
+export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,vim
+export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,vim
+export VISUAL="amp" && [[ -f /bin/vim ]] && export VISUAL="vim"                 # vim,amp
+export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"                 # vim,amp
+export BROWSER="brave"
+export READER="zathura"
+
+# better not export $TERM: problems with broot image preview
+export TERM="xterm-256color"  # xterm-256color,screen-256color
+
+# set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
+export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
+
+# it is not a good idea to add --preview option to $FZF_DEFAULT_OPTS but you could do it anyway
+# export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
+
 ### Set prompt
 ##############
 
 PR_NO_COLOR="%{$terminfo[sgr0]%}"
 PS1="[%(!.${PR_RED}%n.$PR_LIGHT_YELLOW%n)%(!.${PR_LIGHT_YELLOW}@.$PR_RED@)$PR_NO_COLOR%(!.${PR_LIGHT_RED}%U%m%u.${PR_LIGHT_GREEN}%U%m%u)$PR_NO_COLOR:%(!.${PR_RED}%2c.${PR_BLUE}%2c)$PR_NO_COLOR]%(?..[${PR_LIGHT_RED}%?$PR_NO_COLOR])%(!.${PR_LIGHT_RED}#.${PR_LIGHT_GREEN}$) "
-RPS1="$PR_LIGHT_YELLOW(%D{%a %d %b, %H:%M}) $PR_LIGHT_BLUE$(battery)%%$PR_NO_COLOR"
+RPS1="$PR_LIGHT_YELLOW(%D{%a %d %b, %H:%M}) $PR_LIGHT_CYAN$(battery)%%$PR_NO_COLOR"
 unsetopt ALL_EXPORT
 
 
@@ -120,7 +140,7 @@ unsetopt ALL_EXPORT
 
 # Get IP adress:
 function my_ip () {
-   curl ifconfig.co
+    curl ifconfig.co
 }
 
 # Find a file with a pattern in name:
@@ -207,6 +227,14 @@ function bgrandom () {
     cd $HOME/Pictures/wallpapers/wallogo
     feh --bg-fill $( echo $( /usr/bin/ls -l | awk '{if (NR!=1) print $9}' | sort -R | tail -1 ))
     cd - 1>/dev/null
+}
+
+# Edit office files from within vim:
+function docxedit () {
+    doc=$(basename -- "$1")
+    new="${doc%.*}".md
+    pandoc $doc -o $new
+    vim $new
 }
 
 # Jump directorys upwards until it hits a directory with multiple folders:
@@ -304,11 +332,11 @@ alias unstow="stow -D"
 # xresources and keyboard aliases
 alias xload="xrdb ~/.Xresources"
 alias keyswap="xmodmap ~/.Xmodmap"
+alias touchreset="systemctl --user restart touchcursor.service"
 
 # background and lockscreen aliases
-alias background="feh --bg-fill $1"
-alias lockscreen="betterlockscreen -u $1"
-alias lock="betterlockscreen -l dim"
+alias background="feh --bg-fill "
+alias lockscreen="slock"
 
 
 ### Bind keys
@@ -423,21 +451,3 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 [[ -f $HOME/.fzf.zsh ]] && source $HOME/.fzf.zsh
 [[ -f $HOME/.config/fzf/completion.zsh ]] && source $HOME/.config/fzf/completion.zsh
 [[ -f $HOME/.config/fzf/key-bindings.zsh ]] && source $HOME/.config/fzf/key-bindings.zsh
-
-
-### Environment variables (remember to install vim, amp, most, brave, zathura)
-##############################################################################
-
-export GOPATH="$HOME/go"                                                        # go directory should stay in $HOME
-export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,vim
-export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,vim
-export VISUAL="amp" && [[ -f /bin/vim ]] && export VISUAL="vim"                  # vim,amp
-export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"                  # vim,amp
-export BROWSER="brave"
-export READER="zathura"
-
-# better not export $TERM: problems with broot image preview
-export TERM="xterm-256color"  # xterm-256color,screen-256color
-
-# set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
-export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"

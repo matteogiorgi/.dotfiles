@@ -24,8 +24,6 @@ let g:which_key_map = { 'name' : 'Menu',
             \ 'l' : 'locate',
             \ 'r' : 'replace',
             \ 'u' : 'undo3',
-            \ 'v' : 'vifm',
-            \ 'd' : 'diagnst',
             \ }
 "}}}
 

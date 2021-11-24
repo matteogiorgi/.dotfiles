@@ -9,3 +9,5 @@ export QT_PLATFORMTHEME=qt5ct
 export QT_PLATFORM_PLUGIN=qt5ct
 
 exec startx
+
+source /home/geoteo/.config/broot/launcher/bash/br

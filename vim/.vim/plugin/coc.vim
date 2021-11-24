@@ -98,7 +98,6 @@ nmap <silent><tab>   <Plug>(coc-diagnostic-next)
 nmap <silent><S-tab> <Plug>(coc-diagnostic-prev)
 
 nnoremap <silent>K  :call <SID>ShowDoc()<CR>
-nnoremap <leader>d  :CocList diagnostics<CR>
 nnoremap <leader>h  :CocList cmdhistory<CR>
 nnoremap <leader>k  :CocList vimcommands<CR>
 nnoremap <leader>bb :CocList buffers<CR>

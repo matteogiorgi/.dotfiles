@@ -1,1 +1,1 @@
-nnoremap <leader>v :Vifm<cr>
+nnoremap <leader>l :Vifm<cr>
