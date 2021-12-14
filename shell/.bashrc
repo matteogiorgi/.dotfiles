@@ -62,9 +62,6 @@ export TERM="xterm-256color"  # xterm-256color,screen-256color
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
 
-# it is not a good idea to add --preview option to $FZF_DEFAULT_OPTS but you could do it anyway
-# export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}'"
-
 
 ### Set prompt
 ##############
