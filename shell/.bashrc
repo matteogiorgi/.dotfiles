@@ -109,16 +109,6 @@ function docxedit () {
     vim $new
 }
 
-# Change directory exiting from vifm
-function _vfm () {
-    local dst="$(command ~/.config/vifm/scripts/vifmrun "$@")"
-    if [ -z "$dst" ]; then
-        echo 'Directory picking cancelled/failed'
-        return 1
-    fi
-    cd "$dst"
-}
-
 # Change directory exiting from shfm
 function _sfm () {
     ~/bin/shfm/shfm "$@"
@@ -157,8 +147,7 @@ alias pacsyu='sudo pacman -Syyu'
 alias parsyu='paru -Syu --noconfirm'
 alias parsua='paru -Sua --noconfirm'
 
-# aliases for vifm, shfm and fff
-alias vifm="_vfm"
+# aliases for shfm
 alias shfm="_sfm"
 
 # logout aliases

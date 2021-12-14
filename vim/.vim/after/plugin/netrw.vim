@@ -11,5 +11,9 @@ let g:netrw_alto = 0
 let g:netrw_altv = 1
 
 
+" mappings
+nnoremap <leader>l :Explore<cr>
+
+
 " Some color
 highlight! default link netrwMarkFile Search

@@ -2,7 +2,6 @@
 "                              COC-EXTENSIONS
 "                  [ https://github.com/neoclide/coc.nvim ]
 "
-"     coc-marketplace···········https://github.com/fannheyward/coc-marketplace
 "     coc-dictionary············https://github.com/neoclide/coc-sources
 "     coc-highlight·············https://github.com/neoclide/coc-highlight
 "     coc-snippets··············https://github.com/neoclide/coc-snippets
@@ -16,7 +15,6 @@
 " Coc configuration file path and main extensions list
 let g:coc_config_home = '~/.vim'
 let g:coc_global_extensions = [
-            \ 'coc-marketplace',
             \ 'coc-dictionary',
             \ 'coc-highlight',
             \ 'coc-snippets',
@@ -25,8 +23,8 @@ let g:coc_global_extensions = [
             \ 'coc-yank',
             \ ]
 
-" If you want an extension to work on top of the ones already configured
-" in coc-settings.json, use the marketplace or just add the following:
+" If you want an extension to work on top of the ones already configured in coc-settings.json,
+" use the marketplace (add coc-marketplace to your coc extensions) or just add the following:
 " let g:coc_global_extensions = add(g:coc_global_extensions, 'some-coc-extension')
 
 

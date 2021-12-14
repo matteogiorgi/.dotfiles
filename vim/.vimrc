@@ -13,10 +13,8 @@
 "     vim-which-key·············https://github.com/liuchengxu/vim-which-key
 "     vim-pandoc-syntax·········https://github.com/vim-pandoc/vim-pandoc-syntax
 "     vim-notewiki··············https://github.com/matteogiorgi/vim-notewiki
-"     vim-utility···············https://github.com/matteogiorgi/vim-utility
 "     vim-lines·················https://github.com/matteogiorgi/vim-lines
 "     vim-startscreen···········https://github.com/matteogiorgi/vim-startscreen
-"     vim-vifm··················https://github.com/matteogiorgi/vim-vifm
 
 
 
@@ -51,10 +49,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'liuchengxu/vim-which-key'
     Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'matteogiorgi/vim-notewiki'
-    Plug 'matteogiorgi/vim-utility'
     Plug 'matteogiorgi/vim-lines'
     Plug 'matteogiorgi/vim-startscreen'
-    Plug 'matteogiorgi/vim-vifm'
 call plug#end()
 "}}}
 
@@ -132,9 +128,9 @@ set belloff+=ctrlg
 "}}}
 
 
-" Prevent Netrw to load{{{
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
+" Uncomment for preventing Netrw to load{{{
+" let g:loaded_netrw = 1
+" let g:loaded_netrwPlugin = 1
 "}}}
 
 

@@ -1,10 +1,6 @@
 # Dotfiles
 
-These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet. Below there is a sample, [click clack](https://matteogiorgi.github.io/config.html) for more info.
-
-<p align="center"><img width="100%" src="assets/scrot_1.png"/></p>
-
-<p align="center"><img width="100%" src="assets/scrot_2.png"/></p>
+These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info.
 
 
 
@@ -52,7 +48,6 @@ EndSection
 - xdo (utility for performing action on windows)
 - imagemagick (image manipulation program)
 - pamixer (pulseaudio command-line mixer)
-- ueberzug (utility to draw images un terminal)
 - nodejs (js runtime environment)
 - texlive-most (document preparation)
 - pandoc (document converter)
@@ -75,8 +70,7 @@ EndSection
 - zsh/bash (shells)
 - alacritty/xterm (terminal emulators)
 - vim/amp (text editors)
-- vifm/broot (file managers)
-- fzf (fuzzy finder)
+- broot/fzf (file managers & fuzzy finders)
 - tmux (terminal multiplexer)
 - vimpager (vim as PAGER)
 - bat (glorified cat)
@@ -96,11 +90,11 @@ EndSection
 - pcmanfm/xarchiver (gui file/archive manager)
 - brave (gui web browser)
 - vlc (gui video/music player)
-- xed (gui text editor)
+- vscode (gui text editor)
 - mplayer/id3v2 (media player/labeller)
 - sc-im (spreadsheet editor)
 - calcurse (agenda)
-- htop (glorified top)
+- gtop (top on steroids)
 - dmenu (suckless menu)
 - st (suckless terminal emulator)
 - slock (suckless lockscreen)

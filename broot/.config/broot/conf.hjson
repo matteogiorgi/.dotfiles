@@ -246,7 +246,7 @@
 
         # Set background and lockscreen
 		{
-			invocation: background {file}
+			invocation: background
 			execution: "feh --bg-fill {file}"
 			leave_broot: false
 		}
