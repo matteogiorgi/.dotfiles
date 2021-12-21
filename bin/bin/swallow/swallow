@@ -24,9 +24,17 @@ case $(file --mime-type "$*" -bL) in
         pidof zathura || xdohide zathura "$*"
         ;;
     image/gif)
-        pgrep sxiv || xdohide "sxiv -a" "$*"
+        if [ -f ~/.config/sxiv/supersxiv ]; then
+            pgrep ~/.config/sxiv/supersxiv || xdohide "~/.config/sxiv/supersxiv -a" "$*"
+        else 
+            pgrep sxiv || xdohide "sxiv -a" "$*"
+        fi
         ;;
     image/*)
-        pidof sxiv || xdohide "sxiv" "$*"
+        if [ -f ~/.config/sxiv/supersxiv ]; then
+            pgrep ~/.config/sxiv/supersxiv || xdohide "~/.config/sxiv/supersxiv" "$*"
+        else 
+            pgrep sxiv || xdohide "sxiv" "$*"
+        fi
         ;;
 esac

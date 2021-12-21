@@ -179,11 +179,7 @@ augroup notesettings
                 \         'i' : 'index',
                 \         'b' : 'browse',
                 \         's' : 'scratch',
-                \         'p' : { 'name' : '+Pandoc',
-                \             'p' : 'pdf',
-                \             'b' : 'beamer',
-                \             'h' : 'html',
-                \             },
+                \         'p' : 'pandoc',
                 \         } |
                 \ else |
                 \     let g:which_key_map['n'] = { 'name' : '+Notes',

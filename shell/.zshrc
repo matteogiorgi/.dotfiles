@@ -256,10 +256,25 @@ function mcd () {
 }
 
 # Change directory exiting from shfm
-function _sfm () {
+function _shfm () {
     ~/bin/shfm/shfm "$@"
     cd "$(cat ~/tmp.XXXXXX)"  # cd "$(command shfm "$@")"
     rm -f ~/tmp.XXXXXX
+}
+
+# Browse through images in directory after opening a single file
+function _sxiv () {
+    if command -v sxiv >/dev/null 2>&1; then
+        if [ -d "${@: -1}" ] || [ -h "${@: -1}" ]; then
+            sxiv -t "$@"
+        else
+            sxiv    "$@"
+        fi
+    elif command -v feh >/dev/null 2>&1; then
+        feh "$@"
+    else
+        echo "Please install SXIV or FEH!"
+    fi
 }
 
 
@@ -303,8 +318,9 @@ alias pacsyu='sudo pacman -Syyu'
 alias parsyu='paru -Syu --noconfirm'
 alias parsua='paru -Sua --noconfirm'
 
-# aliases for shfm
-alias shfm="_sfm"
+# aliases for shfm and sxiv
+alias shfm="_shfm"
+alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
 
 # logout aliases
 alias reboot="systemctl reboot"
@@ -323,6 +339,9 @@ alias touchreset="systemctl --user restart touchcursor.service"
 # background and lockscreen aliases
 alias background="feh --bg-fill "
 alias lockscreen="slock"
+
+# other useful aliases
+alias fj="shfm"
 
 
 ### Bind keys

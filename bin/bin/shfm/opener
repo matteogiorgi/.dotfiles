@@ -5,25 +5,27 @@
 
 case $1 in
     *.mp3|*.flac|*.wav)
-        # mpv --no-video "$1"
-        mocp "$1"
+        mplayer "$1"
     ;;
     *.mp4|*.mkv|*.webm)
-        vlc "$1"
+        vlc "$1" 2>/dev/null &
     ;;
     *.png|*.gif|*.jpg|*.JPG|*.jpe|*.jpeg)
-        sxiv "$1"
-    ;;
-    *.html)
-        qutebrowser "$1"
+        if [ -f ~/.config/sxiv/supersxiv ]; then
+            ~/.config/sxiv/supersxiv "$1" 2>/dev/null &
+        else 
+            sxiv "$1" 2>/dev/null &
+        fi
     ;;
     *.pdf|*.djvu)
-        zathura "$1"
+        zathura "$1" 2>/dev/null &
     ;;
     *)
-        "${EDITOR:=vi}" "$1"
+        "${EDITOR:=vim}" "$1"
     ;;
 esac
+
+
 
 
 # Uncomment the following lines if you wanna
