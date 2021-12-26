@@ -53,7 +53,7 @@ EndSection
 - pandoc (document converter)
 - ripgrep (recursive search tool)
 - git (distributed version control)
-- curl (data transfer)
+- curl, lftp (data transfer)
 
 
 
@@ -62,19 +62,21 @@ EndSection
 
 - npm
 - python-pip
-- cargo (rust)
+- cargo
 
 
 
 
 ### Core utility programs (already preconfigured)
 
-- zsh/bash (shells)
-- alacritty/xterm (terminal emulators)
-- vim/amp (text editors)
-- broot/fzf (file managers & fuzzy finders)
+- dmenu (suckless menu)
+- slock (suckless lockscreen)
+- zsh, bash (shell)
+- st, alacritty, xterm (terminal emulator)
+- vim, amp (text editors)
+- shfm, broot, fzf (file explorer)
 - tmux (terminal multiplexer)
-- vimpager (vim as PAGER)
+- vimpager (pager)
 - bat (glorified cat)
 - tig (git client)
 - touchcursor (fancy keymaps)
@@ -88,17 +90,13 @@ EndSection
 
 - arandr (gui xrandr interface)
 - pavucontrol (gui pulsaudio volume control)
-- lxappearence+qt5ct (gui gtk+qt5 theme switcher)
-- pcmanfm+xarchiver (gui file+archive manager)
-- brave (gui web browser)
+- lxappearence, qt5ct (gui gtk/qt5 theme switcher)
+- pcmanfm, xarchiver (gui file/archive manager)
 - vlc (gui video/music player)
-- xed (gui text editor)
+- brave (gui web browser)
+- vscode (all in one ide)
 - xournalpp (note-taker)
-- gromit-mpx (on screen annotator)
-- mplayer+id3v2 (media player/labeller)
+- mplayer, id3v2 (media player/labeller)
 - sc-im (spreadsheet editor)
 - calcurse (agenda)
-- gtop (top on steroids)
-- dmenu (geoteo suckless menu)
-- st (geoteo suckless terminal emulator)
-- slock (geoteo suckless lockscreen)
+- bottom (top on steroids)
