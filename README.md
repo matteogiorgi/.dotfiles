@@ -52,6 +52,8 @@ EndSection
 - texlive-most (document preparation)
 - pandoc (document converter)
 - ripgrep (recursive search tool)
+- git (distributed version control)
+- curl (data transfer)
 
 
 
@@ -90,7 +92,7 @@ EndSection
 - pcmanfm+xarchiver (gui file+archive manager)
 - brave (gui web browser)
 - vlc (gui video/music player)
-- vscode (all in one ide)
+- xed (gui text editor)
 - xournalpp (note-taker)
 - gromit-mpx (on screen annotator)
 - mplayer+id3v2 (media player/labeller)
