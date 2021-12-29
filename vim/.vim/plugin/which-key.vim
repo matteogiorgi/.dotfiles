@@ -70,7 +70,7 @@ let g:which_key_map['g'] = { 'name' : '+Git',
 
 " All{{{
 let g:which_key_map['a'] = { 'name' : '+All',
-            \ 'a' : 'aaa',
+            \ 'a' : 'aaarg',
             \ 'l' : 'lines',
             \ 'q' : 'quit',
             \ 'w' : 'write',

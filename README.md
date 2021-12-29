@@ -66,17 +66,7 @@ xinput map-to-output <xinput-id> <xrandr-output>
 - git (distributed version control)
 - curl (URL transfer)
 - lftp (file transfer)
-
-
-
-
-### Lang tools
-
-- cargo (rust)
-- cabal (haskell)
-- opam (ocaml)
-- npm (javascript)
-- pip (python)
+- cargo (rust package manager)
 
 
 
