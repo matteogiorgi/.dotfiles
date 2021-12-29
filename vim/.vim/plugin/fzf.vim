@@ -7,6 +7,21 @@ function! s:build_quickfix_list(lines)
     cc
 endfunction
 
+function! FzfExplore(...)
+    let inpath = substitute(a:1, "'", '', 'g')
+    if inpath == "" || matchend(inpath, '/') == strlen(inpath)
+        execute "cd" getcwd() . '/' . inpath
+        let cwpath = getcwd() . '/'
+        let g:preview_window = g:fzf_preview_window
+        let g:fzf_preview_window = []
+        call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'ls -1ap', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--prompt', cwpath]})))
+    else
+        let file = getcwd() . '/' . inpath
+        execute "e" file
+    endif
+    let g:fzf_preview_window = g:preview_window
+endfunction
+
 function! s:FzfBufName()
     0f
     file [Fzf]
@@ -23,7 +38,7 @@ augroup END
 
 
 let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" '
-let $FZF_DEFAULT_OPTS='--bind "Down:preview-down,Up:preview-up"'  " --preview "bat --style=numbers --color=always --line-range :500 {}"
+let $FZF_DEFAULT_OPTS='--bind "Down:preview-down,Up:preview-up"'
 
 " standard colors for FZF with the exception of:
 " 'border' : ['fg', 'Ignore'],
@@ -53,6 +68,15 @@ let g:fzf_preview_window = ['up:80%', 'ctrl-/']
 let g:fzf_layout = { 'window': 'enew' }
 
 
+command! -nargs=* FZFExplore call FzfExplore(shellescape(<q-args>))
+
+
+" Locate
+nnoremap <leader>l :FZFExplore<CR>
+
+" Commands
+nnoremap <leader>k :Commands<CR>
+
 " Find
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fg :GFiles<CR>
@@ -69,10 +93,7 @@ nnoremap <leader>bb :Buffers<CR>
 " Windows
 nnoremap <leader>ww :Windows<CR>
 
-" Commands
-nnoremap <leader>k :Commands<CR>
-
 " Git
 nnoremap <leader>gs :GFiles?<CR>
 nnoremap <leader>gg :BCommits<CR>
-nnoremap <leader>gG :Commits<CR>
+nnoremap <leader>gr :Commits<CR>

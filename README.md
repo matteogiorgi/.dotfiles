@@ -106,7 +106,7 @@ xinput map-to-output <xinput-id> <xrandr-output>
 - xarchiver (gui archive manager)
 - vlc (gui video/music player)
 - brave (gui web browser)
-- vscode (all in one ide)
+- xed (gui text editor)
 - xournalpp (note-taker)
 - mplayer (media player)
 - id3v2 (media labeller)

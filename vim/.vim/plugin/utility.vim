@@ -2,6 +2,12 @@
 if !exists("g:mkdir_loaded") | let g:mkdir_loaded=1 | endif
 autocmd! BufWritePre * call utility#Mkdir()
 
+augroup shutuponopen
+    autocmd!
+    autocmd VimEnter * silent! autocmd! FileExplorer *
+    autocmd BufEnter * call utility#LaunchOnopen('FZFExplore')
+augroup END
+
 
 command! LongLine call utility#LongLine()
 command! ToggleAccent call utility#ToggleAccent()

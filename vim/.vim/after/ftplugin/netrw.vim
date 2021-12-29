@@ -27,4 +27,3 @@ nmap <buffer> D D
 nmap <buffer> c mtmc
 nmap <buffer> m mtmm
 nmap <buffer> x mx
-nmap <buffer> F :FZF<cr>

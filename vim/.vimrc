@@ -129,8 +129,8 @@ set belloff+=ctrlg
 
 
 " Uncomment for preventing Netrw to load{{{
-" let g:loaded_netrw = 1
-" let g:loaded_netrwPlugin = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 "}}}
 
 

@@ -157,3 +157,25 @@ function! utility#Rename(name, bang)
 	return l:status
 endfunction
 "}}}
+
+" launchFM{{{
+" Bclose is needed
+function! s:isdir(dir) abort
+    let l:isempty = !empty(a:dir)
+    let l:isdirectory = isdirectory(a:dir)
+    let l:systemshit = !empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)
+    return l:isempty && (l:isdirectory || l:systemshit)
+endfunction
+
+function! utility#LaunchOnopen(explorer)
+    let l:directory = expand('%:p')
+    if <SID>isdir(l:directory)
+        execute 'Bclose'
+        if len(getbufinfo({'buflisted':1})) !=? 1 || bufname('%') !=? ''
+            execute 'tabnew'
+        endif
+        execute 'cd ' . l:directory
+        execute a:explorer
+    endif
+endfunction
+"}}}

@@ -64,7 +64,7 @@ let g:which_key_map['b'] = { 'name' : '+Bufs',
 let g:which_key_map['g'] = { 'name' : '+Git',
             \ 's' : 'status',
             \ 'g' : 'buffer',
-            \ 'G' : 'repo',
+            \ 'r' : 'repo',
             \ }
 "}}}
 
