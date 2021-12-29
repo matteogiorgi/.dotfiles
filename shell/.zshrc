@@ -200,6 +200,12 @@ function makezip () { zip -r "${1%%/}.zip" "$1" ; }
 # ps motherfuckers:
 function my_ps () { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
 
+# Yank file inside x11 clipboard (xclip needed)
+function yy () { cat $1 | xclip }
+
+# Paste file from x11 clipboard (xclip needed)
+function pp () { xclip -o > $1 }
+
 # Cycle through keyboard layout:
 function laynext () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
@@ -341,7 +347,7 @@ alias background="feh --bg-fill "
 alias lockscreen="slock"
 
 # other useful aliases
-alias fj="shfm"
+alias jj="shfm"
 
 
 ### Bind keys

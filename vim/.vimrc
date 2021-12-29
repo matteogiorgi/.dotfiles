@@ -2,15 +2,15 @@
 "                                   PLUGINS
 "                  [ https://github.com/junegunn/vim-plug ]
 "
-"     coc-nvim··················https://github.com/neoclide/coc.nvim
-"     vim-snippets··············https://github.com/honza/vim-snippets
 "     autopairs·················https://github.com/jiangmiao/auto-pairs
 "     vim-surround··············https://github.com/tpope/vim-surround
 "     vim-repeat················https://github.com/tpope/vim-repeat
 "     vim-commentary············https://github.com/tpope/vim-commentary
+"     vim-fugitive··············https://github.com/tpope/vim-fugitive
 "     vim-smalls················https://github.com/t9md/vim-smalls
 "     undotree··················https://github.com/mbbill/undotree
 "     vim-which-key·············https://github.com/liuchengxu/vim-which-key
+"     vim-fzf···················https://github.com/junegunn/fzf.vim
 "     vim-pandoc-syntax·········https://github.com/vim-pandoc/vim-pandoc-syntax
 "     vim-notewiki··············https://github.com/matteogiorgi/vim-notewiki
 "     vim-lines·················https://github.com/matteogiorgi/vim-lines
@@ -38,15 +38,15 @@ augroup end
 
 " Plugin list{{{
 call plug#begin('~/.vim/plugged')
-    Plug 'neoclide/coc.nvim', {'branch' : 'release'}
-    Plug 'honza/vim-snippets'
     Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-fugitive'
     Plug 't9md/vim-smalls'
     Plug 'mbbill/undotree'
     Plug 'liuchengxu/vim-which-key'
+    Plug 'junegunn/fzf.vim'
     Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'matteogiorgi/vim-notewiki'
     Plug 'matteogiorgi/vim-lines'
@@ -188,26 +188,16 @@ xnoremap J :move '>+1<CR>gv=gv
 "}}}
 
 " Menu remaps{{{
-nnoremap <leader>r   :%s///gc<Left><Left><Left>
-xnoremap <leader>r   :s///gc<Left><Left><Left>
-nnoremap <leader>qq  :quitall<CR>
-nnoremap <leader>qQ  :wall<bar>quitall<CR>
+nnoremap <leader>aq  :quitall<CR>
+nnoremap <leader>aw  :wall<CR>
 nnoremap <leader>bw  :write<CR>
-nnoremap <leader>bW  :wall<CR>
 nnoremap <leader>bd  :Bclose<CR>
-nnoremap <leader>bD  :bdelete<CR>
-nnoremap <leader>bn  :enew<CR>
+nnoremap <leader>bk  :bdelete<CR>
 nnoremap <leader>wd  :wincmd q<cr>
-nnoremap <leader>wr  :wincmd r<cr>
-nnoremap <leader>we  :wincmd =<cr>
 nnoremap <leader>wt  :wincmd T<cr>
-nnoremap <leader>wnn :enew<cr>
-nnoremap <leader>wns :wincmd s<cr>
-nnoremap <leader>wnv :wincmd v<cr>
 nnoremap <leader>wo  :only<CR>
 nnoremap <leader>tt  :tabs<CR>
 nnoremap <leader>td  :tabclose<CR>
-nnoremap <leader>tn  :tabnew<CR>
 nnoremap <leader>to  :tabonly<CR>
 "}}}
 
@@ -220,7 +210,9 @@ nnoremap <silent><S-Left> :tabmove -1<cr>
 nnoremap <silent><S-Right> :tabmove +1<cr>
 nnoremap <silent>Y y$
 tnoremap <silent><C-q> <C-\><C-n>
-tnoremap <silent><C-n> <C-w>w
+tnoremap <silent><Tab> <C-w>w
+nnoremap <silent><Tab> <C-w>w
+nnoremap <silent><Backspace> :b#<cr>
 nnoremap <silent><Up> {
 nnoremap <silent><Down> }
 nnoremap <silent><C-h> :vertical resize -5<CR>
@@ -254,3 +246,6 @@ nnoremap <leader>t9 :9tabmove<cr>
 nnoremap <silent><C-p> :b#<cr>
 nnoremap <silent><C-n> :wincmd w<cr>
 "}}}
+
+" nnoremap <leader>r   :%s///gc<Left><Left><Left>
+" xnoremap <leader>r   :s///gc<Left><Left><Left>

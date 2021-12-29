@@ -14,7 +14,8 @@
 /vifm/.config/vifm/vifminfo*
 
 # VIM
+/vim/.vim-viminfo-local
+/vim/.vim/.netrwhist
 /vim/.vim/plugged/*
 /vim/.vim/undodir/*
 /vim/.vim/sessions/*
-/vim/.vim/.netrwhist

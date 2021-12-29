@@ -1,13 +1,13 @@
-# Dotfiles
+# Dotfiles (I'm using BSPWM nowadays!)
 
 These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info.
 
 
 
 
-## I'm using BSPWM nowadays!
+## Mouse conf
 
-Remember to write `/etc/X11/xorg.conf.d/10-synaptics.conf` with the following settings:
+Write `/etc/X11/xorg.conf.d/10-synaptics.conf` with the following settings:
 
 ```
 Section "InputClass"
@@ -32,7 +32,18 @@ EndSection
 
 
 
-### Necessary tools
+## Wacom conf
+
+Just fire the following command once the tablet is connected:
+
+```
+xinput map-to-output <xinput-id> <xrandr-output>
+```
+
+
+
+
+## Necessary tools
 
 - sxhkd (keybinder)
 - polybar (desktop bar)
@@ -53,16 +64,19 @@ EndSection
 - pandoc (document converter)
 - ripgrep (recursive search tool)
 - git (distributed version control)
-- curl, lftp (data transfer)
+- curl (URL transfer)
+- lftp (file transfer)
 
 
 
 
-### lang package managers
+### Lang tools
 
-- npm
-- python-pip
-- cargo
+- cargo (rust)
+- cabal (haskell)
+- opam (ocaml)
+- npm (javascript)
+- pip (python)
 
 
 
@@ -71,12 +85,18 @@ EndSection
 
 - dmenu (suckless menu)
 - slock (suckless lockscreen)
-- zsh, bash (shell)
-- st, alacritty, xterm (terminal emulator)
-- vim, amp (text editors)
-- shfm, broot, fzf (file explorer)
+- bash (bourne again shell)
+- zsh (extended bourne shell)
+- st (suckless terminal emulator)
+- alacritty (rust terminal emulator)
+- xterm (x11 terminal emulator)
+- vim (vi improved)
+- amp (rust vi-like editor)
+- shfm (file manager in posix shell)
+- broot (rust file navigator)
+- fzf (fuzzy finder)
 - tmux (terminal multiplexer)
-- vimpager (pager)
+- vimpager (vim as pager)
 - bat (glorified cat)
 - tig (git client)
 - touchcursor (fancy keymaps)
@@ -90,13 +110,17 @@ EndSection
 
 - arandr (gui xrandr interface)
 - pavucontrol (gui pulsaudio volume control)
-- lxappearence, qt5ct (gui gtk/qt5 theme switcher)
-- pcmanfm, xarchiver (gui file/archive manager)
+- lxappearence (gui gtk theme switcher)
+- qt5ct (gui qt5 theme switcher)
+- pcmanfm (gui file manager)
+- xarchiver (gui archive manager)
 - vlc (gui video/music player)
 - brave (gui web browser)
 - vscode (all in one ide)
 - xournalpp (note-taker)
-- mplayer, id3v2 (media player/labeller)
+- mplayer (media player)
+- id3v2 (media labeller)
 - sc-im (spreadsheet editor)
 - calcurse (agenda)
 - bottom (top on steroids)
+- delta (git pager)

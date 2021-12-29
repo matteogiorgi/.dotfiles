@@ -23,7 +23,7 @@ augroup END
 
 
 let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" '
-let $FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
+let $FZF_DEFAULT_OPTS='--bind "Down:preview-down,Up:preview-up"'  " --preview "bat --style=numbers --color=always --line-range :500 {}"
 
 " standard colors for FZF with the exception of:
 " 'border' : ['fg', 'Ignore'],
@@ -49,5 +49,30 @@ let g:fzf_action = {
             \ 'ctrl-v' : 'vsplit'
             \ }
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-let g:fzf_preview_window = ['right:60%', 'ctrl-/']
+let g:fzf_preview_window = ['up:80%', 'ctrl-/']
 let g:fzf_layout = { 'window': 'enew' }
+
+
+" Find
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fh :History<CR>
+nnoremap <leader>fl :BLines<CR>
+
+" All
+nnoremap <leader>aa :Rg<CR>
+nnoremap <leader>al :Lines<CR>
+
+" Buffers
+nnoremap <leader>bb :Buffers<CR>
+
+" Windows
+nnoremap <leader>ww :Windows<CR>
+
+" Commands
+nnoremap <leader>k :Commands<CR>
+
+" Git
+nnoremap <leader>gs :GFiles?<CR>
+nnoremap <leader>gg :BCommits<CR>
+nnoremap <leader>gG :Commits<CR>

@@ -1,7 +1,7 @@
 let g:which_key_sep = '→'
 let g:which_key_max_size = 0
 let g:which_key_vertical = 0
-let g:which_key_hspace = 20
+let g:which_key_hspace = 10
 let g:which_key_sort_horizontal = 0
 let g:which_key_disable_default_offset = 1
 let g:which_key_centered = 1
@@ -18,110 +18,68 @@ let g:which_key_exit = [
 
 " Generics{{{
 let g:which_key_map = { 'name' : 'Menu',
-            \ 'h' : 'history',
-            \ 'j' : 'jump2',
-            \ 'k' : 'commands',
+            \ 'h' : 'htree',
+            \ 'j' : 'jump',
+            \ 'k' : 'command',
             \ 'l' : 'locate',
-            \ 'r' : 'replace',
-            \ 'u' : 'undo3',
-            \ }
-"}}}
-
-" Replace{{{
-let g:which_key_map['m'] = { 'name' : '+MCrss',
-            \ 'p' : 'position',
-            \ 'w' : 'word',
-            \ 'r' : 'range',
-            \ 'o' : 'operator',
-            \ }
-"}}}
-
-" Coc{{{
-let g:which_key_map['c'] = { 'name' : '+COCopt',
-            \ 'a' : 'action',
-            \ 'c' : 'command',
-            \ 'l' : 'list',
-            \ 'g' : { 'name' : '+Goto',
-            \     'd' : 'definition',
-            \     't' : 'type-definition',
-            \     'i' : 'implementation',
-            \     'r' : 'reference',
-            \     }
             \ }
 "}}}
 
 " Find{{{
 let g:which_key_map['f'] = { 'name' : '+Find',
+            \ 'f' : 'file',
+            \ 'g' : 'gfile',
+            \ 'h' : 'hfile',
             \ 'l' : 'line',
-            \ 'm' : 'mark',
-            \ 'c' : 'change',
-            \ 'g' : 'grep',
-            \ 'y' : 'yank',
-            \ 'f' : { 'name' : '+File',
-            \     'f' : './',
-            \     'g' : 'git',
-            \     'r' : 'recent',
-            \     }
             \ }
 "}}}
 
 " Windows{{{
-let g:which_key_map['w'] = { 'name' : '+WinCMD',
-            \ 'w' : 'windows',
+let g:which_key_map['w'] = { 'name' : '+Wins',
+            \ 'w' : 'winlist',
             \ 'd' : 'delete',
-            \ 'l' : 'list',
-            \ 'r' : 'rotate',
-            \ 'e' : 'equalize',
-            \ 't' : '2tab',
-            \ 'o' : 'one',
-            \ 'n' : { 'name' : '+New',
-            \     'n' : 'editnew',
-            \     's' : 'split',
-            \     'v' : 'vsplit',
-            \     }
+            \ 't' : 'totab',
+            \ 'o' : 'onlyone',
             \ }
 "}}}
 
 " Tabs{{{
-let g:which_key_map['t'] = { 'name' : '+TabCMD',
-            \ 't' : 'tabs',
+let g:which_key_map['t'] = { 'name' : '+Tabs',
+            \ 't' : 'tablist',
             \ 'd' : 'delete',
-            \ 'n' : 'new',
-            \ 'o' : 'one',
+            \ 'o' : 'onlyone',
             \ }
 "}}}
 
 " Buffers{{{
-let g:which_key_map['b'] = { 'name' : '+BufCMD',
-            \ 'b' : 'buffers',
+let g:which_key_map['b'] = { 'name' : '+Bufs',
+            \ 'b' : 'buflist',
             \ 'w' : 'write',
-            \ 'W' : 'writeall',
             \ 'd' : 'delete',
-            \ 'D' : 'delWin',
-            \ 'n' : 'new',
+            \ 'k' : 'kill',
             \ }
 "}}}
 
 " Git{{{
 let g:which_key_map['g'] = { 'name' : '+Git',
             \ 's' : 'status',
-            \ 'g' : 'commits',
-            \ 'b' : 'buffer',
-            \ 'c' : 'chunk',
+            \ 'g' : 'buffer',
+            \ 'G' : 'repo',
             \ }
 "}}}
 
-" Quit{{{
-let g:which_key_map['q'] = { 'name' : '+Quit',
+" All{{{
+let g:which_key_map['a'] = { 'name' : '+All',
+            \ 'a' : 'aaa',
+            \ 'l' : 'lines',
             \ 'q' : 'quit',
-            \ 'Q' : 'w&q',
+            \ 'w' : 'write',
             \ }
 "}}}
 
 " Surround{{{
-let g:which_key_map['s'] = { 'name' : '+Surrnd',
+let g:which_key_map['s'] = { 'name' : '+Srnd',
             \ 's' : 'select',
-            \ 'w' : 'word',
             \ 'l' : 'line',
             \ 'r' : 'replace',
             \ 'd' : 'delete',
@@ -175,14 +133,14 @@ augroup notesettings
     autocmd!
     autocmd BufEnter *
                 \ if &filetype ==? 'markdown'  || &filetype ==? 'markdown.pandoc' || &filetype ==? 'pandoc' |
-                \     let g:which_key_map['n'] = { 'name' : '+Notes',
+                \     let g:which_key_map['n'] = { 'name' : '+Note',
                 \         'i' : 'index',
                 \         'b' : 'browse',
                 \         's' : 'scratch',
                 \         'p' : 'pandoc',
                 \         } |
                 \ else |
-                \     let g:which_key_map['n'] = { 'name' : '+Notes',
+                \     let g:which_key_map['n'] = { 'name' : '+Note',
                 \         'i' : 'index',
                 \         'b' : 'browse',
                 \         's' : 'scratch',

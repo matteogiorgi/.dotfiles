@@ -72,6 +72,12 @@ PS1="${Yellow}\u@\h${NC}: ${Blue}\w${NC} \\$ "
 ### set common functions
 ########################
 
+# Yank file inside x11 clipboard (xclip needed)
+function yy () { cat $1 | xclip }
+
+# Paste file from x11 clipboard (xclip needed)
+function pp () { xclip -o > $1 }
+
 # Cycle through keyboard layout:
 function laynext () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
@@ -182,7 +188,7 @@ alias background="feh --bg-fill "
 alias lockscreen="slock"
 
 # other useful aliases
-alias fj="shfm"
+alias jj="shfm"
 
 
 ### Source some shit

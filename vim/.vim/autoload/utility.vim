@@ -51,7 +51,6 @@ endfunction
 "}}}
 
 " Jump current directory{{{
-" UNUSED
 function! utility#Current()
     echon 'cwd: '
     cd %:p:h
@@ -60,7 +59,6 @@ endfunction
 "}}}
 
 " Jump parent directory{{{
-" UNUSED
 function! utility#Parent()
     echon 'cwd: '
     let l:parent = fnamemodify('getcwd()', ':p:h:h')
@@ -70,7 +68,6 @@ endfunction
 "}}}
 
 " Jump git directory{{{
-" USED IN COMBO WITH COC-LIST AND/OR FZF
 function! utility#GitDir()
     if getcwd() ==? $HOME
         " echon 'Not in a git repository'

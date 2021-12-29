@@ -23,4 +23,4 @@ endfunction
 
 
 command! ToggleUT call <SID>ToggleUT()
-nnoremap <leader>u :ToggleUT<CR>
+nnoremap <leader>h :ToggleUT<CR>
