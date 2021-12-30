@@ -94,7 +94,10 @@ xinput map-to-output <xinput-id> <xrandr-output>
 - zathura (document viewer)
 - sxiv (image viewer)
 
----
+
+
+
+#### Other noconf programs
 
 - arandr (gui xrandr interface)
 - pavucontrol (gui pulsaudio volume control)
