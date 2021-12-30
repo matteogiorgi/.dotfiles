@@ -210,8 +210,7 @@ nnoremap <silent><S-Left> :tabmove -1<cr>
 nnoremap <silent><S-Right> :tabmove +1<cr>
 nnoremap <silent>Y y$
 tnoremap <silent><C-q> <C-\><C-n>
-tnoremap <silent><Tab> <C-w>w
-nnoremap <silent><Tab> <C-w>w
+nnoremap <silent><Tab> :wincmd w<cr>
 nnoremap <silent><Backspace> :b#<cr>
 nnoremap <silent><Up> {
 nnoremap <silent><Down> }
@@ -243,8 +242,6 @@ nnoremap <leader>t6 :6tabmove<cr>
 nnoremap <leader>t7 :7tabmove<cr>
 nnoremap <leader>t8 :8tabmove<cr>
 nnoremap <leader>t9 :9tabmove<cr>
-nnoremap <silent><C-p> :b#<cr>
-nnoremap <silent><C-n> :wincmd w<cr>
 "}}}
 
 " nnoremap <leader>r   :%s///gc<Left><Left><Left>

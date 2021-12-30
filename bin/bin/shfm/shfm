@@ -297,7 +297,7 @@ main() {
                     redraw "$@"
 
                 elif [ -e "$cur" ]; then
-                    cmd_run "${SHFM_OPENER:="${EDITOR:=vi}"}" "$cur"
+                    cmd_run "${SHFM_OPENER:="${EDITOR:=vim}"}" "$cur"
                     redraw "$@"
                 fi
             ;;
