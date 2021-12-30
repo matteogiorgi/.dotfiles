@@ -95,8 +95,6 @@ xinput map-to-output <xinput-id> <xrandr-output>
 - sxiv (image viewer)
 
 
-
-
 #### Other noconf programs
 
 - arandr (gui xrandr interface)
