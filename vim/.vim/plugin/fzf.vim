@@ -38,7 +38,7 @@ augroup END
 
 
 let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" '
-let $FZF_DEFAULT_OPTS='--bind "Down:preview-down,Up:preview-up"'
+let $FZF_DEFAULT_OPTS='--bind "Down:preview-down,Up:preview-up,Right:preview-page-down,Left:preview-page-up"'
 
 " standard colors for FZF with the exception of:
 " 'border' : ['fg', 'Ignore'],

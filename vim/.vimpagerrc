@@ -1,6 +1,6 @@
 syntax on
 set background=dark
-colorscheme dracula17
+colorscheme dracula
 filetype plugin indent on
 
 if exists('+termguicolors') | set termguicolors | endif
@@ -9,7 +9,6 @@ if has('linebreak') | let &showbreak='⤷ ' | endif
 set shell=zsh
 set nocompatible
 set runtimepath-=~/.vim
-set runtimepath+=~/.vimpager
 set clipboard=unnamedplus
 set nonumber norelativenumber mouse=a
 set ruler scrolloff=8 sidescrolloff=8

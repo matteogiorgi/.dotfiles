@@ -1,3 +1,6 @@
+# Amp editor config, for full config specs visit
+# https://github.com/jmacdonald/amp/blob/main/documentation/pages/configuration.md
+
 theme: dracula16
 tab_width: 4
 soft_tabs: true

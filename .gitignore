@@ -10,9 +10,6 @@
 # THEMES
 /themes/.icons/default/*
 
-# VIFM
-/vifm/.config/vifm/vifminfo*
-
 # VIM
 /vim/.vim-viminfo-local
 /vim/.vim/.netrwhist
