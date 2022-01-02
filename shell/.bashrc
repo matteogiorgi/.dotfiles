@@ -62,6 +62,10 @@ export TERM="xterm-256color"  # xterm-256color,screen-256color
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
 
+# FZF custom variables (https://github.com/junegunn/fzf#key-bindings-for-command-line)
+# export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
+export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
+
 
 ### Set prompt
 ##############
@@ -73,10 +77,10 @@ PS1="${Yellow}\u@\h${NC}: ${Blue}\w${NC} \\$ "
 ########################
 
 # Yank file inside x11 clipboard (xclip needed)
-function yy () { cat $1 | xclip }
+function yy () { cat $1 | xclip ; }
 
 # Paste file from x11 clipboard (xclip needed)
-function pp () { xclip -o > $1 }
+function pp () { xclip -o > $1 ; }
 
 # Cycle through keyboard layout:
 function laynext () {
@@ -189,6 +193,7 @@ alias lockscreen="slock"
 
 # other useful aliases
 alias jj="shfm"
+alias vv="vim ."
 
 
 ### Source some shit
@@ -200,7 +205,7 @@ alias jj="shfm"
 # broot
 [[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
 
-# fzf  --preview "bat --style=numbers --color=always --line-range :500 {}"
+# fzf
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash

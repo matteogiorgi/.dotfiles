@@ -123,6 +123,11 @@ export TERM="xterm-256color"  # xterm-256color,screen-256color
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
 
+# FZF custom variables (https://github.com/junegunn/fzf#key-bindings-for-command-line)
+# export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
+export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
+
+
 ### Set prompt
 ##############
 
@@ -136,14 +141,10 @@ unsetopt ALL_EXPORT
 ########################
 
 # Get IP adress:
-function my_ip () {
-    curl ifconfig.co
-}
+function my_ip () { curl ifconfig.co ; }
 
 # Find a file with a pattern in name:
-function ff () {
-    find . -type f -iname '*'"$*"'*' -ls ;
-}
+function ff () { find . -type f -iname '*'"$*"'*' -ls ; }
 
 # Get current host related info:
 function sysinfo () {
@@ -192,19 +193,19 @@ fi
 }
 
 # Creates an archive (*.tar.gz) from given directory:
-function maketar () { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
+function maketar () { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/" ; }
 
 # Create a ZIP archive of a file or folder:
 function makezip () { zip -r "${1%%/}.zip" "$1" ; }
 
 # ps motherfuckers:
-function my_ps () { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
+function pss () { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
 
 # Yank file inside x11 clipboard (xclip needed)
-function yy () { cat $1 | xclip }
+function yy () { cat $1 | xclip ; }
 
 # Paste file from x11 clipboard (xclip needed)
-function pp () { xclip -o > $1 }
+function pp () { xclip -o > $1 ; }
 
 # Cycle through keyboard layout:
 function laynext () {
@@ -348,6 +349,7 @@ alias lockscreen="slock"
 
 # other useful aliases
 alias jj="shfm"
+alias vv="vim ."
 
 
 ### Bind keys
@@ -458,7 +460,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # broot
 [[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
 
-# fzf  --preview "bat --style=numbers --color=always --line-range :500 {}"
+# fzf
 [[ -f $HOME/.fzf.zsh ]] && source $HOME/.fzf.zsh
 [[ -f $HOME/.config/fzf/completion.zsh ]] && source $HOME/.config/fzf/completion.zsh
 [[ -f $HOME/.config/fzf/key-bindings.zsh ]] && source $HOME/.config/fzf/key-bindings.zsh

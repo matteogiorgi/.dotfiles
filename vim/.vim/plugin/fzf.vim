@@ -14,7 +14,7 @@ function! FzfExplore(...)
         let cwpath = getcwd() . '/'
         let g:preview_window = g:fzf_preview_window
         let g:fzf_preview_window = []
-        call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'ls -1ap', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--prompt', cwpath]})))
+        call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': '/bin/ls -1ap', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--prompt', cwpath]})))
     else
         let file = getcwd() . '/' . inpath
         execute "e" file
@@ -38,7 +38,7 @@ augroup END
 
 
 let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" '
-let $FZF_DEFAULT_OPTS='--bind "Down:preview-down,Up:preview-up,Right:preview-page-down,Left:preview-page-up"'
+let $FZF_DEFAULT_OPTS='--bind "Right:preview-page-down,Left:preview-page-up"'  " Down:preview-down,Up:preview-up
 
 " standard colors for FZF with the exception of:
 " 'border' : ['fg', 'Ignore'],

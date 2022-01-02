@@ -43,71 +43,49 @@ xinput map-to-output <xinput-id> <xrandr-output>
 
 
 
-## Necessary tools
+## Tools
 
-- bspwm (window manager)
-- sxhkd (keybinder)
-- polybar (desktop bar)
-- picom (compositor effects)
+- bspwm + sxhkd + polybar + picom (window manager)
+- pamixer + pavucontrol (pulseaudio command-line mixer)
+- xorg-xrandr + arandr (interface to RandR extension)
 - xorg-xrdb (load Xresources)
 - xorg-xmodmap (run Xmodmap)
 - xsettingsd (xsettings deamon)
 - xdotool (command-line X11 automation tool)
-- xorg-xrandr (cli interface to RandR extension)
 - xdo (utility for performing action on windows)
-- pamixer (pulseaudio command-line mixer)
-- imagemagick (image manipulation program)
-- feh (img viewer and wallpaper setter)
-- networkmanager (for network-manager-applet)
-- blueman (for blueman-applet)
-- git (distributed version control)
-- delta (git pager)
+- feh + imagemagick (image manipulation)
+- networkmanager (to manage networks)
+- blueman (to manage bt connections)
+- git + delta (distributed version control)
+- curl + lftp (file transfer)
 - ripgrep (recursive search tool)
-- curl (URL transfer)
-- lftp (file transfer)
-- texlive-most (document preparation)
+- exa (ls on steroids)
 - pandoc (document converter)
-- cargo (you need some rust)
+- texlive-most (document preparation)
+- cargo (we all need some rust)
 
-
-
-
-## Basic workflow programs
+<!-- -->
 
 - dmenu (suckless menu)
 - slock (suckless lockscreen)
-- st (suckless terminal emulator)
-- alacritty (rust terminal emulator)
-- xterm (x11 terminal emulator)
-- bash (bourne again shell)
-- zsh (extended bourne shell)
+- st + alacritty + xerm (terminal emulator)
+- bash + zsh (bourne again shell)
+- amp + vim + vimpager (tui text editor)
 - tmux (terminal multiplexer)
-- amp (rust vi-like editor)
-- vim (vi improved)
-- vimpager (vim as pager)
-- tig (git client)
-- shfm (file manager in posix shell)
-- broot (rust file navigator)
-- fzf (fuzzy finder)
+- tig (tui git client)
+- fzf + broot (fuzzy finder)
 - bat (glorified cat)
 - touchcursor (fancy keymaps)
 - zathura (document viewer)
 - sxiv (image viewer)
 
+<!-- -->
 
-#### Other noconf programs
-
-- arandr (gui xrandr interface)
-- pavucontrol (gui pulsaudio volume control)
-- lxappearence (gui gtk theme switcher)
-- qt5ct (gui qt5 theme switcher)
+- lxappearence + qt5ct (gui theme switcher)
 - pcmanfm (gui file manager)
-- xarchiver (gui archive manager)
 - brave (gui web browser)
 - xournalpp (gui note-taker)
-- vlc (gui video/music player)
-- mplayer (media player)
-- id3v2 (media labeller)
-- sc-im (spreadsheet editor)
+- vscode + vspcecode (gui text editor)
+- mplayer + id3v2 (media player)
 - calcurse (agenda)
 - bottom (top on steroids)

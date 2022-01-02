@@ -95,6 +95,7 @@ fzf-cd-widget() {
 }
 zle     -N    fzf-cd-widget
 bindkey '\ec' fzf-cd-widget
+bindkey '^j' fzf-cd-widget
 
 # CTRL-R - Paste the selected command from history into the command line
 fzf-history-widget() {
