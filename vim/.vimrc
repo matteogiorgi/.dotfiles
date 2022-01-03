@@ -80,7 +80,7 @@ filetype plugin indent on
 set exrc
 set title
 set shell=zsh  " zsh,bash
-set nocompatible    " nvim is always nocompatible
+set nocompatible
 set runtimepath+=~/.vim_runtime  " add whatever
 set clipboard=unnamedplus
 set number relativenumber mouse=  " a,n,v,i,c
@@ -96,7 +96,7 @@ set showmode showcmd
 set cursorline noerrorbells novisualbell
 set cursorlineopt=number,line  " number,line
 set splitbelow splitright
-set noequalalways
+set equalalways
 set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM
 set matchpairs+=<:>
 set autochdir

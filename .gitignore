@@ -9,6 +9,10 @@
 
 # THEMES
 /themes/.icons/default/*
+/themes/.config/geany/*
+/themes/.config/qt5ct/*
+!/themes/.config/geany/colorschemes
+!/themes/.config/qt5ct/colors
 
 # VIM
 /vim/.vim-viminfo-local

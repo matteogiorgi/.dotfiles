@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 echo "$*" | grep "\.ar\." && {
-    xdohide xterm -e "$EDITOR" "$*" &
+    xdohide xterm -e "${EDITOR:=vim}" "$*" &
     exit
 }
 
@@ -12,10 +12,10 @@ echo "$1" | grep "\.sent$" && {
 
 case $(file --mime-type "$*" -bL) in
     text/* | inode/x-empty | application/json | application/octet-stream)
-        "$EDITOR" "$*"
+        "${EDITOR:=vim}" "$*"
         ;;
     inode/directory)
-        pidof pcmanfm || xdohide pcmanfm "$*"
+        pidof qtfm || xdohide qtfm "$*"
         ;;
     audio/* | video/*)
         pidof vlc || xdohide vlc "$*"

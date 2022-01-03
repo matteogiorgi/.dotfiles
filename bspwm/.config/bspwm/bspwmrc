@@ -47,7 +47,7 @@ bspc config urgent_border_color   "#ff6e6e"
 
 
 ## KEYLAYOUT
-###########
+############
 
 setxkbmap -layout it  # gb,it,us
 xmodmap ~/.Xmodmap

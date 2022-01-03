@@ -1,29 +1,34 @@
 #!/bin/sh -e
 
-# Comment the following lines if you wanna
+swallow $1
+
+
+
+
+# Uncomment the following lines if you wanna
 # open files in application based on file extension
 
-case $1 in
-    *.mp3|*.flac|*.wav)
-        mplayer "$1"
-    ;;
-    *.mp4|*.mkv|*.webm)
-        vlc "$1" 2>/dev/null &
-    ;;
-    *.png|*.gif|*.jpg|*.JPG|*.jpe|*.jpeg)
-        if [ -f ~/.config/sxiv/supersxiv ]; then
-            ~/.config/sxiv/supersxiv "$1" 2>/dev/null &
-        else 
-            sxiv "$1" 2>/dev/null &
-        fi
-    ;;
-    *.pdf|*.djvu)
-        zathura "$1" 2>/dev/null &
-    ;;
-    *)
-        "${EDITOR:=vim}" "$1"
-    ;;
-esac
+# case $1 in
+#     *.mp3|*.flac|*.wav)
+#         vlc "$1" 2>/dev/null &
+#     ;;
+#     *.mp4|*.mkv|*.webm)
+#         vlc "$1" 2>/dev/null &
+#     ;;
+#     *.png|*.gif|*.jpg|*.JPG|*.jpe|*.jpeg)
+#         if [ -f ~/.config/sxiv/supersxiv ]; then
+#             ~/.config/sxiv/supersxiv "$1" 2>/dev/null &
+#         else 
+#             sxiv "$1" 2>/dev/null &
+#         fi
+#     ;;
+#     *.pdf|*.djvu)
+#         zathura "$1" 2>/dev/null &
+#     ;;
+#     *)
+#         "${EDITOR:=vim}" "$1"
+#     ;;
+# esac
 
 
 
@@ -34,19 +39,23 @@ esac
 # mime_type=$(file -bi)
 # case $mime_type in
 #     audio/*)
-#        mpv --no-video "$1"
+#         vlc "$1" 2>/dev/null &
 #     ;;
 #     video/*)
-#         mpv "$1"
+#         vlc "$1" 2>/dev/null &
 #     ;;
 #     image/*)
-#         gimp "$1"
+#         if [ -f ~/.config/sxiv/supersxiv ]; then
+#             ~/.config/sxiv/supersxiv "$1" 2>/dev/null &
+#         else 
+#             sxiv "$1" 2>/dev/null &
+#         fi
 #     ;;
 #     text/html*|application/pdf*)
-#         firefox "$1"
+#         zathura "$1" 2>/dev/null &
 #     ;;
 #     text/*|)
-#         "${EDITOR:=vi}" "$1"
+#         "${EDITOR:=vim}" "$1"
 #     ;;
 #     *)
 #         printf 'unknown mime-type %s\n' "$mime_type"

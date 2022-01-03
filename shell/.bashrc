@@ -48,13 +48,13 @@ ALERT="${BWhite}${On_Red}" # Bold White on red background
 ### Environment variables (remember to install vim, amp, most, brave, zathura)
 ##############################################################################
 
-export GOPATH="$HOME/go"                                                        # go directory should stay in $HOME
-export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"        # vimpager,vim
-export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"  # vimpager,vim
-export VISUAL="amp" && [[ -f /bin/vim ]] && export VISUAL="vim"                 # vim,amp
-export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"                 # vim,amp
+export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"
+export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"
+export VISUAL="amp" && [[ -f /bin/vim ]] && export VISUAL="vim"
+export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"
 export BROWSER="brave"
 export READER="zathura"
+export GOPATH="$HOME/go"
 
 # better not export $TERM: problems with broot image preview
 export TERM="xterm-256color"  # xterm-256color,screen-256color
@@ -62,8 +62,7 @@ export TERM="xterm-256color"  # xterm-256color,screen-256color
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
 
-# FZF custom variables (https://github.com/junegunn/fzf#key-bindings-for-command-line)
-# export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
+# better do not export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 
 
@@ -81,6 +80,12 @@ function yy () { cat $1 | xclip ; }
 
 # Paste file from x11 clipboard (xclip needed)
 function pp () { xclip -o > $1 ; }
+
+# Set input to a single monitor
+function xio () { xinput map-to-output $1 $2 ; }
+
+# Rotate Wacom input (xsetwacom needed)
+function xrotate () { xsetwacom --set $1 Rotate half ; }
 
 # Cycle through keyboard layout:
 function laynext () {
