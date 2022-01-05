@@ -10,31 +10,38 @@ echo "$1" | grep "\.sent$" && {
     exit
 }
 
+# remember to have installed the followings:
+# geany, pcmanfm, vlc, zathura, sxiv
 case $(file --mime-type "$*" -bL) in
+    # in case you want to use an already opened process
+    # (if there is), use as one of the following examples:
+    # pidof pcmanfm || xdohide pcmanfm "$*"
+    # pgrep zathura || xdohide zathura "$*"
+    # pgrep sxiv || xdohide "sxiv -a" "$*"
     text/* | inode/x-empty | application/json | application/octet-stream)
-        "${EDITOR:=vim}" "$*"
+        xdohide geany "$*"  # "${EDITOR:=vim}" "$*"
         ;;
     inode/directory)
-        pidof qtfm || xdohide qtfm "$*"
+        xdohide pcmanfm "$*"
         ;;
     audio/* | video/*)
-        pidof vlc || xdohide vlc "$*"
+        xdohide vlc "$*"
         ;;
     application/pdf | application/postscript | application/djvu)
-        pidof zathura || xdohide zathura "$*"
+        xdohide zathura "$*"
         ;;
     image/gif)
         if [ -f ~/.config/sxiv/supersxiv ]; then
-            pgrep ~/.config/sxiv/supersxiv || xdohide "~/.config/sxiv/supersxiv -a" "$*"
+            xdohide "~/.config/sxiv/supersxiv -a" "$*"
         else 
-            pgrep sxiv || xdohide "sxiv -a" "$*"
+            xdohide "sxiv -a" "$*"
         fi
         ;;
     image/*)
         if [ -f ~/.config/sxiv/supersxiv ]; then
-            pgrep ~/.config/sxiv/supersxiv || xdohide "~/.config/sxiv/supersxiv" "$*"
+            xdohide "~/.config/sxiv/supersxiv" "$*"
         else 
-            pgrep sxiv || xdohide "sxiv" "$*"
+            xdohide "sxiv" "$*"
         fi
         ;;
 esac

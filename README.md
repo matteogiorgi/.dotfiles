@@ -34,17 +34,17 @@ EndSection
 
 ## Tools
 
-- bspwm + sxhkd + polybar + picom (window manager)
+- bspwm + polybar + picom (window manager)
+- sxhkd + touchcursor (fancy keymaps)
 - st + alacritty + xerm (terminal emulator)
+- amp + vim + geany (text editor)
 - bash + zsh (bourne again shell)
-- amp + vim (tui text editor)
 - fzf + broot (fuzzy finder)
 - vimpager + bat (glorified more & cat)
 - zathura + sxiv (document & image viewer)
 - dmenu + slock (suckless menu & lockscreen)
-- touchcursor (fancy keymaps)
 - tmux (terminal multiplexer)
-- tig (tui git client)
+- tig (git client)
 
 <!-- -->
 
@@ -58,10 +58,8 @@ EndSection
 - curl + lftp (file transfer)
 - ripgrep + exa + bottom (rust utils)
 - pandoc + texlive-most (document manipulation)
-- lxappearence + qt5ct (gui theme switcher)
+- lxappearence + qt5ct (theme switcher)
 - vlc + id3v2 (media player)
-- pcmanfm + xarchiver (gui file manager)
-- geany + geany-plugins (gui text editor)
-- brave (gui web browser)
-- xournalpp (gui note-taker)
-- calcurse (calendar/agenda)
+- xournalpp + calcurse (notes & agenda)
+- pcmanfm (file manager)
+- brave (web browser)

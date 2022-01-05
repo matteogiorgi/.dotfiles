@@ -71,3 +71,5 @@ endfun
 
 if g:vsc_type_complete | call s:TypeCompletePlugin() | endif
 if g:vsc_tab_complete  | call s:TabCompletePlugin()  | endif
+
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
