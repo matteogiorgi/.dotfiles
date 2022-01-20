@@ -18,8 +18,6 @@
 [delta]
     features = side-by-side line-numbers decorations
     syntax-theme = Dracula
-    plus-color = "#012800"
-    minus-color = "#340001"
     plus-style = syntax "#003800"
     minus-style = syntax "#3f0001"
 

@@ -85,11 +85,20 @@ fi
 
 
 
-## NETWORK, BLUETOOTH, KEYS
-###########################
+## CONNECTIONS
+##############
 
-nm-applet &
-blueman-applet &
+[[ -x "$(command -v nm-applet)" ]] && nm-applet &
+[[ -x "$(command -v blueman-applet)" ]] && blueman-applet &
+
+
+
+
+## KEYBINDS
+###########
+
+killall -q sxhkd
+while pgrep -u $UID -x sxhkd >/dev/null; do sleep 1; done
 sxhkd &
 
 
@@ -99,6 +108,8 @@ sxhkd &
 ########
 
 if [ -x "$(command -v picom)" ]; then
+    killall -q picom
+    while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
     picom --daemon --experimental-backends &
 fi
 

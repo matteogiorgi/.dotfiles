@@ -3,8 +3,12 @@
 ######################################################
 
 
+
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+
 
 
 ### Set Colors to use in in the script
@@ -45,6 +49,8 @@ NC='\[\e[m\]'			# Color Reset
 ALERT="${BWhite}${On_Red}" # Bold White on red background
 
 
+
+
 ### Environment variables (remember to install vim, amp, most, brave, zathura)
 ##############################################################################
 
@@ -64,6 +70,26 @@ export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -
 
 # better do not export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
+export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
+
+
+
+
+### Source some shit
+#####################
+
+# pfetch
+[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
+
+# broot
+[[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
+
+# fzf
+[[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
+[[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
+[[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
+
+
 
 
 ### Set prompt
@@ -72,22 +98,41 @@ export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 PS1="${Yellow}\u@\h${NC}: ${Blue}\w${NC} \\$ "
 
 
-### set common functions
+
+
+### Set common functions
 ########################
 
-# Yank file inside x11 clipboard (xclip needed)
-function yy () { cat $1 | xclip ; }
-
-# Paste file from x11 clipboard (xclip needed)
-function pp () { xclip -o > $1 ; }
-
-# Set input to a single monitor
-function xio () { xinput map-to-output $1 $2 ; }
+# Set input to a single monitor (check output monitor with xrandr)
+function xwacom-output () { xinput map-to-output $(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $1 ; }
 
 # Rotate Wacom input (xsetwacom needed)
-function xrotate () { xsetwacom --set $1 Rotate half ; }
+function xwacom-rotate () {
+    local xwacomid=$(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    if (( $# == 0 )); then
+        xsetwacom --set $xwacomid Rotate half
+        return
+    fi
+    case $1 in
+        "0")
+            xsetwacom --set $xwacomid Rotate none
+            ;;
+        "1")
+            xsetwacom --set $xwacomid Rotate ccw
+            ;;
+        "2")
+            xsetwacom --set $xwacomid Rotate half
+            ;;
+        "3")
+            xsetwacom --set $xwacomid Rotate cw
+            ;;
+        *)
+            echo "enter a position from 0 to 3"
+            ;;
+    esac
+}
 
-# Cycle through keyboard layout:
+# Cycle through keyboard layout
 function laynext () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
         "gb")
@@ -106,15 +151,15 @@ function laynext () {
     xmodmap ~/.Xmodmap
 }
 
-# Change wallpaper randomly:
+# Change wallpaper randomly
 function bgrandom () {
     cd $HOME/Pictures/wallpapers/wallogo
     feh --bg-fill $( echo $( /usr/bin/ls -l | awk '{if (NR!=1) print $9}' | sort -R | tail -1 ))
     cd - 1>/dev/null
 }
 
-# Edit office files from within vim:
-function docxedit () {
+# Edit office files from within vim (pandoc needed)
+function ded () {
     doc=$(basename -- "$1")
     new="${doc%.*}".md
     pandoc $doc -o $new
@@ -144,6 +189,8 @@ function _sxiv () {
 }
 
 
+
+
 ### Set alias
 #############
 
@@ -168,6 +215,14 @@ alias lt="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias lt="exa -la --git
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
+alias rmf="rm -rfi"
+
+# xclip copy-pasta
+alias xcopy="xclip -i -selection clipboard"
+alias xpaste="xclip -o -selection clipboard"
+alias xcopy-file="xclip-copyfile"
+alias xpaste-file="xclip-pastefile"
+alias xcut-file="xclip-cutfile"
 
 # pacman and paru aliases
 alias pacsyu='sudo pacman -Syyu'
@@ -177,6 +232,9 @@ alias parsua='paru -Sua --noconfirm'
 # aliases for shfm and sxiv
 alias shfm="_shfm"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
+
+# aliases for cat
+alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"
 
 # logout aliases
 alias reboot="systemctl reboot"
@@ -194,23 +252,4 @@ alias touchreset="systemctl --user restart touchcursor.service"
 
 # background and lockscreen aliases
 alias background="feh --bg-fill "
-alias lockscreen="slock"
-
-# other useful aliases
-alias jj="shfm"
-alias vv="vim ."
-
-
-### Source some shit
-#####################
-
-# pfetch
-[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
-
-# broot
-[[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
-
-# fzf
-[[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
-[[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
-[[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
+alias lockscreen="echo -e 'Install slock: https://github.com/matteogiorgi/slock'" && [[ -x "$(command -v slock)" ]] && alias lockscreen="slock"

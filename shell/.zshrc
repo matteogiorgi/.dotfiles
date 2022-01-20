@@ -3,6 +3,8 @@
 ######################################################
 
 
+
+
 ### Set/unset ZSH options
 #########################
 
@@ -22,6 +24,8 @@ setopt ALL_EXPORT
 unsetopt BG_NICE
 
 
+
+
 ### Set/unset shell options
 ############################
 
@@ -30,6 +34,8 @@ setopt correctall autocd recexact longlistjobs
 setopt autoresume histignoredups pushdsilent
 setopt autopushd pushdminus extendedglob rcquotes mailwarning
 unsetopt bgnice autoparamslash
+
+
 
 
 ### Autoload zsh modules when they are referenced
@@ -44,6 +50,8 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 
 
+
+
 ### Set variables
 #################
 
@@ -54,6 +62,8 @@ HISTFILE=$HOME/.zhistory
 HISTSIZE=1000
 SAVEHIST=1000
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
+
+
 
 
 ### Load colors
@@ -68,6 +78,8 @@ for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
     eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
     (( count = $count + 1 ))
 done
+
+
 
 
 ### Set Colors to use in in the script
@@ -106,6 +118,8 @@ On_White='\e[47m'       # White
 NC="\e[m"               # Color Reset
 
 
+
+
 ### Environment variables (remember to install vim, amp, most, brave, zathura)
 ##############################################################################
 
@@ -125,6 +139,34 @@ export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -
 
 # better do not export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
+export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
+
+
+
+
+### Source plugins
+##################
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+
+
+### Source extra shit
+#####################
+
+# pfetch
+[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
+
+# broot
+[[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
+
+# fzf
+[[ -f $HOME/.fzf.zsh ]] && source $HOME/.fzf.zsh
+[[ -f $HOME/.config/fzf/completion.zsh ]] && source $HOME/.config/fzf/completion.zsh
+[[ -f $HOME/.config/fzf/key-bindings.zsh ]] && source $HOME/.config/fzf/key-bindings.zsh
+
+
 
 
 ### Set prompt
@@ -136,16 +178,18 @@ RPS1="$PR_LIGHT_YELLOW(%D{%a %d %b, %H:%M}) $PR_LIGHT_CYAN$(battery)%%$PR_NO_COL
 unsetopt ALL_EXPORT
 
 
-### set common functions
+
+
+### Set common functions
 ########################
 
-# Get IP adress:
+# Get IP adress
 function my_ip () { curl ifconfig.co ; }
 
-# Find a file with a pattern in name:
+# Find a file with a pattern in name
 function ff () { find . -type f -iname '*'"$*"'*' -ls ; }
 
-# Get current host related info:
+# Get current host related info
 function sysinfo () {
     echo -e "\n${BRed}System Informations:$NC " ; uname -a
     echo -e "\n${BRed}Online User:$NC " ; w -hs | cut -d " " -f1 | sort | uniq
@@ -158,7 +202,7 @@ function sysinfo () {
     echo -e "\n"
 }
 
-# Compressed file extractor:
+# Compressed file extractor
 function extract () {
  if [ -z "$1" ]; then
     # display usage if no parameters given
@@ -191,28 +235,45 @@ function extract () {
 fi
 }
 
-# Creates an archive (*.tar.gz) from given directory:
+# Creates an archive (*.tar.gz) from given directory
 function maketar () { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/" ; }
 
-# Create a ZIP archive of a file or folder:
+# Create a ZIP archive of a file or folder
 function makezip () { zip -r "${1%%/}.zip" "$1" ; }
 
-# ps motherfuckers:
-function pss () { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
+# ps motherfuckers
+function steroidps () { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
 
-# Yank file inside x11 clipboard (xclip needed)
-function yy () { cat $1 | xclip ; }
-
-# Paste file from x11 clipboard (xclip needed)
-function pp () { xclip -o > $1 ; }
-
-# Set input to a single monitor
-function xio () { xinput map-to-output $1 $2 ; }
+# Set input to a single monitor (check output monitor with xrandr)
+function xwacom-output () { xinput map-to-output $(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $1 ; }
 
 # Rotate Wacom input (xsetwacom needed)
-function xrotate () { xsetwacom --set $1 Rotate half ; }
+function xwacom-rotate () {
+    local xwacomid=$(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    if (( $# == 0 )); then
+        xsetwacom --set $xwacomid Rotate half
+        return
+    fi
+    case $1 in
+        "0")
+            xsetwacom --set $xwacomid Rotate none
+            ;;
+        "1")
+            xsetwacom --set $xwacomid Rotate ccw
+            ;;
+        "2")
+            xsetwacom --set $xwacomid Rotate half
+            ;;
+        "3")
+            xsetwacom --set $xwacomid Rotate cw
+            ;;
+        *)
+            echo "enter a position from 0 to 3"
+            ;;
+    esac
+}
 
-# Cycle through keyboard layout:
+# Cycle through keyboard layout
 function laynext () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
         "gb")
@@ -231,22 +292,22 @@ function laynext () {
     xmodmap ~/.Xmodmap
 }
 
-# Change wallpaper randomly:
+# Change wallpaper randomly (search inside ~/Pictures/wallpapers/wallogo)
 function bgrandom () {
     cd $HOME/Pictures/wallpapers/wallogo
     feh --bg-fill $( echo $( /usr/bin/ls -l | awk '{if (NR!=1) print $9}' | sort -R | tail -1 ))
     cd - 1>/dev/null
 }
 
-# Edit office files from within vim:
-function docxedit () {
+# Edit office files from within vim (pandoc needed)
+function ded () {
     doc=$(basename -- "$1")
     new="${doc%.*}".md
     pandoc $doc -o $new
     vim $new
 }
 
-# Jump directorys upwards until it hits a directory with multiple folders:
+# Jump directorys upwards until it hits a directory with multiple folders
 function up () {
     local d=""
     limit=$1
@@ -261,7 +322,7 @@ function up () {
     cd $d
 }
 
-# Make and jump in mate:
+# Make and jump in mate
 function mcd () {
     mkdir -p $1
     cd $1
@@ -288,6 +349,8 @@ function _sxiv () {
         echo "Please install SXIV or FEH!"
     fi
 }
+
+
 
 
 ### Set alias
@@ -324,6 +387,14 @@ alias lt="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias lt="exa -la --git
 alias cp="cp -i"
 alias mv="mv -i"
 alias rm="rm -i"
+alias rmf="rm -rfi"
+
+# xclip copy-pasta
+alias xcopy="xclip -i -selection clipboard"
+alias xpaste="xclip -o -selection clipboard"
+alias xcopy-file="xclip-copyfile"
+alias xpaste-file="xclip-pastefile"
+alias xcut-file="xclip-cutfile"
 
 # pacman and paru aliases
 alias pacsyu='sudo pacman -Syyu'
@@ -333,6 +404,9 @@ alias parsua='paru -Sua --noconfirm'
 # aliases for shfm and sxiv
 alias shfm="_shfm"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
+
+# aliases for cat
+alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"
 
 # logout aliases
 alias reboot="systemctl reboot"
@@ -350,11 +424,9 @@ alias touchreset="systemctl --user restart touchcursor.service"
 
 # background and lockscreen aliases
 alias background="feh --bg-fill "
-alias lockscreen="slock"
+alias lockscreen="echo -e 'Install slock: https://github.com/matteogiorgi/slock'" && [[ -x "$(command -v slock)" ]] && alias lockscreen="slock"
 
-# other useful aliases
-alias jj="shfm"
-alias vv="vim ."
+
 
 
 ### Bind keys
@@ -370,10 +442,28 @@ bindkey '^[[6~' down-line-or-history
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 bindkey "^r" history-incremental-search-backward
-bindkey ' ' magic-space    # also do history expansion on space
-bindkey '^I' complete-word # complete on tab, leave expansion to _expand
+bindkey ' ' magic-space     # also do history expansion on space
+bindkey '^I' complete-word  # complete on tab, leave expansion to _expand
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
+
+# superpowers
+bindkey '\eh' fzf-history-widget      # fuzzy history
+bindkey '\ej' fzf-cd-widget           # fuzzy cd
+bindkey '\ek' fzf-file-widget         # fuzzy file-finder
+bindkey -s '\el' 'ls -l^M'            # fancy ls
+bindkey -s '\ev' 'vim^M'              # vim
+bindkey -s '\et' 'tig^M'              # git
+bindkey -s '\es' 'shfm^M'             # shfm
+bindkey -s '\ef' 'xdohide pcmanfm^M'  # file-manager
+bindkey -s '\eg' 'xdohide geany^M'    # geany
+bindkey -s '\ea' 'calcurse^M'         # agenda
+bindkey -s '\ey' 'btm^M'              # system
+
+# brave shortcut is improvable (the problem is on sessions)
+# bindkey -s '\eb' 'if [ $(/bin/ps -e | grep brave | wc -l) -eq 0 ]; then xdohide brave; else brave; exit; fi^M'
+
+
 
 
 ### Completion Styles
@@ -419,6 +509,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 # zstyle ':completion:*:urls' local 'www' '/var/www/htdocs' 'public_html'
 
 
+
+
 ### NEW completion
 ##################
 
@@ -448,24 +540,3 @@ zstyle ':completion:*:scp:*' group-order files all-files users hosts-domain host
 zstyle ':completion:*:ssh:*' tag-order users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
 zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
 zstyle '*' single-ignored show
-
-
-### Source plugins
-##################
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-### Source extra shit
-#####################
-
-# pfetch
-[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
-
-# broot
-[[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
-
-# fzf
-[[ -f $HOME/.fzf.zsh ]] && source $HOME/.fzf.zsh
-[[ -f $HOME/.config/fzf/completion.zsh ]] && source $HOME/.config/fzf/completion.zsh
-[[ -f $HOME/.config/fzf/key-bindings.zsh ]] && source $HOME/.config/fzf/key-bindings.zsh

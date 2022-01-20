@@ -58,9 +58,9 @@ set adjust-open width
 set recolor false
 
 set font "mononoki Nerd Font 9"
-set show-scrollbars
-set smooth-scroll true
 set first-page-column 2
+# set show-scrollbars
+# set smooth-scroll true
 
 # set default-bg "#1e1f29"  # (282a36,1e1f29,626483,3a3c4e)
 # set default-fg "#F8F8F2"

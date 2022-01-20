@@ -64,7 +64,7 @@ super + {_,shift + }n
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor (bracket{left,right})
-super + {Left,Right}
+super + {i,u}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
@@ -72,7 +72,7 @@ super + {grave,Tab}
 	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
-super + {Up,Down}
+super + shift + {i,u}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
@@ -162,13 +162,21 @@ XF86AudioMute
 ##########################
 
 # run dmenu
-super + space
+alt + d
 	dmenu_run -i -nb '#282a36' -nf '#ff9500' -sb '#ff9500' -sf '#282a36' -fn 'mononoki Nerd Font:regular:pixelsize=12' -h 20
 
 # terminal emulator
-super + Return
-	alacritty
+alt + {_,shift +}Return
+    {alacritty, bspc rule -a \* -o state=floating && alacritty}
 
 # kill xwindows
-super + x
+alt + x
 	xkill
+
+# brave (web)browser
+alt + b
+	brave
+
+# random background
+alt + r
+	bgrandom

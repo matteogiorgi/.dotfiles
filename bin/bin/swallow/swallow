@@ -11,7 +11,7 @@ echo "$1" | grep "\.sent$" && {
 }
 
 # remember to have installed the followings:
-# geany, pcmanfm, vlc, zathura, sxiv
+# geany, pcmanfm, vlc, xarchiver, zathura, sxiv
 case $(file --mime-type "$*" -bL) in
     # in case you want to use an already opened process
     # (if there is), use as one of the following examples:
@@ -19,7 +19,7 @@ case $(file --mime-type "$*" -bL) in
     # pgrep zathura || xdohide zathura "$*"
     # pgrep sxiv || xdohide "sxiv -a" "$*"
     text/* | inode/x-empty | application/json | application/octet-stream)
-        xdohide geany "$*"  # "${EDITOR:=vim}" "$*"
+        xdohide geany "$*"
         ;;
     inode/directory)
         xdohide pcmanfm "$*"
@@ -29,6 +29,9 @@ case $(file --mime-type "$*" -bL) in
         ;;
     application/pdf | application/postscript | application/djvu)
         xdohide zathura "$*"
+        ;;
+    application/gzip | application/x-tar | application/x-rar | application/zip)
+        xdohide xarchiver "$*"
         ;;
     image/gif)
         if [ -f ~/.config/sxiv/supersxiv ]; then

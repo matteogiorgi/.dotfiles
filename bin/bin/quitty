@@ -36,11 +36,16 @@ for arg in "$@"; do
             systemctl -i poweroff
             ;;
         -l|--lockscreen)
-            slock
+            if [ -x "$(command -v slock)" ]; then
+                slock
+            else
+                echo -e "Install slock: https://github.com/matteogiorgi/slock"
+                exit 0
+            fi
             ;;
     esac
 done
 
-(( $# == 0 )) && "$0" -l
+(( $# == 0 )) && "$0" -v
 
 exit 0
