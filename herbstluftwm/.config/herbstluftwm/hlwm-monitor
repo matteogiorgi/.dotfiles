@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+MASTERMON=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+MASTERRAT=$(xrandr --query | grep " connected" | awk 'NR==1 {print $4}')
+
+if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]]; then
+    SLAVEMON=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
+    SLAVERAT=$(xrandr --query | grep " connected" | awk 'NR==2 {print $3}')
+    xrandr --output $MASTERMON --primary --mode ${MASTERRAT%%+*} --rotate normal --output $SLAVEMON --mode ${SLAVERAT%%+*} --rotate normal --left-of $MASTERMON
+    herbstclient set_monitors ${SLAVERAT%%+*}+0+0 ${MASTERRAT%%+*}+${SLAVERAT%%x*}+0
+    echo $SLAVEMON
+else
+    xrandr --output $MASTERMON --primary --mode ${MASTERRAT%%+*} --rotate normal
+    herbstclient set_monitors ${MASTERRAT%%+*}+0+0
+    echo $MASTERMON
+fi

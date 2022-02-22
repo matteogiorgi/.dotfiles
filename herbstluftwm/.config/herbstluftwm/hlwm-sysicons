@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+[[ -x "$(command -v nm-applet)" && $(/usr/bin/ps -e | grep nm-applet | wc -l) -eq 0 ]] && nm-applet &
+[[ -x "$(command -v blueman-applet)" && $(/usr/bin/ps -e | grep blueman-applet | wc -l) -eq 0 ]] && blueman-applet &
+[[ -x "$(command -v kalu)" && $(/usr/bin/ps -e | grep kalu | wc -l) -eq 0 ]] && kalu &
+[[ -x "$(command -v kupfer)" && $(/usr/bin/ps -e | grep kupfer | wc -l) -eq 0 ]] && kupfer --no-splash &

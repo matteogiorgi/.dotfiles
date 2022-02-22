@@ -31,6 +31,8 @@ set fillchars+=vert:\│,eob:\ ,fold:-
 set wildchar=<Tab> wildmenu wildmode=full
 set laststatus=0 showtabline=0
 
+let vimpager_passthrough = 0
+
 nnoremap <silent>j 5<C-e>
 nnoremap <silent>k 5<C-y>
 nnoremap <silent>d <C-d>

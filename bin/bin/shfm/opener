@@ -1,6 +1,44 @@
 #!/bin/sh -e
 
-swallow $1
+# to swallow you need
+# amp, mpv, zathura, sxiv
+
+
+
+
+# Uncomment the following lines if you wanna
+# open files in application based on mime-type
+
+case $(file --mime-type "$*" -bL) in
+    audio/*)
+        FILE=$*
+        echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
+        mpv "$FILE"
+        ;;
+    video/*)
+        xdohide "mpv --force-window '$*'"
+        ;;
+    image/gif)
+        if [ -f ~/.config/sxiv/supersxiv ]; then
+            xdohide "~/.config/sxiv/supersxiv -a" "$*"
+        else 
+            xdohide "sxiv -a" "$*"
+        fi
+        ;;
+    image/*)
+        if [ -f ~/.config/sxiv/supersxiv ]; then
+            xdohide "~/.config/sxiv/supersxiv" "$*"
+        else 
+            xdohide "sxiv" "$*"
+        fi
+        ;;
+    application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
+        xdohide "zathura '$*'"
+        ;;
+    *)
+        "amp" "$1"
+        ;;
+esac
 
 
 
@@ -10,54 +48,24 @@ swallow $1
 
 # case $1 in
 #     *.mp3|*.flac|*.wav)
-#         vlc "$1" 2>/dev/null &
-#     ;;
+#         FILE=$*
+#         echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
+#         mpv "$FILE"
+#         ;;
 #     *.mp4|*.mkv|*.webm)
-#         vlc "$1" 2>/dev/null &
-#     ;;
+#         xdohide "mpv --force-window '$*'"
+#         ;;
 #     *.png|*.gif|*.jpg|*.JPG|*.jpe|*.jpeg)
 #         if [ -f ~/.config/sxiv/supersxiv ]; then
-#             ~/.config/sxiv/supersxiv "$1" 2>/dev/null &
+#             xdohide "~/.config/sxiv/supersxiv -a" "$*"
 #         else 
-#             sxiv "$1" 2>/dev/null &
+#             xdohide "sxiv -a" "$*"
 #         fi
-#     ;;
+#         ;;
 #     *.pdf|*.djvu)
-#         zathura "$1" 2>/dev/null &
-#     ;;
+#         xdohide "zathura '$*'"
+#         ;;
 #     *)
-#         "${EDITOR:=vim}" "$1"
-#     ;;
-# esac
-
-
-
-
-# Uncomment the following lines if you wanna
-# open files in application based on mime-type
-
-# mime_type=$(file -bi)
-# case $mime_type in
-#     audio/*)
-#         vlc "$1" 2>/dev/null &
-#     ;;
-#     video/*)
-#         vlc "$1" 2>/dev/null &
-#     ;;
-#     image/*)
-#         if [ -f ~/.config/sxiv/supersxiv ]; then
-#             ~/.config/sxiv/supersxiv "$1" 2>/dev/null &
-#         else 
-#             sxiv "$1" 2>/dev/null &
-#         fi
-#     ;;
-#     text/html*|application/pdf*)
-#         zathura "$1" 2>/dev/null &
-#     ;;
-#     text/*|)
-#         "${EDITOR:=vim}" "$1"
-#     ;;
-#     *)
-#         printf 'unknown mime-type %s\n' "$mime_type"
-#     ;;
+#         "amp" "$1"
+#         ;;
 # esac

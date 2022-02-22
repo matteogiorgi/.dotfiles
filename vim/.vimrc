@@ -13,8 +13,6 @@
 "     vim-fzf···················https://github.com/junegunn/fzf.vim
 "     vim-pandoc-syntax·········https://github.com/vim-pandoc/vim-pandoc-syntax
 "     vim-notewiki··············https://github.com/matteogiorgi/vim-notewiki
-"     vim-lines·················https://github.com/matteogiorgi/vim-lines
-"     vim-startscreen···········https://github.com/matteogiorgi/vim-startscreen
 
 
 
@@ -49,8 +47,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'matteogiorgi/vim-notewiki'
-    Plug 'matteogiorgi/vim-lines'
-    Plug 'matteogiorgi/vim-startscreen'
 call plug#end()
 "}}}
 
@@ -110,6 +106,8 @@ set cmdheight=1
 set fillchars+=vert:\│,eob:\ ,fold:-
 set wildchar=<Tab> wildmenu wildmode=full
 set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
+set laststatus=2
+set showtabline=1
 "}}}
 
 " Set completion{{{
@@ -218,6 +216,8 @@ nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
 nnoremap <silent><C-j> :resize -5<CR>
 nnoremap <silent><C-k> :resize +5<CR>
+nnoremap <leader>r :%s///gc<Left><Left><Left>
+xnoremap <leader>r :s///gc<Left><Left><Left>
 nnoremap <leader>wH :wincmd<Space>H<CR>
 nnoremap <leader>wL :wincmd<Space>L<CR>
 nnoremap <leader>wJ :wincmd<Space>J<CR>
@@ -243,6 +243,3 @@ nnoremap <leader>t7 :7tabmove<cr>
 nnoremap <leader>t8 :8tabmove<cr>
 nnoremap <leader>t9 :9tabmove<cr>
 "}}}
-
-" nnoremap <leader>r   :%s///gc<Left><Left><Left>
-" xnoremap <leader>r   :s///gc<Left><Left><Left>

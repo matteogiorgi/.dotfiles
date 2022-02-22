@@ -42,7 +42,7 @@ term_reset() {
     stty "$stty"
 
     # needed for cd-on-exit
-    printf '%s\n' "$PWD" >~/tmp.XXXXXX  # >&1
+    printf '%s\n' "$PWD" >~/.shfm.tmp  # >&1
 }
 
 term_resize() {

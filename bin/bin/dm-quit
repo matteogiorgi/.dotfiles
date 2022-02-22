@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+MONITOR=1 && [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && MONITOR=0
+
+kill_apps() {
+    while read -r app; do
+        wmctrl -i -c "$app"
+    done < <(wmctrl -l | awk '{print $1}')
+}
+
+choice=$(echo -e "Lock\nLogout\nReboot\nShutdown" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+
+if [[ "$choice" == "Lock" ]]; then
+    [[ -x "$(command -v slock)" ]] && slock
+    exit 0
+fi
+
+case "$choice" in
+    Logout)
+        kill_apps
+        kill $(pgrep X) &
+        ;;
+    Reboot)
+        kill_apps
+        systemctl reboot
+        ;;
+    Shutdown)
+        kill_apps
+        systemctl -i poweroff
+        ;;
+    *)
+        exit 1
+        ;;
+esac

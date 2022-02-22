@@ -78,8 +78,8 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 ### Source some shit
 #####################
 
-# pfetch
-[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
+# fm6000, pfetch or ufetch
+[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
 
 # broot
 [[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
@@ -103,8 +103,29 @@ PS1="${Yellow}\u@\h${NC}: ${Blue}\w${NC} \\$ "
 ### Set common functions
 ########################
 
+# Creates an archive (*.tar.gz) from given directory (better to use atool anyway)
+function maketar () { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/" ; }
+
+# Create a ZIP archive of a file or folder (better to use atool anyway)
+function makezip () { zip -r "${1%%/}.zip" "$1" ; }
+
+# enable/disable touchpad
+function xtouchpad () {
+    if (( $# == 0 )); then
+        echo "specify if you want to enable (1) or disable (0) your touchpad"
+        return
+    fi
+    xinput set-prop $(xinput | grep Touchpad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') "Device Enabled" $1
+}
+
 # Set input to a single monitor (check output monitor with xrandr)
-function xwacom-output () { xinput map-to-output $(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $1 ; }
+function xwacom-output () {
+    local MONITOR=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+    if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]]; then
+        [[ $1 -eq 2 ]] && MONITOR=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
+    fi
+    xinput map-to-output $(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
+}
 
 # Rotate Wacom input (xsetwacom needed)
 function xwacom-rotate () {
@@ -166,6 +187,40 @@ function ded () {
     vim $new
 }
 
+# tig wrapper
+function _tig () {
+    COLOR_RED='\033[1;36m'
+    COLOR_YLW='\033[1;35m'
+    COLOR_NC='\033[0m'
+    if [ -d ".git" ]; then
+        if [ $(git rev-list --all --count) -eq 0 ]; then
+            tig status
+        else
+            tig
+        fi
+    else
+        printf "${COLOR_YLW}%s${COLOR_RED}%s${COLOR_NC}\n" "You're not in a git repo, wanna make one?" " (Y/n)"
+        while read -s response; do
+            case $response in
+                "y" | "Y" | "yes" | "Yes")
+                    git init
+                    printf "New git repo created.\n"
+                    break
+                    ;;
+
+                "n" | "N" | "no" | "No" | "")
+                    printf "Still no repo.\n"
+                    break
+                    ;;
+
+                *)
+                    printf "${RED}%s${NC}\n" "You need to answare y(yes) or n(no)."
+                    ;;
+            esac
+        done
+    fi
+}
+
 # Change directory exiting from shfm
 function _shfm () {
     ~/bin/shfm/shfm "$@"
@@ -208,8 +263,12 @@ alias reload="source ~/.bashrc"
 
 # use exa instead of ls (if present)
 alias ls="ls -CF --color=auto" && [[ -f /bin/exa ]] && alias ls="exa -GF --git --icons --color=auto"
-alias ll="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias ll="exa -la --git --icons --group-directories-first"
 alias lt="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias lt="exa -la --git --icons --group-directories-first --tree"
+alias ll="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias ll="exa -la --git --icons --group-directories-first"
+alias lss="ls -lhF | less" && [[ -f /bin/exa ]] && alias lss="exa -la --git --icons --group-directories-first | less"
+
+# use lfs instead of df
+alias df="df -ahiT --total" && [[ -f /bin/lfs ]] && alias df="lfs"
 
 # confirm before overwriting something
 alias cp="cp -i"
@@ -229,12 +288,14 @@ alias pacsyu='sudo pacman -Syyu'
 alias parsyu='paru -Syu --noconfirm'
 alias parsua='paru -Sua --noconfirm'
 
-# aliases for shfm and sxiv
+# aliases for shfm, tig and sxiv
 alias shfm="_shfm"
+alias tig="_tig"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
 
 # aliases for cat
 alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"
+alias less="less" && [[ -f /bin/vimpager ]] && alias less="vimpager +"
 
 # logout aliases
 alias reboot="systemctl reboot"

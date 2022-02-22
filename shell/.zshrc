@@ -155,8 +155,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 ### Source extra shit
 #####################
 
-# pfetch
-[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
+# fm6000, pfetch or ufetch
+[[ -f $HOME/bin/fm6000 ]] && $HOME/bin/fm6000 -de Hernstluftwm -n -l 14 -r -c random
 
 # broot
 [[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
@@ -202,50 +202,32 @@ function sysinfo () {
     echo -e "\n"
 }
 
-# Compressed file extractor
-function extract () {
- if [ -z "$1" ]; then
-    # display usage if no parameters given
-    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
- else
-    if [ -f $1 ] ; then
-        # NAME=${1%.*}
-        # mkdir $NAME && cd $NAME
-        case $1 in
-          *.tar.bz2)   tar xvjf ../$1    ;;
-          *.tar.gz)    tar xvzf ../$1    ;;
-          *.tar.xz)    tar xvJf ../$1    ;;
-          *.lzma)      unlzma ../$1      ;;
-          *.bz2)       bunzip2 ../$1     ;;
-          *.rar)       unrar x -ad ../$1 ;;
-          *.gz)        gunzip ../$1      ;;
-          *.tar)       tar xvf ../$1     ;;
-          *.tbz2)      tar xvjf ../$1    ;;
-          *.tgz)       tar xvzf ../$1    ;;
-          *.zip)       unzip ../$1       ;;
-          *.Z)         uncompress ../$1  ;;
-          *.7z)        7z x ../$1        ;;
-          *.xz)        unxz ../$1        ;;
-          *.exe)       cabextract ../$1  ;;
-          *)           echo "extract: '$1' - unknown archive method" ;;
-        esac
-    else
-        echo "$1 - file does not exist"
-    fi
-fi
-}
-
-# Creates an archive (*.tar.gz) from given directory
+# Creates an archive (*.tar.gz) from given directory (better to use atool anyway)
 function maketar () { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/" ; }
 
-# Create a ZIP archive of a file or folder
+# Create a ZIP archive of a file or folder (better to use atool anyway)
 function makezip () { zip -r "${1%%/}.zip" "$1" ; }
 
 # ps motherfuckers
 function steroidps () { ps $@ -u $USER -o pid,%cpu,%mem,bsdtime,command ; }
 
+# enable/disable touchpad
+function xtouchpad () {
+    if (( $# == 0 )); then
+        echo "specify if you want to enable (1) or disable (0) your touchpad"
+        return
+    fi
+    xinput set-prop $(xinput | grep Touchpad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') "Device Enabled" $1
+}
+
 # Set input to a single monitor (check output monitor with xrandr)
-function xwacom-output () { xinput map-to-output $(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $1 ; }
+function xwacom-output () {
+    local MONITOR=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+    if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]]; then
+        [[ $1 -eq 2 ]] && MONITOR=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
+    fi
+    xinput map-to-output $(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
+}
 
 # Rotate Wacom input (xsetwacom needed)
 function xwacom-rotate () {
@@ -328,11 +310,45 @@ function mcd () {
     cd $1
 }
 
+# tig wrapper
+function _tig () {
+    COLOR_RED='\033[1;36m'
+    COLOR_YLW='\033[1;35m'
+    COLOR_NC='\033[0m'
+    if [ -d ".git" ]; then
+        if [ $(git rev-list --all --count) -eq 0 ]; then
+            tig status
+        else
+            tig
+        fi
+    else
+        printf "${COLOR_YLW}%s${COLOR_RED}%s${COLOR_NC}\n" "You're not in a git repo, wanna make one?" " (Y/n)"
+        while read -s response; do
+            case $response in
+                "y" | "Y" | "yes" | "Yes")
+                    git init
+                    printf "New git repo created.\n"
+                    break
+                    ;;
+
+                "n" | "N" | "no" | "No" | "")
+                    printf "Still no repo.\n"
+                    break
+                    ;;
+
+                *)
+                    printf "${RED}%s${NC}\n" "You need to answare y(yes) or n(no)."
+                    ;;
+            esac
+        done
+    fi
+}
+
 # Change directory exiting from shfm
 function _shfm () {
     ~/bin/shfm/shfm "$@"
-    cd "$(cat ~/tmp.XXXXXX)"  # cd "$(command shfm "$@")"
-    rm -f ~/tmp.XXXXXX
+    cd "$(cat ~/.shfm.tmp)"  # cd "$(command shfm "$@")"
+    rm -f ~/.shfm.tmp
 }
 
 # Browse through images in directory after opening a single file
@@ -360,12 +376,10 @@ alias cls="clear"
 alias ..="cd .."
 alias cd..="cd .."
 alias home="cd ~"
-alias df="df -ahiT --total"
 alias mkdir="mkdir -pv"
 alias mkfile="touch"
 alias rm="rm -rfi"
 alias userlist="cut -d: -f1 /etc/passwd"
-alias lsl="ls -lhFA | less"
 alias free="free -mt"
 alias du="du -ach | sort -h"
 alias ps="ps auxf"
@@ -380,8 +394,12 @@ alias reload="source ~/.zshrc"
 
 # use exa instead of ls (if present)
 alias ls="ls -CF --color=auto" && [[ -f /bin/exa ]] && alias ls="exa -GF --git --icons --color=auto"
-alias ll="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias ll="exa -la --git --icons --group-directories-first"
 alias lt="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias lt="exa -la --git --icons --group-directories-first --tree"
+alias ll="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias ll="exa -la --git --icons --group-directories-first"
+alias lss="ls -lhF | less" && [[ -f /bin/exa ]] && alias lss="exa -la --git --icons --group-directories-first | less"
+
+# use lfs instead of df
+alias df="df -ahiT --total" && [[ -f /bin/lfs ]] && alias df="lfs"
 
 # confirm before overwriting something
 alias cp="cp -i"
@@ -401,12 +419,14 @@ alias pacsyu='sudo pacman -Syyu'
 alias parsyu='paru -Syu --noconfirm'
 alias parsua='paru -Sua --noconfirm'
 
-# aliases for shfm and sxiv
+# aliases for shfm, tig and sxiv
 alias shfm="_shfm"
+alias tig="_tig"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
 
 # aliases for cat
 alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"
+alias less="less" && [[ -f /bin/vimpager ]] && alias less="vimpager +"
 
 # logout aliases
 alias reboot="systemctl reboot"
@@ -434,6 +454,13 @@ alias lockscreen="echo -e 'Install slock: https://github.com/matteogiorgi/slock'
 
 autoload -U compinit
 compinit
+
+# unbind default fzf keybindings
+bindkey -r '\ec'
+bindkey -r '^R'
+bindkey -r '^T'
+
+# zsh keybindings
 bindkey "^?" backward-delete-char
 bindkey '^[OH' beginning-of-line
 bindkey '^[OF' end-of-line
@@ -447,18 +474,22 @@ bindkey '^I' complete-word  # complete on tab, leave expansion to _expand
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 
-# superpowers
-bindkey '\eh' fzf-history-widget      # fuzzy history
-bindkey '\ej' fzf-cd-widget           # fuzzy cd
-bindkey '\ek' fzf-file-widget         # fuzzy file-finder
-bindkey -s '\el' 'ls -l^M'            # fancy ls
-bindkey -s '\ev' 'vim^M'              # vim
-bindkey -s '\et' 'tig^M'              # git
-bindkey -s '\es' 'shfm^M'             # shfm
-bindkey -s '\ef' 'xdohide pcmanfm^M'  # file-manager
-bindkey -s '\eg' 'xdohide geany^M'    # geany
-bindkey -s '\ea' 'calcurse^M'         # agenda
-bindkey -s '\ey' 'btm^M'              # system
+# dope keybindings
+bindkey    '\eh' fzf-history-widget     # fuzzy-history
+bindkey    '\ej' fzf-cd-widget          # fuzzy-jump
+bindkey    '\ek' fzf-file-widget        # fuzzy-finder
+bindkey -s '\el' 'ls -l^M'              # list
+bindkey -s '\e ' 'br^M'                 # broot
+bindkey -s '\ef' 'xdohide qtfm^M'       # qtfm
+bindkey -s '\eg' 'xdohide geany -is^M'  # geany
+bindkey -s '\es' 'shfm^M'               # shfm
+bindkey -s '\ea' 'amp^M'                # amp
+bindkey -s '\ev' 'vim^M'                # vim
+bindkey -s '\et' 'tig^M'                # tig
+bindkey -s '\ed' 'df^M'                 # df
+bindkey -s '\eb' 'btm -bT^M'            # bottom
+bindkey -s '\ec' 'calcurse^M'           # calcurse
+bindkey -s '\er' 'reset&&reload^M'      # reload
 
 # brave shortcut is improvable (the problem is on sessions)
 # bindkey -s '\eb' 'if [ $(/bin/ps -e | grep brave | wc -l) -eq 0 ]; then xdohide brave; else brave; exit; fi^M'

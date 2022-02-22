@@ -1,0 +1,182 @@
+#!/usr/bin/env bash
+
+export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+MONITOR=1 && [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && MONITOR=0
+
+hc() { herbstclient "$@" ; }
+hc emit_hook reload
+xsetroot -solid '#44475a'
+
+
+
+
+## KEYBINDS
+###########
+
+hc keyunbind --all  # Remove all existing keybindings
+Mod=Mod4            # Use the super key as the main modifier
+
+hc keybind $Mod-Shift-q quit
+hc keybind $Mod-Shift-r reload
+hc keybind $Mod-Shift-c close
+
+# my programs
+hc keybind $Mod-q       spawn dm-quit
+hc keybind $Mod-space   spawn dmenu_run -i -m $MONITOR
+hc keybind $Mod-Escape  spawn $SCRIPTPATH/hlwm-scratch
+hc keybind $Mod-Return  spawn alacritty
+hc keybind $Mod-Shift-x spawn xkill
+hc keybind $Mod-Shift-b spawn bgrandom
+
+# focusing clients
+hc keybind $Mod-h focus left
+hc keybind $Mod-j focus down
+hc keybind $Mod-k focus up
+hc keybind $Mod-l focus right
+
+# moving clients
+hc keybind $Mod-Shift-h shift left
+hc keybind $Mod-Shift-j shift down
+hc keybind $Mod-Shift-k shift up
+hc keybind $Mod-Shift-l shift right
+
+# splitting frames
+hc keybind $Mod-i      split explode
+hc keybind Alt-Shift-h split left 0.5
+hc keybind Alt-Shift-j split bottom 0.5
+hc keybind Alt-Shift-k split top 0.5
+hc keybind Alt-Shift-l split right 0.5
+
+# resizing frames
+resizestep=0.05
+hc keybind Alt-Control-h resize left +$resizestep
+hc keybind Alt-Control-j resize down +$resizestep
+hc keybind Alt-Control-k resize up +$resizestep
+hc keybind Alt-Control-l resize right +$resizestep
+
+# tags
+tag_names=( {1..9} 0 )
+tag_keys=( {1..9} 0 )
+
+hc rename default "${tag_names[0]}" || true
+
+for i in ${!tag_names[@]} ; do
+    hc add "${tag_names[$i]}"
+    key="${tag_keys[$i]}"
+    if ! [ -z "$key" ] ; then
+        hc keybind "$Mod-$key" use_index "$i"
+        hc keybind "$Mod-Shift-$key" move_index "$i"
+    fi
+done
+
+# layouting
+hc keybind $Mod-u remove
+hc keybind $Mod-s floating toggle
+hc keybind $Mod-a attr clients.focus.floating toggle
+hc keybind $Mod-f fullscreen toggle
+hc keybind $Mod-p pseudotile toggle
+hc keybind $Mod-w                                                    \
+            or , and . compare tags.focus.curframe_wcount = 2        \
+                     . cycle_layout +1 vertical horizontal max grid  \
+               , cycle_layout +1
+
+# mouse
+hc mouseunbind --all
+hc mousebind $Mod-Button1 move
+hc mousebind $Mod-Button2 zoom
+hc mousebind $Mod-Button3 resize
+
+# focus
+hc keybind $Mod-e         jumpto urgent
+hc keybind $Mod-Right     use_index +1 --skip-visible
+hc keybind $Mod-Left      use_index -1 --skip-visible
+hc keybind $Mod-Tab       cycle_frame +1
+hc keybind $Mod-BackSpace use_previous
+hc keybind Alt-Tab        cycle +1
+hc keybind Alt-BackSpace  cycle_monitor
+
+# special keys
+hc keybind XF86MonBrightnessUp   spawn xbacklight -inc 10
+hc keybind XF86MonBrightnessDown spawn xbacklight -dec 10
+hc keybind XF86AudioRaiseVolume  spawn pamixer -i 5 --allow-boost
+hc keybind XF86AudioLowerVolume  spawn pamixer -d 5 --allow-boost
+hc keybind XF86AudioMute         spawn pamixer -t
+
+
+
+
+## THEME
+########
+
+hc attr theme.tiling.reset 1
+hc attr theme.floating.reset 1
+hc set frame_border_active_color '#6272a4'
+hc set frame_border_normal_color '#44475a'
+hc set frame_bg_active_color '#6272a4'
+hc set frame_bg_normal_color '#44475a'
+hc set frame_border_width 1
+hc set always_show_frame 1
+hc set frame_bg_transparent 1
+hc set frame_transparent_width 0
+hc set frame_padding -1
+hc set focus_follows_mouse 0
+
+hc attr theme.active.color '#ff9500'
+hc attr theme.normal.color '#44475a'
+hc attr theme.urgent.color '#ff6e6e'
+hc attr theme.inner_width 0
+hc attr theme.outer_width 0
+hc attr theme.inner_color '#1e1f29'
+hc attr theme.outer_color '#1e1f29'
+hc attr theme.border_width 1
+hc attr theme.floating.border_width 1
+hc attr theme.floating.inner_width 0
+hc attr theme.floating.outer_width 0
+hc attr theme.floating.inner_color '#1e1f29'
+hc attr theme.floating.outer_color '#1e1f29'
+hc attr theme.active.inner_color '#ff9500'
+hc attr theme.active.outer_color '#ff9500'
+hc attr theme.background_color '#1e1f29'
+
+hc set window_gap 0
+hc set smart_window_surroundings 0
+hc set smart_frame_surroundings 0
+hc set mouse_recenter_gap 0
+hc set focus_crosses_monitor_boundaries 1
+hc set swap_monitors_to_get_tag 1
+
+
+
+
+## RULES
+########
+
+hc unrule -F
+hc rule focus=on
+hc rule floatplacement=center  # smart,center,none
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+
+herbstclient set tree_style '╾│ ├└╼─┐'
+hc unlock
+
+
+
+
+## KEYLAYOUT
+############
+
+setxkbmap -layout it  # gb,it,us
+xmodmap ~/.Xmodmap
+
+
+
+
+## MONITORS, POLYBAR, WALLPAPER, PICOM, SYSICONS
+################################################
+
+$SCRIPTPATH/hlwm-polybar $($SCRIPTPATH/hlwm-monitor)
+$SCRIPTPATH/hlwm-picom $MONITOR
+$SCRIPTPATH/hlwm-wallpaper
+$SCRIPTPATH/hlwm-sysicons

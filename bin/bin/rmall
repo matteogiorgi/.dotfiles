@@ -18,14 +18,14 @@ for arg in "$@"; do
 
 	while read -s response; do
 		case $response in
-			"y" | "Y" | "yes" | "Yes" | "")
+			"y" | "Y" | "yes" | "Yes")
                 rm *.$arg
-                printf "\n\n"
+                printf "$list removed.\n"
                 break
                 ;;
 
-			"n" | "N" | "no" | "No")
-                printf "\n\n"
+			"n" | "N" | "no" | "No" | "")
+                printf "No file removed.\n"
                 break
                 ;;
 
@@ -36,5 +36,5 @@ for arg in "$@"; do
 	done
 done
 
-echo -e "${YLW}done...${NC}"
+# echo -e "${YLW}done...${NC}"
 exit 0

@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+set -eu
+
+# Lists the current directory's files in Vim, so you can edit it and save to rename them
+# USAGE: vimv [file1 file2]
+# https://github.com/thameera/vimv
+
+# 1. Go to a directory and enter `vimv` with optionally, a list of files to rename.
+# 2. A Vim window will be opened with names of all files.
+# 3. Use Vim's text editing features to edit the names of files. For example, search and replace a particular string, or use visual selection to delete a block.
+# 4. Save and exit. Your files should be renamed now.
+
+# If you want to list only a group of files, you can pass them as an argument. eg: `vimv *.mp4`
+# If you have an `$EDITOR` environment variable set, vimv will use its value by default.
+# If you are inside a Git directory, vimv will use `git mv` (instead of `mv`) to rename the files.
+# You can use `/some/path/filename` format to move the file elsewhere during renaming. If the path is non-existent, it will be automatically created before moving.
+# Don't delete or swap the lines while in Vim or things will get ugly.
+
+
+declare -r FILENAMES_FILE=$(mktemp "${TMPDIR:-/tmp}/vimv.XXX")
+
+trap '{ rm -f "${FILENAMES_FILE}" ; }' EXIT
+
+if [ $# -ne 0 ]; then
+    src=( "$@" )
+else
+    IFS=$'\r\n' GLOBIGNORE='*' command eval 'src=($(ls))'
+fi
+
+for ((i=0;i<${#src[@]};++i)); do
+    echo "${src[i]}" >> "${FILENAMES_FILE}"
+done
+
+${EDITOR:-vi} "${FILENAMES_FILE}"
+
+IFS=$'\r\n' GLOBIGNORE='*' command eval 'dest=($(cat "${FILENAMES_FILE}"))'
+
+if (( ${#src[@]} != ${#dest[@]} )); then
+    echo "WARN: Number of files changed. Did you delete a line by accident? Aborting.." >&2
+    exit 1
+fi
+
+declare -i count=0
+for ((i=0;i<${#src[@]};++i)); do
+    if [ "${src[i]}" != "${dest[i]}" ]; then
+        mkdir -p "$(dirname "${dest[i]}")"
+        if git ls-files --error-unmatch "${src[i]}" > /dev/null 2>&1; then
+            git mv "${src[i]}" "${dest[i]}"
+        else
+            mv "${src[i]}" "${dest[i]}"
+        fi
+        ((++count))
+    fi
+done
+
+echo "$count" files renamed.
