@@ -11,16 +11,10 @@ echo "$1" | grep "\.sent$" && {
 }
 
 
-# qtfm, geany, mpv, zathura, sxiv, vim:
+# mpv, sxiv, qtfm, zathura, vim:
 # pidof/pgrep sxiv || xdohide "sxiv -a" "$*"
 
 case $(file --mime-type "$*" -bL) in
-    inode/directory)
-        xdohide "qtfm '$*'"
-        ;;
-    text/* | inode/x-empty | application/json | application/octet-stream)
-        xdohide "geany -is '$*'"
-        ;;
     audio/*)
         FILE=$*
         echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
@@ -28,9 +22,6 @@ case $(file --mime-type "$*" -bL) in
         ;;
     video/*)
         xdohide "mpv --force-window '$*'"
-        ;;
-    application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        xdohide "zathura '$*'"
         ;;
     image/gif)
         if [ -f ~/.config/sxiv/supersxiv ]; then
@@ -45,6 +36,12 @@ case $(file --mime-type "$*" -bL) in
         else 
             xdohide "sxiv" "$*"
         fi
+        ;;
+    inode/directory)
+        xdohide "qtfm '$*'"
+        ;;
+    application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
+        xdohide "zathura '$*'"
         ;;
     *)
         "${EDITOR:=vim}" "$*"

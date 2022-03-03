@@ -22,7 +22,7 @@ hc keybind $Mod-Shift-c close
 
 # my programs
 hc keybind $Mod-q       spawn dm-quit
-hc keybind $Mod-space   spawn dmenu_run -i -m $MONITOR
+hc keybind $Mod-d       spawn dmenu_run -i -m $MONITOR
 hc keybind $Mod-Escape  spawn $SCRIPTPATH/hlwm-scratch
 hc keybind $Mod-Return  spawn alacritty
 hc keybind $Mod-Shift-x spawn xkill
@@ -40,20 +40,6 @@ hc keybind $Mod-Shift-j shift down
 hc keybind $Mod-Shift-k shift up
 hc keybind $Mod-Shift-l shift right
 
-# splitting frames
-hc keybind $Mod-i      split explode
-hc keybind Alt-Shift-h split left 0.5
-hc keybind Alt-Shift-j split bottom 0.5
-hc keybind Alt-Shift-k split top 0.5
-hc keybind Alt-Shift-l split right 0.5
-
-# resizing frames
-resizestep=0.05
-hc keybind Alt-Control-h resize left +$resizestep
-hc keybind Alt-Control-j resize down +$resizestep
-hc keybind Alt-Control-k resize up +$resizestep
-hc keybind Alt-Control-l resize right +$resizestep
-
 # tags
 tag_names=( {1..9} 0 )
 tag_keys=( {1..9} 0 )
@@ -70,6 +56,7 @@ for i in ${!tag_names[@]} ; do
 done
 
 # layouting
+hc keybind $Mod-i split explode
 hc keybind $Mod-u remove
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-a attr clients.focus.floating toggle
@@ -138,6 +125,7 @@ hc attr theme.active.inner_color '#ff9500'
 hc attr theme.active.outer_color '#ff9500'
 hc attr theme.background_color '#1e1f29'
 
+hc set frame_gap 10
 hc set window_gap 0
 hc set smart_window_surroundings 0
 hc set smart_frame_surroundings 0
@@ -173,9 +161,10 @@ xmodmap ~/.Xmodmap
 
 
 
-## MONITORS, POLYBAR, WALLPAPER, PICOM, SYSICONS
-################################################
+## SXHKD, MONITORS, POLYBAR, WALLPAPER, PICOM, SYSICONS
+#######################################################
 
+$SCRIPTPATH/hlwm-sxhkd
 $SCRIPTPATH/hlwm-polybar $($SCRIPTPATH/hlwm-monitor)
 $SCRIPTPATH/hlwm-picom $MONITOR
 $SCRIPTPATH/hlwm-wallpaper

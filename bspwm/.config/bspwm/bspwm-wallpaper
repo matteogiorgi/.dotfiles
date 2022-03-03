@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+if [[ -x "$(command -v feh)" ]]; then
+    FILE=/etc/resolv.conf
+    if [ -f ~/.fehbg ]; then
+        ~/.fehbg
+    else
+        feh --bg-fill --no-fehbg $SCRIPTPATH/background.jpg
+    fi
+fi

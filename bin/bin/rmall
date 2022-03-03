@@ -36,5 +36,5 @@ for arg in "$@"; do
 	done
 done
 
-# echo -e "${YLW}done...${NC}"
+echo -e "${YLW}done...${NC}"
 exit 0

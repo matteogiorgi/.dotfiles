@@ -156,7 +156,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #####################
 
 # fm6000, pfetch or ufetch
-[[ -f $HOME/bin/fm6000 ]] && $HOME/bin/fm6000 -de Hernstluftwm -n -l 14 -r -c random
+[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
 
 # broot
 [[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
@@ -337,7 +337,7 @@ function _tig () {
                     ;;
 
                 *)
-                    printf "${RED}%s${NC}\n" "You need to answare y(yes) or n(no)."
+                    printf "${COLOR_RED}%s${COLOR_NC}\n" "You need to answare y(yes) or n(no)."
                     ;;
             esac
         done
@@ -424,9 +424,10 @@ alias shfm="_shfm"
 alias tig="_tig"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
 
-# aliases for cat
+# aliases for cat, less, top
 alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"
 alias less="less" && [[ -f /bin/vimpager ]] && alias less="vimpager +"
+alias top="top" && [[ -x "$(command -v btm)" ]] && alias top="btm -bT"
 
 # logout aliases
 alias reboot="systemctl reboot"
@@ -475,24 +476,15 @@ zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 
 # dope keybindings
-bindkey    '\eh' fzf-history-widget     # fuzzy-history
-bindkey    '\ej' fzf-cd-widget          # fuzzy-jump
-bindkey    '\ek' fzf-file-widget        # fuzzy-finder
-bindkey -s '\el' 'ls -l^M'              # list
-bindkey -s '\e ' 'br^M'                 # broot
-bindkey -s '\ef' 'xdohide qtfm^M'       # qtfm
-bindkey -s '\eg' 'xdohide geany -is^M'  # geany
-bindkey -s '\es' 'shfm^M'               # shfm
-bindkey -s '\ea' 'amp^M'                # amp
-bindkey -s '\ev' 'vim^M'                # vim
-bindkey -s '\et' 'tig^M'                # tig
-bindkey -s '\ed' 'df^M'                 # df
-bindkey -s '\eb' 'btm -bT^M'            # bottom
-bindkey -s '\ec' 'calcurse^M'           # calcurse
-bindkey -s '\er' 'reset&&reload^M'      # reload
-
-# brave shortcut is improvable (the problem is on sessions)
-# bindkey -s '\eb' 'if [ $(/bin/ps -e | grep brave | wc -l) -eq 0 ]; then xdohide brave; else brave; exit; fi^M'
+bindkey    '\eh' fzf-history-widget      # [H] fuzzy-history
+bindkey    '\ej' fzf-cd-widget           # [J] fuzzy-jump
+bindkey    '\ek' fzf-file-widget         # [K] fuzzy-finder
+bindkey -s '\el' 'ls -l^M'               # [L] list
+bindkey -s '\eb' 'br^M'                  # [B] broot
+bindkey -s '\ef' 'xdohide qtfm^M'        # [F] qtfm
+bindkey -s '\es' 'shfm^M'                # [S] shfm
+bindkey -s '\ev' 'vim^M'                 # [V] vim
+bindkey -s '\er' 'reset&&reload^M'       # [R] reload
 
 
 

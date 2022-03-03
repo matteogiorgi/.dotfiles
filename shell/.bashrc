@@ -79,7 +79,7 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 #####################
 
 # fm6000, pfetch or ufetch
-[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
+[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
 
 # broot
 [[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
@@ -214,7 +214,7 @@ function _tig () {
                     ;;
 
                 *)
-                    printf "${RED}%s${NC}\n" "You need to answare y(yes) or n(no)."
+                    printf "${COLOR_RED}%s${COLOR_NC}\n" "You need to answare y(yes) or n(no)."
                     ;;
             esac
         done
@@ -293,9 +293,10 @@ alias shfm="_shfm"
 alias tig="_tig"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
 
-# aliases for cat
+# aliases for cat, less, top
 alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"
 alias less="less" && [[ -f /bin/vimpager ]] && alias less="vimpager +"
+alias top="top" && [[ -f btm ]] && alias top="btm -bT"
 
 # logout aliases
 alias reboot="systemctl reboot"

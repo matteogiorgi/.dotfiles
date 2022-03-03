@@ -128,6 +128,16 @@
 		#  execution: nvim +{line} {file}
 		#  execution: "$EDITOR +{line} {file}"
 		{
+			invocation: quit
+            key: alt-q
+			execution: ":quit"
+		}
+		{
+			invocation: hidden
+            key: alt-.
+			execution: ":toggle_hidden"
+		}
+		{
 			invocation: cd
             key: Enter
 			execution: ":focus"
@@ -142,12 +152,14 @@
 		{
 			invocation: edit
 			shortcut: e
-			execution: "$EDITOR +{line} {file}"
+            key: alt-e
+			execution: "amp +{line} {file}"
 			leave_broot: false
 		}
 		{
 			invocation: swallow
 			shortcut: s
+            key: alt-s
 			execution: "swallow {file}"
 			leave_broot: false
 		}
@@ -183,7 +195,7 @@
         # (movements are changed in 'alt+h,j,k,l')
 		{
 			invocation: home
-			key: alt-space
+			key: alt-b
 			execution: ":focus ~"
 		}
 		{
@@ -256,16 +268,7 @@
 		}
 
 
-        # Edit with others than $EDITOR
-		{
-			invocation: amp
-			shortcut: a
-			execution: "amp {file}"
-			leave_broot: false
-		}
-
-
-        # Set background and lockscreen
+        # Set background
 		{
 			invocation: background
 			execution: "feh --bg-fill {file}"

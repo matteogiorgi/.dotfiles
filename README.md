@@ -1,6 +1,12 @@
-# Dotfiles (I'm using Herbstluftwm nowadays)
+# Dotfiles (I'm using Herbstluftwm & Bspwm nowadays)
 
 These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info.
+
+
+
+## Display manager
+
+run `systemctl enable ly.service` to enable the ly display manager.
 
 
 
@@ -34,8 +40,11 @@ EndSection
 
 ## Tools I use
 
-- herbstluftwm    (window manager)
-- touchcursor     (fancy keycords)
+- ly              (tui display manager)
+- herbstluftwm    (monitor based wm)
+- bspwm           (binary space partition wm)
+- sxhkd           (independent keybindings)
+- touchcursor     (keyboard remap keybindings)
 - polybar         (statusbar)
 - picom           (compositor)
 - dmenu           (suckless menu)
@@ -47,7 +56,7 @@ EndSection
 
 - vim             (THE text editor)
 - amp             (rust text editor)
-- geany           (gui text editor)
+- vscode          (gui text editor)
 
 - bash            (bourne again shell)
 - zsh             (bash on steroids)
@@ -73,8 +82,10 @@ EndSection
 - calcurse        (calendar/agenda)
 - atool           (archive manager)
 
+- brave           (web browser) [+vimium]
 - xournalpp       (note taker)
-- brave           (web browser)
+- flameshot       (screenshot tool)
+- obs-studio      (video recorder)
 
 - lxappearence    (gtk appearance)
 - qt5ct           (qt appearance)
@@ -82,8 +93,6 @@ EndSection
 - arandr          (gui xrandr interface)
 - networkmanager  (network connections)
 - blueman         (bluetooth connections)
-- kalu            (keep arch linux uptodate)
-- kupfer          (gui menu-launcher)
 
 
 ## Utilities I need

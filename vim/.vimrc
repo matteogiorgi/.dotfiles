@@ -186,17 +186,17 @@ xnoremap J :move '>+1<CR>gv=gv
 "}}}
 
 " Menu remaps{{{
-nnoremap <leader>aq  :quitall<CR>
-nnoremap <leader>aw  :wall<CR>
-nnoremap <leader>bw  :write<CR>
-nnoremap <leader>bd  :Bclose<CR>
-nnoremap <leader>bk  :bdelete<CR>
-nnoremap <leader>wd  :wincmd q<cr>
-nnoremap <leader>wt  :wincmd T<cr>
-nnoremap <leader>wo  :only<CR>
-nnoremap <leader>tt  :tabs<CR>
-nnoremap <leader>td  :tabclose<CR>
-nnoremap <leader>to  :tabonly<CR>
+nnoremap <leader>aq :quitall<CR>
+nnoremap <leader>aw :wall<CR>
+nnoremap <leader>bw :write<CR>
+nnoremap <leader>bd :Bclose<CR>
+nnoremap <leader>bk :bdelete<CR>
+nnoremap <leader>wd :wincmd q<cr>
+nnoremap <leader>wt :wincmd T<cr>
+nnoremap <leader>wo :only<CR>
+nnoremap <leader>tt :tabs<CR>
+nnoremap <leader>td :tabclose<CR>
+nnoremap <leader>to :tabonly<CR>
 "}}}
 
 " Outofmenu remaps{{{
@@ -216,8 +216,8 @@ nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
 nnoremap <silent><C-j> :resize -5<CR>
 nnoremap <silent><C-k> :resize +5<CR>
-nnoremap <leader>r :%s///gc<Left><Left><Left>
-xnoremap <leader>r :s///gc<Left><Left><Left>
+nnoremap <silent><C-s> :%s///gc<Left><Left><Left>
+xnoremap <silent><C-s> :s///gc<Left><Left><Left>
 nnoremap <leader>wH :wincmd<Space>H<CR>
 nnoremap <leader>wL :wincmd<Space>L<CR>
 nnoremap <leader>wJ :wincmd<Space>J<CR>

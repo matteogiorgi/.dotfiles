@@ -1,44 +1,9 @@
 #!/bin/sh -e
 
-# to swallow you need
-# amp, mpv, zathura, sxiv
-
-
-
-
 # Uncomment the following lines if you wanna
-# open files in application based on mime-type
+# open files in application based on mime-types
 
-case $(file --mime-type "$*" -bL) in
-    audio/*)
-        FILE=$*
-        echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
-        mpv "$FILE"
-        ;;
-    video/*)
-        xdohide "mpv --force-window '$*'"
-        ;;
-    image/gif)
-        if [ -f ~/.config/sxiv/supersxiv ]; then
-            xdohide "~/.config/sxiv/supersxiv -a" "$*"
-        else 
-            xdohide "sxiv -a" "$*"
-        fi
-        ;;
-    image/*)
-        if [ -f ~/.config/sxiv/supersxiv ]; then
-            xdohide "~/.config/sxiv/supersxiv" "$*"
-        else 
-            xdohide "sxiv" "$*"
-        fi
-        ;;
-    application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        xdohide "zathura '$*'"
-        ;;
-    *)
-        "amp" "$1"
-        ;;
-esac
+swallow $*
 
 
 
@@ -66,6 +31,6 @@ esac
 #         xdohide "zathura '$*'"
 #         ;;
 #     *)
-#         "amp" "$1"
+#         "${EDITOR:=vim}" "$*"
 #         ;;
 # esac

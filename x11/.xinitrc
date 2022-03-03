@@ -5,6 +5,8 @@
 # because all the startup programs are taken care in ~/.config/bspwm/bspwmrc.
 
 
+
+
 ## LOAD SHIT
 ############
 
@@ -12,7 +14,9 @@ xrdb -load ~/.Xresources &
 xsettingsd &
 
 
+
+
 ## START DE/WM
 ##############
 
-exec herbstluftwm 2>~/.herbstluftwm.err
+exec herbstluftwm 2>~/.herbstluftwm.err  # herbstluftwm,bspwm

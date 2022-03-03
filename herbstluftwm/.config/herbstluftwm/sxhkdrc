@@ -1,0 +1,10 @@
+## INDEPENDENT KEYCORDS
+#######################
+
+# splitting frames
+super + space; {h,j,k,l}
+    herbstclient split {left, bottom, top, right} 0.5
+
+# resizing frames
+alt + space: {h,j,k,l}
+    herbstclient resize {left, down, up, right} +0.05
