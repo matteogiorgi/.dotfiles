@@ -1,0 +1,49 @@
+//// Personal default settings (use them as starter)
+////////////////////////////////////////////////////
+
+// {
+//     "keyboard.dispatch": "keyCode",
+//     "window.menuBarVisibility": "toggle",
+//     "editor.fontFamily": "'mononoki Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+//     "editor.fontSize": 12,
+//     "editor.guides.indentation": false,
+//     "editor.minimap.enabled": false,
+//     "editor.folding": false,
+//     "editor.cursorBlinking": "solid",
+//     "editor.renderLineHighlight": "none",
+//     "editor.scrollbar.horizontal": "hidden",
+//     "editor.scrollbar.horizontalScrollbarSize": 0,
+//     "editor.scrollbar.vertical": "hidden",
+//     "editor.scrollbar.verticalScrollbarSize": 0,
+//     "workbench.startupEditor": "none",
+//     "workbench.colorTheme": "Default Light+",
+//     "workbench.activityBar.visible": false,
+//     "breadcrumbs.enabled": false,
+//     "workbench.tree.renderIndentGuides": "none",
+//     "workbench.tree.indent": 20,
+// }
+
+
+
+
+{
+    "keyboard.dispatch": "keyCode",
+    "window.menuBarVisibility": "toggle",
+    "editor.fontFamily": "'mononoki Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 12,
+    "editor.guides.indentation": false,
+    "editor.minimap.enabled": false,
+    "editor.folding": false,
+    "editor.cursorBlinking": "solid",
+    "editor.renderLineHighlight": "none",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Default Light+",
+    "workbench.activityBar.visible": false,
+    "breadcrumbs.enabled": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.indent": 20,
+}

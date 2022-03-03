@@ -50,31 +50,47 @@ EndSection
 - dmenu           (suckless menu)
 - slock           (suckless lock)
 
+<!-- -->
+
 - st              (suckless terminal)
 - alacritty       (rust terminal)
 - (u)xterm        (x11 terminal)
+
+<!-- -->
 
 - vim             (THE text editor)
 - amp             (rust text editor)
 - vscode          (gui text editor)
 
+<!-- -->
+
 - bash            (bourne again shell)
 - zsh             (bash on steroids)
+
+<!-- -->
 
 - fzf             (go fuzzy finder)
 - broot           (rust fuzzy finder)
 
+<!-- -->
+
 - shfm            (simple file manager)
 - qtfm            (gui file manager)
+
+<!-- -->
 
 - vimpager        (glorified more)
 - bat             (glorified cat)
 - exa             (rust ls)
 - lfs             (rust df)
 
+<!-- -->
+
 - mpv             (media player)
 - zathura         (document viewer)
 - sxiv            (image viewer)
+
+<!-- -->
 
 - tmux            (terminal multiplexer)
 - tig             (git client)
@@ -82,10 +98,14 @@ EndSection
 - calcurse        (calendar/agenda)
 - atool           (archive manager)
 
+<!-- -->
+
 - brave           (web browser) [+vimium]
 - xournalpp       (note taker)
 - flameshot       (screenshot tool)
 - obs-studio      (video recorder)
+
+<!-- -->
 
 - lxappearence    (gtk appearance)
 - qt5ct           (qt appearance)

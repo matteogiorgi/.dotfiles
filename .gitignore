@@ -22,8 +22,8 @@
 /vim/.vim/sessions/*
 
 # VSCODE
-/vscode/.config/Code*
+/vscode/.config/Code/*
 !/vscode/.config/Code/User
-/vscode/.config/Code/User*
+/vscode/.config/Code/User/*
 !/vscode/.config/Code/User/settings.json
 !/vscode/.config/Code/User/keybindings.json
