@@ -58,6 +58,11 @@ EndSection
 
 <!-- -->
 
+- kitty           (terminal emulator & multiplexer)
+- tmux            (terminal multiplexer)
+
+<!-- -->
+
 - vim             (THE text editor)
 - amp             (rust text editor)
 - vscode          (gui text editor)
@@ -92,7 +97,6 @@ EndSection
 
 <!-- -->
 
-- tmux            (terminal multiplexer)
 - tig             (git client)
 - bottom          (rust htop)
 - calcurse        (calendar/agenda)

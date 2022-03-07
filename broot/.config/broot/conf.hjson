@@ -129,7 +129,7 @@
 		#  execution: "$EDITOR +{line} {file}"
 		{
 			invocation: quit
-            key: alt-q
+            key: ctrl-q
 			execution: ":quit"
 		}
 		{
@@ -145,7 +145,7 @@
 		}
 		{
 			invocation: cd-on-exit
-            key: alt-Enter
+            key: alt-q
 			execution: ":cd"
 			leave_broot: true
 		}
