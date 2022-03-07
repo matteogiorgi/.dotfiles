@@ -105,6 +105,7 @@ EndSection
 <!-- -->
 
 - brave           (web browser) [+vimium]
+- ferdi           (web-app container)
 - xournalpp       (note taker)
 - flameshot       (screenshot tool)
 - obs-studio      (video recorder)

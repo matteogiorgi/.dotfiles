@@ -129,11 +129,13 @@
 		#  execution: "$EDITOR +{line} {file}"
 		{
 			invocation: quit
+			shortcut: Q
             key: ctrl-q
 			execution: ":quit"
 		}
 		{
 			invocation: hidden
+			shortcut: h
             key: alt-.
 			execution: ":toggle_hidden"
 		}
@@ -145,6 +147,7 @@
 		}
 		{
 			invocation: cd-on-exit
+			shortcut: q
             key: alt-q
 			execution: ":cd"
 			leave_broot: true
@@ -271,6 +274,7 @@
         # Set background
 		{
 			invocation: background
+			key: ctrl-b
 			execution: "feh --bg-fill {file}"
 			leave_broot: false
 		}
