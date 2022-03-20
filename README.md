@@ -6,7 +6,17 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 
 ## Display manager
 
-run `systemctl enable ly.service` to enable the ly display manager.
+Run `systemctl enable ly.service` to enable the ly display manager.
+To be able to use berrywm with it run `touch /usr/share/xsessions/berry.desktop` with the following content:
+
+```
+[Desktop Entry]
+Encoding=UTF-8
+Name=berry
+Comment=berry - a small window manager
+Exec=berry
+Type=XSession
+```
 
 
 
@@ -47,6 +57,7 @@ EndSection
 - touchcursor     (keyboard remap keybindings)
 - polybar         (statusbar)
 - picom           (compositor)
+- kupfer          (menu launcher)
 - dmenu           (suckless menu)
 - slock           (suckless lock)
 
@@ -65,7 +76,8 @@ EndSection
 
 - vim             (THE text editor)
 - amp             (rust text editor)
-- vscode          (gui text editor)
+- geany           (gui text editor) [geany-plugins]
+- vscode          (electron text editor)
 
 <!-- -->
 
@@ -79,8 +91,9 @@ EndSection
 
 <!-- -->
 
-- shfm            (simple file manager)
-- qtfm            (gui file manager)
+- rover           (simple file manager)
+- shfm            (sh file manager)
+- qtfm            (qt file manager)
 
 <!-- -->
 
@@ -104,11 +117,16 @@ EndSection
 
 <!-- -->
 
-- brave           (web browser) [+vimium]
+- brave           (chromium web-browser) [vimium, media-player, draw-on-page]
+- firefox         (mozilla web-browser) [ublock-origin]
 - ferdi           (web-app container)
+
+<!-- -->
+
 - xournalpp       (note taker)
 - flameshot       (screenshot tool)
 - obs-studio      (video recorder)
+- gimp            (image manipulation)
 
 <!-- -->
 
@@ -118,6 +136,7 @@ EndSection
 - arandr          (gui xrandr interface)
 - networkmanager  (network connections)
 - blueman         (bluetooth connections)
+- kalu            (keep arch linux updated)
 
 
 ## Utilities I need
@@ -135,6 +154,6 @@ EndSection
 - git             (version control)
 - delta           (git pager)
 - ripgrep         (better grep in rust)
-- pandoc          (markup converter)
+- pandoc+panflute (markup converter)
 - texlive         (document formatter)
 - cups            (printing system)

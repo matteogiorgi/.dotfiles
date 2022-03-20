@@ -24,7 +24,7 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-x spawn xkill
 hc keybind $Mod-Shift-b spawn bgrandom
 hc keybind $Mod-Return  spawn kitty
-hc keybind $Mod-Escape  spawn dmenu_run -i -m $MONITOR
+hc keybind $Mod-Escape  spawn dm-run
 hc keybind Alt-Return   spawn $SCRIPTPATH/hlwm-scratch
 hc keybind Alt-Escape   spawn dm-quit
 
@@ -85,9 +85,12 @@ hc keybind Alt-BackSpace  cycle_monitor
 # special keys
 hc keybind XF86MonBrightnessUp   spawn xbacklight -inc 10
 hc keybind XF86MonBrightnessDown spawn xbacklight -dec 10
-hc keybind XF86AudioRaiseVolume  spawn pamixer -i 5 --allow-boost
-hc keybind XF86AudioLowerVolume  spawn pamixer -d 5 --allow-boost
-hc keybind XF86AudioMute         spawn pamixer -t
+hc keybind XF86AudioPrev         spawn playerctl previous
+hc keybind XF86AudioNext         spawn playerctl next
+hc keybind XF86AudioPlay         spawn playerctl play-pause
+hc keybind XF86AudioRaiseVolume  spawn chvol up
+hc keybind XF86AudioLowerVolume  spawn chvol down
+hc keybind XF86AudioMute         spawn chvol mute
 
 
 

@@ -156,13 +156,13 @@
 			invocation: edit
 			shortcut: e
             key: alt-e
-			execution: "amp +{line} {file}"
+			execution: "$EDITOR +{line} {file}"
 			leave_broot: false
 		}
 		{
-			invocation: swallow
-			shortcut: s
-            key: alt-s
+			invocation: open
+			shortcut: o
+            key: alt-o
 			execution: "swallow {file}"
 			leave_broot: false
 		}
@@ -198,7 +198,7 @@
         # (movements are changed in 'alt+h,j,k,l')
 		{
 			invocation: home
-			key: alt-b
+			key: alt-~
 			execution: ":focus ~"
 		}
 		{
@@ -231,11 +231,13 @@
 			execution: ":page_down"
 		}
 		{
-			shortcut: gg
+			shortcut: g
+			key: alt-k
 			execution: ":select_first"
 		}
 		{
 			shortcut: G
+			key: alt-j
 			execution: ":select_last"
 		}
 
@@ -276,6 +278,13 @@
 			invocation: background
 			key: ctrl-b
 			execution: "feh --bg-fill {file}"
+			leave_broot: false
+		}
+        # Open git-client
+		{
+			invocation: git-client
+			key: alt-t
+			execution: "tig -C {directory}"
 			leave_broot: false
 		}
 	]

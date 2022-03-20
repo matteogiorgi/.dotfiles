@@ -1,0 +1,109 @@
+## WM INDEPENDENT KEYBINDINGS
+#############################
+
+# reload sxhkd
+ctrl + shift + r
+    pkill -USR1 -x sxhkd
+
+
+
+
+## BERRY HOTKEYS
+################
+
+super + shift + q
+    berryc quit
+
+super + {h,j,k,l}
+    berryc window_move {-50 0, 0 50, 0 -50, 50 0}
+
+super + shift + {h,j,k,l}
+    berryc window_resize {-50 0, 0 50, 0 -50, 50 0}
+
+super + {u,i}
+    berryc {snap_left,snap_right}
+
+super + {o,d}
+    berryc {window_center,toggle_decorations}
+
+super + {a,s}
+    berryc {fullscreen,window_monocle}
+
+super + {1-9,0}
+    berryc switch_workspace {1-9,0}
+
+super + shift + {1-9,0}
+    berryc send_to_workspace {1-9,0}
+
+super + Tab
+    berryc cycle_focus
+
+super + shift + c
+    berryc window_close
+
+~button1
+    berryc pointer_focus
+
+
+
+
+## SPECIAL KEYS
+###############
+
+# brightness up
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+# brightness down
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
+# media prev/next
+XF86Audio{Prev,Next}
+    playerctl {previous,next}
+
+# media play/pause
+XF86AudioPlay
+    playerctl play-pause
+
+# volume up
+XF86AudioRaiseVolume
+    chvol up
+
+# volume down
+XF86AudioLowerVolume
+    chvol down
+
+# volume mute
+XF86AudioMute
+    chvol mute
+
+
+
+
+## APPLICATION KEYBINDINGS
+##########################
+
+# kill xwindows
+super + shift + x
+    xkill
+
+# random background
+super + shift + b
+    bgrandom
+
+# run kitty
+super + {_,shift +}Return
+    {kitty, bspc rule -a \* -o state=floating && kitty}
+
+# run dmenu
+super + Escape
+    dm-run
+
+# run tdrop
+alt + Return
+    tdrop -w 80% -h 80% -x 10% -y 10% -am -s tdrop alacritty
+
+# run quit
+alt + Escape
+    dm-quit

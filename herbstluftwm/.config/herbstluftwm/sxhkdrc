@@ -1,6 +1,10 @@
 ## INDEPENDENT KEYCORDS
 #######################
 
+# reload sxhkd
+ctrl + shift + r
+    pkill -USR1 -x sxhkd
+
 # splitting frames
 super + space; {h,j,k,l}
     herbstclient split {left, bottom, top, right} 0.5

@@ -1,3 +1,32 @@
+#!/usr/bin/env bash
+
+# This script sets the default settings
+# and keybindings for vscode, just run ./code-defconf
+# from the current directory.
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+printf "${YLW}%s${RED}%s${NC}\n" "Wanna reset vscode settings and keybindings? (Y/n)"
+
+while read -s response; do
+    case $response in
+        "y" | "Y" | "yes" | "Yes")
+            break
+            ;;
+
+        "n" | "N" | "no" | "No" | "")
+            printf "All right then, you still got your confs.\n"
+            exit
+            ;;
+
+        *)
+            printf "${YLW}%s${NC}\n" "You need to answare y(yes) or n(no)"
+            ;;
+    esac
+done
+
+cat > settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
     "window.menuBarVisibility": "toggle",
@@ -20,3 +49,11 @@
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
 }
+EOF
+
+cat > keybindings.json <<-EOF
+{
+}
+EOF
+
+printf "Done.\n"

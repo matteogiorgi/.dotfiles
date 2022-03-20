@@ -141,6 +141,9 @@ export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
+# set file opener
+export OPEN='swallow'
+
 
 
 
@@ -156,7 +159,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #####################
 
 # fm6000, pfetch or ufetch
-[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
+[[ -f $HOME/bin/fm6000 ]] && $HOME/bin/fm6000 --color=random --random --de=GTOS
 
 # broot
 [[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
@@ -351,6 +354,13 @@ function _shfm () {
     rm -f ~/.shfm.tmp
 }
 
+# Change directory exiting from rover
+function _rover () {
+    rover "$@" -d ~/.rover$$.tmp
+    cd "$(cat ~/.rover$$.tmp)"
+    rm -f ~/.rover$$.tmp
+}
+
 # Browse through images in directory after opening a single file
 function _sxiv () {
     if command -v sxiv >/dev/null 2>&1; then
@@ -394,8 +404,9 @@ alias reload="source ~/.zshrc"
 
 # use exa instead of ls (if present)
 alias ls="ls -CF --color=auto" && [[ -f /bin/exa ]] && alias ls="exa -GF --git --icons --color=auto"
+alias ll="ls -CFl --color=auto" && [[ -f /bin/exa ]] && alias ll="exa -GFl --git --icons --color=auto"
+alias la="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias la="exa -la --git --icons --group-directories-first"
 alias lt="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias lt="exa -la --git --icons --group-directories-first --tree"
-alias ll="ls -lisa --color=auto" && [[ -f /bin/exa ]] && alias ll="exa -la --git --icons --group-directories-first"
 alias lss="ls -lhF | less" && [[ -f /bin/exa ]] && alias lss="exa -la --git --icons --group-directories-first | less"
 
 # use lfs instead of df
@@ -415,12 +426,13 @@ alias xpaste-file="xclip-pastefile"
 alias xcut-file="xclip-cutfile"
 
 # pacman and paru aliases
-alias pacsyu='sudo pacman -Syyu'
-alias parsyu='paru -Syu --noconfirm'
-alias parsua='paru -Sua --noconfirm'
+alias pacsyu='sudo pacman -Syyu'      # pacman update
+alias parsyu='paru -Syu --noconfirm'  # paru update
+alias parsua='paru -Sua --noconfirm'  # paru aur update
 
-# aliases for shfm, tig and sxiv
+# aliases for shfm, rover, tig and sxiv
 alias shfm="_shfm"
+alias rover="_rover"
 alias tig="_tig"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
 
@@ -479,12 +491,11 @@ zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 bindkey    '\eh' fzf-history-widget      # [H] fuzzy-history
 bindkey    '\ej' fzf-cd-widget           # [J] fuzzy-jump
 bindkey    '\ek' fzf-file-widget         # [K] fuzzy-finder
-bindkey -s '\el' 'ls -l^M'               # [L] list
-bindkey -s '\eb' 'br^M'                  # [B] broot
-bindkey -s '\ef' 'xdohide qtfm^M'        # [F] qtfm
+bindkey -s '\el' 'rover^M'               # [L] list
 bindkey -s '\es' 'shfm^M'                # [S] shfm
+bindkey -s '\eb' 'br^M'                  # [B] broot
 bindkey -s '\ev' 'vim^M'                 # [V] vim
-bindkey -s '\er' 'reset&&reload^M'       # [R] reload
+bindkey -s '\ea' 'amp^M'                 # [A] amp
 
 
 

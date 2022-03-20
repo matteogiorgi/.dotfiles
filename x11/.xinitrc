@@ -12,11 +12,16 @@
 
 xrdb -load ~/.Xresources &
 xsettingsd &
+systemctl --user import-environment DISPLAY
 
 
 
 
-## START DE/WM
-##############
+## START WM
+###########
 
-exec herbstluftwm 2>~/.herbstluftwm.err  # herbstluftwm,bspwm
+if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]]; then
+    exec herbstluftwm 2>~/.wm.err
+else
+    exec berry 2>~/.wm.err
+fi
