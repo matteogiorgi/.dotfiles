@@ -1,0 +1,55 @@
+#!/bin/sh
+# Author: Andreas Louv <andreas@louv.dk>
+# Date: 1 Mar 2021
+
+USAGE='{ <hash> | --continue | --abort }'
+SUBDIRECTORY_OK=1
+. "$(git --exec-path)/git-sh-setup"
+
+require_work_tree
+
+program_name=${0##*/}
+
+main()
+{
+	rebase_command=$(get_rebase_command_from_program_name)
+
+	if [ -z "$rebase_command" ]
+	then
+		die "fatal: failed to map program name to a rebase command"
+	fi
+
+	set_reflog_action "$rebase_command"
+
+	if [ "$1" = "--continue" ] || [ "$1" = "--abort" ]
+	then
+		if ! is_command_in_progress "$rebase_command"
+		then
+			die "fatal: No $command in progress?"
+		fi
+		exec git rebase "$1"
+	fi
+
+	hash=$(git rev-parse "${1:-HEAD}")
+	GIT_SEQUENCE_EDITOR='ed -s' git-rebase -i "$hash~1" << EOF
+1s/pick/$rebase_command/
+wq
+EOF
+}
+
+is_command_in_progress()
+{
+	command=$1
+
+	git status | awk -v command="$command" '
+		NR == 1 && !/interactive rebase in progress/ { exit 1 }
+		NR == 3 && $1 != command { exit 1 }
+	'
+}
+
+get_rebase_command_from_program_name()
+{
+	echo "${program_name#git-rebase}"
+}
+
+main "$@"

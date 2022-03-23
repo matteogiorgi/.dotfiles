@@ -458,6 +458,7 @@ alias touchreset="systemctl --user restart touchcursor.service"
 # background and lockscreen aliases
 alias background="feh --bg-fill "
 alias lockscreen="echo -e 'Install slock: https://github.com/matteogiorgi/slock'" && [[ -x "$(command -v slock)" ]] && alias lockscreen="slock"
+alias xpipes="pipes -n 5 -i 0.025"
 
 
 
@@ -487,15 +488,18 @@ bindkey '^I' complete-word  # complete on tab, leave expansion to _expand
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 
-# dope keybindings
+# hjkl keybindings
 bindkey    '\eh' fzf-history-widget      # [H] fuzzy-history
 bindkey    '\ej' fzf-cd-widget           # [J] fuzzy-jump
 bindkey    '\ek' fzf-file-widget         # [K] fuzzy-finder
-bindkey -s '\el' 'rover^M'               # [L] list
-bindkey -s '\es' 'shfm^M'                # [S] shfm
+bindkey -s '\el' 'shfm^M'                # [L] list
+
+# other dope keybindings
+bindkey -s '\er' 'rover^M'               # [R] rover
 bindkey -s '\eb' 'br^M'                  # [B] broot
 bindkey -s '\ev' 'vim^M'                 # [V] vim
 bindkey -s '\ea' 'amp^M'                 # [A] amp
+bindkey -s '\et' 'tig^M'                 # [T] tig
 
 
 

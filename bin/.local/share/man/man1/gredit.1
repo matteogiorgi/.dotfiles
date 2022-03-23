@@ -1,0 +1,42 @@
+.TH "GIT\-REBASE\-EDIT" "1" "03/01/2021" "" "Extension to git"
+.SH "NAME"
+git rebase\-edit \- edit a specific git commit
+.br
+git rebase\-drop \- drop a specific git commit
+.SH "SYNOPSIS"
+.B git rebase\-edit
+{
+.I hash
+|
+.B --continue
+|
+.B --abort
+}
+.br
+.B git rebase\-drop
+{
+.I hash
+|
+.B --continue
+|
+.B --abort
+}
+.SH "DESCRIPTION"
+.PP
+Edit or drop a specific commit message
+
+Specify which commit to change and an interactive rebase will start with that specific commit.
+.SH "OPTIONS"
+.TP
+\fB--continue\fR
+continue the rebase
+.TP
+\fB--abort\fR
+abort the reabase
+show help
+.SH "AUTHOR"
+Written by Andreas Louv <andraes@louv.dk>
+.SH "REPORTING BUGS"
+Use the GitHub bug tracker <https://github.com/andlrc/git-edit/issues/>
+.SH "SEE ALSO"
+.BR git (1)

@@ -2,7 +2,7 @@
     monitor = 1
     follow = none
     width = 250
-    offset = 20x40
+    offset = 40x40
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 0
@@ -14,12 +14,12 @@
     padding = 16
     horizontal_padding = 16
     text_icon_padding = 0
-    frame_width = 1
-    frame_color = "#44475a"
+    frame_width = 2
+    frame_color = "#1e1f29"
     separator_color = frame
     sort = yes
     idle_threshold = 120
-    font = mononoki Nerd Font Regular 10
+    font = mononoki Nerd Font Regular 8.5
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -52,16 +52,16 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#282a36"
+    background = "#44475a"
     foreground = "#f8f8f2"
     timeout = 5
 
 [urgency_normal]
-    background = "#282a36"
+    background = "#44475a"
     foreground = "#f8f8f2"
     timeout = 5
 
 [urgency_critical]
-    background = "#282a36"
+    background = "#44475a"
     foreground = "#f8f8f2"
     timeout = 5

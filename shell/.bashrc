@@ -327,3 +327,4 @@ alias touchreset="systemctl --user restart touchcursor.service"
 # background and lockscreen aliases
 alias background="feh --bg-fill "
 alias lockscreen="echo -e 'Install slock: https://github.com/matteogiorgi/slock'" && [[ -x "$(command -v slock)" ]] && alias lockscreen="slock"
+alias xpipes="pipes -n 5 -i 0.025"

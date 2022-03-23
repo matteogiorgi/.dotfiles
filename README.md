@@ -1,4 +1,4 @@
-# Dotfiles (I'm using Herbstluftwm & Bspwm nowadays)
+# Dotfiles (I'm using Herbstluftwm & Berry nowadays)
 
 These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info.
 
@@ -51,8 +51,8 @@ EndSection
 ## Tools I use
 
 - ly              (tui display manager)
-- herbstluftwm    (monitor based wm)
-- bspwm           (binary space partition wm)
+- herbstluftwm    (tiling window-manager)
+- berrywm         (floating window-manager)
 - sxhkd           (independent keybindings)
 - touchcursor     (keyboard remap keybindings)
 - polybar         (statusbar)
@@ -117,6 +117,11 @@ EndSection
 
 <!-- -->
 
+- pandoc          (markup converter) [panflute]
+- slides          (tui presentation) [perl-graph-easy]
+
+<!-- -->
+
 - brave           (chromium web-browser) [vimium, media-player, draw-on-page]
 - firefox         (mozilla web-browser) [ublock-origin]
 - ferdi           (web-app container)
@@ -154,6 +159,5 @@ EndSection
 - git             (version control)
 - delta           (git pager)
 - ripgrep         (better grep in rust)
-- pandoc+panflute (markup converter)
 - texlive         (document formatter)
 - cups            (printing system)

@@ -20,9 +20,11 @@ berryc inner_unfocus_color 44475a
 berryc text_focus_color    f8f8f2
 berryc text_unfocus_color  f8f8f2
 
-berryc smart_place "true"
-berryc draw_text   "false"
-berryc set_font    "mononoki Nerd Font-9"
+berryc decorate_new "true"
+berryc edge_lock    "true"
+berryc smart_place  "true"
+berryc draw_text    "false"
+berryc set_font     "mononoki Nerd Font-9"
 
 
 
