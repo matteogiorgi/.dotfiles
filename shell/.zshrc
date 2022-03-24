@@ -120,14 +120,14 @@ NC="\e[m"               # Color Reset
 
 
 
-### Environment variables (remember to install vim, amp, most, brave, zathura)
-##############################################################################
+### Environment variables (remember to install vim, amp, brave, zathura)
+########################################################################
 
-# better do not export $TERM: problems with broot image preview
+# better not to export $TERM: problems with broot image preview
 # export TERM="xterm-256color"  # xterm-kitty,xterm-256color,screen-256color
 
-export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"
-export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"
+export PAGER="less" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"
+export MANPAGER="less" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"
 export VISUAL="amp" && [[ -f /bin/vim ]] && export VISUAL="vim"
 export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"
 export BROWSER="brave"
@@ -430,11 +430,12 @@ alias pacsyu='sudo pacman -Syyu'      # pacman update
 alias parsyu='paru -Syu --noconfirm'  # paru update
 alias parsua='paru -Sua --noconfirm'  # paru aur update
 
-# aliases for shfm, rover, tig and sxiv
+# aliases for shfm, rover, tig, sxiv and vim
 alias shfm="_shfm"
 alias rover="_rover"
 alias tig="_tig"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
+alias vi="vim --noplugin -n -i NONE"
 
 # aliases for cat, less, top
 alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"

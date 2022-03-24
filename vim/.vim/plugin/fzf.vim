@@ -28,6 +28,14 @@ function! s:FzfBufName()
 endfunction
 
 
+" e FZF as file manager
+" on open and as simple finder
+augroup shutuponopen
+    autocmd!
+    autocmd VimEnter * silent! autocmd! FileExplorer *
+    autocmd BufEnter * call utility#LaunchOnopen('FZFExplore')
+augroup END
+
 " In case you use window mode,
 " you'll need a new statusline ;)
 augroup fzflines

@@ -51,19 +51,19 @@ ALERT="${BWhite}${On_Red}" # Bold White on red background
 
 
 
-### Environment variables (remember to install vim, amp, most, brave, zathura)
-##############################################################################
+### Environment variables (remember to install vim, amp, brave, zathura)
+########################################################################
 
-export PAGER="most" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"
-export MANPAGER="most" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"
+# better not to export $TERM: problems with broot image preview
+# export TERM="xterm-256color"  # xterm-kitty,xterm-256color,screen-256color
+
+export PAGER="less" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"
+export MANPAGER="less" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"
 export VISUAL="amp" && [[ -f /bin/vim ]] && export VISUAL="vim"
 export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"
 export BROWSER="brave"
 export READER="zathura"
 export GOPATH="$HOME/go"
-
-# better not export $TERM: problems with broot image preview
-export TERM="xterm-256color"  # xterm-256color,screen-256color
 
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
@@ -304,6 +304,7 @@ alias shfm="_shfm"
 alias rover="_rover"
 alias tig="_tig"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
+alias vi="vim --noplugin -n -i NONE"
 
 # aliases for cat, less, top
 alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"
