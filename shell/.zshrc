@@ -493,7 +493,7 @@ zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 bindkey    '\eh' fzf-history-widget  # [H] fuzzy-history
 bindkey    '\ej' fzf-cd-widget       # [J] fuzzy-jump
 bindkey    '\ek' fzf-file-widget     # [K] fuzzy-finder
-bindkey -s '\el' 'shfm^M'            # [L] fancy-list
+bindkey -s '\el' 'shfm^M'            # [L] fancy-ls
 
 
 

@@ -107,6 +107,7 @@ EndSection
 
 <!-- -->
 
+- texlive         (document formatter)
 - pandoc          (markup converter) [panflute]
 - slides          (tui presentation) [perl-graph-easy]
 
@@ -131,6 +132,7 @@ EndSection
 - arandr          (gui xrandr interface)
 - networkmanager  (network connections)
 - blueman         (bluetooth connections)
+- cups            (printing system)
 - kalu            (keep arch linux updated)
 - kupfer          (menu launcher)
 
@@ -138,8 +140,7 @@ EndSection
 ## Utilities I need
 
 - pamixer         (pulseaudio command-line mixer)
-- xorg-xrandr     (interface to RandR extension)
-- autorandr       (automatically select display)
+- xorg-xrandr     (interface to RandR extension) [autorandr]
 - xorg-xrdb       (menage Xresources)
 - xorg-xmodmap    (menage Xmodmap)
 - xsettingsd      (x11 application settings)
@@ -150,5 +151,3 @@ EndSection
 - git             (version control)
 - delta           (git pager)
 - ripgrep         (better grep in rust)
-- texlive         (document formatter)
-- cups            (printing system)

@@ -1,17 +1,18 @@
 
-"                                       PLUGINS
-"                      [ https://github.com/junegunn/vim-plug ]
+"                                  PLUGINS
+"                 [ https://github.com/junegunn/vim-plug ]
 "
-"     autopairs · · · · · · · · · · · · · · · · · https://github.com/jiangmiao/auto-pairs
-"     vim-surround  · · · · · · · · · · · · · · · https://github.com/tpope/vim-surround
-"     vim-repeat  · · · · · · · · · · · · · · · · https://github.com/tpope/vim-repeat
-"     vim-commentary  · · · · · · · · · · · · · · https://github.com/tpope/vim-commentary
-"     vim-fugitive  · · · · · · · · · · · · · · · https://github.com/tpope/vim-fugitive
-"     vim-smalls  · · · · · · · · · · · · · · · · https://github.com/t9md/vim-smalls
-"     undotree  · · · · · · · · · · · · · · · · · https://github.com/mbbill/undotree
-"     vim-which-key · · · · · · · · · · · · · · · https://github.com/liuchengxu/vim-which-key
-"     vim-fzf · · · · · · · · · · · · · · · · · · https://github.com/junegunn/fzf.vim
-"     vim-notewiki [+ vim-pandoc-syntax]  · · · · https://github.com/matteogiorgi/vim-notewiki
+"     autopairs ··············· https://github.com/jiangmiao/auto-pairs
+"     vim-surround ············ https://github.com/tpope/vim-surround
+"     vim-repeat ·············· https://github.com/tpope/vim-repeat
+"     vim-commentary ·········· https://github.com/tpope/vim-commentary
+"     vim-fugitive ············ https://github.com/tpope/vim-fugitive
+"     vim-smalls ·············· https://github.com/t9md/vim-smalls
+"     undotree ················ https://github.com/mbbill/undotree
+"     vim-which-key ··········· https://github.com/liuchengxu/vim-which-key
+"     vim-fzf ················· https://github.com/junegunn/fzf.vim
+"     vim-notewiki ············ https://github.com/matteogiorgi/vim-notewiki
+"     vim-pandoc-syntax ······· https://github.com/vim-pandoc/vim-pandoc-syntax
 
 
 
@@ -44,7 +45,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'mbbill/undotree'
     Plug 'liuchengxu/vim-which-key'
     Plug 'junegunn/fzf.vim'
-    Plug 'matteogiorgi/vim-notewiki' | Plug 'vim-pandoc/vim-pandoc-syntax'
+    Plug 'matteogiorgi/vim-notewiki'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
 call plug#end()
 "}}}
 
