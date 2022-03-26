@@ -20,8 +20,4 @@ systemctl --user import-environment DISPLAY
 ## START WM
 ###########
 
-if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]]; then
-    exec herbstluftwm 2>~/.wm.err
-else
-    exec berry 2>~/.wm.err
-fi
+exec herbstluftwm 2>~/.herbstluftwm.err

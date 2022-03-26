@@ -489,18 +489,11 @@ bindkey '^I' complete-word  # complete on tab, leave expansion to _expand
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 
-# hjkl keybindings
-bindkey    '\eh' fzf-history-widget      # [H] fuzzy-history
-bindkey    '\ej' fzf-cd-widget           # [J] fuzzy-jump
-bindkey    '\ek' fzf-file-widget         # [K] fuzzy-finder
-bindkey -s '\el' 'shfm^M'                # [L] list
-
-# other dope keybindings
-bindkey -s '\er' 'rover^M'               # [R] rover
-bindkey -s '\eb' 'br^M'                  # [B] broot
-bindkey -s '\ev' 'vim^M'                 # [V] vim
-bindkey -s '\ea' 'amp^M'                 # [A] amp
-bindkey -s '\et' 'tig^M'                 # [T] tig
+# dope keybindings
+bindkey    '\eh' fzf-history-widget  # [H] fuzzy-history
+bindkey    '\ej' fzf-cd-widget       # [J] fuzzy-jump
+bindkey    '\ek' fzf-file-widget     # [K] fuzzy-finder
+bindkey -s '\el' 'shfm^M'            # [L] fancy-list
 
 
 

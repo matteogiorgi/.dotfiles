@@ -116,6 +116,8 @@ let g:which_key_map.w.H = 'which_key_ignore'
 let g:which_key_map.w.J = 'which_key_ignore'
 let g:which_key_map.w.K = 'which_key_ignore'
 let g:which_key_map.w.L = 'which_key_ignore'
+let g:which_key_map.u   = 'which_key_ignore'
+let g:which_key_map.i   = 'which_key_ignore'
 "}}}
 
 

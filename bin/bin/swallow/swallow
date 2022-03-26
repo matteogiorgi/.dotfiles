@@ -1,18 +1,18 @@
 #!/usr/bin/env sh
 
 echo "$*" | grep "\.ar\." && {
-    xdohide xterm -e "${EDITOR:=vim}" "$*" &
+    xhide xterm -e "${EDITOR:=vim}" "$*" &
     exit
 }
 
 echo "$1" | grep "\.sent$" && {
-    xdohide sent "$1" &
+    xhide sent "$1" &
     exit
 }
 
 
-# mpv, sxiv, qtfm, zathura, amp:
-# pidof/pgrep sxiv || xdohide "sxiv -a" "$*"
+# mpv, sxiv, qtfm, zathura, vim:
+# pidof/pgrep sxiv || xhide "sxiv -a" "$*"
 
 case $(file --mime-type "$*" -bL) in
     audio/*)
@@ -21,29 +21,29 @@ case $(file --mime-type "$*" -bL) in
         mpv "$FILE"
         ;;
     video/*)
-        xdohide "mpv --force-window '$*'"
+        xhide "mpv --force-window '$*'"
         ;;
     image/gif)
         if [ -f ~/.config/sxiv/supersxiv ]; then
-            xdohide "~/.config/sxiv/supersxiv -a" "$*"
+            xhide "~/.config/sxiv/supersxiv -a" "$*"
         else 
-            xdohide "sxiv -a" "$*"
+            xhide "sxiv -a" "$*"
         fi
         ;;
     image/*)
         if [ -f ~/.config/sxiv/supersxiv ]; then
-            xdohide "~/.config/sxiv/supersxiv" "$*"
+            xhide "~/.config/sxiv/supersxiv" "$*"
         else 
-            xdohide "sxiv" "$*"
+            xhide "sxiv" "$*"
         fi
         ;;
     inode/directory)
-        xdohide "qtfm '$*'"
+        xhide "qtfm '$*'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        xdohide "zathura '$*'"
+        xhide "zathura '$*'"
         ;;
     *)
-        "amp" "$*"
+        "${EDITOR:=vim}" "$*"
         ;;
 esac

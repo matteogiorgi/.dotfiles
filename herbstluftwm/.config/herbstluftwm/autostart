@@ -23,10 +23,11 @@ hc keybind $Mod-Shift-r reload
 # my programs
 hc keybind $Mod-Shift-x spawn xkill
 hc keybind $Mod-Shift-b spawn bgrandom
-hc keybind $Mod-Return  spawn kitty
 hc keybind $Mod-Escape  spawn dm-run
-hc keybind Alt-Return   spawn $SCRIPTPATH/hlwm-scratch
+hc keybind $Mod-Return  spawn kitty
 hc keybind Alt-Escape   spawn dm-quit
+hc keybind Alt-Return   spawn $SCRIPTPATH/hlwm-scratch
+hc keybind Alt-s        spawn tdrop -w 60% -h 40% -x 20% -y 5% -am -s tdrop alacritty
 
 # focusing clients
 hc keybind $Mod-h focus left

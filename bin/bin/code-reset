@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# This script sets the default settings
-# and keybindings for vscode, just run ./code-defconf
-# from the current directory.
+# This script sets the default settings and keybindings for vscode.
+# Just run ./code-reset from the current directory.
 
 RED='\033[1;36m'
 YLW='\033[1;35m'
@@ -26,7 +25,7 @@ while read -s response; do
     esac
 done
 
-cat > settings.json <<-EOF
+cat > $HOME/.config/Code/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
     "window.menuBarVisibility": "toggle",
@@ -51,7 +50,7 @@ cat > settings.json <<-EOF
 }
 EOF
 
-cat > keybindings.json <<-EOF
+cat > $HOME/.config/Code/User/keybindings.json <<-EOF
 {
 }
 EOF

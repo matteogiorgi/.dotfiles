@@ -20,11 +20,3 @@
 /vim/.vim/plugged/*
 /vim/.vim/undodir/*
 /vim/.vim/sessions/*
-
-# VSCODE
-/vscode/.config/Code/*
-!/vscode/.config/Code/User
-/vscode/.config/Code/User/*
-!/vscode/.config/Code/User/code-reset
-!/vscode/.config/Code/User/settings.json
-!/vscode/.config/Code/User/keybindings.json

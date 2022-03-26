@@ -1,4 +1,4 @@
-# Dotfiles (I'm using Herbstluftwm & Berry nowadays)
+# Dotfiles (I'm using Herbstluftwm & LXQT nowadays)
 
 These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info.
 
@@ -7,16 +7,6 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 ## Display manager
 
 Run `systemctl enable ly.service` to enable the ly display manager.
-To be able to use berrywm with it run `touch /usr/share/xsessions/berry.desktop` with the following content:
-
-```
-[Desktop Entry]
-Encoding=UTF-8
-Name=berry
-Comment=berry - a small window manager
-Exec=berry
-Type=XSession
-```
 
 
 
@@ -51,13 +41,13 @@ EndSection
 ## Tools I use
 
 - ly              (tui display manager)
+- LXQT            (minimal desktop environment)
 - herbstluftwm    (tiling window-manager)
-- berrywm         (floating window-manager)
 - sxhkd           (independent keybindings)
 - touchcursor     (keyboard remap keybindings)
 - polybar         (statusbar)
 - picom           (compositor)
-- kupfer          (menu launcher)
+- dunst           (notification daemon)
 - dmenu           (suckless menu)
 - slock           (suckless lock)
 
@@ -76,7 +66,7 @@ EndSection
 
 - vim             (THE text editor)
 - amp             (rust text editor)
-- geany           (gui text editor) [geany-plugins]
+- xed             (gui text editor)
 - vscode          (electron text editor)
 
 <!-- -->
@@ -142,6 +132,7 @@ EndSection
 - networkmanager  (network connections)
 - blueman         (bluetooth connections)
 - kalu            (keep arch linux updated)
+- kupfer          (menu launcher)
 
 
 ## Utilities I need
