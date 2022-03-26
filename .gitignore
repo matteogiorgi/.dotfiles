@@ -20,3 +20,12 @@
 /vim/.vim/plugged/*
 /vim/.vim/undodir/*
 /vim/.vim/sessions/*
+
+# SHELL
+/shell/.config/*
+/shell/.config/fish/*
+/shell/.config/nushell/*
+!/shell/.config/fish
+!/shell/.config/nushell
+!/shell/.config/fish/config.fish
+!/shell/.config/nushell/config.nu

@@ -73,6 +73,8 @@ EndSection
 
 - bash            (bourne again shell)
 - zsh             (bash on steroids)
+- fish            (friendly interactive shell)
+- nushell         (fancy rust shell)
 
 <!-- -->
 
