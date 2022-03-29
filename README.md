@@ -123,7 +123,7 @@ EndSection
 
 - xournalpp       (note taker)
 - flameshot       (screenshot tool)
-- obs-studio      (video recorder)
+- simplescreen    (video recorder)
 - gimp            (image manipulation)
 
 <!-- -->

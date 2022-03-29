@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# This script sets the default settings and keybindings for vscode.
-# Just run ./code-reset from the current directory.
+# This script sets the default settings
+# and default keybindings for vscode.
 
 RED='\033[1;36m'
 YLW='\033[1;35m'

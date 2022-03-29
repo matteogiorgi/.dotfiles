@@ -29,8 +29,8 @@ nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
 nnoremap <silent><C-j> :resize -5<CR>
 nnoremap <silent><C-k> :resize +5<CR>
-nnoremap <silent><C-s> :%s///gc<Left><Left><Left>
-xnoremap <silent><C-s> :s///gc<Left><Left><Left>
+nnoremap <leader>r :%s///gc<Left><Left><Left>
+xnoremap <leader>r :s///gc<Left><Left><Left>
 nnoremap <leader>wH :wincmd<Space>H<CR>
 nnoremap <leader>wL :wincmd<Space>L<CR>
 nnoremap <leader>wJ :wincmd<Space>J<CR>

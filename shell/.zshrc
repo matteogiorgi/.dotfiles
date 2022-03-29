@@ -494,6 +494,8 @@ bindkey    '\eh' fzf-history-widget  # [H] fuzzy-history
 bindkey    '\ej' fzf-cd-widget       # [J] fuzzy-jump
 bindkey    '\ek' fzf-file-widget     # [K] fuzzy-finder
 bindkey -s '\el' 'shfm^M'            # [L] fancy-ls
+bindkey -s '\eb' 'br^M'              # [B] broot
+bindkey -s '\er' 'rover^M'           # [R] rover
 
 
 
@@ -572,3 +574,46 @@ zstyle ':completion:*:scp:*' group-order files all-files users hosts-domain host
 zstyle ':completion:*:ssh:*' tag-order users 'hosts:-host hosts:-domain:domain hosts:-ipaddr"IP\ Address *'
 zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
 zstyle '*' single-ignored show
+
+
+
+
+### Alias reveal
+################
+
+local cmd_alias=""
+
+alias_for() {
+    [[ $1 =~ '[[:punct:]]' ]] && return
+    local search=${1}
+    local found="$( alias $search )"
+    if [[ -n $found ]]; then
+        found=${found//\\//}          # Replace backslash with slash
+        found=${found%\'}             # Remove end single quote
+        found=${found#"$search='"}    # Remove alias name
+        echo "${found} ${2}" | xargs  # Return found value (with parameters)
+    else
+        echo ""
+    fi
+}
+
+expand_command_line() {
+    first=$(echo "$1" | awk '{print $1;}')
+    rest=$(echo ${${1}/"${first}"/})
+
+    if [[ -n "${first//-//}" ]]; then                    # is not hypen
+        cmd_alias="$(alias_for "${first}" "${rest:1}")"  # Check if there's an alias for the command
+        if [[ -n $cmd_alias ]]; then                     # If there was
+            echo "${Green}❯ ${Yellow}${cmd_alias}${NC}"  # Print it
+        fi
+    fi
+}
+
+pre_validation() {
+    [[ $# -eq 0 ]] && return  # If there's no input, return. Else...
+    expand_command_line "$@"
+}
+
+
+autoload -U add-zsh-hook             # Load the zsh hook module. 
+add-zsh-hook preexec pre_validation  # Adds the hook (-d to revove it)
