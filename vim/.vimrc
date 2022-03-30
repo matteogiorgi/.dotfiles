@@ -6,13 +6,9 @@
 "     vim-surround ············ https://github.com/tpope/vim-surround
 "     vim-repeat ·············· https://github.com/tpope/vim-repeat
 "     vim-commentary ·········· https://github.com/tpope/vim-commentary
-"     vim-fugitive ············ https://github.com/tpope/vim-fugitive
 "     vim-smalls ·············· https://github.com/t9md/vim-smalls
-"     undotree ················ https://github.com/mbbill/undotree
-"     vim-which-key ··········· https://github.com/liuchengxu/vim-which-key
-"     vim-fzf ················· https://github.com/junegunn/fzf.vim
+"     vim-ctrlp ··············· https://github.com/ctrlpvim/ctrlp.vim
 "     vim-notewiki ············ https://github.com/matteogiorgi/vim-notewiki
-"     vim-pandoc-syntax ······· https://github.com/vim-pandoc/vim-pandoc-syntax
 
 
 
@@ -40,13 +36,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
     Plug 't9md/vim-smalls'
-    Plug 'mbbill/undotree'
-    Plug 'liuchengxu/vim-which-key'
-    Plug 'junegunn/fzf.vim'
+    Plug 'ctrlpvim/ctrlp.vim'
     Plug 'matteogiorgi/vim-notewiki'
-    Plug 'vim-pandoc/vim-pandoc-syntax'
 call plug#end()
 "}}}
 
@@ -135,12 +127,6 @@ endif
 "}}}
 
 
-" Uncomment for preventing Netrw to load{{{
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-"}}}
-
-
 " Linenumber behaviour{{{
 augroup numbertoggle
     autocmd!
@@ -180,7 +166,38 @@ command! Copy execute 'visual "+y'
 command! Pasta execute 'normal "+p'
 "}}}
 
-" Text movements (comment if using vim-move){{{
+" Keymaps{{{
 xnoremap K :move '<-2<CR>gv=gv
 xnoremap J :move '>+1<CR>gv=gv
+vnoremap <silent><Tab> >gv
+vnoremap <silent><S-Tab> <gv
+nnoremap <silent><Left> :tabprevious<CR>
+nnoremap <silent><Right> :tabnext<CR>
+nnoremap <silent><S-Left> :tabmove -1<cr>
+nnoremap <silent><S-Right> :tabmove +1<cr>
+nnoremap <silent>Y y$
+tnoremap <silent><C-q> <C-\><C-n>
+nnoremap <silent><Tab> :wincmd w<cr>
+nnoremap <silent><Backspace> :b#<cr>
+nnoremap <silent><Up> {
+nnoremap <silent><Down> }
+nnoremap <silent><C-h> :vertical resize -5<CR>
+nnoremap <silent><C-l> :vertical resize +5<CR>
+nnoremap <silent><C-j> :resize -5<CR>
+nnoremap <silent><C-k> :resize +5<CR>
+nnoremap <leader>e :E<CR>
+nnoremap <leader>0 0gt
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
 "}}}
+
+
+" nnoremap <leader>r :%s///gc<Left><Left><Left>
+" xnoremap <leader>r :s///gc<Left><Left><Left>

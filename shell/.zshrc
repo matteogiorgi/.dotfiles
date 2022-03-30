@@ -259,7 +259,7 @@ function xwacom-rotate () {
 }
 
 # Cycle through keyboard layout
-function laynext () {
+function keynext () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
         "gb")
             setxkbmap -layout it
@@ -494,8 +494,8 @@ bindkey    '\eh' fzf-history-widget  # [H] fuzzy-history
 bindkey    '\ej' fzf-cd-widget       # [J] fuzzy-jump
 bindkey    '\ek' fzf-file-widget     # [K] fuzzy-finder
 bindkey -s '\el' 'shfm^M'            # [L] fancy-ls
-bindkey -s '\eb' 'br^M'              # [B] broot
 bindkey -s '\er' 'rover^M'           # [R] rover
+bindkey -s '\eb' 'br^M'              # [B] broot
 
 
 

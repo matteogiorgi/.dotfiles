@@ -1,37 +1,3 @@
 #!/bin/sh -e
 
-
-# Uncomment the following lines if you wanna
-# open files in application based on file extension
-
-case $1 in
-    *.mp3|*.flac|*.wav)
-        FILE=$*
-        echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
-        mpv "$FILE"
-        ;;
-    *.mp4|*.mkv|*.webm)
-        xhide "mpv --force-window '$*'"
-        ;;
-    *.png|*.gif|*.jpg|*.JPG|*.jpe|*.jpeg)
-        if [ -f ~/.config/sxiv/supersxiv ]; then
-            xhide "~/.config/sxiv/supersxiv -a" "$*"
-        else 
-            xhide "sxiv -a" "$*"
-        fi
-        ;;
-    *.pdf|*.djvu|*.epub)
-        xhide "zathura '$*'"
-        ;;
-    *)
-        "${EDITOR:=vim}" "$*"
-        ;;
-esac
-
-
-
-
-# Uncomment the following line if you wanna
-# open files in application based on mime-types
-
-# swallow $*
+swallow $*

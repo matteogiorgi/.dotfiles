@@ -19,6 +19,7 @@
 /vim/.vim/.netrwhist
 /vim/.vim/plugged/*
 /vim/.vim/undodir/*
+/vim/.vim/cache/*
 /vim/.vim/sessions/*
 
 # SHELL

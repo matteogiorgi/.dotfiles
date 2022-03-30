@@ -2,7 +2,7 @@
     monitor = 1
     follow = none
     width = 250
-    offset = 40x40
+    offset = 40x50
     progress_bar = true
     progress_bar_height = 10
     progress_bar_frame_width = 0

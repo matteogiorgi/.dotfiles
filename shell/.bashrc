@@ -157,7 +157,7 @@ function xwacom-rotate () {
 }
 
 # Cycle through keyboard layout
-function laynext () {
+function keynext () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
         "gb")
             setxkbmap -layout it
