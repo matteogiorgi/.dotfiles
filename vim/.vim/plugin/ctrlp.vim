@@ -4,9 +4,9 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 
-nnoremap <leader>f :CtrlPCurWD<CR>
-nnoremap <leader>g :CtrlPLine<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>i :CtrlPMRU<CR>
+nnoremap <leader>h :CtrlPMRU<CR>
+nnoremap <leader>j :CtrlPBuffer<CR>
+nnoremap <leader>k :CtrlPCurWD<CR>
+nnoremap <leader>l :CtrlPLine<CR>
 nnoremap <leader>u :CtrlPUndo<CR>
-nnoremap <leader>c :CtrlPChange<CR>
+nnoremap <leader>i :CtrlPChange<CR>

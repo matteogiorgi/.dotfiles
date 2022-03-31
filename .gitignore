@@ -9,9 +9,7 @@
 
 # THEMES
 /themes/.icons/default/*
-/themes/.config/geany/*
 /themes/.config/qt5ct/*
-!/themes/.config/geany/colorschemes
 !/themes/.config/qt5ct/colors
 
 # VIM
@@ -25,8 +23,11 @@
 # SHELL
 /shell/.config/*
 /shell/.config/fish/*
-/shell/.config/nushell/*
 !/shell/.config/fish
-!/shell/.config/nushell
 !/shell/.config/fish/config.fish
-!/shell/.config/nushell/config.nu
+
+# AUTOSTART
+/autostart/.config/autostart/*
+!/autostart/.config/autostart/kalu.desktop
+!/autostart/.config/autostart/kupfer.desktop
+!/autostart/.config/autostart/ferdi.desktop

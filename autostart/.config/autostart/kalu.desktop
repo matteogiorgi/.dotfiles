@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=Kalu
+GenericName=Arch Upgrade Notifier
+Comment=Keep arch linux up-to-date
+Exec=kalu
+Icon=kalu

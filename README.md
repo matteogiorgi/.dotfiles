@@ -6,7 +6,7 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 
 ## Display manager
 
-Run `systemctl enable ly.service` to enable the ly display manager.
+First disable your current display-manager with something like `systemctl disable lightdm.service`, then run `systemctl enable ly.service` to enable the ly display manager.
 
 
 

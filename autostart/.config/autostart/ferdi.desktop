@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=Ferdi
+GenericName=Application Container
+Comment=Keep all web-app together
+Exec=/usr/bin/ferdi %U
+Icon=ferdi

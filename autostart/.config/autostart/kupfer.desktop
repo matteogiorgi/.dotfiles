@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=Kupfer
+GenericName=Application Launcher
+Comment=Command and access tool
+Exec=kupfer --no-splash %F
+Icon=kupfer

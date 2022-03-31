@@ -44,6 +44,6 @@ case $(file --mime-type "$*" -bL) in
         xhide "zathura '$*'"
         ;;
     *)
-        "${EDITOR:=vim}" "$*"  # "amp" "$*"
+        "${EDITOR:=vim}" "$*"
         ;;
 esac

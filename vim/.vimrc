@@ -2,12 +2,12 @@
 "                                  PLUGINS
 "                 [ https://github.com/junegunn/vim-plug ]
 "
-"     autopairs ··············· https://github.com/jiangmiao/auto-pairs
 "     vim-surround ············ https://github.com/tpope/vim-surround
 "     vim-repeat ·············· https://github.com/tpope/vim-repeat
 "     vim-commentary ·········· https://github.com/tpope/vim-commentary
-"     vim-smalls ·············· https://github.com/t9md/vim-smalls
+"     autopairs ··············· https://github.com/jiangmiao/auto-pairs
 "     vim-ctrlp ··············· https://github.com/ctrlpvim/ctrlp.vim
+"     vim-smalls ·············· https://github.com/t9md/vim-smalls
 "     vim-notewiki ············ https://github.com/matteogiorgi/vim-notewiki
 
 
@@ -32,12 +32,12 @@ augroup end
 
 " Plugin list{{{
 call plug#begin('~/.vim/plugged')
-    Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
-    Plug 't9md/vim-smalls'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'ctrlpvim/ctrlp.vim'
+    Plug 't9md/vim-smalls'
     Plug 'matteogiorgi/vim-notewiki'
 call plug#end()
 "}}}
@@ -89,8 +89,8 @@ set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM
 set matchpairs+=<:>
 set autochdir
 set hidden
-set updatetime=300  "default = 4000ms
-set timeoutlen=300  "default = 1000ms
+set updatetime=4000  " 300,4000
+set timeoutlen=4000  " 300,4000
 set termencoding=utf-8 encoding=utf-8 t_Co=256 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=

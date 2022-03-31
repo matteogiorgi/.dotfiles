@@ -4,7 +4,3 @@ id=$(xdo id)
 xdo hide
 sh -c "$*" >/dev/null 2>&1
 xdo show "$id"
-
-
-# still not sure how to wait a running process:
-# tail --pid=$(pidof $(echo $* | awk '{print $1}')) -f /dev/null
