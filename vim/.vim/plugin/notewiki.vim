@@ -1,4 +1,4 @@
-let g:notebrowser = 'brave'
+let g:notebrowser = 'xhide qtfm'
 let g:pandoc#syntax#conceal#use = 1
 let g:pandoc#syntax#conceal#blacklist = []
 let g:pandoc#syntax#conceal#urls = 1

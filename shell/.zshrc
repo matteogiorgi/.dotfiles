@@ -159,7 +159,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #####################
 
 # fm6000, pfetch or ufetch
-[[ -f $HOME/bin/fm6000 ]] && $HOME/bin/fm6000 --color=random --random --de=GTOS
+[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
 
 # broot
 [[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br

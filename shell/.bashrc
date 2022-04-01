@@ -82,7 +82,7 @@ export OPEN='swallow'
 #####################
 
 # fm6000, pfetch or ufetch
-[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
+[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
 
 # broot
 [[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br

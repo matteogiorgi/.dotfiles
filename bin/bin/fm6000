@@ -3,6 +3,10 @@
 # Dilbert themed system info fetch tool
 # https://github.com/anhsirk0/fetch-master-6000
 
+# I usually use it like this (inside my zshrc/bashrc file):
+# [[ -f $HOME/bin/fm6000 ]] && $HOME/bin/fm6000 --color=random --random --de=GTOS
+
+
 use strict;
 use Term::ANSIColor;
 use Getopt::Long;
