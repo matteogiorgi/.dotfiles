@@ -454,7 +454,6 @@ alias unstow="stow -D"
 # xresources and keyboard aliases
 alias xload="xrdb ~/.Xresources"
 alias keyswap="xmodmap ~/.Xmodmap"
-alias touchreset="systemctl --user restart touchcursor.service"
 
 # background and lockscreen aliases
 alias background="feh --bg-fill "
@@ -496,6 +495,8 @@ bindkey    '\ek' fzf-file-widget     # [K] fuzzy-finder
 bindkey -s '\el' 'shfm^M'            # [L] fancy-ls
 bindkey -s '\er' 'rover^M'           # [R] rover
 bindkey -s '\eb' 'br^M'              # [B] broot
+bindkey -s '\ev' 'vim .^M'           # [V] vim
+bindkey -s '\ee' 'keyswap^M'         # [E] keyswap
 
 
 

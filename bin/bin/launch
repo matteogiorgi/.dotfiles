@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+FILES="$(fzf --prompt="Open: " --border=rounded --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first)" 
+[[ ! -z "$FILES" ]] && exec swallow $FILES

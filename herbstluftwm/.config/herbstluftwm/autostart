@@ -26,7 +26,8 @@ hc keybind $Mod-Shift-b spawn bgrandom
 hc keybind $Mod-Escape  spawn dm-run
 hc keybind $Mod-Return  spawn kitty
 hc keybind Alt-Escape   spawn dm-quit
-hc keybind Alt-Return   spawn $SCRIPTPATH/hlwm-scratch
+hc keybind Alt-Return   spawn alacritty -e launch
+hc keybind Alt-a        spawn $SCRIPTPATH/hlwm-scratch
 hc keybind Alt-s        spawn tdrop -w 60% -h 40% -x 20% -y 5% -am -s tdrop alacritty
 
 # focusing clients
@@ -105,11 +106,11 @@ hc set frame_border_active_color '#6272a4'
 hc set frame_border_normal_color '#44475a'
 hc set frame_bg_active_color '#6272a4'
 hc set frame_bg_normal_color '#44475a'
-hc set frame_border_width 1
+hc set frame_border_width 2
 hc set always_show_frame 1
 hc set frame_bg_transparent 1
 hc set frame_transparent_width 0
-hc set frame_padding -1
+hc set frame_padding -2
 hc set focus_follows_mouse 0
 
 hc attr theme.active.color '#ff9500'
@@ -119,8 +120,8 @@ hc attr theme.inner_width 0
 hc attr theme.outer_width 0
 hc attr theme.inner_color '#1e1f29'
 hc attr theme.outer_color '#1e1f29'
-hc attr theme.border_width 1
-hc attr theme.floating.border_width 1
+hc attr theme.border_width 2
+hc attr theme.floating.border_width 2
 hc attr theme.floating.inner_width 0
 hc attr theme.floating.outer_width 0
 hc attr theme.floating.inner_color '#1e1f29'

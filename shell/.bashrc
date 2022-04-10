@@ -323,7 +323,6 @@ alias unstow="stow -D"
 # xresources and keyboard aliases
 alias xload="xrdb ~/.Xresources"
 alias keyswap="xmodmap ~/.Xmodmap"
-alias touchreset="systemctl --user restart touchcursor.service"
 
 # background and lockscreen aliases
 alias background="feh --bg-fill "

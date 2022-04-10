@@ -13,7 +13,7 @@
 
 
 
-" Plug check{{{
+" Plug check (it only orks on GNU/Linux){{{
 augroup vimenter
     autocmd VimEnter *
                 \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
@@ -59,7 +59,7 @@ endif
 " Color syntax{{{
 syntax on
 set background=dark
-colorscheme dracula
+colorscheme landscape
 filetype plugin indent on
 "}}}
 

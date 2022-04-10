@@ -44,7 +44,6 @@ EndSection
 - LXQT            (minimal desktop environment)
 - herbstluftwm    (tiling window-manager)
 - sxhkd           (independent keybindings)
-- touchcursor     (keyboard remap keybindings)
 - polybar         (statusbar)
 - picom           (compositor)
 - dunst           (notification daemon)
@@ -74,7 +73,7 @@ EndSection
 - bash            (bourne again shell)
 - zsh             (bash on steroids)
 - fish            (friendly interactive shell)
-- nushell         (fancy rust shell)
+- xonsh           (python powered shell) `python -m pip install 'xonsh[full]'`
 
 <!-- -->
 
@@ -85,7 +84,7 @@ EndSection
 
 - rover           (simple file manager)
 - shfm            (sh file manager)
-- qtfm            (qt file manager)
+- pcmanfm         (gui file manager)
 
 <!-- -->
 
@@ -115,9 +114,10 @@ EndSection
 
 <!-- -->
 
-- brave           (chromium web-browser) [vimium, media-player, draw-on-page]
+- brave           (chromium web-browser) [media-player, draw-on-page]
 - firefox         (mozilla web-browser) [ublock-origin]
 - ferdi           (web-app container)
+- transmission    (tui bittorent client)
 
 <!-- -->
 
@@ -137,6 +137,7 @@ EndSection
 - cups            (printing system)
 - kalu            (keep arch linux updated)
 - kupfer          (menu launcher)
+- termtyper       (like monkeytype but tui)
 
 
 ## Utilities I need
@@ -153,3 +154,4 @@ EndSection
 - git             (version control)
 - delta           (git pager)
 - ripgrep         (better grep in rust)
+- pip             (python package manager) `curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10`
