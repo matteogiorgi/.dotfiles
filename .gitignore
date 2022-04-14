@@ -20,12 +20,6 @@
 /vim/.vim/cache/*
 /vim/.vim/sessions/*
 
-# SHELL
-/shell/.config/*
-/shell/.config/fish/*
-!/shell/.config/fish
-!/shell/.config/fish/config.fish
-
 # AUTOSTART
 /autostart/.config/autostart/*
 !/autostart/.config/autostart/kalu.desktop

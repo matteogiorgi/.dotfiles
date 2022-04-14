@@ -77,6 +77,8 @@ hc mousebind $Mod-Button3 resize
 
 # focus
 hc keybind $Mod-e         jumpto urgent
+hc keybind $Mod-Up        use_index +1
+hc keybind $Mod-Down      use_index -1
 hc keybind $Mod-Right     use_index +1 --skip-visible
 hc keybind $Mod-Left      use_index -1 --skip-visible
 hc keybind $Mod-Tab       cycle_frame +1

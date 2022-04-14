@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
+[[ -f /bin/fzf ]] && export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 FILES="$(fzf --prompt="Open: " --border=rounded --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first)" 
 [[ ! -z "$FILES" ]] && exec swallow $FILES

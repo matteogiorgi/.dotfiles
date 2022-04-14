@@ -1,4 +1,4 @@
-# Dotfiles (I'm using Herbstluftwm & LXQT nowadays)
+# Dotfiles (I'm using Herbstluftwm nowadays)
 
 These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info.
 
@@ -13,9 +13,10 @@ First disable your current display-manager with something like `systemctl disabl
 
 ## Mouse conf
 
-Write `/etc/X11/xorg.conf.d/10-synaptics.conf` with the following settings:
+Just run the following (with super user privileges):
 
 ```
+cat > /etc/X11/xorg.conf.d/10-synaptics.conf <<-EOF
 Section "InputClass"
     Identifier "touchpad"
     Driver "synaptics"
@@ -33,15 +34,18 @@ Section "InputClass"
         Option "EmulateTwoFingerMinW" "8"
         Option "CoastingSpeed" "1"
 EndSection
+EOF
 ```
 
 
 
 
-## Tools I use
+## Workflow utilities
+
+
+### X11 and window-manager related gear
 
 - ly              (tui display manager)
-- LXQT            (minimal desktop environment)
 - herbstluftwm    (tiling window-manager)
 - sxhkd           (independent keybindings)
 - polybar         (statusbar)
@@ -49,84 +53,87 @@ EndSection
 - dunst           (notification daemon)
 - dmenu           (suckless menu)
 - slock           (suckless lock)
+- paru            (aur package manager - rust made)
+- pip             (python package manager) `curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10`
+- cargo           (rust package manager)
 
-<!-- -->
+
+### Terminal emulators
 
 - st              (suckless terminal)
-- alacritty       (rust terminal)
+- alacritty       (rustmade terminal)
 - (u)xterm        (x11 terminal)
+- kitty           (fast terminal emulator)
 
-<!-- -->
 
-- kitty           (terminal emulator & multiplexer)
-- tmux            (terminal multiplexer)
+### Text editors
 
-<!-- -->
+- amp             (rustmade text editor)
+- vim             (THE true text editor)
+- kakoune         (new age modal text editor)
+- vscode          (electron editor/ide)
 
-- vim             (THE text editor)
-- amp             (rust text editor)
-- xed             (gui text editor)
-- vscode          (electron text editor)
 
-<!-- -->
+### Shells
 
 - bash            (bourne again shell)
 - zsh             (bash on steroids)
-- fish            (friendly interactive shell)
 - xonsh           (python powered shell) `python -m pip install 'xonsh[full]'`
+- tmux            (terminal multiplexer)
 
-<!-- -->
+
+### File managers and fuzzy finders
 
 - fzf             (go fuzzy finder)
 - broot           (rust fuzzy finder)
-
-<!-- -->
-
 - rover           (simple file manager)
-- shfm            (sh file manager)
-- pcmanfm         (gui file manager)
 
-<!-- -->
+
+### Enhanced utilities
 
 - vimpager        (glorified more)
 - bat             (glorified cat)
 - exa             (rust ls)
 - lfs             (rust df)
 
-<!-- -->
 
-- mpv             (media player)
-- zathura         (document viewer)
-- sxiv            (image viewer)
-
-<!-- -->
+### Other useful utilities
 
 - tig             (git client)
 - bottom          (rust htop)
 - calcurse        (calendar/agenda)
 - atool           (archive manager)
 
-<!-- -->
+
+### Document manipulation programs
 
 - texlive         (document formatter)
 - pandoc          (markup converter) [panflute]
 - slides          (tui presentation) [perl-graph-easy]
 
-<!-- -->
 
-- brave           (chromium web-browser) [media-player, draw-on-page]
-- firefox         (mozilla web-browser) [ublock-origin]
-- ferdi           (web-app container)
-- transmission    (tui bittorent client)
+### Media readers
 
-<!-- -->
+- mpv             (media player)
+- zathura         (document viewer)
+- sxiv            (image viewer)
+
+
+### Media tools
 
 - xournalpp       (note taker)
 - flameshot       (screenshot tool)
 - simplescreen    (video recorder)
-- gimp            (image manipulation)
 
-<!-- -->
+
+### Browsers (vscode should have been here)
+
+- brave           (chromium web-browser) [media-player, draw-on-page]
+- firefox         (mozilla web-browser) [ublock-origin]
+- ferdi           (web-app container)
+
+
+### Very useful gui programs
 
 - lxappearence    (gtk appearance)
 - qt5ct           (qt appearance)
@@ -137,10 +144,11 @@ EndSection
 - cups            (printing system)
 - kalu            (keep arch linux updated)
 - kupfer          (menu launcher)
-- termtyper       (like monkeytype but tui)
 
 
-## Utilities I need
+
+
+## Behind the curtains utilities
 
 - pamixer         (pulseaudio command-line mixer)
 - xorg-xrandr     (interface to RandR extension) [autorandr]
@@ -154,4 +162,3 @@ EndSection
 - git             (version control)
 - delta           (git pager)
 - ripgrep         (better grep in rust)
-- pip             (python package manager) `curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10`

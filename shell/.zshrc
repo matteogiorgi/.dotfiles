@@ -315,9 +315,6 @@ function mcd () {
 
 # tig wrapper
 function _tig () {
-    COLOR_RED='\033[1;36m'
-    COLOR_YLW='\033[1;35m'
-    COLOR_NC='\033[0m'
     if [ -d ".git" ]; then
         if [ $(git rev-list --all --count) -eq 0 ]; then
             tig status
@@ -325,25 +322,7 @@ function _tig () {
             tig
         fi
     else
-        printf "${COLOR_YLW}%s${COLOR_RED}%s${COLOR_NC}\n" "You're not in a git repo, wanna make one?" " (Y/n)"
-        while read -s response; do
-            case $response in
-                "y" | "Y" | "yes" | "Yes")
-                    git init
-                    printf "New git repo created.\n"
-                    break
-                    ;;
-
-                "n" | "N" | "no" | "No" | "")
-                    printf "Still no repo.\n"
-                    break
-                    ;;
-
-                *)
-                    printf "${COLOR_RED}%s${COLOR_NC}\n" "You need to answare y(yes) or n(no)."
-                    ;;
-            esac
-        done
+        echo "Not in a git repo."
     fi
 }
 
@@ -458,6 +437,8 @@ alias keyswap="xmodmap ~/.Xmodmap"
 # background and lockscreen aliases
 alias background="feh --bg-fill "
 alias lockscreen="echo -e 'Install slock: https://github.com/matteogiorgi/slock'" && [[ -x "$(command -v slock)" ]] && alias lockscreen="slock"
+
+# other aliases
 alias xpipes="pipes -n 5 -i 0.025"
 
 
@@ -492,11 +473,9 @@ zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 bindkey    '\eh' fzf-history-widget  # [H] fuzzy-history
 bindkey    '\ej' fzf-cd-widget       # [J] fuzzy-jump
 bindkey    '\ek' fzf-file-widget     # [K] fuzzy-finder
-bindkey -s '\el' 'shfm^M'            # [L] fancy-ls
-bindkey -s '\er' 'rover^M'           # [R] rover
-bindkey -s '\eb' 'br^M'              # [B] broot
+bindkey -s '\el' 'shfm .^M'          # [L] fancy-ls
+bindkey -s '\eb' 'br .^M'            # [B] broot
 bindkey -s '\ev' 'vim .^M'           # [V] vim
-bindkey -s '\ee' 'keyswap^M'         # [E] keyswap
 
 
 

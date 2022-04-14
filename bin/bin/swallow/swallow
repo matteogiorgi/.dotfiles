@@ -11,7 +11,7 @@ echo "$1" | grep "\.sent$" && {
 }
 
 
-# mpv, sxiv, rover, zathura, vim:
+# mpv, sxiv, zathura, rover, kak:
 # pidof/pgrep sxiv || xhide "sxiv -a" "$*"
 
 case $(file --mime-type "$*" -bL) in
@@ -23,27 +23,27 @@ case $(file --mime-type "$*" -bL) in
     video/*)
         xhide "mpv --force-window '$*'"
         ;;
+    application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
+        xhide "zathura '$*'"
+        ;;
     image/gif)
         if [ -f ~/.config/sxiv/supersxiv ]; then
             xhide "~/.config/sxiv/supersxiv -a" "$*"
         else 
-            xhide "sxiv -a" "$*"
+            xhide "sxiv -a '$*'"
         fi
         ;;
     image/*)
         if [ -f ~/.config/sxiv/supersxiv ]; then
             xhide "~/.config/sxiv/supersxiv" "$*"
         else 
-            xhide "sxiv" "$*"
+            xhide "sxiv '$*'"
         fi
         ;;
     inode/directory)
-        "rover" "$*"
-        ;;
-    application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        xhide "zathura '$*'"
+        /bin/rover "$*"
         ;;
     *)
-        "amp" "$*"
+        kak "$*"
         ;;
 esac
