@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+MONITOR=1 && [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && MONITOR=0
+choice=$(echo -e "Swap\nLayout" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+
+case "$choice" in
+    Swap)
+        xmodmap ~/.Xmodmap
+        ;;
+    Layout)
+        choice=$(echo -e "British\nItalian\nAmerican" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+        case "$choice" in
+            "British")
+                setxkbmap -layout gb
+                ;;
+            "Italian")
+                setxkbmap -layout it
+                ;;
+            "American")
+                setxkbmap -layout us
+                ;;
+            *)
+                exit 1
+                ;;
+        esac
+        xmodmap ~/.Xmodmap
+        ;;
+    *)
+        exit 1
+        ;;
+esac

@@ -1,4 +1,4 @@
-# Dotfiles (I'm using Herbstluftwm nowadays)
+# Dotfiles (I'm using Herbstluftwm & Berry nowadays)
 
 These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info.
 
@@ -46,6 +46,7 @@ EOF
 ### X11 and window-manager related gear
 
 - ly              (tui display manager)
+- berry           (floating window manager)
 - herbstluftwm    (tiling window-manager)
 - sxhkd           (independent keybindings)
 - polybar         (statusbar)
@@ -130,7 +131,6 @@ EOF
 
 - brave           (chromium web-browser) [media-player, draw-on-page]
 - firefox         (mozilla web-browser) [ublock-origin]
-- ferdi           (web-app container)
 
 
 ### Very useful gui programs
@@ -143,7 +143,6 @@ EOF
 - blueman         (bluetooth connections)
 - cups            (printing system)
 - kalu            (keep arch linux updated)
-- kupfer          (menu launcher)
 
 
 

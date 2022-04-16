@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+MASTERMON=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+MASTERRAT=$(xrandr --query | grep " connected" | awk 'NR==1 {print $4}')
+
+berryc name_desktop 0 1
+berryc name_desktop 1 2
+berryc name_desktop 2 3
+berryc name_desktop 3 4
+berryc name_desktop 4 5
+berryc name_desktop 5 6
+berryc name_desktop 6 7
+berryc name_desktop 7 8
+berryc name_desktop 8 9
+berryc name_desktop 9 0
+
+if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]]; then
+    SLAVEMON=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
+    SLAVERAT=$(xrandr --query | grep " connected" | awk 'NR==2 {print $3}')
+    xrandr --output $MASTERMON --primary --mode ${MASTERRAT%%+*} --rotate normal --output $SLAVEMON --mode ${SLAVERAT%%+*} --rotate normal --left-of $MASTERMON
+    berryc save_monitor 1 9
+    berryc save_monitor 0 0
+    berryc save_monitor 0 1
+    berryc save_monitor 0 2
+    berryc save_monitor 0 3
+    berryc save_monitor 0 4
+    berryc save_monitor 0 5
+    berryc save_monitor 0 6
+    berryc save_monitor 0 7
+    berryc save_monitor 0 8
+    berryc edge_gap 40 30 30 30
+    echo $SLAVEMON
+else
+    xrandr --output $MASTERMON --primary --mode ${MASTERRAT%%+*} --rotate normal
+    berryc edge_gap 40 14 14 14
+    echo $MASTERMON
+fi

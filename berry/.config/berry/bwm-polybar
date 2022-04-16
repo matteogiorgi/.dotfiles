@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+if [[ -x "$(command -v polybar)" ]]; then
+    killall -q polybar
+    while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+    MONITOR=$1 BATTERY="BAT1" ADAPTER="ADP1" polybar -c $SCRIPTPATH/polybar.ini --reload master &
+fi

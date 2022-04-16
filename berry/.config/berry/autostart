@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+MONITOR=1 && [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && MONITOR=0
+
+
+
+
+## THEME
+########
+
+berryc border_width       2
+berryc inner_border_width 0
+berryc title_height       0
+
+berryc focus_color         ff9500
+berryc unfocus_color       44475a
+berryc inner_focus_color   ff9500
+berryc inner_unfocus_color 44475a
+berryc text_focus_color    f8f8f2
+berryc text_unfocus_color  f8f8f2
+
+berryc decorate_new "true"
+berryc edge_lock    "true"
+berryc smart_place  "true"
+berryc draw_text    "false"
+berryc set_font     "mononoki Nerd Font Bold-9"
+
+
+
+
+## KEYLAYOUT
+############
+
+setxkbmap -layout it  # gb,it,us
+xmodmap ~/.Xmodmap
+
+
+
+
+## SXHKD, MONITORS, POLYBAR, WALLPAPER, PICOM, SYSICONS
+#######################################################
+
+$SCRIPTPATH/bwm-sxhkd
+$SCRIPTPATH/bwm-polybar $($SCRIPTPATH/bwm-monitor)
+$SCRIPTPATH/bwm-picom $MONITOR
+$SCRIPTPATH/bwm-wallpaper
+$SCRIPTPATH/bwm-sysicons

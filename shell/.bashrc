@@ -54,16 +54,16 @@ ALERT="${BWhite}${On_Red}" # Bold White on red background
 ### Environment variables (remember to install vim, amp, brave, zathura)
 ########################################################################
 
-# better not to export $TERM: problems with broot image preview
-# export TERM="xterm-256color"  # xterm-kitty,xterm-256color,screen-256color
-
 export PAGER="less" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"
 export MANPAGER="less" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"
 export VISUAL="amp" && [[ -f /bin/vim ]] && export VISUAL="vim"
 export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"
-export BROWSER="brave"
-export READER="zathura"
-export GOPATH="$HOME/go"
+[[ -f /bin/brave ]] && export BROWSER="brave"
+[[ -f /bin/zathura ]] && export READER="zathura"
+[[ -f $HOME/go ]] && export GOPATH="$HOME/go"
+
+# better not to export $TERM: problems with broot image preview
+export TERM="xterm-256color"  # xterm-kitty,xterm-256color,screen-256color
 
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
@@ -157,7 +157,7 @@ function xwacom-rotate () {
 }
 
 # Cycle through keyboard layout
-function keynext () {
+function keyboard-next () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
         "gb")
             setxkbmap -layout it
@@ -301,7 +301,7 @@ alias unstow="stow -D"
 
 # xresources and keyboard aliases
 alias xload="xrdb ~/.Xresources"
-alias keyswap="xmodmap ~/.Xmodmap"
+alias keyboard-swap="xmodmap ~/.Xmodmap"
 
 # background and lockscreen aliases
 alias background="feh --bg-fill "

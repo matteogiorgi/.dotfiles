@@ -1,0 +1,121 @@
+## WM INDEPENDENT KEYBINDINGS
+#############################
+
+# reload sxhkd
+ctrl + shift + r
+    pkill -USR1 -x sxhkd
+
+
+
+
+## BERRY HOTKEYS
+################
+
+super + shift + q
+    berryc quit
+
+super + shift + c
+    berryc window_close
+
+super + {h, j, k, l}
+    berryc window_move {-50 0, 0 50, 0 -50, 50 0}
+
+super + shift + {h, j, k, l}
+    berryc window_resize {-50 0, 0 50, 0 -50, 50 0}
+
+super + {u, i, o}
+    berryc {snap_left, snap_right, window_center}
+
+super + {a, s, d}
+    berryc {window_monocle, fullscreen, toggle_decorations}
+
+super + space
+    berryc window_resize_absolute 800 600 && berryc window_center
+
+super + {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
+    berryc switch_workspace {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+super + shift + {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}
+    berryc send_to_workspace {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+super + Tab
+    berryc cycle_focus
+
+~button1
+    berryc pointer_focus
+
+# WTF, it only works button1, how is that even possile!?
+# ~button3
+#     berryc pointer_focus && berryc window_resize_absolute 800 600
+
+
+
+
+## SPECIAL KEYS
+###############
+
+# brightness up
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+# brightness down
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
+# media prev/next
+XF86Audio{Prev, Next}
+    playerctl {previous, next}
+
+# media play/pause
+XF86AudioPlay
+    playerctl play-pause
+
+# volume up
+XF86AudioRaiseVolume
+    chvol up
+
+# volume down
+XF86AudioLowerVolume
+    chvol down
+
+# volume mute
+XF86AudioMute
+    chvol mute
+
+
+
+
+## APPLICATION KEYBINDINGS
+##########################
+
+# kill xwindows
+super + shift + x
+    xkill
+
+# random background
+super + shift + b
+    bgrandom
+
+# run kitty
+super + Return
+    kitty
+
+# run keyboard funcions
+super + Escape
+    dm-key
+
+# run dmenu
+alt + Return
+    dm-run
+
+# run quit funcions
+alt + Escape
+    dm-quit
+
+# run tdrop
+alt + space
+    alacritty -e launch
+
+# run tdrop
+alt + d
+    tdrop -w 60% -h 40% -am -s tdrop alacritty

@@ -10,12 +10,11 @@ kill_apps() {
 
 choice=$(echo -e "Lock\nLogout\nReboot\nShutdown" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
 
-if [[ "$choice" == "Lock" ]]; then
-    [[ -x "$(command -v slock)" ]] && slock
-    exit 0
-fi
-
 case "$choice" in
+    Lock)
+        [[ -x "$(command -v slock)" ]] && slock
+        exit 0
+        ;;
     Logout)
         kill_apps
         kill $(pgrep X) &
