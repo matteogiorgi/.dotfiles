@@ -1,4 +1,4 @@
-# Dotfiles (I'm using Herbstluftwm & Berry nowadays)
+# Dotfiles (I'm using Herbstluftwm nowadays)
 
 These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info.
 
