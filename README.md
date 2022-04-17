@@ -46,7 +46,6 @@ EOF
 ### X11 and window-manager related gear
 
 - ly              (tui display manager)
-- berry           (floating window manager)
 - herbstluftwm    (tiling window-manager)
 - sxhkd           (independent keybindings)
 - polybar         (statusbar)
@@ -86,7 +85,7 @@ EOF
 ### File managers and fuzzy finders
 
 - fzf             (go fuzzy finder)
-- broot           (rust fuzzy finder)
+- broot           (rust fuzzy finder and file manager)
 - rover           (simple file manager)
 
 

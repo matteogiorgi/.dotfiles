@@ -11,7 +11,7 @@ echo "$1" | grep "\.sent$" && {
 }
 
 
-# mpv, sxiv, zathura, rover, kak:
+# mpv, sxiv, zathura, rover, tmux, amp:
 # pidof/pgrep sxiv || xhide "sxiv -a" "$*"
 
 case $(file --mime-type "$*" -bL) in
@@ -41,9 +41,9 @@ case $(file --mime-type "$*" -bL) in
         fi
         ;;
     inode/directory)
-        /bin/rover "$*"
+        rover "$*"
         ;;
     *)
-        kak "$*"
+        tmux new amp "$*"
         ;;
 esac
