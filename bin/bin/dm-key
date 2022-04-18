@@ -1,9 +1,23 @@
 #!/usr/bin/env bash
 
 MONITOR=1 && [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && MONITOR=0
-choice=$(echo -e "Swap\nLayout" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+choice=$(echo -e "Touch\nSwap\nLayout" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
 
 case "$choice" in
+    Touch)
+        choice=$(echo -e "Enable\nDisable" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+        case "$choice" in
+            "Enable")
+                xinput set-prop $(xinput | grep Touchpad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') "Device Enabled" 1
+                ;;
+            "Disable")
+                xinput set-prop $(xinput | grep Touchpad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') "Device Enabled" 0
+                ;;
+            *)
+                exit 1
+                ;;
+        esac
+        ;;
     Swap)
         xmodmap ~/.Xmodmap
         ;;

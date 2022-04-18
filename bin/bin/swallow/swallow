@@ -44,6 +44,6 @@ case $(file --mime-type "$*" -bL) in
         rover "$*"
         ;;
     *)
-        tmux new amp "$*"
+        amp "$*"
         ;;
 esac

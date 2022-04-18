@@ -24,6 +24,7 @@ hc keybind $Mod-Shift-r reload
 # my programs
 hc keybind $Mod-Shift-x spawn xkill
 hc keybind $Mod-Shift-b spawn bgrandom
+hc keybind $Mod-Shift-p spawn polybar-msg cmd toggle
 hc keybind $Mod-Return  spawn kitty
 hc keybind $Mod-Escape  spawn dm-key
 hc keybind Alt-Return   spawn dm-run
