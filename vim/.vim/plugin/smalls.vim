@@ -9,6 +9,6 @@ let s:excursion_table = { "\<CR>": 'do_set' }
 call smalls#keyboard#excursion#extend_table(s:excursion_table)
 
 
-nmap <silent><CR> <Plug>(smalls)
-omap <silent><CR> <Plug>(smalls)
-xmap <silent><CR> <Plug>(smalls)
+nmap <silent><C-s> <Plug>(smalls)
+omap <silent><C-s> <Plug>(smalls)
+xmap <silent><C-s> <Plug>(smalls)

@@ -74,7 +74,7 @@ EOF
 - vscode          (electron editor/ide)
 
 
-### Shells
+### Shells and terminal multiplexers
 
 - bash            (bourne again shell)
 - zsh             (bash on steroids)
@@ -103,6 +103,7 @@ EOF
 - bottom          (rust htop)
 - calcurse        (calendar/agenda)
 - atool           (archive manager)
+- trash-cli       (cli trash utility)
 
 
 ### Document manipulation programs

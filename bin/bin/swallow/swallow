@@ -11,7 +11,7 @@ echo "$1" | grep "\.sent$" && {
 }
 
 
-# mpv, sxiv, zathura, rover, tmux, amp:
+# mpv, sxiv, zathura, pcmanfm, vim:
 # pidof/pgrep sxiv || xhide "sxiv -a" "$*"
 
 case $(file --mime-type "$*" -bL) in
@@ -28,22 +28,22 @@ case $(file --mime-type "$*" -bL) in
         ;;
     image/gif)
         if [ -f ~/.config/sxiv/supersxiv ]; then
-            xhide "~/.config/sxiv/supersxiv -a" "$*"
+            xhide "~/.config/sxiv/supersxiv -a '$*'"
         else 
             xhide "sxiv -a '$*'"
         fi
         ;;
     image/*)
         if [ -f ~/.config/sxiv/supersxiv ]; then
-            xhide "~/.config/sxiv/supersxiv" "$*"
+            xhide "~/.config/sxiv/supersxiv '$*'"
         else 
             xhide "sxiv '$*'"
         fi
         ;;
     inode/directory)
-        rover "$*"
+        shfm "$*"
         ;;
     *)
-        amp "$*"
+        "${EDITOR:=vim}" "$*"
         ;;
 esac

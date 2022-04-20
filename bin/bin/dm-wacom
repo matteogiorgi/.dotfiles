@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+MONITOR=1 && [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && MONITOR=0
+choice=$(echo -e "Output\nRotate" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+
+case "$choice" in
+    Output)
+        choice=$(echo -e "Primary\nSecondary" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+        case "$choice" in
+            "Primary")
+                WACOMON=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+                ;;
+            "Secondary")
+                WACOMON=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
+                ;;
+            *)
+                exit 1
+                ;;
+        esac
+        xinput map-to-output $(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $WACOMON
+        ;;
+    Rotate)
+        choice=$(echo -e "0°\n90°\n180°\n270°" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+        XWACOMID=$(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+        case "$choice" in
+            "0°")
+                xsetwacom --set $XWACOMID Rotate none
+                ;;
+            "90°")
+                xsetwacom --set $XWACOMID Rotate ccw
+                ;;
+            "180°")
+                xsetwacom --set $XWACOMID Rotate half
+                ;;
+            "270°")
+                xsetwacom --set $XWACOMID Rotate cw
+                ;;
+            *)
+                exit 1
+                ;;
+        esac
+        ;;
+    *)
+        exit 1
+        ;;
+esac

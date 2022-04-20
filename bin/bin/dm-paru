@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+MONITOR=1 && [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && MONITOR=0
+choice=$(echo -e "Pacman\nParu\nParu-AUR" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+
+Term="alacritty"
+Shell="zsh"
+
+case "$choice" in
+    Pacman)
+        $Term -e $Shell -c 'sudo pacman -Syu && printf "\n%s " "PRESS ENTER TO CONTINUE"; read ans'
+        ;;
+    Paru)
+        $Term -e $Shell -c 'paru -Syu && printf "\n%s " "PRESS ENTER TO CONTINUE"; read ans'
+        ;;
+    Paru-AUR)
+        $Term -e $Shell -c 'paru -Sua && printf "\n%s " "PRESS ENTER TO CONTINUE"; read ans'
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+

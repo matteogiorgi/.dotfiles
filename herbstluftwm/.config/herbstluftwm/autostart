@@ -22,16 +22,19 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 
 # my programs
-hc keybind $Mod-Shift-x spawn xkill
-hc keybind $Mod-Shift-b spawn bgrandom
-hc keybind $Mod-Shift-p spawn polybar-msg cmd toggle
-hc keybind $Mod-Return  spawn kitty
-hc keybind $Mod-Escape  spawn dm-key
-hc keybind Alt-Return   spawn dm-run
-hc keybind Alt-Escape   spawn dm-quit
-hc keybind Alt-a        spawn $Term -e launch
-hc keybind Alt-s        spawn $SCRIPTPATH/hlwm-scratch
-hc keybind Alt-d        spawn tdrop -w 60% -h 40% -x 20% -y 5% -am -s tdrop $Term
+hc keybind $Mod-Shift-x      spawn xkill
+hc keybind $Mod-Shift-b      spawn bgrandom
+hc keybind $Mod-Shift-p      spawn polybar-msg cmd toggle
+hc keybind $Mod-Shift-Return spawn kitty
+hc keybind $Mod-Return       spawn $Term
+hc keybind $Mod-Escape       spawn $Term -e launch
+hc keybind Alt-Return        spawn dm-run
+hc keybind Alt-Escape        spawn dm-quit
+hc keybind Alt-w             spawn dm-wacom
+hc keybind Alt-a             spawn dm-key
+hc keybind Alt-s             spawn $SCRIPTPATH/hlwm-scratch
+hc keybind Alt-d             spawn tdrop -w 60% -h 60% -x 20% -y 10% -am -s tdrop $Term
+hc keybind Alt-p             spawn dm-paru
 
 # focusing clients
 hc keybind $Mod-h focus left

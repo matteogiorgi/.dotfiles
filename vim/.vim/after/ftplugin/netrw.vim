@@ -34,3 +34,7 @@ if &rtp =~ 'vim-smalls'
     omap <buffer> s <Plug>(smalls)
     xmap <buffer> s <Plug>(smalls)
 endif
+
+" jump and back
+nmap <buffer> <Tab> :wincmd w<cr>
+nmap <buffer> <Backspace> :b#<cr>

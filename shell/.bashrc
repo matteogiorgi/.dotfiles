@@ -199,7 +199,7 @@ function _tig () {
             tig
         fi
     else
-        echo "Not in a git repo."
+        printf "\n%s\n%s " "Not in a git repo" "Press enter to continue"; read ans
     fi
 }
 

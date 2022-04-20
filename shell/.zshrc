@@ -234,23 +234,23 @@ function xwacom-output () {
 
 # Rotate Wacom input (xsetwacom needed)
 function xwacom-rotate () {
-    local xwacomid=$(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    local XWACOMID=$(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
     if (( $# == 0 )); then
-        xsetwacom --set $xwacomid Rotate half
+        xsetwacom --set $XWACOMID Rotate half
         return
     fi
     case $1 in
         "0")
-            xsetwacom --set $xwacomid Rotate none
+            xsetwacom --set $XWACOMID Rotate none
             ;;
         "1")
-            xsetwacom --set $xwacomid Rotate ccw
+            xsetwacom --set $XWACOMID Rotate ccw
             ;;
         "2")
-            xsetwacom --set $xwacomid Rotate half
+            xsetwacom --set $XWACOMID Rotate half
             ;;
         "3")
-            xsetwacom --set $xwacomid Rotate cw
+            xsetwacom --set $XWACOMID Rotate cw
             ;;
         *)
             echo "enter a position from 0 to 3"
@@ -322,7 +322,7 @@ function _tig () {
             tig
         fi
     else
-        echo "Not in a git repo."
+        printf "\n%s\n%s " "Not in a git repo" "Press enter to continue"; read ans
     fi
 }
 
@@ -474,10 +474,9 @@ bindkey    '\eh' fzf-history-widget  # [H] fuzzy-history
 bindkey    '\ej' fzf-cd-widget       # [J] fuzzy-jump
 bindkey    '\ek' fzf-file-widget     # [K] fuzzy-finder
 bindkey -s '\el' 'shfm .^M'          # [L] fancy-ls
-bindkey -s '\eb' 'br .^M'            # [B] broot
-bindkey -s '\ev' 'vim .^M'           # [V] vim
-bindkey -s '\ez' 'bash^M'            # [Z] bash
+bindkey -s '\eb' 'br^M'              # [B] broot
 bindkey -s '\ex' 'xonsh^M'           # [X] xonsh
+bindkey -s '\ev' 'vim .^M'           # [V] vim
 
 
 
