@@ -1,70 +1,58 @@
-set window-title-basename "true"
-set selection-clipboard "clipboard"
+### Startup options
+###################
 
-map <C-i> recolor
-
-# Dracula color theme for Zathura
-# Swaps Foreground for Background to get a light version if the user prefers
-
-#
-# Dracula color theme
-#
-
-set notification-error-bg       "#ff5555" # Red
-set notification-error-fg       "#f8f8f2" # Foreground
-set notification-warning-bg     "#ffb86c" # Orange
-set notification-warning-fg     "#44475a" # Selection
-set notification-bg             "#3a3c4e" # Background  (282a36,1e1f29,626483,3a3c4e)
-set notification-fg             "#f8f8f2" # Foreground
-
-set completion-bg               "#3a3c4e" # Background  (282a36,1e1f29,626483,3a3c4e)
-set completion-fg               "#6272a4" # Comment
-set completion-group-bg         "#3a3c4e" # Background  (282a36,1e1f29,626483,3a3c4e)
-set completion-group-fg         "#6272a4" # Comment
-set completion-highlight-bg     "#44475a" # Selection
-set completion-highlight-fg     "#f8f8f2" # Foreground
-
-set index-bg                    "#3a3c4e" # Background  (282a36,1e1f29,626483,3a3c4e)
-set index-fg                    "#f8f8f2" # Foreground
-set index-active-bg             "#44475a" # Current Line
-set index-active-fg             "#f8f8f2" # Foreground
-
-set inputbar-bg                 "#3a3c4e" # Background  (282a36,1e1f29,626483,3a3c4e)
-set inputbar-fg                 "#f8f8f2" # Foreground
-set statusbar-bg                "#3a3c4e" # Background  (282a36,1e1f29,626483,3a3c4e)
-set statusbar-fg                "#f8f8f2" # Foreground
-
-set highlight-color             "#ffb86c" # Orange
-set highlight-active-color      "#ff79c6" # Pink
-
-set default-bg                  "#1e1f29" # Background  (282a36,1e1f29,626483,3a3c4e)
-set default-fg                  "#f8f8f2" # Foreground
-
-set render-loading              true
-set render-loading-fg           "#3a3c4e" # Background  (282a36,1e1f29,626483,3a3c4e)
-set render-loading-bg           "#f8f8f2" # Foreground
-
-#
-# Recolor mode settings
-#
-
-set recolor-darkcolor           "#1e1f29" # Background  (282a36,1e1f29,626483,3a3c4e)
-set recolor-lightcolor          "#f8f8f2" # Foreground
-
-#
-# Startup options
-#
 set adjust-open width
 set recolor false
 
 set font "mononoki Nerd Font 9"
 set first-page-column 2
-# set show-scrollbars
-# set smooth-scroll true
+set show-scrollbars
+set smooth-scroll true
 
-# set default-bg "#1e1f29"  # (282a36,1e1f29,626483,3a3c4e)
-# set default-fg "#F8F8F2"
-# set inputbar-bg "#3a3c4e"  # (282a36,1e1f29,626483,3a3c4e)
-# set inputbar-fg "#282A36"
-# set statusbar-bg "#3a3c4e"  # (282a36,1e1f29,626483,3a3c4e)
-# set statusbar-fg "#F8F8F2"
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+
+map <C-i> recolor
+
+
+
+
+### Color theme
+###############
+
+set notification-error-bg   "#cc0000"
+set notification-error-fg   "#ffffff"
+set notification-warning-bg "#ff9500"
+set notification-warning-fg "#2e3436"
+set notification-bg         "#555753"
+set notification-fg         "#ffffff"
+
+set completion-bg           "#2e3436"
+set completion-fg           "#729fcf"
+set completion-group-bg     "#2e3436"
+set completion-group-fg     "#729fcf"
+set completion-highlight-bg "#729fcf"
+set completion-highlight-fg "#2e3436"
+
+set index-bg                "#2e3436"
+set index-fg                "#ffffff"
+set index-active-bg         "#555753"
+set index-active-fg         "#ffffff"
+
+set inputbar-bg             "#2e3436"
+set inputbar-fg             "#ffffff"
+set statusbar-bg            "#2e3436"
+set statusbar-fg            "#ffffff"
+
+set highlight-color         "#ff9500"
+set highlight-active-color  "#ad7fa8"
+
+set default-bg              "#555753"
+set default-fg              "#ffffff"
+
+set render-loading          true
+set render-loading-fg       "#2e3436"
+set render-loading-bg       "#ffffff"
+
+set recolor-darkcolor       "#2e3436"
+set recolor-lightcolor      "#ffffff"

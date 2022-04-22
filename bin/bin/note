@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+# new note message
+printf "${YLW}%s${NC}\n" "New note:"
+
+# is thid the first note?
+[[ -f $HOME/.note.md ]] && echo "---" >> $HOME/.note.md
+
+# add new date
+DATE=$(date +%d\ %b\ %Y\ \(%H:%M\))
+cat >> $HOME/.note.md <<-EOF
+
+# $DATE
+
+EOF
+
+# add new lines
+while read par; do
+    [[ $par = "" ]] && break
+    echo "$par" >> $HOME/.note.md
+    echo "" >> $HOME/.note.md
+done
+
+# end note message
+printf "${RED}%s${NC} " "Note saved, press enter to continue."; read ans

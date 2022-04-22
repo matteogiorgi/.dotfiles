@@ -1,5 +1,5 @@
 ######################################################
-#                      DOOM ZSH                      #
+#                      ZSH CONF                      #
 ######################################################
 
 
@@ -131,8 +131,8 @@ export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"
 [[ -f /bin/zathura ]] && export READER="zathura"
 [[ -f $HOME/go ]] && export GOPATH="$HOME/go"
 
-# better not to export $TERM: problems with broot image preview
-export TERM="xterm-256color"  # xterm-kitty,xterm-256color,screen-256color
+# possible $TERM values are: xterm-kitty, xterm-256color or screen-256color
+export TERM="xterm-256color"
 
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
@@ -160,9 +160,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # fm6000, pfetch or ufetch
 [[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
-
-# broot
-[[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
 
 # fzf
 [[ -f $HOME/.fzf.zsh ]] && source $HOME/.fzf.zsh
@@ -473,10 +470,11 @@ zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 bindkey    '\eh' fzf-history-widget  # [H] fuzzy-history
 bindkey    '\ej' fzf-cd-widget       # [J] fuzzy-jump
 bindkey    '\ek' fzf-file-widget     # [K] fuzzy-finder
-bindkey -s '\el' 'shfm .^M'          # [L] fancy-ls
-bindkey -s '\eb' 'br^M'              # [B] broot
-bindkey -s '\ex' 'xonsh^M'           # [X] xonsh
-bindkey -s '\ev' 'vim .^M'           # [V] vim
+bindkey -s '\el' 'launch^M'          # [L] launch
+bindkey -s '\ey' 'tig^M'             # [Y] tig
+bindkey -s '\eu' 'rover^M'           # [U] rover
+bindkey -s '\ei' 'shfm^M'            # [I] shfm
+bindkey -s '\eo' 'vim .^M'           # [O] vim
 
 
 

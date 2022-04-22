@@ -1,4 +1,4 @@
-# Dotfiles (I'm using Herbstluftwm nowadays)
+# Dotfiles
 
 These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info.
 
@@ -6,7 +6,7 @@ These repo contains my major dotfiles. I keep them organized using [GNU Stow](ht
 
 ## Display manager
 
-First disable your current display-manager with something like `systemctl disable lightdm.service`, then run `systemctl enable ly.service` to enable the ly display manager.
+In order to use the *ly* display-manager, first disable your current display-manager with something like `systemctl disable lightdm.service`, then run `systemctl enable ly.service` to enable the *ly* display-manager.
 
 
 
@@ -45,119 +45,124 @@ EOF
 
 ### X11 and window-manager related gear
 
-- ly              (tui display manager)
-- herbstluftwm    (tiling window-manager)
-- sxhkd           (independent keybindings)
-- polybar         (statusbar)
-- picom           (compositor)
-- dunst           (notification daemon)
-- dmenu           (suckless menu)
-- slock           (suckless lock)
-- paru            (aur package manager - rust made)
-- pip             (python package manager) `curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10`
-- cargo           (rust package manager)
+- herbstluftwm (tiling window-manager)
+- sxhkd        (independent keybindings)
+- polybar      (statusbar)
+- picom        (compositor)
+- dmenu        (suckless menu)
+- slock        (suckless lock)
+- paru         (aur package manager)
 
 
 ### Terminal emulators
 
-- st              (suckless terminal)
-- alacritty       (rustmade terminal)
-- (u)xterm        (x11 terminal)
-- kitty           (fast terminal emulator)
+- st        (suckless terminal)
+- alacritty (rustmade terminal)
+- (u)xterm  (x11 terminal)
+
+
+### Terminal multiplexer
+
+- kitty (fast terminal emulator)
+- tmux  (terminal multiplexer)
 
 
 ### Text editors
 
-- amp             (rustmade text editor)
-- vim             (THE true text editor)
-- kakoune         (new age modal text editor)
-- vscode          (electron editor/ide)
+- amp  (rustmade text editor)
+- vim  (THE true text editor)
+- code (electron editor/ide)
 
 
 ### Shells and terminal multiplexers
 
-- bash            (bourne again shell)
-- zsh             (bash on steroids)
-- xonsh           (python powered shell) `python -m pip install 'xonsh[full]'`
-- tmux            (terminal multiplexer)
+- bash  (bourne again shell)
+- zsh   (bash on steroids)
+- xonsh (python powered shell) `python -m pip install 'xonsh[full]'`
 
 
 ### File managers and fuzzy finders
 
-- fzf             (go fuzzy finder)
-- broot           (rust fuzzy finder and file manager)
-- rover           (simple file manager)
+- shfm  (fast file opener)
+- rover (simple file manager)
+- fzf   (go fuzzy finder)
 
 
-### Enhanced utilities
+### Enhanced optional utilities
 
-- vimpager        (glorified more)
-- bat             (glorified cat)
-- exa             (rust ls)
-- lfs             (rust df)
+- bat      (glorified cat)
+- vimpager (why not)
+- bottom   (rust htop)
+- exa      (rust ls)
+- lfs      (rust df)
+- ripgrep  (rust grep)
 
 
-### Other useful utilities
+### Other very useful utilities
 
-- tig             (git client)
-- bottom          (rust htop)
-- calcurse        (calendar/agenda)
-- atool           (archive manager)
-- trash-cli       (cli trash utility)
+- git       (version control)
+- tig       (git client)
+- atool     (archive manager)
+- trash-cli (trash utility)
+- calcurse  (calendar/agenda)
 
 
 ### Document manipulation programs
 
-- texlive         (document formatter)
-- pandoc          (markup converter) [panflute]
-- slides          (tui presentation) [perl-graph-easy]
+- texlive (document formatter)
+- pandoc  (markup converter) [panflute]
+- slides  (tui presentation) [perl-graph-easy]
 
 
 ### Media readers
 
-- mpv             (media player)
-- zathura         (document viewer)
-- sxiv            (image viewer)
+- mpv     (media player)
+- zathura (document viewer)
+- sxiv    (image viewer)
 
 
 ### Media tools
 
-- xournalpp       (note taker)
-- flameshot       (screenshot tool)
-- simplescreen    (video recorder)
+- xournalpp    (note taker)
+- flameshot    (screenshot tool)
+- simplescreen (video recorder)
 
 
-### Browsers (vscode should have been here)
+### Browsers
 
-- brave           (chromium web-browser) [media-player, draw-on-page]
-- firefox         (mozilla web-browser) [ublock-origin]
+- brave   (chromium web-browser) [media-player]
+- firefox (mozilla web-browser) [ublock-origin, brave-search]
 
 
 ### Very useful gui programs
 
-- lxappearence    (gtk appearance)
-- qt5ct           (qt appearance)
-- pavucontrol     (gui pulseaudio interface)
-- arandr          (gui xrandr interface)
-- networkmanager  (network connections)
-- blueman         (bluetooth connections)
-- cups            (printing system)
-- kalu            (keep arch linux updated)
+- lxappearence   (gtk appearance)
+- qt5ct          (qt appearance)
+- pavucontrol    (gui pulseaudio interface)
+- arandr         (gui xrandr interface)
+- networkmanager (network connections)
+- blueman        (bluetooth connections)
+- cups           (printing system)
 
 
+### Other stuff
+
+- pamixer            (pulseaudio command-line mixer)
+- xorg-xrandr        (interface to RandR extension) [autorandr]
+- xorg-xrdb          (menage Xresources)
+- xorg-xmodmap       (menage Xmodmap)
+- xsettingsd         (x11 application settings)
+- xdotool            (x11 automation tool)
+- xdo                (perform action on windows)
+- feh                (image viewer)
+- imagemagick        (image manipulation)
+- delta              (git pager)
+- gnome-themes-extra (extra themes for gnome)
+- adwaita-qt         (qt5 adwaita look-a-like)
+- adwaita-icon-theme (gnome standard icons)
 
 
-## Behind the curtains utilities
+##### language package managers
 
-- pamixer         (pulseaudio command-line mixer)
-- xorg-xrandr     (interface to RandR extension) [autorandr]
-- xorg-xrdb       (menage Xresources)
-- xorg-xmodmap    (menage Xmodmap)
-- xsettingsd      (x11 application settings)
-- xdotool         (x11 automation tool)
-- xdo             (perform action on windows)
-- feh             (image viewer)
-- imagemagick     (image manipulation)
-- git             (version control)
-- delta           (git pager)
-- ripgrep         (better grep in rust)
+- pip   (python package manager) `curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10`
+- cargo (rust package manager)

@@ -59,7 +59,7 @@ endif
 " Color syntax{{{
 syntax on
 set background=dark
-colorscheme dracula
+colorscheme landscape
 filetype plugin indent on
 "}}}
 

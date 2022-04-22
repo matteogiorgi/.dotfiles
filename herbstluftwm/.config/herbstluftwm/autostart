@@ -13,28 +13,26 @@ xsetroot -solid '#44475a'
 ## KEYBINDS
 ###########
 
-hc keyunbind --all  # Remove all existing keybindings
-Mod=Mod4            # Use the super key as the main modifier
-Term="alacritty"    # My preferred terminal of choice
+hc keyunbind --all  # remove keybindings
+Mod=Mod4            # super key modifier
+Term="alacritty"    # preferred terminal
+Shell="zsh"         # preferred shell
 
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 
 # my programs
-hc keybind $Mod-Shift-x      spawn xkill
-hc keybind $Mod-Shift-b      spawn bgrandom
-hc keybind $Mod-Shift-p      spawn polybar-msg cmd toggle
-hc keybind $Mod-Shift-Return spawn kitty
-hc keybind $Mod-Return       spawn $Term
-hc keybind $Mod-Escape       spawn $Term -e launch
-hc keybind Alt-Return        spawn dm-run
-hc keybind Alt-Escape        spawn dm-quit
-hc keybind Alt-w             spawn dm-wacom
-hc keybind Alt-a             spawn dm-key
-hc keybind Alt-s             spawn $SCRIPTPATH/hlwm-scratch
-hc keybind Alt-d             spawn tdrop -w 60% -h 60% -x 20% -y 10% -am -s tdrop $Term
-hc keybind Alt-p             spawn dm-paru
+hc keybind $Mod-Shift-x spawn xkill
+hc keybind $Mod-Shift-b spawn bgrandom
+hc keybind $Mod-Return  spawn kitty
+hc keybind Alt-Return   spawn dm-run
+hc keybind Alt-q        spawn dm-quit
+hc keybind Alt-w        spawn dm-wacom
+hc keybind Alt-e        spawn dm-note
+hc keybind Alt-a        spawn dm-key
+hc keybind Alt-s        spawn $SCRIPTPATH/hlwm-scratch
+hc keybind Alt-d        spawn tdrop -w 60% -h 60% -x 20% -y 10% -am -s tdrop $Term
 
 # focusing clients
 hc keybind $Mod-h focus left
@@ -110,10 +108,10 @@ hc keybind XF86AudioMute         spawn chvol mute
 
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
-hc set frame_border_active_color '#6272a4'
-hc set frame_border_normal_color '#44475a'
-hc set frame_bg_active_color '#6272a4'
-hc set frame_bg_normal_color '#44475a'
+hc set frame_border_active_color '#729fcf'
+hc set frame_border_normal_color '#555753'
+hc set frame_bg_active_color '#729fcf'
+hc set frame_bg_normal_color '#555753'
 hc set frame_border_width 2
 hc set always_show_frame 1
 hc set frame_bg_transparent 1
@@ -121,22 +119,22 @@ hc set frame_transparent_width 0
 hc set frame_padding -2
 hc set focus_follows_mouse 0
 
-hc attr theme.active.color '#ff9500'
-hc attr theme.normal.color '#44475a'
-hc attr theme.urgent.color '#ff6e6e'
+hc attr theme.active.color '#729fcf'
+hc attr theme.normal.color '#555753'
+hc attr theme.urgent.color '#cc0000'
 hc attr theme.inner_width 0
 hc attr theme.outer_width 0
-hc attr theme.inner_color '#1e1f29'
-hc attr theme.outer_color '#1e1f29'
+hc attr theme.inner_color '#e1dedb'
+hc attr theme.outer_color '#e1dedb'
 hc attr theme.border_width 2
 hc attr theme.floating.border_width 2
 hc attr theme.floating.inner_width 0
 hc attr theme.floating.outer_width 0
-hc attr theme.floating.inner_color '#1e1f29'
-hc attr theme.floating.outer_color '#1e1f29'
-hc attr theme.active.inner_color '#ff9500'
-hc attr theme.active.outer_color '#ff9500'
-hc attr theme.background_color '#1e1f29'
+hc attr theme.floating.inner_color '#e1dedb'
+hc attr theme.floating.outer_color '#e1dedb'
+hc attr theme.active.inner_color '#729fcf'
+hc attr theme.active.outer_color '#729fcf'
+hc attr theme.background_color '#e1dedb'
 
 hc set frame_gap 10
 hc set window_gap 0
@@ -158,6 +156,17 @@ hc rule floatplacement=center  # smart,center,none
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+
+
+
+
+## TREE STYLES
+##############
+
+# '╾│ ├└╼─┐'
+# '╾│ ├╰╼─╮'
+# '*| +`>-.'
+# '*| +`-->'
 
 herbstclient set tree_style '╾│ ├└╼─┐'
 hc unlock

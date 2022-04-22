@@ -1,6 +1,6 @@
 syntax on
 set background=dark
-colorscheme dracula
+colorscheme landscape
 filetype plugin indent on
 
 if exists('+termguicolors') | set termguicolors | endif

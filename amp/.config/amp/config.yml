@@ -1,7 +1,7 @@
 # Amp editor config, for full config specs visit
 # https://github.com/jmacdonald/amp/blob/main/documentation/pages/configuration.md
 
-theme: dracula16
+theme: tango
 tab_width: 4
 soft_tabs: true
 line_wrapping: true

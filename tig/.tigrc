@@ -1,71 +1,3 @@
-# Settings
-# --------
-# Most of these settings can be toggleable, either via the toggle-*
-# actions or via the option menu (bound to `o` by default).
-
-# View settings
-#
-# Supported column types and their options:
-#
-#   author
-#    - display (enum) [no|full|abbreviated|email|email-user]
-#					: Show author information?
-#    - width (int)			: Fixed width when nonzero
-#    - maxwidth (int)			: Autosize limit
-#
-#   commit-title
-#    - display (bool)			: Show the commit title?
-#    - graph (enum) [no|v2|v1]		: Show the commit graph? (main view only)
-#    - refs (bool)			: Show branches, tags and remotes? (main view only)
-#    - overflow (boolint)		: Highlight overflows? Defaults to 50 when enabled.
-#
-#   date
-#    - display (enum) [no|default|relative|relative-compact|custom]
-#					: Show dates?
-#    - local (bool)			: Show local dates?
-#    - format (string)			: Custom strftime(3) format
-#					  Note: %Z is formatted as %z
-#    - width (int)			: Fixed width when nonzero
-#
-#   file-name
-#    - display (enum) [no|always|auto]	: Show file names?
-#    - width (int)			: Fixed width when nonzero
-#    - maxwidth (int)			: Autosize limit
-#
-#   file-size
-#    - display (enum) [no|default|units]
-#					: Show file sizes?
-#    - width (int)			: Fixed width when nonzero
-#
-#   id
-#    - display (bool)			: Show commit/tree ID?
-#    - width (int)			: Fixed width when nonzero
-#
-#   line-number
-#    - display (bool)			: Show line numbers?
-#    - interval (int)			: Interval between line numbers; defaults to 5
-#    - width (int)			: Fixed width when nonzero
-#
-#   mode
-#    - display (bool)			: Show file modes?
-#    - width (int)			: Fixed width when nonzero
-#
-#   ref
-#    - display (bool)			: Show ref names?
-#    - width (int)			: Fixed width when nonzero
-#    - maxwidth (int)			: Autosize limit
-#
-#   status
-#    - display (enum) [no|short|long]	: Show status label?
-#
-#   text
-#    - display (bool)			: Show text?
-#    - commit-title-overflow (boolint)	: Highlight overflow in log and diff view?
-#
-
-
-
-
 ### Generics
 ############
 
@@ -79,6 +11,8 @@ set status-view	= line-number:no,interval=5 status:short file-name
 set tree-view	= line-number:no,interval=5 mode author:full file-size date:default id:no file-name
 
 
+
+
 ### Pager based views
 #####################
 
@@ -87,6 +21,9 @@ set stage-view = line-number:no,interval=5 text
 set log-view   = line-number:no,interval=5 text
 set blob-view  = line-number:no,interval=5 text
 set diff-view  = line-number:no,interval=5 text:yes,commit-title-overflow=no
+
+
+
 
 ### UI display settings
 #######################
@@ -97,6 +34,8 @@ set wrap-lines			 = no       # Wrap long lines in pager views?
 set tab-size			 = 8        # Number of spaces to use when expanding tabs
 set line-graphics		 = default  # Enum: ascii, default, utf-8
 set truncation-delimiter = ~        # Character drawn for truncations, or "utf-8"
+
+
 
 
 ### Format reference names based on type
@@ -117,14 +56,11 @@ set truncation-delimiter = ~        # Character drawn for truncations, or "utf-8
 set reference-format		= [branch] <tag> {remote} ~replace~
 
 
+
+
 ### Settings controlling how content is read from Git
 #####################################################
 
-set commit-order		= auto		    # Enum: auto, default, topo, date, reverse (main)
-set status-show-untracked-dirs	= yes   # Show files in untracked directories? (status)
-set status-show-untracked-files	= yes   # Show untracked files?
-set ignore-space		= no		    # Enum: no, all, some, at-eol (diff)
-set show-notes			= yes		    # When non-bool passed as `--show-notes=...` (diff)
 #set diff-context		= 3		        # Number of lines to show around diff changes (diff)
 #set diff-options		= -C		    # User-defined options for `tig show` (git-diff)
 #set diff-highlight		= true		    # String (or bool): Path to diff-highlight script, defaults to `diff-highlight`.
@@ -132,6 +68,14 @@ set show-notes			= yes		    # When non-bool passed as `--show-notes=...` (diff)
 #set log-options		= --pretty=raw  # User-defined options for `tig log` (git-log)
 #set main-options		= -n 1000	    # User-defined options for `tig` (git-log)
 #set mailmap			= yes		    # Use .mailmap to show canonical name and email address
+
+set commit-order		= auto		    # Enum: auto, default, topo, date, reverse (main)
+set status-show-untracked-dirs	= yes   # Show files in untracked directories? (status)
+set status-show-untracked-files	= yes   # Show untracked files?
+set ignore-space		= no		    # Enum: no, all, some, at-eol (diff)
+set show-notes			= yes		    # When non-bool passed as `--show-notes=...` (diff)
+
+
 
 
 ### Misc
@@ -154,6 +98,8 @@ set mouse              = no    # Enable mouse support?
 set mouse-scroll       = 3     # Number of lines to scroll via the mouse
 set mouse-wheel-cursor = no    # Prefer moving the cursor to scrolling the view?
 set pgrp               = no    # Make tig process-group leader
+
+
 
 
 ### User-defined commands
@@ -203,6 +149,8 @@ bind refs	C	?git checkout %(branch)
 bind refs	!	?git branch -D %(branch)
 bind reflog	C	?git checkout %(branch)
 bind reflog	!	?git reset --hard %(commit)
+
+
 
 
 ### Normal commands
@@ -331,6 +279,8 @@ bind generic z     stop-loading   # Stop all loading views
 bind generic v     show-version   # Show Tig version
 
 
+
+
 ### Colors (chack this out: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg)
 #########################################################################################################
 
@@ -392,7 +342,7 @@ color "    Acked-by"        yellow  default
 color "    Tested-by"       yellow  default
 color "    Reviewed-by"     yellow  default
 color default               default default	normal
-color cursor                white   061     bold    # white green
+color cursor                white   green   bold
 color status                green   default
 color delimiter             magenta default
 color date                  blue    default
@@ -406,8 +356,8 @@ color file                  default default
 color grep.file             blue    default
 color file-size             default default
 color line-number           cyan    default
-color title-blur            white   060             # white blue
-color title-focus           white   060     bold    # white blue
+color title-blur            white   blue
+color title-focus           white   blue    bold
 color main-commit           default default
 color main-annotated        default default	bold
 color main-tag              magenta default	bold
@@ -443,8 +393,7 @@ color palette-13            red     default	bold
 color graph-commit          blue    default
 color search-result         black   yellow
 
-# Mappings for colors read from git configuration.
-# Set to "no" to disable.
+# Mappings for colors read from git configuration (set to "no" to disable)
 set git-colors = \
     branch.current=main-head \
     branch.local=main-ref \
@@ -471,9 +420,3 @@ set git-colors = \
     status.updated=stat-staged \
     status.changed=stat-unstaged \
     status.untracked=stat-untracked
-
-
-### Import custom colorscheme
-#############################
-
-# source ~/.tig/colorscheme.tigrc

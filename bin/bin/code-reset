@@ -6,7 +6,7 @@
 RED='\033[1;36m'
 YLW='\033[1;35m'
 NC='\033[0m'
-printf "${YLW}%s${RED}%s${NC}\n" "Wanna reset vscode settings and keybindings? (Y/n)"
+printf "${YLW}%s${RED}%s${NC}\n" "Are you sure you want to reset vscode settings and keybindings? (Y/n)"
 
 while read -s response; do
     case $response in
@@ -42,7 +42,7 @@ cat > $HOME/.config/Code/User/settings.json <<-EOF
     "editor.scrollbar.vertical": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 0,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Quiet Light",
+    "workbench.colorTheme": "Default Light+",
     "workbench.activityBar.visible": false,
     "breadcrumbs.enabled": false,
     "workbench.tree.renderIndentGuides": "none",

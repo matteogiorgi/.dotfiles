@@ -4,14 +4,6 @@
 # BIN
 /bin/.local/share/man/man1/ipython.1.gz
 
-# BROOT
-/broot/.config/broot/launcher/*
-
-# THEMES
-/themes/.icons/default/*
-/themes/.config/qt5ct/*
-!/themes/.config/qt5ct/colors
-
 # VIM
 /vim/.vim-viminfo-local
 /vim/.vim/.netrwhist
@@ -19,9 +11,3 @@
 /vim/.vim/undodir/*
 /vim/.vim/cache/*
 /vim/.vim/sessions/*
-
-# AUTOSTART
-/autostart/.config/autostart/*
-!/autostart/.config/autostart/kalu.desktop
-!/autostart/.config/autostart/kupfer.desktop
-!/autostart/.config/autostart/ferdi.desktop

@@ -1,5 +1,5 @@
 ######################################################
-#                      DOOM BASH                     #
+#                      BASH CONF                     #
 ######################################################
 
 
@@ -62,8 +62,8 @@ export EDITOR="amp" && [[ -f /bin/vim ]] && export EDITOR="vim"
 [[ -f /bin/zathura ]] && export READER="zathura"
 [[ -f $HOME/go ]] && export GOPATH="$HOME/go"
 
-# better not to export $TERM: problems with broot image preview
-export TERM="xterm-256color"  # xterm-kitty,xterm-256color,screen-256color
+# possible $TERM values are: xterm-kitty, xterm-256color or screen-256color
+export TERM="xterm-256color"
 
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
@@ -83,9 +83,6 @@ export OPEN='swallow'
 
 # fm6000, pfetch or ufetch
 [[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
-
-# broot
-[[ -f $HOME/.config/broot/launcher/bash/br ]] && source $HOME/.config/broot/launcher/bash/br
 
 # fzf
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
