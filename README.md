@@ -130,8 +130,8 @@ EOF
 
 ### Browsers
 
-- brave   (chromium web-browser) [media-player]
-- firefox (mozilla web-browser) [ublock-origin, brave-search]
+- brave (chromium based web-browser) [media-player]
+- vieb  (vim-like electron-based browser)
 
 
 ### Very useful gui programs
@@ -143,6 +143,7 @@ EOF
 - networkmanager (network connections)
 - blueman        (bluetooth connections)
 - cups           (printing system)
+- stow           (symlink manager)
 
 
 ### Other stuff

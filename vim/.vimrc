@@ -30,6 +30,13 @@ augroup end
 "}}}
 
 
+" Save last session{{{
+augroup vimleave
+    autocmd VimLeave * mksession! ~/.lastvim
+augroup end
+"}}}
+
+
 " Plugin list{{{
 call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'

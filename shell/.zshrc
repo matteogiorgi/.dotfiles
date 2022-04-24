@@ -412,6 +412,7 @@ alias rover="_rover"
 alias tig="_tig"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
 alias vi="vim --noplugin -n -i NONE"
+alias vs="vim -S ~/.lastvim"
 
 # aliases for cat, less, top
 alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"
@@ -474,7 +475,7 @@ bindkey -s '\el' 'launch^M'          # [L] launch
 bindkey -s '\ey' 'tig^M'             # [Y] tig
 bindkey -s '\eu' 'rover^M'           # [U] rover
 bindkey -s '\ei' 'shfm^M'            # [I] shfm
-bindkey -s '\eo' 'vim .^M'           # [O] vim
+bindkey -s '\eo' 'vs^M'              # [O] vim
 
 
 
