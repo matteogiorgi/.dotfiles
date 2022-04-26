@@ -32,9 +32,8 @@ hc keybind Alt-q        spawn dm-quit
 hc keybind Alt-w        spawn dm-wacom
 hc keybind Alt-e        spawn dm-note
 hc keybind Alt-a        spawn dm-key
-hc keybind Alt-s        spawn scratch term-1
+hc keybind Alt-s        spawn $SCRIPTPATH/hlwm-scratch
 hc keybind Alt-d        spawn $Drop $Term
-hc keybind Alt-0        spawn $SCRIPTPATH/hlwm-scratch
 
 # focusing clients
 hc keybind $Mod-h focus left
