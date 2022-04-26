@@ -130,7 +130,7 @@ EOF
 
 ### Browsers
 
-- brave (chromium based web-browser) [media-player]
+- brave (chromium-based web-browser) [media-player]
 - vieb  (vim-like electron-based browser)
 
 

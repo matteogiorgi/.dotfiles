@@ -27,14 +27,3 @@ nmap <buffer> D D
 nmap <buffer> c mtmc
 nmap <buffer> m mtmm
 nmap <buffer> x mx
-
-" smalls plugin
-if &rtp =~ 'vim-smalls'
-    nmap <buffer> s <Plug>(smalls)
-    omap <buffer> s <Plug>(smalls)
-    xmap <buffer> s <Plug>(smalls)
-endif
-
-" jump and back
-nmap <buffer> <Tab> :wincmd w<cr>
-nmap <buffer> <Backspace> :b#<cr>

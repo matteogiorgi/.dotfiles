@@ -13,10 +13,11 @@ xsetroot -solid '#44475a'
 ## KEYBINDS
 ###########
 
-hc keyunbind --all  # remove keybindings
-Mod=Mod4            # super key modifier
-Term="alacritty"    # preferred terminal
-Shell="zsh"         # preferred shell
+hc keyunbind --all
+Mod=Mod4
+Term="alacritty"
+Shell="zsh"
+Drop="tdrop -w 60% -h 60% -x 20% -y 10% -am -s tdrop"
 
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Shift-q quit
@@ -31,8 +32,9 @@ hc keybind Alt-q        spawn dm-quit
 hc keybind Alt-w        spawn dm-wacom
 hc keybind Alt-e        spawn dm-note
 hc keybind Alt-a        spawn dm-key
-hc keybind Alt-s        spawn $SCRIPTPATH/hlwm-scratch
-hc keybind Alt-d        spawn tdrop -w 60% -h 60% -x 20% -y 10% -am -s tdrop $Term
+hc keybind Alt-s        spawn scratch term-1
+hc keybind Alt-d        spawn $Drop $Term
+hc keybind Alt-0        spawn $SCRIPTPATH/hlwm-scratch
 
 # focusing clients
 hc keybind $Mod-h focus left

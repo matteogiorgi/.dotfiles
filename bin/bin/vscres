@@ -6,21 +6,16 @@
 RED='\033[1;36m'
 YLW='\033[1;35m'
 NC='\033[0m'
-printf "${YLW}%s${RED}%s${NC}\n" "Are you sure you want to reset vscode settings and keybindings? (Y/n)"
+printf "${RED}%s${NC}\n" "Reset Code settings and keybindings? (Y/n)"
 
 while read -s response; do
     case $response in
         "y" | "Y" | "yes" | "Yes")
             break
             ;;
-
-        "n" | "N" | "no" | "No" | "")
-            printf "All right then, you still got your confs.\n"
-            exit
-            ;;
-
         *)
-            printf "${YLW}%s${NC}\n" "You need to answare y(yes) or n(no)"
+            printf "${YLW}%s${NC}\n" "You still got your confs."
+            exit 0
             ;;
     esac
 done
@@ -47,6 +42,7 @@ cat > $HOME/.config/Code/User/settings.json <<-EOF
     "breadcrumbs.enabled": false,
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
+    "telemetry.telemetryLevel": "off",
 }
 EOF
 
@@ -55,4 +51,4 @@ cat > $HOME/.config/Code/User/keybindings.json <<-EOF
 }
 EOF
 
-printf "Done.\n"
+printf "${YLW}%s${NC}\n" "Done."

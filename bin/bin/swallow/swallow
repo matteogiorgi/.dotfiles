@@ -11,7 +11,7 @@ echo "$1" | grep "\.sent$" && {
 }
 
 
-# mpv, sxiv, zathura, rover, vim:
+# mpv, sxiv, zathura, rover, amp:
 # pidof/pgrep sxiv || xhide "sxiv -a" "$*"
 
 case $(file --mime-type "$*" -bL) in
@@ -33,6 +33,6 @@ case $(file --mime-type "$*" -bL) in
         rover "$*"
         ;;
     *)
-        "${EDITOR:=vim}" "$*"
+        amp "$*"
         ;;
 esac
