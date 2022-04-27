@@ -448,6 +448,9 @@ alias xpipes="pipes -n 5 -i 0.025"
 autoload -U compinit
 compinit
 
+# vi mode
+bindkey -v
+
 # unbind default fzf keybindings
 bindkey -r '\ec'
 bindkey -r '^R'
