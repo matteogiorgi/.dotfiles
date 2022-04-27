@@ -1,6 +1,8 @@
 # Dotfiles
 
-These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info.
+These repo contains my major dotfiles. I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and it's sweet, [click clack](https://matteogiorgi.github.io/config.html) for more info. After trying tonnes of window managers, I've settled with [Herbstluftwm](https://herbstluftwm.org/) as my primary choice, usually together with vanilla Gnome (there's no need of `gnome-extra` but remember to install `dconf-editor`, it's quite usefull when it comes of dealing gnome confs). I like my system clean and minimal, so the scripts are in good order and well readable but there wont be no more than the bare essentials.
+
+Below there is a list of utilities usefull in everyday life, a detailed documentation and installer-script will come soon.
 
 
 
@@ -160,9 +162,3 @@ EOF
 - gnome-themes-extra (extra themes for gnome)
 - adwaita-qt         (qt5 adwaita look-a-like)
 - adwaita-icon-theme (gnome standard icons)
-
-
-##### language package managers
-
-- pip   (python package manager) `curl -sS https://bootstrap.pypa.io/get-pip.py | python3.10`
-- cargo (rust package manager)
