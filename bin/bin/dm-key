@@ -26,13 +26,16 @@ case "$choice" in
         xmodmap ~/.Xmodmap
         ;;
     Touch)
+        TOUCH=$(xinput | grep Touchpad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+        [[ $TOUCH == "" ]] && TOUCH=$(xinput | grep TouchPad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+
         choice=$(echo -e "Enable\nDisable" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
         case "$choice" in
             "Enable")
-                xinput set-prop $(xinput | grep Touchpad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') "Device Enabled" 1
+                xinput set-prop $TOUCH "Device Enabled" 1
                 ;;
             "Disable")
-                xinput set-prop $(xinput | grep Touchpad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') "Device Enabled" 0
+                xinput set-prop $TOUCH "Device Enabled" 0
                 ;;
             *)
                 exit 1

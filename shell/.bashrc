@@ -115,7 +115,9 @@ function xtouchpad () {
         echo "specify if you want to enable (1) or disable (0) your touchpad"
         return
     fi
-    xinput set-prop $(xinput | grep Touchpad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') "Device Enabled" $1
+    TOUCH=$(xinput | grep Touchpad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    [[ $TOUCH == "" ]] && TOUCH=$(xinput | grep TouchPad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    xinput set-prop $TOUCH "Device Enabled" $1
 }
 
 # Set input to a single monitor (check output monitor with xrandr)
@@ -124,28 +126,28 @@ function xwacom-output () {
     if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]]; then
         [[ $1 -eq 2 ]] && MONITOR=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
     fi
-    xinput map-to-output $(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
+    xinput map-to-output $(xinput | grep "M Pen stylus" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
 }
 
 # Rotate Wacom input (xsetwacom needed)
 function xwacom-rotate () {
-    local xwacomid=$(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    local XWACOMID=$(xinput | grep "M Pen stylus" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
     if (( $# == 0 )); then
-        xsetwacom --set $xwacomid Rotate half
+        xsetwacom --set $XWACOMID Rotate half
         return
     fi
     case $1 in
         "0")
-            xsetwacom --set $xwacomid Rotate none
+            xsetwacom --set $XWACOMID Rotate none
             ;;
         "1")
-            xsetwacom --set $xwacomid Rotate ccw
+            xsetwacom --set $XWACOMID Rotate ccw
             ;;
         "2")
-            xsetwacom --set $xwacomid Rotate half
+            xsetwacom --set $XWACOMID Rotate half
             ;;
         "3")
-            xsetwacom --set $xwacomid Rotate cw
+            xsetwacom --set $XWACOMID Rotate cw
             ;;
         *)
             echo "enter a position from 0 to 3"

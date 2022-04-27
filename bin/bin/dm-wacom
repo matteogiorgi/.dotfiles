@@ -17,11 +17,11 @@ case "$choice" in
                 exit 1
                 ;;
         esac
-        xinput map-to-output $(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $WACOMON
+        xinput map-to-output $(xinput | grep "M Pen stylus" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $WACOMON
         ;;
     Rotate)
         choice=$(echo -e "0°\n90°\n180°\n270°" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
-        XWACOMID=$(xinput | grep stylus | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+        XWACOMID=$(xinput | grep "M Pen stylus" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
         case "$choice" in
             "0°")
                 xsetwacom --set $XWACOMID Rotate none
