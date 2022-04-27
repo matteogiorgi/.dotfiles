@@ -404,9 +404,11 @@ alias xpaste-file="xclip-pastefile"
 alias xcut-file="xclip-cutfile"
 
 # pacman and paru aliases
-alias pacsyu='sudo pacman -Syyu'      # pacman update
-alias parsyu='paru -Syu --noconfirm'  # paru update
-alias parsua='paru -Sua --noconfirm'  # paru aur update
+alias packey="sudo pacman -S archlinux-keyring"
+alias pacsyy='sudo pacman -Syy'
+alias pacsyu='sudo pacman -Syyu'
+alias parsyu='paru -Syu --noconfirm'
+alias parsua='paru -Sua --noconfirm'
 
 # aliases for shfm, rover, tig, sxiv and vim
 alias shfm="_shfm"
