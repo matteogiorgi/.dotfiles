@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
-MONITOR=1 && [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && MONITOR=0
 
 hc() { herbstclient "$@" ; }
 hc emit_hook reload
@@ -189,6 +188,5 @@ xmodmap ~/.Xmodmap
 
 $SCRIPTPATH/hlwm-sxhkd
 $SCRIPTPATH/hlwm-polybar $($SCRIPTPATH/hlwm-monitor)
-$SCRIPTPATH/hlwm-picom $MONITOR
 $SCRIPTPATH/hlwm-wallpaper
 $SCRIPTPATH/hlwm-sysicons

@@ -48,7 +48,6 @@ EOF
 - herbstluftwm (tiling window-manager)
 - sxhkd        (independent keybindings)
 - polybar      (statusbar)
-- picom        (compositor)
 - dmenu        (suckless menu)
 - slock        (suckless lock)
 - paru         (aur package manager)
@@ -77,7 +76,7 @@ EOF
 ### Shells and terminal multiplexers
 
 - bash  (bourne again shell)
-- zsh   (bash on steroids)
+- zsh   (bash on steroids) [zsh-syntax-highlighting]
 - xonsh (python powered shell) `python -m pip install 'xonsh[full]'`
 
 
@@ -157,7 +156,7 @@ EOF
 - xdo                (perform action on windows)
 - feh                (image viewer)
 - imagemagick        (image manipulation)
-- delta              (git pager)
+- bluez              (bluetooth shit) [bluez-utils]
 - gnome-themes-extra (extra themes for gnome)
 - adwaita-qt         (qt5 adwaita look-a-like)
 - adwaita-icon-theme (gnome standard icons)
