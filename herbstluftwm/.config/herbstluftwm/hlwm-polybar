@@ -5,7 +5,13 @@ export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 if [[ -x "$(command -v polybar)" ]]; then
     killall -q polybar
     while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
     SYS_POWER_SUPPLY_DIR="/sys/class/power_supply"
-    [[ -e $SYS_POWER_SUPPLY_DIR/BAT0 ]] && battery="BAT0" || [[ -e $SYS_POWER_SUPPLY_DIR/BAT1 ]] && battery="BAT1"
-    MONITOR=$1 BATTERY=$battery ADAPTER="ADP1" polybar -c $SCRIPTPATH/polybar.ini --reload master &
+    if [ -e $SYS_POWER_SUPPLY_DIR/BAT0 ]; then
+        battery="BAT0"
+    elif [ -e $SYS_POWER_SUPPLY_DIR/BAT1 ]; then
+        battery="BAT1"
+    fi
+
+    MONITOR=$1 BATTERY="$battery" ADAPTER="ADP1" polybar -c $SCRIPTPATH/polybar.ini --reload master &
 fi
