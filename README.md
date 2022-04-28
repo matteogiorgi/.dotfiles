@@ -131,8 +131,9 @@ EOF
 
 ### Browsers
 
-- brave (chromium-based web-browser) [media-player]
-- vieb  (vim-like electron-based browser)
+- librewolf (firefox-based web-browser)
+- brave     (chromium-based web-browser) [media-player]
+- vieb      (vim-like electron-based browser)
 
 
 ### Very useful gui programs
