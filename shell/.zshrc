@@ -404,6 +404,7 @@ alias xpaste-file="xclip-pastefile"
 alias xcut-file="xclip-cutfile"
 
 # pacman and paru aliases
+alias pacche="sudo paccache -r"
 alias packey="sudo pacman -S archlinux-keyring"
 alias pacsyy='sudo pacman -Syy'
 alias pacsyu='sudo pacman -Syyu'
