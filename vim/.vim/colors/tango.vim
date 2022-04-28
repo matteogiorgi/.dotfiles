@@ -23,13 +23,11 @@ highlight Todo	     guibg=#ce5c00 guifg=#eeeeec
 "}}}
 
 " {{{ groups
-highlight Cursor       guibg=#babdb6 guifg=#2e3436
 highlight Directory    guifg=#bbd0df
 highlight VertSplit    guibg=#555753 guifg=#2e3436 gui=none
 highlight Folded       guibg=#555753 guifg=#eeeeec
 highlight FoldColumn   guibg=#2e3436 guifg=#555753
 highlight LineNr       guibg=#2e3436 guifg=#555753
-highlight MatchParen   guibg=#babdb6 guifg=#2e3436
 highlight ModeMsg      guifg=#ce5c00
 highlight NonText      guibg=#2e3436 guifg=#555753
 highlight Question     guifg=#aabbcc
@@ -49,5 +47,8 @@ highlight CursorLine   guibg=#232829 gui=none cterm=none
 highlight CursorLineNr guibg=#2e3436 guifg=#555753 gui=bold cterm=bold
 highlight ColorColumn  guibg=#232829
 " }}}
+
+" highlight Cursor       guibg=#babdb6 guifg=#2e3436
+" highlight MatchParen   guibg=#babdb6 guifg=#2e3436
 
 "vim: sw=4

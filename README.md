@@ -150,6 +150,7 @@ EOF
 
 ### Other stuff
 
+- pacman-contrb      (pacman scrips and tools)
 - pamixer            (pulseaudio command-line mixer)
 - xorg-xrandr        (interface to RandR extension) [autorandr]
 - xorg-xrdb          (menage Xresources)
