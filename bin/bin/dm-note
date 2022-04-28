@@ -1,33 +1,16 @@
 #!/usr/bin/env bash
 
 MONITOR=1 && [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && MONITOR=0
-choice=$(echo -e "New-note\nView-notes\nClear-notes" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+DATE=$(date +%d\ %b\ %Y\ \(%H:%M\))
+NOTE=$(echo -e "Input new note" | dmenu -m $MONITOR)
 
-Term="alacritty"
-Shell="zsh"
+[[ $NOTE = "clear" ]] && rm $HOME/.notes.md && exit 0
+[[ $NOTE = "" ]] && exit 1
 
-case "$choice" in
-    New-note)
-        $Term -e note
-        ;;
-    View-notes)
-        [[ -f ~/.note.md ]] && $Term -e slides ~/.note.md || $Term -e $Shell -c 'printf "%s " "No notes available, press ENTER to continue"; read ans'
-        ;;
-    Clear-notes)
-        choice=$(echo -e "Yes\nNo" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
-        case "$choice" in
-            Yes)
-                trash ~/.note.md
-                ;;
-            No)
-                exit 0
-                ;;
-            *)
-                exit 1
-                ;;
-        esac
-        ;;
-    *)
-        exit 1
-        ;;
-esac
+[[ -f $HOME/.note.md ]] && echo "---" >> $HOME/.note.md
+
+cat >> $HOME/.notes.md <<-EOF
+# $DATE
+$NOTE
+
+EOF

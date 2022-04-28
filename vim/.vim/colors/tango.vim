@@ -39,7 +39,7 @@ highlight StatusLineNC guibg=#555753 guifg=#eeeeec gui=none cterm=none
 highlight TabLine      guibg=#555753 guifg=#eeeeec gui=none cterm=none
 highlight TabLineSel   guibg=#555753 guifg=#eeeeec gui=bold cterm=bold
 highlight TabLineFill  guibg=#555753 guifg=#555753
-highlight Visual       guibg=#232829
+highlight Visual       guibg=#3465a4
 highlight WarningMsg   guifg=salmon
 highlight Pmenu        guibg=#babdb6 guifg=#555753
 highlight PmenuSel     guibg=#eeeeec guifg=#2e3436
