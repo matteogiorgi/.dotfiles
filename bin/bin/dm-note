@@ -7,10 +7,9 @@ NOTE=$(echo -e "NEW NOTE" | dmenu -m $MONITOR)
 [[ $NOTE = "clear" ]] && rm $HOME/.notes.md && exit 0
 [[ $NOTE = "" ]] && exit 1
 
-[[ -f $HOME/.notes.md ]] && echo "---" >> $HOME/.notes.md
+[[ -f $HOME/.notes.md ]] && echo $'\n---\n' >> $HOME/.notes.md
 
 cat >> $HOME/.notes.md <<-EOF
 # $DATE
 $NOTE
-
 EOF
