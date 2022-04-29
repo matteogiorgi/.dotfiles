@@ -277,6 +277,7 @@ alias pacche="sudo paccache -r"
 alias packey="sudo pacman -S archlinux-keyring"
 alias pacsyy='sudo pacman -Syy'
 alias pacsyu='sudo pacman -Syyu'
+alias parche='paru -Scc'
 alias parsyu='paru -Syu --noconfirm'
 alias parsua='paru -Sua --noconfirm'
 
