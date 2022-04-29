@@ -2,12 +2,12 @@
 
 MONITOR=1 && [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && MONITOR=0
 DATE=$(date +%d\ %b\ %Y\ \(%H:%M\))
-NOTE=$(echo -e "Input new note" | dmenu -m $MONITOR)
+NOTE=$(echo -e "NEW NOTE" | dmenu -m $MONITOR)
 
 [[ $NOTE = "clear" ]] && rm $HOME/.notes.md && exit 0
 [[ $NOTE = "" ]] && exit 1
 
-[[ -f $HOME/.note.md ]] && echo "---" >> $HOME/.note.md
+[[ -f $HOME/.notes.md ]] && echo "---" >> $HOME/.notes.md
 
 cat >> $HOME/.notes.md <<-EOF
 # $DATE
