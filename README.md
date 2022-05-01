@@ -71,7 +71,8 @@ EOF
 ### Text editors
 
 - amp  (rustmade text editor)
-- vim  (THE true text editor)
+- kak  (unix-flavored text editor)
+- vim  (THE text editor)
 - code (electron editor/ide)
 
 
@@ -157,6 +158,8 @@ EOF
 - xorg-xmodmap       (menage Xmodmap)
 - xsettingsd         (x11 application settings)
 - xdotool            (x11 automation tool)
+- xclip              (x11 selections interface)
+- words              (/usr/share/dict collection)
 - xdo                (perform action on windows)
 - feh                (image viewer)
 - imagemagick        (image manipulation)
