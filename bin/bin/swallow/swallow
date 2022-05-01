@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+
+### greppers (vim as main editor)
+#################################
+
 echo "$*" | grep "\.ar\." && {
     xhide xterm -e "${EDITOR:=vim}" "$*" &
     exit
@@ -11,8 +15,10 @@ echo "$1" | grep "\.sent$" && {
 }
 
 
-# mpv, sxiv, zathura, rover, kak/amp:
-# pidof/pgrep sxiv || xhide "sxiv -a" "$*"
+
+
+### mime-type opener (mpv, sxiv, zathura, rover, kak)
+#####################################################
 
 case $(file --mime-type "$*" -bL) in
     audio/*)

@@ -1,4 +1,8 @@
-let g:notebrowser = 'xhide librewolf'
+" notewiki conf
+" let g:notebrowser = 'xhide librewolf'
+
+
+" pandoc conf
 let g:pandoc#syntax#conceal#use = 1
 let g:pandoc#syntax#conceal#blacklist = []
 let g:pandoc#syntax#conceal#urls = 1
