@@ -1,7 +1,7 @@
-# User preference
-# ───────────────
+### User preference
+###################
 
-colorscheme dracula
+colorscheme default
 
 set global indentwidth 4
 set global tabstop 4
@@ -34,8 +34,8 @@ hook global InsertCompletionShow .* %{
 
 
 
-# Enable editor config
-# ────────────────────
+### Enable editor config
+########################
 
 hook global BufOpenFile .* %{ editorconfig-load }
 hook global BufNewFile .* %{ editorconfig-load }
@@ -43,8 +43,8 @@ hook global BufNewFile .* %{ editorconfig-load }
 
 
 
-# Filetype specific hooks
-# ───────────────────────
+### Filetype specific hooks
+###########################
 
 hook global WinSetOption filetype=(c|cpp) %{
     clang-enable-autocomplete 
@@ -64,8 +64,8 @@ map -docstring "xml tag objet" global object t %{c<lt>([\w.]+)\b[^>]*?(?<lt>!/)>
 
 
 
-# Highlight the word under the cursor
-# ───────────────────────────────────
+### Highlight the word under the cursor
+#######################################
 
 set-face global CurWord default,rgba:80808040
 
@@ -81,16 +81,16 @@ hook global NormalIdle .* %{
 
 
 
-# Custom mappings
-# ───────────────
+### Custom mappings
+###################
 
 map global normal = ':prompt math: %{exec "a%val{text}<lt>esc>|bc<lt>ret>"}<ret>'
 
 
 
 
-# System clipboard handling
-# ─────────────────────────
+### System clipboard handling
+#############################
 
 evaluate-commands %sh{
     case $(uname) in
@@ -108,8 +108,8 @@ evaluate-commands %sh{
 
 
 
-# Various mappings
-# ────────────────
+### Various mappings
+####################
 
 map global normal '#' :comment-line<ret>
 
@@ -127,8 +127,8 @@ hook global -always BufOpenFifo '\*make\*' %{ map -- global normal - ': make-nex
 
 
 
-# Enable <tab>/<s-tab> for insert completion selection
-# ──────────────────────────────────────────────────────
+### Enable <tab>/<s-tab> for insert completion selection
+########################################################
 
 hook global InsertCompletionShow .* %{ map window insert <tab> <c-n>; map window insert <s-tab> <c-p> }
 hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n>; unmap window insert <s-tab> <c-p> }
@@ -136,8 +136,8 @@ hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n>; unmap wi
 
 
 
-# Helper commands
-# ───────────────
+### Helper commands
+###################
 
 define-command find -menu -params 1 -shell-script-candidates %{ ag -g '' --ignore "$kak_opt_ignored_files" } %{ edit %arg{1} }
 
@@ -196,16 +196,16 @@ define-command gdb-server -params .. %{
 
 
 
-# Load local Kakoune config file if it exists
-# ───────────────────────────────────────────
+### Load local Kakoune config file if it exists
+###############################################
 
 evaluate-commands %sh{ [ -f $kak_config/local.kak ] && echo "source $kak_config/local.kak" }
 
 
 
 
-# vim old habits
-# ───────────────────────────────────────────
+### vim old habits
+##################
 
 map global normal D '<a-l>d' -docstring 'delete to end of line'
 map global normal Y '<a-l>y' -docstring 'yank to end of line'

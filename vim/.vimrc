@@ -66,7 +66,7 @@ endif
 " Color syntax{{{
 syntax on
 set background=dark
-colorscheme tango
+colorscheme landscape
 filetype plugin indent on
 "}}}
 

@@ -1,4 +1,4 @@
-let g:notebrowser = 'xhide pcmanfm'
+let g:notebrowser = 'xhide librewolf'
 let g:pandoc#syntax#conceal#use = 1
 let g:pandoc#syntax#conceal#blacklist = []
 let g:pandoc#syntax#conceal#urls = 1
