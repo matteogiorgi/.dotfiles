@@ -71,7 +71,6 @@ EOF
 ### Text editors
 
 - amp  (rustmade text editor)
-- kak  (unix-flavored text editor)
 - vim  (THE text editor)
 - code (electron editor/ide)
 

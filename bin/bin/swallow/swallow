@@ -17,7 +17,7 @@ echo "$1" | grep "\.sent$" && {
 
 
 
-### mime-type opener (mpv, sxiv, zathura, rover, kak)
+### mime-type opener (mpv, sxiv, zathura, rover, amp)
 #####################################################
 
 case $(file --mime-type "$*" -bL) in
@@ -29,16 +29,16 @@ case $(file --mime-type "$*" -bL) in
     video/*)
         xhide "mpv --force-window '$*'"
         ;;
-    image/*)
-        xhide "~/.config/sxiv/supersxiv '$*'"
-        ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
         xhide "zathura '$*'"
+        ;;
+    image/*)
+        xhide "~/.config/sxiv/supersxiv '$*'"
         ;;
     inode/directory)
         rover "$*"
         ;;
     *)
-        kak "$*"
+        amp "$*"
         ;;
 esac

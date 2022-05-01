@@ -120,13 +120,13 @@ NC="\e[m"               # Color Reset
 
 
 
-### Environment variables (remember to install vim, kak, brave, zathura)
-########################################################################
+### Environment variables (remember to install vim, brave, zathura)
+###################################################################
 
 export PAGER="less" && [[ -f /bin/vimpager ]] && export PAGER="vimpager"
 export MANPAGER="less" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"
-[[ -f /bin/kak ]] && export VISUAL="kak" || [[ -f /bin/vim ]] && export VISUAL="vim"
-[[ -f /bin/kak ]] && export EDITOR="kak" || [[ -f /bin/vim ]] && export EDITOR="vim"
+[[ -f /bin/vim ]] && export VISUAL="vim"
+[[ -f /bin/vim ]] && export EDITOR="vim"
 [[ -f /bin/brave ]] && export BROWSER="brave"
 [[ -f /bin/zathura ]] && export READER="zathura"
 [[ -f $HOME/go ]] && export GOPATH="$HOME/go"

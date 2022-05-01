@@ -1,5 +1,5 @@
 " notewiki conf
-" let g:notebrowser = 'xhide librewolf'
+let g:notebrowser = 'xhide librewolf'
 
 
 " pandoc conf
