@@ -482,11 +482,10 @@ bindkey    '\eh' fzf-history-widget  # [H] fuzzy-history
 bindkey    '\ej' fzf-cd-widget       # [J] fuzzy-jump
 bindkey    '\ek' fzf-file-widget     # [K] fuzzy-finder
 bindkey -s '\el' 'launch^M'          # [L] launch
-bindkey -s '\ey' 'noteblock^M'       # [Y] noteblock
 bindkey -s '\eu' 'rover^M'           # [U] rover
 bindkey -s '\ei' 'shfm^M'            # [I] shfm
 bindkey -s '\eo' 'vs^M'              # [O] vim
-bindkey -s '\ep' 'tig^M'             # [P] tig
+bindkey -s '\ep' 'vim .^M'           # [P] tig
 
 
 

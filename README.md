@@ -70,9 +70,9 @@ EOF
 
 ### Text editors
 
-- amp  (rustmade text editor)
-- vim  (THE text editor)
-- code (electron editor/ide)
+- amp         (rustmade text editor)
+- vim         (THE text editor)
+- code/codium (electron editor/ide) [vscodium-marketplace]
 
 
 ### Shells and terminal multiplexers
