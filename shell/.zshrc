@@ -444,7 +444,7 @@ alias lockscreen="echo -e 'Install slock: https://github.com/matteogiorgi/slock'
 
 # other aliases
 alias xpipes="pipes -n 5 -i 0.025"
-alias noteblock="[[ -f $HOME/.notes.md ]] && amp $HOME/.notes.md || echo 'No notes available.'"
+alias noteblock="[[ -f $HOME/.noteblock ]] && amp $HOME/.noteblock || echo 'No notes available.'"
 
 
 
