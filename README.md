@@ -145,11 +145,11 @@ EOF
 - networkmanager (network connections)
 - blueman        (bluetooth connections)
 - cups           (printing system)
-- stow           (symlink manager)
 
 
 ### Other stuff
 
+- stow               (symlink manager)
 - pacman-contrb      (pacman scrips and tools)
 - pamixer            (pulseaudio command-line mixer)
 - xorg-xrandr        (interface to RandR extension) [autorandr]
