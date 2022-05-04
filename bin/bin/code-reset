@@ -23,7 +23,10 @@ done
 cat 2>/dev/null > $HOME/.config/Code/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
+    "breadcrumbs.enabled": false,
+    "telemetry.telemetryLevel": "off",
     "window.menuBarVisibility": "toggle",
+    "window.restoreWindows": "none",
     "editor.fontFamily": "'Hasklig', 'mononoki Nerd Font', 'UbuntuMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
@@ -37,19 +40,20 @@ cat 2>/dev/null > $HOME/.config/Code/User/settings.json <<-EOF
     "editor.scrollbar.vertical": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 0,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Quiet Light",
     "workbench.activityBar.visible": false,
-    "breadcrumbs.enabled": false,
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
-    "telemetry.telemetryLevel": "off",
 }
 EOF
 
 cat 2>/dev/null > $HOME/.config/VSCodium/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
+    "breadcrumbs.enabled": false,
+    "telemetry.telemetryLevel": "off",
     "window.menuBarVisibility": "toggle",
+    "window.restoreWindows": "none",
     "editor.fontFamily": "'Hasklig', 'mononoki Nerd Font', 'UbuntuMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 12,
@@ -63,12 +67,10 @@ cat 2>/dev/null > $HOME/.config/VSCodium/User/settings.json <<-EOF
     "editor.scrollbar.vertical": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 0,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Quiet Light",
     "workbench.activityBar.visible": false,
-    "breadcrumbs.enabled": false,
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
-    "telemetry.telemetryLevel": "off",
 }
 EOF
 
