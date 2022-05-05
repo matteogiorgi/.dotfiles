@@ -7,8 +7,8 @@ RED='\033[1;36m'
 YLW='\033[1;35m'
 NC='\033[0m'
 
-printf "${RED}%s${NC}\n" "Reset Code/Codium settings and keybindings? (Y/n)"
-while read -s response; do
+printf "${RED}%s${NC} " "Reset Code/Codium settings and keybindings? (Y/n)"
+while read response; do
     case $response in
         "y" | "Y" | "yes" | "Yes")
             break

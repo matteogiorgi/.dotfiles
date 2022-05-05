@@ -11,21 +11,22 @@ for arg in "$@"; do
 		printf "${YLW}%s${RED}%s${YLW}%s${NC}\n" "No file with" " .$arg " "extention found in $PWD"
 		continue
 	fi
-	printf "${YLW}%s${RED}%s${YLW}%s${NC}\n" "Are you sure you wanna delete these" " .$arg " "files? (Y/n)"
+	printf "${RED}%s${YLW}%s${NC}\n" ".$arg " "files:"
 	for file in $list; do
 		echo $file
 	done
+	printf "${YLW}%s${NC} " "Are you sure you wanna delete them? (Y/n)"
 
-	while read -s response; do
+	while read response; do
 		case $response in
 			"y" | "Y" | "yes" | "Yes")
                 rm *.$arg
-                printf "$list removed.\n"
+                printf "$list\nremoved\n"
                 break
                 ;;
 
 			"n" | "N" | "no" | "No" | "")
-                printf "No file removed.\n"
+                printf "No file removed\n"
                 break
                 ;;
 
@@ -36,5 +37,5 @@ for arg in "$@"; do
 	done
 done
 
-echo -e "${YLW}done...${NC}"
+echo -e "${YLW}Done.${NC}"
 exit 0

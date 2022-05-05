@@ -129,13 +129,21 @@ export MANPAGER="less" && [[ -f /bin/vimpager ]] && export MANPAGER="vimpager"
 [[ -f /bin/vim ]] && export EDITOR="vim"
 [[ -f /bin/brave ]] && export BROWSER="brave"
 [[ -f /bin/zathura ]] && export READER="zathura"
-[[ -f $HOME/go ]] && export GOPATH="$HOME/go"
 
 # possible $TERM values are: xterm-kitty, xterm-256color or screen-256color
 export TERM="xterm-256color"
 
+# special Haskell exports (curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh)
+export GHCUP_BIN="$HOME/.ghcup/bin"
+export CABAL_BIN="$HOME/.cabal/bin"
+
+# other special exports
+export EMACS_BIN="$HOME/.emacs.d/bin"
+export CARGO_BIN="$HOME/.cargo/bin"
+export GOPATH_BIN="$HOME/go/bin"
+
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
-export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.emacs.d/bin"
+export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$EMACS_BIN:$GHCUP_BIN:$CABAL_BIN:$CARGO_BIN:$GOPATH_BIN"
 
 # better do not export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
@@ -150,7 +158,8 @@ export OPEN='swallow'
 ### Source plugins
 ##################
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f $HOME/Pictures/wallpapers/src ]] && source $HOME/Pictures/wallpapers/src
 
 
 
@@ -274,13 +283,6 @@ function keyboard-next () {
             ;;
     esac
     xmodmap ~/.Xmodmap
-}
-
-# Change wallpaper randomly (search inside ~/Pictures/wallpapers/wallogo)
-function bgrandom () {
-    cd $HOME/Pictures/wallpapers/wallogo
-    feh --bg-fill $( echo $( /usr/bin/ls -l | awk '{if (NR!=1) print $9}' | sort -R | tail -1 ))
-    cd - 1>/dev/null
 }
 
 # Edit office files from within vim (pandoc needed)
