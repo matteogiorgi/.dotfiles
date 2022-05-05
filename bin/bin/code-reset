@@ -7,20 +7,47 @@ RED='\033[1;36m'
 YLW='\033[1;35m'
 NC='\033[0m'
 
-printf "${RED}%s${NC} " "Reset Code/Codium settings and keybindings? (Y/n)"
+
+printf "${RED}%s${NC}\n" "Choose an editor"
+echo "1 VSCode"
+echo "2 VSCodium"
+printf "${RED}%s${NC} " "Enter an index (1-2):"
+
+
+while read response; do
+    case $response in
+        1)
+            editor="Code"
+            name="VSCode"
+            break
+            ;;
+        2)
+            editor="VSCodium"
+            name="VSCodium"
+            break
+            ;;
+        *)
+            printf "${RED}%s${NC} " "Enter an index (1-2):"
+            ;;
+    esac
+done
+
+
+printf "${RED}%s${NC} " "Are you sure you want to reset $name settings and keybindings? (Y/n)"
 while read response; do
     case $response in
         "y" | "Y" | "yes" | "Yes")
             break
             ;;
         *)
-            printf "${YLW}%s${NC}\n" "You still got your confs."
+            printf "${YLW}%s${NC}\n" "Ok, you still got your confs."
             exit 0
             ;;
     esac
 done
 
-cat 2>/dev/null > $HOME/.config/Code/User/settings.json <<-EOF
+
+cat 2>/dev/null > $HOME/.config/$editor/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
     "breadcrumbs.enabled": false,
@@ -41,47 +68,23 @@ cat 2>/dev/null > $HOME/.config/Code/User/settings.json <<-EOF
     "editor.scrollbar.verticalScrollbarSize": 0,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Quiet Light",
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
 }
 EOF
 
-cat 2>/dev/null > $HOME/.config/VSCodium/User/settings.json <<-EOF
-{
-    "keyboard.dispatch": "keyCode",
-    "breadcrumbs.enabled": false,
-    "telemetry.telemetryLevel": "off",
-    "window.menuBarVisibility": "toggle",
-    "window.restoreWindows": "none",
-    "editor.fontFamily": "'Hasklig', 'mononoki Nerd Font', 'UbuntuMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 12,
-    "editor.guides.indentation": false,
-    "editor.minimap.enabled": false,
-    "editor.folding": false,
-    "editor.cursorBlinking": "solid",
-    "editor.renderLineHighlight": "none",
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.scrollbar.horizontalScrollbarSize": 0,
-    "editor.scrollbar.vertical": "hidden",
-    "editor.scrollbar.verticalScrollbarSize": 0,
-    "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Quiet Light",
-    "workbench.activityBar.visible": false,
-    "workbench.tree.renderIndentGuides": "none",
-    "workbench.tree.indent": 20,
-}
-EOF
-
-cat 2>/dev/null > $HOME/.config/Code/User/keybindings.json <<-EOF
+cat 2>/dev/null > $HOME/.config/$editor/User/keybindings.json <<-EOF
 {
 }
 EOF
 
-cat 2>/dev/null > $HOME/.config/VSCodium/User/keybindings.json <<-EOF
-{
-}
-EOF
+
+unset editor
+unset name
+unset response
+unset RED
+unset YLW
+unset NC
 
 printf "${YLW}%s${NC}\n" "Done."
