@@ -33,7 +33,7 @@ while read response; do
 done
 
 
-printf "${RED}%s${NC} " "Are you sure you want to reset $name settings and keybindings? (Y/n)"
+printf "${RED}%s${YLW}%s${RED}%s${NC} " "Are you sure you want to reset " "$name" " settings and keybindings? (Y/n)"
 while read response; do
     case $response in
         "y" | "Y" | "yes" | "Yes")
@@ -80,11 +80,11 @@ cat 2>/dev/null > $HOME/.config/$editor/User/keybindings.json <<-EOF
 EOF
 
 
+printf "${YLW}%s${NC}\n" "Done."
+
 unset editor
 unset name
 unset response
 unset RED
 unset YLW
 unset NC
-
-printf "${YLW}%s${NC}\n" "Done."
