@@ -282,9 +282,9 @@ alias rmf="rm -rfi"
 # xclip copy-pasta
 alias copy="xclip -i -selection clipboard"
 alias pasta="xclip -o -selection clipboard"
-alias xcut="xclip-cutfile"
 alias xcopy="xclip-copyfile"
-alias xpaste="xclip-pastefile"
+alias xpasta="xclip-pastefile"
+alias xcut="xclip-cutfile"
 
 # pacman and paru aliases
 alias pacche="sudo paccache -r"
