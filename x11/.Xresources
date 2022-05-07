@@ -23,8 +23,8 @@ XTerm*locale: true
 XTerm*loginshell: true
 XTerm*savelines: 16384
 XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-XTerm*background: #2e3436
-XTerm*foreground: #ffffff
+XTerm*background: #FFFFFF
+XTerm*foreground: #171421
 XTerm*fullscreen: never
 
 XTerm.vt100.metaSendsEscape: true
@@ -38,7 +38,7 @@ XTerm.vt100.translations: #override \n\
 XTerm*cursorBlink: off
 XTerm*cursorOnTime: 400
 XTerm*cursorOffTime: 250
-XTerm*cursorColor: #bfbfbf
+XTerm*cursorColor: #171421
 
 
 
@@ -54,8 +54,8 @@ UXTerm*locale: true
 UXTerm*loginshell: true
 UXTerm*savelines: 16384
 UXTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-UXTerm*background: #2e3436
-UXTerm*foreground: #ffffff
+UXTerm*background: #FFFFFF
+UXTerm*foreground: #171421
 UXTerm*fullscreen: never
 
 UXTerm.vt100.metaSendsEscape: true
@@ -69,7 +69,7 @@ UXTerm.vt100.translations: #override \n\
 UXTerm*cursorBlink: off
 UXTerm*cursorOnTime: 400
 UXTerm*cursorOffTime: 250
-UXTerm*cursorColor: #bfbfbf
+UXTerm*cursorColor: #171421
 
 
 
@@ -77,40 +77,40 @@ UXTerm*cursorColor: #bfbfbf
 !!! sxiv config
 !!!!!!!!!!!!!!!
 
-Sxiv.background: #e1dedb
-Sxiv.foreground: #000000
+Sxiv.background: #D0CFCC
+Sxiv.foreground: #171421
 Sxiv.font: mononoki Nerd Font:style=regular:size=8.5
 
 
 
 
-!!! Tango palette
+!!! Gnome palette
 !!!!!!!!!!!!!!!!!
 
-*.background: #2e3436
-*.foreground: #ffffff
+*.background: #ffffff
+*.foreground: #171421
 
 ! black
-*.color0:     #2e3436
-*.color8:     #555753
+*.color0:     #171421
+*.color8:     #5E5C64
 ! red
-*.color1:     #cc0000
-*.color9:     #ef2929
+*.color1:     #C01C28
+*.color9:     #F66151
 ! green
-*.color2:     #4e9a06
-*.color10:    #8ae234
+*.color2:     #26A269
+*.color10:    #33D17A
 ! yellow
-*.color3:     #c4a000
-*.color11:    #fce94f
+*.color3:     #A2734C
+*.color11:    #E9AD0C
 ! blue
-*.color4:     #3465a4
-*.color12:    #729fcf
+*.color4:     #12488B
+*.color12:    #2A7BDE
 ! magenta
-*.color5:     #75507b
-*.color13:    #ad7fa8
+*.color5:     #A347BA
+*.color13:    #C061CB
 ! cyan
-*.color6:     #06989a
-*.color14:    #34e2e2
+*.color6:     #2AA1B3
+*.color14:    #33C7DE
 ! white
-*.color7:     #d3d7cf
-*.color15:    #eeeeec
+*.color7:     #D0CFCC
+*.color15:    #FFFFFF

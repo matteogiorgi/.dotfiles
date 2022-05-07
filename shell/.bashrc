@@ -77,6 +77,7 @@ export GOPATH_BIN="$HOME/go/bin"
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$EMACS_BIN:$GHCUP_BIN:$CABAL_BIN:$CARGO_BIN:$GOPATH_BIN"
 
 # better do not export FZF_DEFAULT_OPTS='--preview "bat --style=numbers --color=always --line-range :500 {}"'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#171421,bg:#ffffff,hl:#12488B --color=fg+:#171421,bg+:#d0cfcc,hl+:#2A7BDE'
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
@@ -220,9 +221,13 @@ function _shfm () {
 
 # Change directory exiting from rover
 function _rover () {
-    rover "$@" -d ~/.rover.tmp
-    cd "$(cat ~/.rover.tmp)"
-    rm -f ~/.rover.tmp
+    if command -v rover ; then
+        rover "$@" -d ~/.rover$$.tmp
+        cd "$(cat ~/.rover$$.tmp)"
+        rm -f ~/.rover$$.tmp
+    else
+        echo "rover is not installed"
+    fi
 }
 
 # Browse through images in directory after opening a single file
@@ -275,11 +280,11 @@ alias rm="rm -i"
 alias rmf="rm -rfi"
 
 # xclip copy-pasta
-alias xcopy="xclip -i -selection clipboard"
-alias xpaste="xclip -o -selection clipboard"
-alias xcopy-file="xclip-copyfile"
-alias xpaste-file="xclip-pastefile"
-alias xcut-file="xclip-cutfile"
+alias copy="xclip -i -selection clipboard"
+alias pasta="xclip -o -selection clipboard"
+alias xcut="xclip-cutfile"
+alias xcopy="xclip-copyfile"
+alias xpaste="xclip-pastefile"
 
 # pacman and paru aliases
 alias pacche="sudo paccache -r"
@@ -322,4 +327,4 @@ alias lockscreen="echo -e 'Install slock: https://github.com/matteogiorgi/slock'
 
 # other aliases
 alias xpipes="pipes -n 5 -i 0.025"
-alias noteblock="[[ -f $HOME/.noteblock ]] && amp $HOME/.noteblock || echo 'No notes available.'"
+alias noteblock="[[ -f $HOME/.noteblock ]] && ne $HOME/.noteblock || echo 'No notes available.'"

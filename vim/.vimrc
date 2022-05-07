@@ -65,8 +65,8 @@ endif
 
 " Color syntax{{{
 syntax on
-set background=dark
-colorscheme tango
+set background=light
+colorscheme gnome
 filetype plugin indent on
 "}}}
 

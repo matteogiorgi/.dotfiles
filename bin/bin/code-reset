@@ -67,8 +67,8 @@ cat 2>/dev/null > $HOME/.config/$editor/User/settings.json <<-EOF
     "editor.scrollbar.vertical": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 0,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Quiet Light",
-    "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "Default Light+",
+    "workbench.activityBar.visible": false,
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
 }

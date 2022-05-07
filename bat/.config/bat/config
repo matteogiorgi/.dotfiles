@@ -2,7 +2,7 @@
 # a command-line option that you want to pass to `bat` by default. You can
 # run `bat --help` to get a list of all possible configuration options.
 
---theme="base16"
+--theme="ansi"
 --italic-text=always
 --paging=never
 --pager="less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse"

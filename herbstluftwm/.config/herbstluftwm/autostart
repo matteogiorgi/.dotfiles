@@ -25,14 +25,13 @@ hc keybind $Mod-Shift-r reload
 # my programs
 hc keybind $Mod-Shift-x spawn xkill
 hc keybind $Mod-Shift-b spawn bgrandom
-hc keybind $Mod-Return  spawn kitty
+hc keybind $Mod-Return  spawn $Term
 hc keybind Alt-Return   spawn dm-run
 hc keybind Alt-q        spawn dm-quit
 hc keybind Alt-w        spawn dm-wacom
-hc keybind Alt-e        spawn dm-note
 hc keybind Alt-a        spawn dm-key
 hc keybind Alt-s        spawn $SCRIPTPATH/hlwm-scratch
-hc keybind Alt-d        spawn $Drop $Term
+hc keybind Alt-o        spawn $Drop $Term
 
 # focusing clients
 hc keybind $Mod-h focus left
@@ -108,10 +107,10 @@ hc keybind XF86AudioMute         spawn chvol mute
 
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
-hc set frame_border_active_color '#729fcf'
-hc set frame_border_normal_color '#555753'
-hc set frame_bg_active_color '#729fcf'
-hc set frame_bg_normal_color '#555753'
+hc set frame_border_active_color '#2A7BDE'
+hc set frame_border_normal_color '#5E5C64'
+hc set frame_bg_active_color '#2A7BDE'
+hc set frame_bg_normal_color '#5E5C64'
 hc set frame_border_width 2
 hc set always_show_frame 1
 hc set frame_bg_transparent 1
@@ -119,22 +118,22 @@ hc set frame_transparent_width 0
 hc set frame_padding -2
 hc set focus_follows_mouse 0
 
-hc attr theme.active.color '#729fcf'
-hc attr theme.normal.color '#555753'
-hc attr theme.urgent.color '#cc0000'
+hc attr theme.active.color '#2A7BDE'
+hc attr theme.normal.color '#5E5C64'
+hc attr theme.urgent.color '#F66151'
 hc attr theme.inner_width 0
 hc attr theme.outer_width 0
-hc attr theme.inner_color '#e1dedb'
-hc attr theme.outer_color '#e1dedb'
+hc attr theme.inner_color '#D0CFCC'
+hc attr theme.outer_color '#D0CFCC'
 hc attr theme.border_width 2
 hc attr theme.floating.border_width 2
 hc attr theme.floating.inner_width 0
 hc attr theme.floating.outer_width 0
-hc attr theme.floating.inner_color '#e1dedb'
-hc attr theme.floating.outer_color '#e1dedb'
-hc attr theme.active.inner_color '#729fcf'
-hc attr theme.active.outer_color '#729fcf'
-hc attr theme.background_color '#e1dedb'
+hc attr theme.floating.inner_color '#D0CFCC'
+hc attr theme.floating.outer_color '#D0CFCC'
+hc attr theme.active.inner_color '#2A7BDE'
+hc attr theme.active.outer_color '#2A7BDE'
+hc attr theme.background_color '#D0CFCC'
 
 hc set frame_gap 10
 hc set window_gap 0

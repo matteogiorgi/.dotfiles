@@ -17,8 +17,8 @@ echo "$1" | grep "\.sent$" && {
 
 
 
-### mime-type opener (mpv, sxiv, zathura, rover, amp)
-#####################################################
+### mime-type opener (mpv, sxiv, zathura, shfm, vim)
+####################################################
 
 case $(file --mime-type "$*" -bL) in
     audio/*)
@@ -36,9 +36,9 @@ case $(file --mime-type "$*" -bL) in
         xhide "~/.config/sxiv/supersxiv '$*'"
         ;;
     inode/directory)
-        rover "$*"
+        shfm "$*"
         ;;
     *)
-        amp "$*"
+        vim "$*"
         ;;
 esac

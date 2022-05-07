@@ -62,7 +62,7 @@ EOF
 - (u)xterm  (x11 terminal)
 
 
-### Terminal multiplexer
+### Multiplexers
 
 - kitty (fast terminal emulator)
 - tmux  (terminal multiplexer)
@@ -70,23 +70,15 @@ EOF
 
 ### Text editors
 
-- amp         (rustmade text editor)
-- vim         (THE text editor)
-- code/codium (electron editor/ide) [vscodium-marketplace]
+- ne   (nice editor)
+- vim  (vi improved)
+- code (electron editor/ide)
 
 
-### Shells and terminal multiplexers
+### Shells
 
-- bash  (bourne again shell)
-- zsh   (bash on steroids) [zsh-syntax-highlighting]
-- xonsh (python powered shell) `python -m pip install 'xonsh[full]'`
-
-
-### File managers and fuzzy finders
-
-- shfm  (fast file opener)
-- rover (simple file manager)
-- fzf   (go fuzzy finder)
+- bash (bourne again shell)
+- zsh  (bash on steroids) [zsh-syntax-highlighting]
 
 
 ### Enhanced optional utilities
@@ -101,18 +93,12 @@ EOF
 
 ### Other very useful utilities
 
+- fzf       (go fuzzy finder)
 - git       (version control)
 - tig       (git client)
 - atool     (archive manager)
 - trash-cli (trash utility)
 - calcurse  (calendar/agenda)
-
-
-### Document manipulation programs
-
-- texlive (document formatter)
-- pandoc  (markup converter) [panflute]
-- slides  (tui presentation) [perl-graph-easy]
 
 
 ### Media readers
@@ -122,7 +108,7 @@ EOF
 - sxiv    (image viewer)
 
 
-### Media tools
+### Editing tools
 
 - xournalpp    (note taker)
 - flameshot    (screenshot tool)
@@ -133,7 +119,6 @@ EOF
 
 - librewolf (firefox-based web-browser)
 - brave     (chromium-based web-browser) [media-player]
-- vieb      (vim-like electron-based browser)
 
 
 ### Very useful gui programs
@@ -166,3 +151,4 @@ EOF
 - gnome-themes-extra (extra themes for gnome)
 - adwaita-qt         (qt5 adwaita look-a-like)
 - adwaita-icon-theme (gnome standard icons)
+- pandoc             (markup converter) [panflute]
