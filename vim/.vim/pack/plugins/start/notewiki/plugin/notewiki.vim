@@ -4,7 +4,7 @@ let $beamerpages = fnamemodify('~/notewiki/beamer', ':p')
 let $htmlpages = fnamemodify('~/notewiki/html', ':p')
 
 if !exists('g:notebrowser')
-    let g:notebrowser = 'xdg-open'
+    let g:notebrowser = 'xhide $BROWSER'  "xdg-open
 endif
 
 
