@@ -208,7 +208,7 @@ function _tig () {
             tig
         fi
     else
-        printf "\n%s\n%s " "Not in a git repo" "Press enter to continue"; read ans
+        printf "%s\n%s " "Not in a git repo" "Press enter to continue"; read ans
     fi
 }
 
