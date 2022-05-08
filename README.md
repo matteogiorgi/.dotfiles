@@ -130,6 +130,7 @@ EOF
 - networkmanager (network connections)
 - blueman        (bluetooth connections)
 - cups           (printing system)
+- redshift       (adjust the color temperature)
 
 
 ### Other stuff
