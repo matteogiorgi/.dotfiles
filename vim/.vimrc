@@ -7,8 +7,6 @@
 "     vim-commentary ·········· https://github.com/tpope/vim-commentary
 "     autopairs ··············· https://github.com/jiangmiao/auto-pairs
 "     vim-ctrlp ··············· https://github.com/ctrlpvim/ctrlp.vim
-"     vim-smalls ·············· https://github.com/t9md/vim-smalls
-"     vim-notewiki ············ https://github.com/matteogiorgi/vim-notewiki
 
 
 
@@ -44,8 +42,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'jiangmiao/auto-pairs'
     Plug 'ctrlpvim/ctrlp.vim'
-    Plug 't9md/vim-smalls'
-    Plug 'matteogiorgi/vim-notewiki'
 call plug#end()
 "}}}
 
@@ -66,7 +62,7 @@ endif
 " Color syntax{{{
 syntax on
 set background=light
-colorscheme gnome
+colorscheme vanilla
 filetype plugin indent on
 "}}}
 
@@ -76,6 +72,7 @@ set exrc
 set title
 set shell=zsh  " zsh,bash
 set nocompatible
+set noesckeys
 set runtimepath+=~/.vim_runtime  " add whatever
 set clipboard=unnamedplus
 set number relativenumber mouse=a  " a,n,v,i,c
@@ -192,7 +189,9 @@ nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
 nnoremap <silent><C-j> :resize -5<CR>
 nnoremap <silent><C-k> :resize +5<CR>
-nnoremap <leader>e :E<CR>
+nnoremap <leader>s :%s///gc<Left><Left><Left>
+xnoremap <leader>s :s///gc<Left><Left><Left>
+nnoremap <leader>d :E<CR>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
@@ -204,7 +203,3 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 "}}}
-
-
-" nnoremap <leader>r :%s///gc<Left><Left><Left>
-" xnoremap <leader>r :s///gc<Left><Left><Left>

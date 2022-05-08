@@ -1,6 +1,6 @@
 syntax on
 set background=light
-colorscheme gnome
+colorscheme vanilla
 filetype plugin indent on
 
 if exists('+termguicolors') | set termguicolors | endif

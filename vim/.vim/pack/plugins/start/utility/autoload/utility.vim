@@ -158,7 +158,7 @@ function! utility#Rename(name, bang)
 endfunction
 "}}}
 
-" launchFM{{{
+" Launch on open{{{
 " Bclose is needed
 function! s:isdir(dir) abort
     let l:isempty = !empty(a:dir)

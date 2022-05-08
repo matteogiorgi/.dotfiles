@@ -19,7 +19,7 @@ if exists("syntax_on")
     syntax reset
 endif
 
-let colors_name = "default"
+let colors_name = "vanilla"
 
 hi VertSplit    gui=none cterm=none
 hi CursorLine   gui=none cterm=none
