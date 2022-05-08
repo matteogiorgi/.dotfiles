@@ -32,7 +32,7 @@ augroup end
 
 " Save last session{{{
 augroup vimleave
-    autocmd VimLeave * mksession! ~/.lastvim
+    autocmd VimLeave * mksession! ~/.session
 augroup end
 "}}}
 

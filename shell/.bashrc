@@ -215,13 +215,13 @@ function _tig () {
 # Change directory exiting from shfm
 function _shfm () {
     ~/bin/shfm/shfm "$@"
-    cd "$(cat ~/tmp.XXXXXX)"  # cd "$(command shfm "$@")"
-    rm -f ~/tmp.XXXXXX
+    cd "$(cat ~/.shfm.tmp)"  # cd "$(command shfm "$@")"
+    rm -f ~/.shfm.tmp
 }
 
 # Change directory exiting from rover
 function _rover () {
-    if command -v rover ; then
+    if command -v rover >/dev/null 2>&1; then
         rover "$@" -d ~/.rover$$.tmp
         cd "$(cat ~/.rover$$.tmp)"
         rm -f ~/.rover$$.tmp
@@ -301,7 +301,7 @@ alias rover="_rover"
 alias tig="_tig"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
 alias vi="vim --noplugin -n -i NONE"
-alias vs="vim -S ~/.lastvim"
+alias vs="vim -S ~/.session"
 
 # aliases for cat, less, top
 alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"

@@ -9,21 +9,21 @@ NC='\033[0m'
 
 
 printf "${RED}%s${NC}\n" "Choose an editor"
-echo "1 VSCode"
-echo "2 VSCodium"
+echo "1 code"
+echo "2 codium"
 printf "${RED}%s${NC} " "Enter an index (1-2):"
 
 
 while read response; do
     case $response in
         1)
-            editor="Code"
-            name="VSCode"
+            FOLDER="Code"
+            NAME="code"
             break
             ;;
         2)
-            editor="VSCodium"
-            name="VSCodium"
+            FOLDER="VSCodium"
+            NAME="codium"
             break
             ;;
         *)
@@ -33,7 +33,13 @@ while read response; do
 done
 
 
-printf "${RED}%s${YLW}%s${RED}%s${NC} " "Are you sure you want to reset " "$name" " settings and keybindings? (Y/n)"
+if [[ ! -x "$(command -v $NAME)" ]]; then
+    printf "${YLW}%s${RED}%s${NC}\n" "$NAME" " is not installed"
+    exit 0
+fi
+
+
+printf "${RED}%s${YLW}%s${RED}%s${NC} " "Are you sure you want to reset " "$NAME" " settings and keybindings? (Y/n)"
 while read response; do
     case $response in
         "y" | "Y" | "yes" | "Yes")
@@ -47,7 +53,7 @@ while read response; do
 done
 
 
-cat 2>/dev/null > $HOME/.config/$editor/User/settings.json <<-EOF
+cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
     "breadcrumbs.enabled": false,
@@ -74,7 +80,7 @@ cat 2>/dev/null > $HOME/.config/$editor/User/settings.json <<-EOF
 }
 EOF
 
-cat 2>/dev/null > $HOME/.config/$editor/User/keybindings.json <<-EOF
+cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
 {
 }
 EOF
@@ -82,9 +88,9 @@ EOF
 
 printf "${YLW}%s${NC}\n" "Done."
 
-unset editor
-unset name
-unset response
 unset RED
 unset YLW
 unset NC
+unset FOLDER
+unset NAME
+unset response
