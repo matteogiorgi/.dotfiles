@@ -117,8 +117,8 @@ EOF
 
 ### Browsers
 
-- librewolf (firefox-based web-browser)
-- brave     (chromium-based web-browser) [media-player]
+- firefox   (mozilla web-browser) [ublock-origin]
+- brave     (ads free web-browser) [media-player]
 
 
 ### Very useful gui programs

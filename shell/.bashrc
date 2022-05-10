@@ -199,6 +199,15 @@ function ded () {
     vim $new
 }
 
+# Open vim session
+function vs () {
+    if [[ -f "$HOME/.vim/.session" ]]; then
+        /bin/vim -S $HOME/.vim/.session
+    else
+        /bin/vim
+    fi
+}
+
 # tig wrapper
 function _tig () {
     if [ -d ".git" ]; then
@@ -300,8 +309,7 @@ alias shfm="_shfm"
 alias rover="_rover"
 alias tig="_tig"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
-alias vi="vim --noplugin -n -i NONE"
-alias vs="vim -S ~/.session"
+alias vi="/bin/vim --noplugin -n -i NONE"
 
 # aliases for cat, less, top
 alias cat="cat" && [[ -f /bin/bat ]] && alias cat="bat"
