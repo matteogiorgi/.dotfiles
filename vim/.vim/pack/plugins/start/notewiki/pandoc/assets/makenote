@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+
+### convert to pdf with groff
+#############################
+
+# pandoc $currfile --to=pdf -o $pandoc/$1.pdf
+
+
+
+
+### convert to html
+###################
+
 pandoc $currfile -s --to=html5 -o $pandoc/$1.html \
             --mathjax \
             --filter=$pandoc/assets/link2html.py \

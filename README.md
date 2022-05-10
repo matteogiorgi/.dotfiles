@@ -153,3 +153,4 @@ EOF
 - adwaita-qt         (qt5 adwaita look-a-like)
 - adwaita-icon-theme (gnome standard icons)
 - pandoc             (markup converter) [panflute]
+- texlive            (latex metapackage)
