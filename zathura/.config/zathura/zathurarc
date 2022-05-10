@@ -28,10 +28,10 @@ set notification-bg         "#D0CFCC"
 set notification-fg         "#171421"
 
 set completion-bg           "#171421"
-set completion-fg           "#2A7BDE"
+set completion-fg           "#FFFFFF"
 set completion-group-bg     "#171421"
-set completion-group-fg     "#2A7BDE"
-set completion-highlight-bg "#2A7BDE"
+set completion-group-fg     "#FFFFFF"
+set completion-highlight-bg "#FFFFFF"
 set completion-highlight-fg "#171421"
 
 set index-bg                "#D0CFCC"
@@ -51,8 +51,8 @@ set default-bg              "#D0CFCC"
 set default-fg              "#171421"
 
 set render-loading          true
-set render-loading-fg       "#D0CFCC"
-set render-loading-bg       "#171421"
+set render-loading-fg       "#171421"
+set render-loading-bg       "#D0CFCC"
 
 set recolor-darkcolor       "#D0CFCC"
 set recolor-lightcolor      "#171421"
