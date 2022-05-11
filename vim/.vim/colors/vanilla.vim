@@ -27,4 +27,6 @@ hi CursorLineNr gui=bold cterm=bold
 hi TabLine      gui=none cterm=none
 hi TabLineSel   gui=bold cterm=bold
 
+hi! link ColorColumn CursorLine
+
 " vim: ts=4 sw=4
