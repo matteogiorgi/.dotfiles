@@ -5,4 +5,4 @@ export LOCATION=$(curl -s "https://location.services.mozilla.com/v1/geolocate?ke
 
 [[ -x "$(command -v nm-applet)" && $(/usr/bin/ps -e | grep nm-applet | wc -l) -eq 0 ]] && nm-applet &
 [[ -x "$(command -v blueman-applet)" && $(/usr/bin/ps -e | grep blueman-applet | wc -l) -eq 0 ]] && blueman-applet &
-[[ -x "$(command -v redshift-gtk)" && $(/usr/bin/ps -e | grep redshift-gtk | wc -l) -eq 0 ]] && redshift-gtk -l $LOCATION -Pr -t 8000:3000 &
+[[ -x "$(command -v redshift-gtk)" && $(/usr/bin/ps -e | grep redshift-gtk | wc -l) -eq 0 ]] && redshift-gtk -l $LOCATION -Pr -t 8000:5000 &

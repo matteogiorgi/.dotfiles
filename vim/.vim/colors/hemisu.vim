@@ -101,7 +101,7 @@ endfunction
 "}}}
 " Highlights - Vim >= 7 ------------------------------------{{{
 if version >= 700
-  call s:h("CursorLineNr", { "gui": "none" })
+  call s:h("CursorLineNr", { "gui": "bold", "cterm": "bold" })
   call s:h("CursorLine",   { "bg": s:faint })
   call s:h("MatchParen",   { "fg": s:accent1, "bg": s:faint, "gui": "bold" })
   call s:h("Pmenu",        { "bg": s:faint })
