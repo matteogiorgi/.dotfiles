@@ -76,7 +76,7 @@ set exrc
 set title
 set shell=zsh  " zsh,bash
 set nocompatible
-set noesckeys
+set esckeys
 set runtimepath+=~/.vim_runtime  " add whatever
 set clipboard=unnamedplus
 set number relativenumber mouse=a  " a,n,v,i,c
