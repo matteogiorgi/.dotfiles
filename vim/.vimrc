@@ -30,7 +30,11 @@ augroup end
 
 " Save last session{{{
 augroup vimleave
-    autocmd VimLeave * mksession! $HOME/.vim/.session
+    autocmd VimLeave *
+                \ if !isdirectory('$HOME/.vim/sessions') |
+                \     execute "!mkdir -p $HOME/.vim/sessions" |
+                \ endif |
+                \ mksession! $HOME/.vim/sessions/last
 augroup end
 "}}}
 
@@ -182,16 +186,16 @@ nnoremap <silent><S-Right> :tabmove +1<cr>
 nnoremap <silent>Y y$
 tnoremap <silent><C-q> <C-\><C-n>
 nnoremap <silent><Tab> :wincmd w<cr>
-nnoremap <silent><Backspace> :b#<cr>
+nnoremap <silent><Backspace> :bprevious<cr>
 nnoremap <silent><Up> {
 nnoremap <silent><Down> }
 nnoremap <silent><C-h> :vertical resize -5<CR>
 nnoremap <silent><C-l> :vertical resize +5<CR>
 nnoremap <silent><C-j> :resize -5<CR>
 nnoremap <silent><C-k> :resize +5<CR>
+nnoremap <leader>a :Explore<CR>
 nnoremap <leader>s :%s///gc<Left><Left><Left>
 xnoremap <leader>s :s///gc<Left><Left><Left>
-nnoremap <leader>d :E<CR>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt

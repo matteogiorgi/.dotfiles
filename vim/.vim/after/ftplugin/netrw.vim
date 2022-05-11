@@ -9,8 +9,8 @@ nmap <buffer> . gh
 
 " 1.(de)select
 " 2.deselectall
-nmap <buffer> <Tab>   mf
-nmap <buffer> <S-Tab> mu
+nmap <buffer> < mf
+nmap <buffer> > mu
 
 " 1.newdir
 " 2.newfile (buffer)

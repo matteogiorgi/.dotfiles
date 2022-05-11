@@ -317,8 +317,8 @@ function mcd () {
 
 # Open vim session
 function vs () {
-    if [[ -f "$HOME/.vim/.session" ]]; then
-        /bin/vim -S $HOME/.vim/.session
+    if [[ -f "$HOME/.vim/sessions/last" ]]; then
+        /bin/vim -S $HOME/.vim/sessions/last
     else
         /bin/vim
     fi
