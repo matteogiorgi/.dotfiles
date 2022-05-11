@@ -63,10 +63,10 @@ endif
 "}}}
 
 
-" Color syntax{{{
+" Syntax{{{
 syntax on
 set background=light
-colorscheme vanilla
+colorscheme hemisu
 filetype plugin indent on
 "}}}
 
