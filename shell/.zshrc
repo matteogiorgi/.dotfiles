@@ -150,6 +150,10 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#171421,bg:#ffffff,hl:#124
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
+# FFF exports
+export FFF_OPENER="swallow"
+export FFF_TRASH_CMD="trash"
+
 # set file opener
 export OPEN='swallow'
 
@@ -169,7 +173,7 @@ export OPEN='swallow'
 #####################
 
 # fm6000, pfetch or ufetch
-[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
+[[ -f $HOME/bin/fm6000 ]] && $HOME/bin/fm6000
 
 # fzf
 [[ -f $HOME/.fzf.zsh ]] && source $HOME/.fzf.zsh
@@ -337,6 +341,12 @@ function _tig () {
     fi
 }
 
+# Change directory exiting from fff
+function _fff () {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
+
 # Change directory exiting from shfm
 function _shfm () {
     ~/bin/shfm/shfm "$@"
@@ -428,7 +438,8 @@ alias parche='paru -Scc'
 alias parsyu='paru -Syu --noconfirm'
 alias parsua='paru -Sua --noconfirm'
 
-# aliases for shfm, rover, tig, sxiv and vim
+# aliases for fff, shfm, rover, tig, sxiv and vim
+alias fff="_fff"
 alias shfm="_shfm"
 alias rover="_rover"
 alias tig="_tig"
@@ -459,7 +470,7 @@ alias lockscreen="echo -e 'Install slock: https://github.com/matteogiorgi/slock'
 
 # other aliases
 alias xpipes="pipes -n 5 -i 0.025"
-alias noteblock="[[ -f $HOME/.noteblock ]] && ne $HOME/.noteblock || echo 'No notes available.'"
+alias noteblock="[[ -f $HOME/.noteblock ]] && $EDITOR $HOME/.noteblock || echo 'No notes available.'"
 
 
 
@@ -496,9 +507,11 @@ zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 bindkey    '\eh' fzf-history-widget  # [H] fuzzy-history
 bindkey    '\ej' fzf-cd-widget       # [J] fuzzy-jump
 bindkey    '\ek' fzf-file-widget     # [K] fuzzy-finder
-bindkey -s '\el' 'launch^M'          # [L] launch
-bindkey -s '\eu' 'vs^M'              # [U] lastvim
-bindkey -s '\ei' 'shfm^M'            # [I] shfm
+bindkey -s '\el' 'launch^M'          # [L] launcher
+bindkey -s '\ey' 'noteblock^M'       # [Y] noteblock
+bindkey -s '\eu' 'tig^M'             # [U] git-client
+bindkey -s '\ei' 'fff^M'             # [I] fucking-fast-fm
+bindkey -s '\eo' 'vs^M'              # [O] vimsession
 
 
 

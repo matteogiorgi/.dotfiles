@@ -161,6 +161,7 @@ augroup end
 
 
 " Simple commands{{{
+command! Date execute 'r !printf "\n\# " && date && printf "\n"'
 command! SelectAll execute "normal \ggVG"
 command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
 command! RemoveSpaces :%s/\s\+$//e

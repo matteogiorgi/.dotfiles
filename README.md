@@ -154,3 +154,4 @@ EOF
 - adwaita-icon-theme (gnome standard icons)
 - pandoc             (markup converter) [panflute]
 - texlive            (latex metapackage)
+- w3m                (tui web-browser - maybe useless

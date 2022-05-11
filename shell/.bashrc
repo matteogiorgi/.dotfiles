@@ -81,6 +81,10 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#171421,bg:#ffffff,hl:#124
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
+# FFF exports
+export FFF_OPENER="swallow"
+export FFF_TRASH_CMD="trash"
+
 # set file opener
 export OPEN='swallow'
 
@@ -99,7 +103,7 @@ export OPEN='swallow'
 #####################
 
 # fm6000, pfetch or ufetch
-[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
+[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
 
 # fzf
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
@@ -221,6 +225,12 @@ function _tig () {
     fi
 }
 
+# Change directory exiting from fff
+function _fff () {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
+
 # Change directory exiting from shfm
 function _shfm () {
     ~/bin/shfm/shfm "$@"
@@ -304,7 +314,8 @@ alias parche='paru -Scc'
 alias parsyu='paru -Syu --noconfirm'
 alias parsua='paru -Sua --noconfirm'
 
-# aliases for shfm, rover, tig and sxiv
+# aliases for fff, shfm, rover, tig, sxiv and vim
+alias fff="_fff"
 alias shfm="_shfm"
 alias rover="_rover"
 alias tig="_tig"
@@ -335,4 +346,4 @@ alias lockscreen="echo -e 'Install slock: https://github.com/matteogiorgi/slock'
 
 # other aliases
 alias xpipes="pipes -n 5 -i 0.025"
-alias noteblock="[[ -f $HOME/.noteblock ]] && ne $HOME/.noteblock || echo 'No notes available.'"
+alias noteblock="[[ -f $HOME/.noteblock ]] && $EDITOR $HOME/.noteblock || echo 'No notes available.'"
